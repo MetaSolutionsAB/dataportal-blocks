@@ -1,0 +1,17 @@
+{
+  "name": "dataportal-blocks",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "blocks-bundler",
+    "dev": "blocks-bundler --watch",
+    "serve": "browser-sync start --server . --startPath /demo/ --files \"dist/*.js\" --no-notify --port 5173",
+    "start": "concurrently --names dev,serve --prefix-colors blue,green \"npm run dev\" \"npm run serve\""
+  },
+  "devDependencies": {
+    "@entryscape/blocks-bundler": "^0.2.0",
+    "browser-sync": "^3.0.0",
+    "concurrently": "^9.0.0"
+  }
+}
