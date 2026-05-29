@@ -1,5 +1,5 @@
 export default {
   extends: 'template',
-  content : 'Type marker', // always overridden
+  content : '',
   template: `<span class="styleMarker">{{content}}</span>`
 };

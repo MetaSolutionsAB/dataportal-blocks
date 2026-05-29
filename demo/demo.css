@@ -1,4 +1,5 @@
-.entryscape [data-entryscape="terminologyView"] {
+.entryscape [data-entryscape="terminologyView"],
+.entryscape [data-entryscape="datavocView"] {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-areas:
@@ -59,7 +60,8 @@
 }
 
 @media (max-width: 768px) {
-  .entryscape [data-entryscape="terminologyView"] {
+  .entryscape [data-entryscape="terminologyView"],
+  .entryscape [data-entryscape="datavocView"] {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "heading"
@@ -68,6 +70,8 @@
   }
 }
 
-.entryscape .conceptsInTerminologyContainer {
+.entryscape .conceptsInTerminologyContainer,
+.entryscape .classesInDatavocContainer,
+.entryscape .propertiesInDatavocContainer {
     background-color: #faf8f4;
 }

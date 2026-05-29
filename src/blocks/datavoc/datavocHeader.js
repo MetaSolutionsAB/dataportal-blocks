@@ -2,5 +2,5 @@ import header from '../common/layout/header.js';
 
 export default {
   extends: header,
-  typeContent: 'esb_nls:conceptScheme.conceptScheme',
+  typeContent: 'esb_nls:datavoc.datavoc',
 };

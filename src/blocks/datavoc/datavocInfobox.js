@@ -5,7 +5,7 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <dt>{{nls "conceptScheme.terminologyUri"}}</dt>
+      <dt>{{nls "datavoc.datavocUri"}}</dt>
       <dd><code>{{resourceURI}}</code></dd>
       <dt>{{nls "general.introducedInSpecification"}}</dt>
       <dd>{{introducedInSpecViaRD}}</dd>
