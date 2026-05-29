@@ -1,0 +1,32 @@
+.esbInlineList .entryList {
+    display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+
+.esbInlineList.esbInlineVerticalList,
+.esbInlineList.esbInlineVerticalList .entryList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.esbInlineList .fa-external-link-alt, .fas.fa-search.fa-xs {
+    margin: 0.2em 0 0.3em 0.3em;
+}
+
+.esbInlineList .entryListRow::after {
+    content: ", ";
+    margin-right: 0.5em;
+}
+.esbInlineList .entryListRow:last-child::after {
+    content: "";
+}
+
+.esbHeadingInSummary {
+    display: inline;
+}
+
+.esbMultiline {
+    white-space: pre-line;
+}

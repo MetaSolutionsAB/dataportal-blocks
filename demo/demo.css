@@ -1,0 +1,73 @@
+.entryscape [data-entryscape="terminologyView"] {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-areas:
+    "heading heading"
+    "main    aside";
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.entryscape .styleMarker {
+  display: inline-block;
+  background: #3d5c3a;
+  color: #fff;
+  padding: 0.35em 0.75em;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.entryscape .esbVanityNumber {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #a85d4d;
+}
+
+.entryscape .esbHeading {
+  grid-area: heading;
+}
+
+.entryscape .esbMainContent {
+  grid-area: main;
+  min-width: 0;
+}
+
+.entryscape .esbAside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.entryscape .esbInfobox,
+.entryscape .esbVanity {
+  padding: 1.5rem;
+  border: 1px solid #e0ddd5;
+  border-radius: 4px;
+  background: #faf8f4;
+}
+
+.entryscape .esbDescription {
+  padding-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .entryscape [data-entryscape="terminologyView"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "heading"
+      "main"
+      "aside";
+  }
+}
+
+.entryscape .conceptsInTerminologyContainer {
+    background-color: #faf8f4;
+}
