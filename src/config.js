@@ -1,18 +1,71 @@
 export default {
   entrystore: 'https://sandbox.admin.dataportal.se/store',
+  urlQueryParameters: true,  //todo: needed/desired?
   namespaces: {
     prof: 'http://www.w3.org/ns/dx/prof/',
     skos: 'http://www.w3.org/2004/02/skos/core#',
+    adms: 'http://www.w3.org/ns/adms#',
+    inspec: 'https://w3id.org/inspec/datavoc/',
   },
+  bundles: [
+    'https://static.infra.entryscape.com/suite/latest/templates/dcat3.json',
+    'https://sandbox.editera.dataportal.se/theme/templates/adms.json',  // todo: update
+    'https://sandbox.editera.dataportal.se/theme/templates/prof.json',  // todo: update
+    'https://static.infra.entryscape.com/suite/latest/templates/rdfs.json',
+  ],
   clicks: {
-    'def': 'def.html',
-    'spec': './specification.html',
-    'organization': './organization.html',
-    'concept': './concepts.html',
-    'conceptScheme': './terminology.html',
-    'class': './class.html',
-    'property': './property.html',
+    spec: './specification.html',
+    organization: './organisation.html',
+    concept: './concepts.html',
+    conceptScheme: './terminology.html',
+    terminology: './terminology.html', // todo: phase out in favour of conceptScheme
+    class: './class.html',
+    def: './class.html',  // todo: phase out, some are property
+    vocabulary: './class.html',  // todo: phase out, some are property
+    property: './property.html',
+    ap: './ap.html',
+    shape: './ap.html',
+    specDetails: './ap.html', // todo: phase out in favour of
+    datavoc: './datavoc.html',
   },
+  routes: [ //todo: these are likely broken, not sure esc_uri is needed
+    {
+      regex: /\/def.html\?esc_uri=(.+)/,
+      uri: 1,
+      constraints: {
+        'rdf:type': ['skos:Concept', 'skos:ConceptScheme'],
+      },
+    },
+    {
+      regex: /\/def.html#esc_uri=(.+)/,
+      uri: 1,
+      constraints: {
+        'rdf:type': ['skos:Concept', 'skos:ConceptScheme'],
+      },
+    },
+    {
+      regex: /\/spec.html\?esc_uri=(.+)/,
+      uri: 1,
+      constraints: {
+        'rdf:type': ['prof:Profile', 'dcterms:Standard'],
+      },
+    },
+    {
+      regex: /\/ap.html\?esc_uri=(.+)/,
+      uri: 1,
+      constraints: {
+        'rdf:type': ['prof:Profile', 'dcterms:Standard'],
+      },
+    },
+    {
+      regex: /\/ap.html\?esc_shape=(.+)/,
+      lookup: 1,
+      lookupURI: 'dcterms:hasPart',
+      constraints: {
+        'rdf:type': ['prof:Profile', 'dcterms:Standard'],
+      },
+    },
+  ],
   page_language: 'sv',
   nls: {
     sv: {
@@ -45,6 +98,37 @@ export default {
         downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
         downloadMetadataJsonLd: 'Ladda ner metadata som JSON-LD',
       },
+      spec: {
+        exploreTheSpecification: 'Utforska specifikationen',
+        classesAndProperties: 'Klasser och egenskaper',
+        cpIntroduced: 'Introducerade',
+        cpReused: 'Återanvända',
+        resources: 'Resurser',
+        rIntroduced: 'Introducerade',
+        rReused: 'Återanvända',
+        moreInformation: 'Mer information',
+        lessInformation: 'Mindre information',
+        thisSpecificationHasNoResources: 'Denna specifikation har inga resurser.',
+        thisSpecificationHasNoReusedResources: 'Denna specifikation har inga återanvända resurser.',
+        goToResource: 'Gå till resurs',
+        role: 'Roll',
+        reusedFrom: 'Återanvänd ifrån',
+        aboutTheSpecification: 'Om specifikationen',
+      },
+      respec: {
+        backToTheOverview: 'Tillbaka till översikten',
+        detailsMoreDetailsOnThisDocument: 'Fler detaljer om detta dokument',
+        profileOf: 'Profil av',
+        preferredIdentifier: 'Föredragen identifierare',
+        createdBy: 'Skapad av',
+        stableAddressToThisVersion: 'Stabil adress för denna version',
+        publicationDate: 'Publiceringsdatum',
+        modificationDate: 'Ändringsdatum',
+        latestVersion: 'Senaste version',
+        lastVersion: 'Föregående version',
+        nextVersion: 'Nästa version',
+        diagram: 'Diagram',
+      },
     },
     en: {
       datavoc: {
@@ -76,22 +160,37 @@ export default {
         downloadMetadataTurtle: 'Download metadata as TURTLE',
         downloadMetadataJsonLd: 'Download metadata as JSON-LD',
       },
+      spec: {
+        exploreTheSpecification: 'Explore the specification',
+        classesAndProperties: 'Classes and properties',
+        cpIntroduced: 'Introduced',
+        cpReused: 'Reused',
+        resources: 'Resources',
+        rIntroduced: 'Introduced',
+        rReused: 'Reused',
+        moreInformation: 'More information',
+        lessInformation: 'Less information',
+        thisSpecificationHasNoResources: 'This specification has no resources.',
+        thisSpecificationHasNoReusedResources: 'This specification has no reused resources.',
+        goToResource: 'Go to resource',
+        role: 'Role',
+        reusedFrom: 'Reused from',
+        aboutTheSpecification: 'About the specification',
+      },
+      respec: {
+        backToTheOverview: 'Back to the overview',
+        detailsMoreDetailsOnThisDocument: 'More details about this document',
+        profileOf: 'Profile of',
+        preferredIdentifier: 'Preferred identifier',
+        createdBy: 'Created by',
+        stableAddressToThisVersion: 'Stable address to this version',
+        publicationDate: 'Publication date',
+        modificationDate: 'Modification date',
+        latestVersion: 'Latest version',
+        lastVersion: 'Previous version',
+        nextVersion: 'Next version',
+        diagram: 'Diagram',
+      },
     },
   },
-  routes: [
-    {
-      regex: /\/def.html\?esc_uri=(.+)/,
-      uri: 1,
-      constraints: {
-        'rdf:type': ['skos:Concept', 'skos:ConceptScheme'],
-      },
-    },
-    {
-      regex: /\/def.html#esc_uri=(.+)/,
-      uri: 1,
-      constraints: {
-        'rdf:type': ['skos:Concept', 'skos:ConceptScheme'],
-      },
-    },
-  ],
 };

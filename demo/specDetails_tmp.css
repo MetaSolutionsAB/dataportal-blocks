@@ -1,0 +1,58 @@
+body header {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: white;
+}
+
+body.toc-sidebar #toc {
+    padding-top: 151px !important;
+    background-color: #fbf4f3 !important;
+    box-shadow: none !important;
+}
+
+body.rdforms-specs {
+    background-image: none !important;
+}
+
+.head {
+    margin-top: 151px !important;
+}
+
+hr {
+    border-color: rgb(43, 42, 41) !important;
+}
+
+body.rdforms-specs .def {
+    background: #fbf4f3 !important;
+    border-left: 0.5em solid rgb(110 97 90) !important;
+}
+
+body.rdforms-specs h1, body.rdforms-specs h2, body.rdforms-specs h3 {
+    color: rgb(43, 42, 41) !important;
+}
+
+body.rdforms-specs .specState {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    font-size: 140%;
+}
+
+body.rdforms-specs a[href] {
+    color: rgb(43, 42, 41);
+    text-decoration: none;
+    border-bottom: 1px solid rgb(43, 42, 41);
+    padding: 0 1px 0;
+    margin: 0 -1px 0;
+}
+
+body.rdforms-specs:not(.toc-inline) #toc h2 {
+    color: rgb(43, 42, 41);
+}
+
+body.rdforms-specs table.def td, body.rdforms-specs table.def th {
+    border-bottom: 1px solid rgb(43, 42, 41);
+}
+
