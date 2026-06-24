@@ -1,5 +1,6 @@
 .entryscape [data-entryscape="terminologyView"],
-.entryscape [data-entryscape="datavocView"] {
+.entryscape [data-entryscape="datavocView"],
+.entryscape [data-entryscape="specView"]  {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-areas:
@@ -15,6 +16,19 @@
 .entryscape .styleMarker {
   display: inline-block;
   background: #3d5c3a;
+  color: #fff;
+  padding: 0.35em 0.75em;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.entryscape .resourceStyleMarker {
+  display: inline-block;
+  background: #3d5c3a;
+  float: right;
   color: #fff;
   padding: 0.35em 0.75em;
   border-radius: 3px;
@@ -40,6 +54,13 @@
   min-width: 0;
 }
 
+.entryscape .esbDiagramImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
 .entryscape .esbAside {
   grid-area: aside;
   display: flex;
@@ -61,7 +82,8 @@
 
 @media (max-width: 768px) {
   .entryscape [data-entryscape="terminologyView"],
-  .entryscape [data-entryscape="datavocView"] {
+  .entryscape [data-entryscape="datavocView"],
+  .entryscape [data-entryscape="specView"]  {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "heading"
@@ -70,8 +92,41 @@
   }
 }
 
-.entryscape .conceptsInTerminologyContainer,
-.entryscape .classesInDatavocContainer,
-.entryscape .propertiesInDatavocContainer {
+.entryscape .esbConceptsInTerminologyContainer,
+.entryscape .esbClassesInDatavocContainer,
+.entryscape .esbPropertiesInDatavocContainer,
+.entryscape .esbCPInSpecContainer,
+.entryscape .esbResourcesInSpecContainer {
     background-color: #faf8f4;
+}
+
+.entryscape a.extLinkButton[href] {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    /* inline-flex so vertical padding is part of the line box (a plain inline
+       element's padding bleeds into the preceding line and overlapped the
+       diagram image); also makes the gap above take effect */
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+    gap: .5rem;
+    border: none;
+    background: none;
+    padding: .5rem .75rem;
+    text-decoration: none;
+    background: rgb(110 97 90);
+    color: rgb(240 239 238);
+}
+.entryscape a.extLinkButton:hover[href] {
+    background: rgb(226 223 223);
+    color: rgb(110 97 90);
+}
+
+.entryscape a.extLinkButton[href]::after {
+    content: "\f35d" / ""; /* fa-external-link-alt */
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 0.85em;
+    margin-left: 0.4em;
 }

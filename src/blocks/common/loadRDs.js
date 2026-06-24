@@ -10,8 +10,11 @@ export default {
 
     const resourceURIs = entry.getMetadata().find(entry.getResourceURI(), 'prof:hasResource').map(stmt => stmt.getValue());
     const resources = await esu.loadEntriesByResourceURIs(resourceURIs);
-    //should use inspec-uris
-    const ap = resources.find(e => e.getMetadata().find(null, 'dcterms:conformsTo').filter(stmt => stmt.getValue().endsWith('SHACL-INSPEC/1.0')).length > 0);
+    let ap = resources.find(e => e.getMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL').length > 0);
+    if (!ap) {
+      // fallback: older data uses a local URI ending in 'SHACL-INSPEC/1.0' instead of inspec:SHACL
+      ap = resources.find(e => e.getMetadata().find(null, 'dcterms:conformsTo').filter(stmt => stmt.getValue().endsWith('SHACL-INSPEC/1.0')).length > 0);
+    }
     const diagram = resources.find(e => e.getMetadata().find(null, 'dcterms:format').filter(stmt => stmt.getValue().endsWith('image/svg+xml')).length > 0);
     if (ap) {
       data.ap = ap;

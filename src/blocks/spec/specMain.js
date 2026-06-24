@@ -1,26 +1,48 @@
+// todo: split used/reused into class/properties
 export default {
   extends: 'template',
+  hl: '2',
+  class: 'esbMainContent',
+  introducedLimit: 15,
+  reusedLimit: 15,
   template: `
-<p>{{text property="dcterms:description"}}</p>
-{{diagramImage}}
-{{#ifprop "inspec:introduces,inspec:reuses"}}
-  <h2>{{nls "spec.classesAndProperties"}}</h2>
-  {{#ifprop "inspec:introduces"}}
-    <h3 class="specElements">{{nls "spec.cpIntroduced"}}</h3>
-    {{specElements relation="inspec:introduces" namedclick="vocabulary"}}
-  {{/ifprop}}
-  {{#ifprop "inspec:reuses"}}
-    <h3 class="specElements">{{nls "spec.cpReused"}}</h3>
-    {{specElements relation="inspec:reuses" namedclick="vocabulary"}}
-  {{/ifprop}}
-{{/ifprop}}
-<h2>{{nls "spec.resources"}}</h2>
-<details open>
-  <summary>{{nls "spec.rIntroduced"}}</summary>
-  {{introducedResourceDescriptors}}
-</details>
-<details>
-  <summary>{{nls "spec.rReused"}}</summary>
-  {{reusedResourceDescriptors}}
-</details>`
+    {{diagramImage}}
+    {{specInspectAPButton}}
+    <h{{hl}}>{{nls "general.description"}}</h{{hl}}>
+    <div>{{description}}</div>
+
+    {{#ifprop "inspec:introduces,inspec:reuses"}}
+      <h{{hl}}>{{nls "spec.classesAndProperties"}}</h{{hl}}>
+      {{#ifprop "inspec:introduces"}}
+        <details open>
+          <summary class="esbSummaryWithHeading">
+            <h{{hinc}} class="esbHeadingInSummary">{{cpIntroducedInSpecHeader}}</h{{hinc}}>
+          </summary>
+          {{cpIntroducedInSpecList limit=introducedLimit}}
+        </details>
+      {{/ifprop}}
+      {{#ifprop "inspec:reuses"}}
+        <details open>
+          <summary class="esbSummaryWithHeading">
+            <h{{hinc}} class="esbHeadingInSummary">{{cpReusedInSpecHeader}}</h{{hinc}}>
+          </summary>
+          {{cpReusedInSpecList limit=reusedLimit}}
+        </details>
+      {{/ifprop}}
+    {{/ifprop}}
+
+    <h{{hl}}>{{nls "spec.resources"}}</h{{hl}}>
+    <details open>
+      <summary class="esbSummaryWithHeading">
+        <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rIntroduced"}}</h{{hinc}}>
+      </summary>
+      {{introducedResourceDescriptors}}
+    </details>
+    <details>
+      <summary class="esbSummaryWithHeading">
+        <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rReused"}}</h{{hinc}}>
+      </summary>
+      {{reusedResourceDescriptors}}
+    </details>
+  `
 };

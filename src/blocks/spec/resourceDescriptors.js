@@ -1,3 +1,6 @@
+// todo: generalise rdformsid?
+// tood: set namedClick for dcterms:subject (datavoc/terminology)
+
 export default {
   extends: 'list',
   hl: 4,
@@ -5,16 +8,20 @@ export default {
   dependencyproperties: 'prof:isInheritedFrom',
   expandTooltip: 'esb_nls:spec.moreInformation',
   unexpandTooltip: 'esb_nls:spec.lessInformation',
-  listbody: '<div class="resourceDescriptors">{{body}}</div>',
+  listbody: '<div class="esbResourceDescriptors">{{body}}</div>',
   placeholderText: 'esb_nls:spec.thisSpecificationHasNoResources',
   listplaceholder: '<div class="alert alert-info" role="alert">{{placeholderText}}</div>',
-  rowhead: `{{resourceDescriptorButton}}
-        <h{{hl}}>{{text class="specPart"}}</h{{hl}}>
-        <span>{{nls "spec.role"}}: {{prop "prof:hasRole" render="label"}}</span>
-        {{#ifprop "prof:isInheritedFrom"}}
-          <br/><span>{{nls "spec.reusedFrom"}}: {{specRelated relation="prof:isInheritedFrom"}}</span>
-        {{/ifprop}}`,
-  rowexpand: `
-        {{view rdformsid="editera:prof:ResourceDescriptor" filterpredicates="prof:isInheritedFrom"}}
-        `,
+  rowhead: `{{resourceDescriptorTypeMarker}}
+    <h{{hl}}>{{text class="specPart"}}</h{{hl}}>
+    <dl class="esbResourcesFeatures">
+      <dt>{{nls "spec.role"}}</dt>
+      <dd>{{#eachprop "prof:hasRole"}}{{label}}{{separator}}{{/eachprop}}</dd>
+      {{#ifprop "prof:isInheritedFrom"}}
+        <dt>{{nls "spec.reusedFrom"}}</dt>
+        <dd>{{relatedLink relation="prof:isInheritedFrom" namedClick="spec" class="esbSpecLink"}}</dd>
+      {{/ifprop}}
+    </dl>
+    {{resourceDescriptorButton}}
+  `,
+  rowexpand: `{{view rdformsid="editera:prof:ResourceDescriptor" filterpredicates="prof:isInheritedFrom"}}`,
 };

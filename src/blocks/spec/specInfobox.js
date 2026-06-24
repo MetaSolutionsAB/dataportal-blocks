@@ -1,0 +1,24 @@
+//todo: Sync with https://www.figma.com/proto/dUU3DpDaf5NmDmMgeWvtG0/DIGG-Dataportalen-2.0-dg-Boilerplate?page-id=7256%3A49200&node-id=7256-49201&viewport=708%2C-408%2C0.25&t=dd87w5GHswWbCniA-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=7266%3A50385
+// todo: specElements needs to be replaced by something generating 
+//       a list of plain <dd>{{link namedclick=spec}}</dd> to be valid html
+// todo: fix mix of dd and view
+
+export default {
+  extends: 'template',
+  hl: '2',
+  class: 'esbInfobox',
+  template: `
+    <h{{hl}}>{{nls "spec.aboutTheSpecification"}}</h{{hl}}>
+    <dl>
+      <dt>{{nls "spec.specificationUri"}}</dt>
+      <dd><code>{{resourceURI}}</code></dd>
+      {{#ifprop "prof:isProfileOf"}}
+        <dt>{{nls "respec.profileOf"}}</dt>
+        {{specElements relation="prof:isProfileOf" vertical="true" namedclick="spec"}}
+      {{/ifprop}}
+    </dl>
+    {{view onecol="true" filterpredicates="dcterms:title,dcterms:description,dcterms:publisher,prof:hasResource,prof:isProfileOf" showLanguage="false" rdformsid="prof:Profile"}}
+    
+    {{rdfLinks hl=(hinc)}}
+  `,
+};
