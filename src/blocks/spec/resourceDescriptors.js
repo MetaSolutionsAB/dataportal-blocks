@@ -1,8 +1,9 @@
 // todo: generalise rdformsid?
-// tood: set namedClick for dcterms:subject (datavoc/terminology)
+// todo: set namedClick for dcterms:subject (datavoc/terminology)
 
 export default {
   extends: 'list',
+  semanticHtml: true,
   hl: 4,
   relation: 'prof:hasResource',
   dependencyproperties: 'prof:isInheritedFrom',

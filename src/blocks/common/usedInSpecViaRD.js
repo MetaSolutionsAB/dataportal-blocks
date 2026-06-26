@@ -1,6 +1,7 @@
 export default {
   extends: 'list',
   layout: 'raw',
+  semanticHtml: true,
   namedclick: 'spec',
   relationinverse: 'dcterms:subject',
   constraints: null,

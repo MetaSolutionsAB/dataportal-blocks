@@ -1,6 +1,7 @@
 export default {
   extends: 'list',
   layout: 'raw',
+  semanticHtml: true,
   vertical: false,
   limit: 50,
   namedclick: "",

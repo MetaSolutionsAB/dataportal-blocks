@@ -5,8 +5,9 @@ Todo:
   Blocked by BLOCKS-440
 */
 export default {
-  extends: "list",
+  extends: 'list',
   layout: 'raw',
+  semanticHtml: true,
   namedclick: '',
   limit: 'inherit',
   bodyClass: '',

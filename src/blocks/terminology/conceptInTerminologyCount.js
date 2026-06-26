@@ -1,6 +1,7 @@
 export default {
-  extends: "list",
+  extends: 'list',
   layout: 'raw',
+  semanticHtml: true,
   rdftype: 'skos:Concept',
   relationinverse: 'skos:inScheme',
   listbody: ' ',
