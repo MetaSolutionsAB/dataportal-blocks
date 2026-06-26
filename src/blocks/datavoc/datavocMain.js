@@ -32,7 +32,7 @@ export default {
           hl="inherit"
           limit=specUsageLimit
           define="datavocUsageInSpec"
-          class="datavocUsageInSpecContainer"
+          class="esbDatavocUsageInSpecContainer"
         }}
     </details>
   `,

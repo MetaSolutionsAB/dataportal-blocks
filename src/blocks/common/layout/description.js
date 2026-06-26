@@ -1,4 +1,4 @@
-/* convenience block for desciptions with standard classes */
+/* convenience block for descriptions with standard classes */
 export default {
   extends: 'template',
   property: 'dcterms:description',
