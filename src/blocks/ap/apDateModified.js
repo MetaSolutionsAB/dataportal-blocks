@@ -1,7 +1,7 @@
-import specTime from './specTime.js';
+import apTime from './apTime.js';
 
 export default {
-  extends: specTime,
+  extends: apTime,
   dateprop: 'dcterms:modified',
   class: 'dt-modified',
 };

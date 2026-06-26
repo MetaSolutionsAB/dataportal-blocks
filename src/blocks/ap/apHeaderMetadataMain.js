@@ -3,7 +3,7 @@ export default {
   template: `
         {{#ifprop "prof:isProfileOf"}}
           <dt>{{nls "respec.profileOf"}}:</dt>
-          <dd>{{specRelated relation="prof:isProfileOf"}}</dd>
+          <dd>{{apRelated relation="prof:isProfileOf"}}</dd>
         {{/ifprop}}
         {{#ifprop "prof:hasToken"}}
           <dt>{{nls "respec.preferredIdentifier"}}:</dt>
@@ -11,7 +11,7 @@ export default {
         {{/ifprop}}
         {{#ifprop "dcterms:publisher"}}
           <dt class="editor">{{nls "respec.createdBy"}}:</dt>
-          <dd class="editor p-author h-card vcard">{{specPublisher}}</dd>
+          <dd class="editor p-author h-card vcard">{{apPublisher}}</dd>
         {{/ifprop}}
         <dt>{{nls "respec.stableAddressToThisVersion"}}:</dt>
         <dd><a href="?esc_uri={{resourceURI}}">{{resourceURI}}</a></dd>

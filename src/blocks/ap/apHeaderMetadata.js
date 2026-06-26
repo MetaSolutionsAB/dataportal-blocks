@@ -1,11 +1,11 @@
 export default {
   extends: 'template',
   template: `
-        <dl>{{specHeaderMetadataMain}}</dl>
+        <dl>{{apHeaderMetadataMain}}</dl>
         {{#ifprop "dcterms:issued,dcterms:modified,adms:last,adms:next,adms:prev"}}
           <details>
             <summary>{{nls "respec.detailsMoreDetailsOnThisDocument"}}</summary>
-            <dl>{{specHeaderMetadataDetails}}</dl>
+            <dl>{{apHeaderMetadataDetails}}</dl>
           </details>
         {{/ifprop}}`,
 };
