@@ -1,3 +1,4 @@
+//todo: align with blocks in other views
 export default {
   extends: 'list',
   layout: 'raw',
@@ -5,6 +6,7 @@ export default {
   vertical: false,
   limit: 50,
   namedclick: '',
+  class: 'esbSpecLink',
   listbody: '<div class="esbInlineList {{#if vertical}}esbInlineVerticalList{{/if}}">{{body}}</div>',
-  rowhead: `{{link namedclick=namedclick}}<i class="fas fa-xs fa-external-link-alt"></i>`
+  rowhead: `{{link namedclick=namedclick class=class}}`
 };

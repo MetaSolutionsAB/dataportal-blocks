@@ -135,6 +135,7 @@
     color: rgb(110 97 90);
 }
 
+.entryscape a.esbSpecLink[href]::after,
 .entryscape a.esbExternalConceptLink[href]::after,
 .entryscape a.extLinkButton[href]::after {
     content: "\f35d" / ""; /* fa-external-link-alt */
