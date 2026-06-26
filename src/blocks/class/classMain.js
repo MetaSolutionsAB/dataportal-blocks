@@ -9,7 +9,7 @@ export default {
     <h{{hl}} class="esbHeadingInSummary">{{nls "general.introducedInSpecification"}}</h{{hl}}>
     <div>{{introducedInSpecViaInspec}}</div>
 
-    <p class="placeholderParagraph">{{nls "datavoc.usageInSpecIntro"}}</p>
+    <p class="placeholderParagraph">{{nls "class.usageInSpecIntro"}}</p>
 
     <details open>
         <summary class="esbSummaryWithHeading">
