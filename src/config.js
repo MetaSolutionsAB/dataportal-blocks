@@ -121,6 +121,11 @@ export default {
         relatedConcepts: 'Relaterade begrepp',
         matchingConcepts: 'Matchande begrepp (I andra terminologier)',
         memberOfTerminology: 'Ingår i terminologi',
+        exactMatch: 'Samma',
+        closeMatch: 'Snarlika',
+        relatedMatch: 'Relaterade',
+        broadMatch: 'Överordnade',
+        narrowMatch: 'Underordnade',
       },
       general: {
         details: 'Detaljer',
@@ -214,6 +219,11 @@ export default {
         relatedConcepts: 'Related concepts',
         matchingConcepts: 'Matching concepts (In other terminologies)',
         memberOfTerminology: 'Member of terminology',
+        exactMatch: 'Same',
+        closeMatch: 'Similar',
+        relatedMatch: 'Related',
+        broadMatch: 'Broader',
+        narrowMatch: 'Narrower',
       },
       general: {
         details: 'Details',
