@@ -1,4 +1,4 @@
-// the button should clarify that it fins all concepts 8not just top level)
+// todo: the show-more button should clarify that it finds all concepts (not just top-level)
 import listShowMore from '../common/layout/listShowMore.js';
 
 export default {

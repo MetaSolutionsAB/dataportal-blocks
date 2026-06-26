@@ -1,5 +1,5 @@
 export default {
   extends: 'results',
-  use: 'datavocUsageInSpec',
+  use: '',
   template: `{{nls "general.usedInSpecification" count=resultsize}}`,
 };

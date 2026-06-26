@@ -13,7 +13,7 @@ export default {
 
     <details open>
         <summary class="esbSummaryWithHeading">
-          <h{{hl}} class="esbHeadingInSummary">{{propertyUsageHeader}}</h{{hl}}>
+          <h{{hl}} class="esbHeadingInSummary">{{usageHeader use="propertyUsageInSpec"}}</h{{hl}}>
         </summary>
         {{reusedInSpecViaInspec
           hl="inherit"

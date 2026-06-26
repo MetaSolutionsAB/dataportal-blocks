@@ -18,7 +18,7 @@ export default {
 
     <details open>
         <summary class="esbSummaryWithHeading">
-          <h{{hl}} class="esbHeadingInSummary">{{terminologyUsageHeader}}</h{{hl}}>
+          <h{{hl}} class="esbHeadingInSummary">{{usageHeader use="terminologyUsageInSpec"}}</h{{hl}}>
         </summary>
         {{usedInSpecViaRD
           hl="inherit"

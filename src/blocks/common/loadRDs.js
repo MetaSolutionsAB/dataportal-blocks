@@ -8,14 +8,17 @@ export default {
       ? es.getCache().get(es.getEntryURI(data.context, data.entry))
       : data.entry;
 
+    const metaValueEndsWith = (e, pred, suffix) =>
+      e.getMetadata().find(null, pred).some(stmt => stmt.getValue().endsWith(suffix));
+
     const resourceURIs = entry.getMetadata().find(entry.getResourceURI(), 'prof:hasResource').map(stmt => stmt.getValue());
     const resources = await esu.loadEntriesByResourceURIs(resourceURIs);
     let ap = resources.find(e => e.getMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL').length > 0);
     if (!ap) {
       // fallback: older data uses a local URI ending in 'SHACL-INSPEC/1.0' instead of inspec:SHACL
-      ap = resources.find(e => e.getMetadata().find(null, 'dcterms:conformsTo').filter(stmt => stmt.getValue().endsWith('SHACL-INSPEC/1.0')).length > 0);
+      ap = resources.find(e => metaValueEndsWith(e, 'dcterms:conformsTo', 'SHACL-INSPEC/1.0'));
     }
-    const diagram = resources.find(e => e.getMetadata().find(null, 'dcterms:format').filter(stmt => stmt.getValue().endsWith('image/svg+xml')).length > 0);
+    const diagram = resources.find(e => metaValueEndsWith(e, 'dcterms:format', 'image/svg+xml'));
     if (ap) {
       data.ap = ap;
     }

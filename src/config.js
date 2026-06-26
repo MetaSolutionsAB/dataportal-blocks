@@ -1,6 +1,6 @@
 export default {
   entrystore: 'https://sandbox.admin.dataportal.se/store',
-  urlQueryParameters: true,  //todo: needed/desired?
+  urlQueryParameters: true,  //todo: determine if needed/desired
   namespaces: {
     prof: 'http://www.w3.org/ns/dx/prof/',
     skos: 'http://www.w3.org/2004/02/skos/core#',
@@ -13,7 +13,6 @@ export default {
     'https://sandbox.editera.dataportal.se/theme/templates/adms.json',  // todo: update
     'https://sandbox.editera.dataportal.se/theme/templates/prof.json',  // todo: update
     'https://sandbox.editera.dataportal.se/theme/templates/terms.json',  // todo: update
-    'https://static.infra.entryscape.com/suite/latest/templates/rdfs.json',
   ],
   clicks: {
     spec: './specification.html',
@@ -27,7 +26,7 @@ export default {
     property: './property.html',
     ap: './ap.html',
     shape: './ap.html',
-    specDetails: './ap.html', // todo: phase out in favour of
+    specDetails: './ap.html', // todo: phase out in favour of shape
     datavoc: './datavoc.html',
     dataset: './dataset.html', // todo: point to the canonical one
   },

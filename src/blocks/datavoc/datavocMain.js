@@ -26,7 +26,7 @@ export default {
 
     <details open>
         <summary class="esbSummaryWithHeading">
-          <h{{hl}} class="esbHeadingInSummary">{{datavocUsageHeader}}</h{{hl}}>
+          <h{{hl}} class="esbHeadingInSummary">{{usageHeader use="datavocUsageInSpec"}}</h{{hl}}>
         </summary>
         {{usedInSpecViaRD
           hl="inherit"
