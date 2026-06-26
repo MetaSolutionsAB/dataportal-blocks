@@ -3,7 +3,7 @@ export default {
   template: `
         {{#ifprop "prof:isProfileOf"}}
           <dt>{{nls "respec.profileOf"}}:</dt>
-          <dd>{{apRelated relation="prof:isProfileOf"}}</dd>
+          <dd>{{apRelated relation="prof:isProfileOf" namedClick="spec"}}</dd>
         {{/ifprop}}
         {{#ifprop "prof:hasToken"}}
           <dt>{{nls "respec.preferredIdentifier"}}:</dt>

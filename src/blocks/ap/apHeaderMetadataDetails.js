@@ -11,7 +11,7 @@ export default {
         {{/ifprop}}
         {{#ifprop "adms:last"}}
           <dt>{{nls "respec.latestVersion"}}:</dt>
-          <dd>{{apRelated}}</dd>
+          <dd>{{apRelated relation="adms:last"}}</dd>
         {{/ifprop}}
         {{#ifprop "adms:next"}}
           <dt>{{nls "respec.nextVersion"}}:</dt>

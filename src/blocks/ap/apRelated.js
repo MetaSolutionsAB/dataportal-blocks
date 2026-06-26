@@ -2,7 +2,7 @@ import relatedLink from '../common/relatedLink.js';
 
 export default {
   extends: relatedLink,
-  relation: 'adms:last',
+  relation: '',
   class: 'u-url',
-  namedclick: 'spec',
+  namedClick: 'ap',
 };
