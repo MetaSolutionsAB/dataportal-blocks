@@ -16,6 +16,26 @@
   padding: 1rem;
 }
 
+.demoHomeLink {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 4px;
+  background: #3d5c3a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.demoHomeLink:hover {
+  background: #2d4429;
+}
+
 .entryscape .styleMarker {
   display: inline-block;
   background: #3d5c3a;
