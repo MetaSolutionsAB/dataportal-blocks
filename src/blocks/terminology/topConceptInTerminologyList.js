@@ -1,3 +1,4 @@
+// the button should clarify that it fins all concepts 8not just top level)
 import listShowMore from '../common/layout/listShowMore.js';
 
 export default {
@@ -5,8 +6,8 @@ export default {
   namedclick: 'concept',
   limit: 'inherit',
   rdftype: 'skos:Concept',
-  define: 'conceptsInTerminology',
-  relationinverse: 'skos:inScheme',
+  define: 'topConceptsInTerminology',
+  relationinverse: 'skos:topConceptOf',
   bodyClass: 'esbConceptsInTerminologyContainer',
   rowClass: 'esbConceptLink',
 };

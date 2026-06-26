@@ -9,6 +9,8 @@ export default {
       <dd><code>{{resourceURI}}</code></dd>
       <dt>{{nls "general.introducedInSpecification"}}</dt>
       <dd>{{introducedInSpecViaRD}}</dd>
+      <dt>{{nls "conceptScheme.conceptCount"}}</dt>
+      <dd>{{conceptInTerminologyCount}}</dd>
       
     </dl>
     

@@ -1,4 +1,3 @@
-/* Headings should be parameterised nls, blocked by BLOCKS-340 */
 export default {
   extends: 'template',
   hl: '2',

@@ -1,4 +1,3 @@
-/* Headings should be parameterised nls, blocked by BLOCKS-340 */
 export default {
   extends: 'template',
   hl: '2',
@@ -10,12 +9,12 @@ export default {
 
     <details open>
       <summary class="esbSummaryWithHeading">
-        <h{{hl}} class="esbHeadingInSummary">{{conceptInTerminologyHeader}}</h{{hl}}>
+        <h{{hl}} class="esbHeadingInSummary">{{topConceptInTerminologyHeader}}</h{{hl}}>
       </summary>
-      {{conceptInTerminologyList limit=conceptLimit}}
+      {{topConceptInTerminologyList limit=conceptLimit}}
     </details>
 
-    <p>{{nls "conceptScheme.usageInSpecIntro"}}</p>
+    <p class="placeholderParagraph">{{nls "conceptScheme.usageInSpecIntro"}}</p>
 
     <details open>
         <summary class="esbSummaryWithHeading">
