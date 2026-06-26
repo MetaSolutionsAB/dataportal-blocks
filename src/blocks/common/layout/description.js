@@ -1,5 +1,6 @@
 /* convenience block for desciptions with standard classes */
 export default {
   extends: 'template',
-  template: `{{text property="dcterms:description" class="esbMultiline esbDescription"}}`,
+  property: 'dcterms:description',
+  template: `{{text property=property class="esbMultiline esbDescription"}}`,
 };

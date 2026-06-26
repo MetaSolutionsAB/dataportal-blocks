@@ -9,16 +9,18 @@ export default {
   },
   bundles: [
     'https://static.infra.entryscape.com/suite/latest/templates/dcat3.json',
+    'https://static.infra.entryscape.com/suite/latest/templates/rdfs.json', // rdfs bundled with Blocks is minimal
     'https://sandbox.editera.dataportal.se/theme/templates/adms.json',  // todo: update
     'https://sandbox.editera.dataportal.se/theme/templates/prof.json',  // todo: update
+    'https://sandbox.editera.dataportal.se/theme/templates/terms.json',  // todo: update
     'https://static.infra.entryscape.com/suite/latest/templates/rdfs.json',
   ],
   clicks: {
     spec: './specification.html',
     organization: './organisation.html',
-    concept: './concepts.html',
-    conceptScheme: './terminology.html',
-    terminology: './terminology.html', // todo: phase out in favour of conceptScheme
+    concept: './concept.html',
+    conceptScheme: './terminology.html', // todo: phase out in favour of terminology
+    terminology: './terminology.html',
     class: './class.html',
     def: './class.html',  // todo: phase out, some are property
     vocabulary: './class.html',  // todo: phase out, some are property
@@ -28,6 +30,14 @@ export default {
     specDetails: './ap.html', // todo: phase out in favour of
     datavoc: './datavoc.html',
     dataset: './dataset.html', // todo: point to the canonical one
+  },
+  type2template: {
+    'prof:Profile': 'prof:Profile',
+    'dcterms:Standard': 'prof:Profile',
+    'skos:ConceptScheme': 'skosmos:conceptSchemeWithPublisher',
+    'skos:Concept': 'editera:Concept',
+    'rdfs:Class': 'rdfs:Class',
+    'rdf:Property': 'rdf:Property',
   },
   routes: [ //todo: these are likely broken, not sure esc_uri is needed
     {
@@ -83,11 +93,21 @@ export default {
         reusedInSpecification: 'Återanvänds i specifikation',
         terminologyUri: 'Adress för terminologin',
         reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna terminologi.',
-        conceptsInTerminology: 'I terminologin ingår ${count} begrepp',
+        topConceptsInTerminology: 'I terminologin ingår ${count} begrepp på översta nivån',
+        conceptCount: 'Totalt antal begrepp',
         usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
       },
       concept: {
         concept: 'Begrepp',
+        altLabel: 'Alternativa termer',
+        conceptUri: 'Adress för begreppet',
+        isTopConcept: 'Detta är ett begrepp på översta nivån',
+        noNarrowerConcepts: 'Har inga underordnade begrepp',
+        noRelatedConcepts: 'Har inga relaterade begrepp',
+        broaderConcepts: 'Överordnade begrepp',
+        narrowerConcepts: 'Underordnade begrepp',
+        relatedConcepts: 'Relaterade begrepp',
+        matchingConcepts: 'Matchande begrepp (I andra terminologier)',
         memberOfTerminology: 'Ingår i terminologi',
       },
       general: {
@@ -153,11 +173,21 @@ export default {
         reusedInSpecification: 'Reused in specification',
         terminologyUri: 'URI for the terminology',
         reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this terminology.',
-        conceptsInTerminology: 'The terminology includes {{PLURAL:${count}|${count} concept|${count} concepts}}',
+        topConceptsInTerminology: 'The terminology includes {{PLURAL:${count}|${count} concept|${count} concepts}} on the top level',
+        conceptCount: 'Total number of concepts',
         usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
       },
       concept: {
         concept: 'Concept',
+        altLabel: 'Alternative labels',
+        conceptUri: 'Uri for the concept',
+        isTopConcept: 'This is a top level concept',
+        noNarrowerConcepts: 'No narrower concepts',
+        noRelatedConcepts: 'No related concepts',
+        broaderConcepts: 'Broader concepts',
+        narrowerConcepts: 'Narrower concepts',
+        relatedConcepts: 'Related concepts',
+        matchingConcepts: 'Matching concepts (In other terminologies)',
         memberOfTerminology: 'Member of terminology',
       },
       general: {

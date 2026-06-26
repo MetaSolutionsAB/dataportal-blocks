@@ -1,4 +1,5 @@
 .entryscape [data-entryscape="terminologyView"],
+.entryscape [data-entryscape="conceptView"],
 .entryscape [data-entryscape="datavocView"],
 .entryscape [data-entryscape="specView"]  {
   display: grid;
@@ -82,8 +83,9 @@
 
 @media (max-width: 768px) {
   .entryscape [data-entryscape="terminologyView"],
+  .entryscape [data-entryscape="conceptView"],
   .entryscape [data-entryscape="datavocView"],
-  .entryscape [data-entryscape="specView"]  {
+  .entryscape [data-entryscape="specView"] {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "heading"
@@ -93,6 +95,8 @@
 }
 
 .entryscape .esbConceptsInTerminologyContainer,
+.entryscape .esbConceptsInConceptContainer,
+.entryscape .esbMatchingConceptsContainer,
 .entryscape .esbClassesInDatavocContainer,
 .entryscape .esbPropertiesInDatavocContainer,
 .entryscape .esbCPInSpecContainer,
@@ -123,10 +127,18 @@
     color: rgb(110 97 90);
 }
 
+.entryscape a.esbExternalConceptLink[href]::after,
 .entryscape a.extLinkButton[href]::after {
     content: "\f35d" / ""; /* fa-external-link-alt */
     font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 0.85em;
     margin-left: 0.4em;
+    vertical-align: baseline;
+}
+
+/* Inline text link: raise the icon onto the text baseline (≈ descender depth,
+   scales with font size). The flex buttons center it via align-items instead. */
+.entryscape a.esbExternalConceptLink[href]::after {
+    vertical-align: 0.22em;
 }
