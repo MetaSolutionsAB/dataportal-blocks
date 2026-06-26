@@ -258,7 +258,7 @@ export default {
         profileInspec: 'Profile interoperable specification',
         nonInspec: 'Specification',
         conformanceNumberInfo: '{{PLURAL:${count}|Dataset|Datasets}} conform to this specification.',
-        grunddataConformanceNumberInfo: 'Of which {{PLURAL:${count}|${count}|${count}}} are national basic datasets:',
+        grunddataConformanceNumberInfo: 'Of which {{PLURAL:${count}|${count} is a national basic dataset|${count} are national basic datasets}}:',
       },
       respec: {
         backToTheOverview: 'Back to the overview',
