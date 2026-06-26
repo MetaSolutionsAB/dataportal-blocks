@@ -8,8 +8,8 @@ export default {
     <main>{{
       specMain
       hl=(hinc)
-      introducedLimit='inherit'
-      reusedLimit='inherit'
+      introducedLimit="inherit"
+      reusedLimit="inherit"
       }}</main>
     <aside class="esbAside">
       <div>{{specVanity}}</div>

@@ -13,5 +13,5 @@ export default {
   bodyClass: '',
   rowClass: '',
   listbody: '<div class="esbInlineList {{bodyClass}}">{{body}}</div>',
-  rowhead: `{{link namedclick='inherit' class=rowClass}}`,
+  rowhead: `{{link namedclick="inherit" class=rowClass}}`,
 };

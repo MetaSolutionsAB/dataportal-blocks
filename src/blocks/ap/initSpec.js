@@ -24,8 +24,8 @@ export default {
         language: document.targetLanguage,
         extras: {
           usageNote: {
-            en: "Usage note",
-            sv: "Användningsanmärkning"
+            en: 'Usage note',
+            sv: 'Användningsanmärkning'
           }
         }
       });

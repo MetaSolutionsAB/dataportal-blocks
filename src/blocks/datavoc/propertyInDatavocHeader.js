@@ -1,5 +1,5 @@
 export default {
-  extends: "results",
-  use: "propertiesInDatavoc",
+  extends: 'results',
+  use: 'propertiesInDatavoc',
   template: `{{nls "datavoc.propertiesInDatavoc" count=resultsize}}`,
 };

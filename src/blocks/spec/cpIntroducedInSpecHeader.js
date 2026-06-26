@@ -1,5 +1,5 @@
 export default {
-  extends: "results",
-  use: "cpIntroducedInSpec",
+  extends: 'results',
+  use: 'cpIntroducedInSpec',
   template: `{{nls "spec.cpIntroduced" count=resultsize}}`,
 };

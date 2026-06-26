@@ -9,9 +9,9 @@ export default {
       <main>{{
         datavocMain
         hl=(hinc)
-        classLimit='inherit'
-        propertyLimit='inherit'
-        specUsageLimit='inherit'
+        classLimit="inherit"
+        propertyLimit="inherit"
+        specUsageLimit="inherit"
         }}</main>
       <aside class="esbAside">
         <div>{{datavocInfobox hl=(hinc)}}</div>

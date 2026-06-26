@@ -8,8 +8,8 @@ export default {
       <main>{{
         terminologyMain
         hl=(hinc)
-        conceptLimit='inherit'
-        specUsageLimit='inherit'
+        conceptLimit="inherit"
+        specUsageLimit="inherit"
         }}</main>
       <aside class="esbAside">
         <div>{{terminologyInfobox hl=(hinc)}}</div>

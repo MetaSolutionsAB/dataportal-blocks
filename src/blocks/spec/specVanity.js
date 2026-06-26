@@ -56,7 +56,7 @@ export default {
             "spec.grunddataConformanceNumberInfo"
             count=this.grunddataResultSize
           }}
-          {{link context=this.example.context entry=this.example.entry namedclick='dataset'}}
+          {{link context=this.example.context entry=this.example.entry namedclick="dataset"}}
         </p>
       {{/if}}
     </div>
