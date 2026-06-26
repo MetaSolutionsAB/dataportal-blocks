@@ -88,6 +88,18 @@ export default {
         reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna datavokabulär.',
         usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
       },
+      class: {
+        class: 'Klass',
+        classUri: 'Adress för klassen',
+        reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna klass.',
+        usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
+      },
+      property: {
+        property: 'Egenskap',
+        propertyUri: 'Adress för egenskapen',
+        reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna egenskap.',
+        usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
+      },
       conceptScheme: {
         conceptScheme: 'Terminologi',
         reusedInSpecification: 'Återanvänds i specifikation',
@@ -117,6 +129,7 @@ export default {
         loading: 'Laddar resultat…',
         introducedInSpecification: 'Introduceras i specifikation',
         usedInSpecification: 'Används i {{PLURAL:${count}|1 interoperabel specifikation|${count} interoperabla specifikationer}}',
+        isPartOfDatavoc: 'Ingår i datavokabulär',
         downloadMetadataRdfXml: 'Ladda ner metadata som RDF/XML',
         downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
         downloadMetadataJsonLd: 'Ladda ner metadata som JSON-LD',
@@ -168,6 +181,18 @@ export default {
         reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this data vocabulary.',
         usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
       },
+      class: {
+        class: 'Class',
+        classUri: 'Uri for the class',
+        reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this class.',
+        usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
+      },
+      property: {
+        property: 'Property',
+        propertyUri: 'Uri for the property',
+        reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this property.',
+        usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
+      },
       conceptScheme: {
         conceptScheme: 'Terminology',
         reusedInSpecification: 'Reused in specification',
@@ -197,6 +222,7 @@ export default {
         loading: 'Loading results…',
         introducedInSpecification: 'Introduced in specification',
         usedInSpecification: 'Used in ${count} interoperable {{PLURAL:${count}|specification|specifications}}',
+        isPartOfDatavoc: 'Is part of data vocabulary',
         downloadMetadataRdfXml: 'Download metadata as RDF/XML',
         downloadMetadataTurtle: 'Download metadata as TURTLE',
         downloadMetadataJsonLd: 'Download metadata as JSON-LD',

@@ -1,6 +1,8 @@
 .entryscape [data-entryscape="terminologyView"],
 .entryscape [data-entryscape="conceptView"],
 .entryscape [data-entryscape="datavocView"],
+.entryscape [data-entryscape="classView"],
+.entryscape [data-entryscape="propertyView"],
 .entryscape [data-entryscape="specView"]  {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
@@ -85,6 +87,8 @@
   .entryscape [data-entryscape="terminologyView"],
   .entryscape [data-entryscape="conceptView"],
   .entryscape [data-entryscape="datavocView"],
+  .entryscape [data-entryscape="classView"],
+  .entryscape [data-entryscape="propertyView"],
   .entryscape [data-entryscape="specView"] {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
@@ -95,9 +99,13 @@
 }
 
 .entryscape .esbConceptsInTerminologyContainer,
+.entryscape .esbTerminologyUsageInSpecContainer,
 .entryscape .esbConceptsInConceptContainer,
 .entryscape .esbMatchingConceptsContainer,
 .entryscape .esbClassesInDatavocContainer,
+.entryscape .esbDatavocUsageInSpecContainer,
+.entryscape .esbClassUsageInSpecContainer,
+.entryscape .esbPropertyUsageInSpecContainer,
 .entryscape .esbPropertiesInDatavocContainer,
 .entryscape .esbCPInSpecContainer,
 .entryscape .esbResourcesInSpecContainer {
