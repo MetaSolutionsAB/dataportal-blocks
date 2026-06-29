@@ -38,21 +38,23 @@ export default {
       };
     }
 
-    data.resultSize = resultSize;
+    data.resultsize = resultSize;
     data.example = example;
-    data.grunddataResultSize = grunddataResults.length;
+    data.grunddataResultsize = grunddataResults.length;
     return Promise.resolve();
   },
   progressTemplate: `{{nls "general.loading"}}`,
   template: `
     <div class="esbVanity">
-      <span class="esbVanityNumber">{{this.resultSize}}</span>
-      {{nls "spec.conformanceNumberInfo" count=this.resultSize}}
+      <p class="esbVanityStatContainer">
+        <span class="esbVanityNumber">{{this.resultsize}}</span>
+        <span>{{nls "spec.conformanceNumberInfo" count=this.resultsize}}</span>
+      </p>
       {{#if this.example}}
         <p>
           {{nls
             "spec.grunddataConformanceNumberInfo"
-            count=this.grunddataResultSize
+            count=this.grunddataResultsize
           }}
           {{link context=this.example.context entry=this.example.entry namedclick="dataset"}}
         </p>
