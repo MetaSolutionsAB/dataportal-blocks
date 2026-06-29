@@ -11,12 +11,11 @@
     gap: 5px;
 }
 
-.esbInlineList .entryListRow::after {
+/* comma-separate items; key off the <li> row, not the entryListRow class
+   (which a nested-block rowhead moves onto the <a>) */
+.esbInlineList .entryList > *:not(:last-child)::after {
     content: ", ";
     margin-right: 0.5em;
-}
-.esbInlineList .entryListRow:last-child::after {
-    content: "";
 }
 
 .esbHeadingInSummary {
