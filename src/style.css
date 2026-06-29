@@ -11,10 +11,6 @@
     gap: 5px;
 }
 
-.esbInlineList .fa-external-link-alt, .fas.fa-search.fa-xs {
-    margin: 0.2em 0 0.3em 0.3em;
-}
-
 .esbInlineList .entryListRow::after {
     content: ", ";
     margin-right: 0.5em;

@@ -9,11 +9,11 @@ export default {
       : data.entry;
 
     const metaValueEndsWith = (e, pred, suffix) =>
-      e.getMetadata().find(null, pred).some(stmt => stmt.getValue().endsWith(suffix));
+      e.getAllMetadata().find(null, pred).some(stmt => stmt.getValue().endsWith(suffix));
 
-    const resourceURIs = entry.getMetadata().find(entry.getResourceURI(), 'prof:hasResource').map(stmt => stmt.getValue());
+    const resourceURIs = entry.getAllMetadata().find(entry.getResourceURI(), 'prof:hasResource').map(stmt => stmt.getValue());
     const resources = await esu.loadEntriesByResourceURIs(resourceURIs);
-    let ap = resources.find(e => e.getMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL').length > 0);
+    let ap = resources.find(e => e.getAllMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL').length > 0);
     if (!ap) {
       // fallback: older data uses a local URI ending in 'SHACL-INSPEC/1.0' instead of inspec:SHACL
       ap = resources.find(e => metaValueEndsWith(e, 'dcterms:conformsTo', 'SHACL-INSPEC/1.0'));

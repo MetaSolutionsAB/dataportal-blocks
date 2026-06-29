@@ -22,7 +22,7 @@ export default {
       .uriProperty('dcterms:conformsTo', entry.getResourceURI())
       .forEach((conformantEntry) => {
         resultSize += 1;
-        const isGrunddata = conformantEntry.getMetadata()
+        const isGrunddata = conformantEntry.getAllMetadata()
           .find(conformantEntry.getResourceURI(), 'dcterms:subject')
           .filter(stmt => stmt.getValue().startsWith(grunddataPrefix))
           .length > 0;

@@ -12,6 +12,6 @@ export default {
   limit: 'inherit',
   bodyClass: '',
   rowClass: '',
-  listbody: '<div class="esbInlineList {{bodyClass}}">{{body}}</div>',
+  listbody: '<div class="esbInlineList{{#if bodyClass}} {{bodyClass}}{{/if}}">{{body}}</div>',
   rowhead: `{{link namedclick="inherit" class=rowClass}}`,
 };
