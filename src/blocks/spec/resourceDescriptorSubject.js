@@ -3,14 +3,12 @@
 // from the subject's type combined with the descriptor's prof:hasRole, picks
 // the portal namedclick (ap / datavoc / terminology). When nothing maps it
 // falls back to a plain link to the subject URI.
+import { resolveEntry } from '../common/scripts/resolveEntry.js';
+
 export default {
   extends: 'template',
   before: async function (node, data, registry) {
-    const es = registry.get('entrystore');
-    const isCached = typeof data.entry === 'string';
-    const entry = isCached
-      ? es.getCache().get(es.getEntryURI(data.context, data.entry))
-      : data.entry;
+    const { es, entry } = resolveEntry(registry, data);
 
     const rdMeta = entry.getAllMetadata();
     const rduri = entry.getResourceURI();

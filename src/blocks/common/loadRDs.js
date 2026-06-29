@@ -1,12 +1,10 @@
+import { resolveEntry } from './scripts/resolveEntry.js';
+
 export default {
   extends: 'template',
   before: async function (node, data, registry) {
-    const es = registry.get('entrystore');
+    const { es, entry } = resolveEntry(registry, data);
     const esu = registry.get('entrystoreutil');
-    const isCached = typeof data.entry === 'string';
-    const entry = isCached
-      ? es.getCache().get(es.getEntryURI(data.context, data.entry))
-      : data.entry;
 
     const metaValueEndsWith = (e, pred, suffix) =>
       e.getAllMetadata().find(null, pred).some(stmt => stmt.getValue().endsWith(suffix));

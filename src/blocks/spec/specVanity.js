@@ -5,15 +5,13 @@
  * the given specification. It then identifies the subset of these which
  * are 'nationell grunddatamängd'.
  */
+import { resolveEntry } from '../common/scripts/resolveEntry.js';
+
 export default {
   extends: 'template',
   before: async function (node, data, registry) {
     const grunddataPrefix = 'https://dataportal.se/concepts/grunddata/';
-    const es = registry.get('entrystore');
-    const isCached = typeof data.entry === 'string';
-    const entry = isCached
-      ? es.getCache().get(es.getEntryURI(data.context, data.entry))
-      : data.entry;
+    const { es, entry } = resolveEntry(registry, data);
     let resultSize = 0;
     let grunddataResults = [];
     await es
