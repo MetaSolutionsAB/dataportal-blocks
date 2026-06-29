@@ -1,25 +1,22 @@
-// todo: getHref should inherit from config.clicks
-// todo: usage note string should come from config.nls
+// todo: usage note label should come from config.nls. Once the rdforms-specs
+//   change that lets an extra label be a plain localized string is released
+//   (branch improvement/nlsExtras), replace the literal below with:
+//     const { nls } = [].concat(window.__entryscape_config).find((c) => c && c.nls);
+//     usageNote: nls[document.targetLanguage].ap.usageNote
 
 export default {
   shacl: '',
   run: function(node, data, items, entry) {
     if (data.shacl) {
+      const { clicks } = [].concat(window.__entryscape_config).find((c) => c && c.clicks);
       rdforms_specs.init({
         shacl: data.shacl.getResourceURI(),
         getHREF: (uri, type) => {
-          switch (type) {
-            case 'property':
-              return `./property.html?esc_uri=${encodeURIComponent(uri)}`;
-            case 'class':
-              return `./class.html?esc_uri=${encodeURIComponent(uri)}`;
-            case 'spec':
-              return `./specification.html?esc_uri=${encodeURIComponent(uri)}`;
-            case 'shape':
-              return `./ap.html?esc_shape=${encodeURIComponent(uri)}`;
-            case 'terminology':
-              return `./terminology.html?esc_uri=${encodeURIComponent(uri)}`;
-          };
+          const base = clicks[type];
+          if (!base) return undefined;
+          // shape is looked up via its parent profile, the rest by URI
+          const param = type === 'shape' ? 'esc_shape' : 'esc_uri';
+          return `${base}?${param}=${encodeURIComponent(uri)}`;
         },
         language: document.targetLanguage,
         extras: {

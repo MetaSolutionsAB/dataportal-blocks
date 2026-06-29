@@ -138,6 +138,9 @@ export default {
         downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
         downloadMetadataJsonLd: 'Ladda ner metadata som JSON-LD',
       },
+      ap: {
+        usageNote: 'Användningsanmärkning',
+      },
       spec: {
         specificationUri: 'Adress för specifikation',
         exploreAP: 'Utforska applikationsprofil',
@@ -235,6 +238,9 @@ export default {
         downloadMetadataRdfXml: 'Download metadata as RDF/XML',
         downloadMetadataTurtle: 'Download metadata as TURTLE',
         downloadMetadataJsonLd: 'Download metadata as JSON-LD',
+      },
+      ap: {
+        usageNote: 'Usage note',
       },
       spec: {
         specificationUri: 'URI for the specification',
