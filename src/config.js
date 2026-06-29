@@ -19,15 +19,12 @@ export default {
     spec: './specification.html',
     organization: './organisation.html',
     concept: './concept.html',
-    conceptScheme: './terminology.html', // todo: phase out in favour of terminology
     terminology: './terminology.html',
     class: './class.html',
-    def: './class.html',  // todo: phase out, some are property
     vocabulary: './class.html',  // todo: phase out, some are property
     property: './property.html',
     ap: './ap.html',
     shape: './ap.html',
-    specDetails: './ap.html', // todo: phase out in favour of shape
     datavoc: './datavoc.html',
     dataset: './dataset.html', // todo: point to the canonical one
   },
@@ -40,37 +37,9 @@ export default {
     'rdf:Property': 'rdf:Property',
     'prof:ResourceDescriptor': 'editera:prof:ResourceDescriptor',
   },
-  routes: [ //todo: these are likely broken, not sure esc_uri is needed
+  routes: [
     {
-      regex: /\/def.html\?esc_uri=(.+)/,
-      uri: 1,
-      constraints: {
-        'rdf:type': ['skos:Concept', 'skos:ConceptScheme'],
-      },
-    },
-    {
-      regex: /\/def.html#esc_uri=(.+)/,
-      uri: 1,
-      constraints: {
-        'rdf:type': ['skos:Concept', 'skos:ConceptScheme'],
-      },
-    },
-    {
-      regex: /\/spec.html\?esc_uri=(.+)/,
-      uri: 1,
-      constraints: {
-        'rdf:type': ['prof:Profile', 'dcterms:Standard'],
-      },
-    },
-    {
-      regex: /\/ap.html\?esc_uri=(.+)/,
-      uri: 1,
-      constraints: {
-        'rdf:type': ['prof:Profile', 'dcterms:Standard'],
-      },
-    },
-    {
-      regex: /\/ap.html\?esc_shape=(.+)/,
+      regex: /\/ap.html[?#]esc_shape=(.+)/,
       lookup: 1,
       lookupURI: 'dcterms:hasPart',
       constraints: {

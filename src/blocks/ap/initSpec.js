@@ -4,6 +4,8 @@
 //     const { nls } = [].concat(window.__entryscape_config).find((c) => c && c.nls);
 //     usageNote: nls[document.targetLanguage].ap.usageNote
 
+// requires the clicks configuration to define: property, class, terminology, spec, shape
+
 export default {
   shacl: '',
   run: function(node, data, items, entry) {
