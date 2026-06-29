@@ -3,6 +3,7 @@ export default {
   urlQueryParameters: true,  //todo: determine if needed/desired
   namespaces: {
     prof: 'http://www.w3.org/ns/dx/prof/',
+    profrole: 'http://www.w3.org/ns/dx/prof/role/',
     skos: 'http://www.w3.org/2004/02/skos/core#',
     adms: 'http://www.w3.org/ns/adms#',
     inspec: 'https://w3id.org/inspec/datavoc/',
@@ -37,6 +38,7 @@ export default {
     'skos:Concept': 'editera:Concept',
     'rdfs:Class': 'rdfs:Class',
     'rdf:Property': 'rdf:Property',
+    'prof:ResourceDescriptor': 'editera:prof:ResourceDescriptor',
   },
   routes: [ //todo: these are likely broken, not sure esc_uri is needed
     {
@@ -156,6 +158,7 @@ export default {
         thisSpecificationHasNoReusedResources: 'Denna specifikation har inga återanvända resurser.',
         goToResource: 'Gå till resurs',
         role: 'Roll',
+        subject: 'Beskriver',
         reusedFrom: 'Återanvänd ifrån',
         aboutTheSpecification: 'Om specifikationen',
         foundationalInspec: 'Interoperabel basspecifikation',
@@ -257,6 +260,7 @@ export default {
         thisSpecificationHasNoReusedResources: 'This specification has no reused resources.',
         goToResource: 'Go to resource',
         role: 'Role',
+        subject: 'Subject',
         reusedFrom: 'Reused from',
         aboutTheSpecification: 'About the specification',
         foundationalInspec: 'Foundational interoperable specification',

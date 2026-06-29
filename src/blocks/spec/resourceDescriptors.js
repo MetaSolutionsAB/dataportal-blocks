@@ -1,6 +1,3 @@
-// todo: generalise rdformsid?
-// todo: set namedClick for dcterms:subject (datavoc/terminology)
-
 export default {
   extends: 'list',
   semanticHtml: true,
@@ -24,5 +21,6 @@ export default {
     </dl>
     {{resourceDescriptorButton}}
   `,
-  rowexpand: `{{view rdformsid="editera:prof:ResourceDescriptor" filterpredicates="prof:isInheritedFrom"}}`,
+  rowexpand: `{{resourceDescriptorSubject}}
+    {{view filterpredicates="prof:isInheritedFrom,dcterms:subject"}}`,
 };
