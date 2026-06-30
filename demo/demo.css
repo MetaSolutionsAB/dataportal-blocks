@@ -171,3 +171,10 @@
 .entryscape a.esbExternalConceptLink[href]::after {
     vertical-align: 0.22em;
 }
+
+/* Vertical inline lists stack one item per row, so the comma separator from
+   src/style.css is unwanted — counteract it. */
+.esbInlineList.esbInlineVerticalList .entryList > *:not(:last-child)::after {
+    content: "";
+    margin-right: 0;
+}
