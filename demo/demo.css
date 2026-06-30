@@ -1,14 +1,14 @@
-.entryscape [data-entryscape="terminologyView"],
-.entryscape [data-entryscape="conceptView"],
-.entryscape [data-entryscape="datavocView"],
-.entryscape [data-entryscape="classView"],
-.entryscape [data-entryscape="propertyView"],
-.entryscape [data-entryscape="specView"]  {
+.entryscape [data-entryscape='terminologyView'],
+.entryscape [data-entryscape='conceptView'],
+.entryscape [data-entryscape='datavocView'],
+.entryscape [data-entryscape='classView'],
+.entryscape [data-entryscape='propertyView'],
+.entryscape [data-entryscape='specView'] {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-areas:
-    "heading heading"
-    "main    aside";
+    'heading heading'
+    'main    aside';
   column-gap: 2rem;
   row-gap: 1.5rem;
   max-width: 1200px;
@@ -104,17 +104,17 @@
 }
 
 @media (max-width: 768px) {
-  .entryscape [data-entryscape="terminologyView"],
-  .entryscape [data-entryscape="conceptView"],
-  .entryscape [data-entryscape="datavocView"],
-  .entryscape [data-entryscape="classView"],
-  .entryscape [data-entryscape="propertyView"],
-  .entryscape [data-entryscape="specView"] {
+  .entryscape [data-entryscape='terminologyView'],
+  .entryscape [data-entryscape='conceptView'],
+  .entryscape [data-entryscape='datavocView'],
+  .entryscape [data-entryscape='classView'],
+  .entryscape [data-entryscape='propertyView'],
+  .entryscape [data-entryscape='specView'] {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
-      "heading"
-      "main"
-      "aside";
+      'heading'
+      'main'
+      'aside';
   }
 }
 
@@ -129,52 +129,52 @@
 .entryscape .esbPropertiesInDatavocContainer,
 .entryscape .esbCPInSpecContainer,
 .entryscape .esbResourcesInSpecContainer {
-    background-color: #faf8f4;
+  background-color: #faf8f4;
 }
 
 .entryscape a.extLinkButton[href] {
-    font-size: inherit;
-    font-family: inherit;
-    font-weight: inherit;
-    /* inline-flex so vertical padding is part of the line box (a plain inline
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  /* inline-flex so vertical padding is part of the line box (a plain inline
        element's padding bleeds into the preceding line and overlapped the
        diagram image); also makes the gap above take effect */
-    display: inline-flex;
-    align-items: center;
-    vertical-align: top;
-    gap: .5rem;
-    border: none;
-    background: none;
-    padding: .5rem .75rem;
-    text-decoration: none;
-    background: rgb(110 97 90);
-    color: rgb(240 239 238);
+  display: inline-flex;
+  align-items: center;
+  vertical-align: top;
+  gap: 0.5rem;
+  border: none;
+  background: none;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  background: rgb(110 97 90);
+  color: rgb(240 239 238);
 }
 .entryscape a.extLinkButton:hover[href] {
-    background: rgb(226 223 223);
-    color: rgb(110 97 90);
+  background: rgb(226 223 223);
+  color: rgb(110 97 90);
 }
 
 .entryscape a.esbSpecLink[href]::after,
 .entryscape a.esbExternalConceptLink[href]::after,
 .entryscape a.extLinkButton[href]::after {
-    content: "\f35d" / ""; /* fa-external-link-alt */
-    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 0.85em;
-    margin-left: 0.4em;
-    vertical-align: baseline;
+  content: '\f35d' / ''; /* fa-external-link-alt */
+  font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 0.85em;
+  margin-left: 0.4em;
+  vertical-align: baseline;
 }
 
 /* Inline text link: raise the icon onto the text baseline (≈ descender depth,
    scales with font size). The flex buttons center it via align-items instead. */
 .entryscape a.esbExternalConceptLink[href]::after {
-    vertical-align: 0.22em;
+  vertical-align: 0.22em;
 }
 
 /* Vertical inline lists stack one item per row, so the comma separator from
    src/style.css is unwanted — counteract it. */
 .esbInlineList.esbInlineVerticalList .entryList > *:not(:last-child)::after {
-    content: "";
-    margin-right: 0;
+  content: '';
+  margin-right: 0;
 }

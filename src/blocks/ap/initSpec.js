@@ -8,9 +8,11 @@
 
 export default {
   shacl: '',
-  run: function(node, data, items, entry) {
+  run: function (node, data, items, entry) {
     if (data.shacl) {
-      const { clicks } = [].concat(window.__entryscape_config).find((c) => c && c.clicks);
+      const { clicks } = []
+        .concat(window.__entryscape_config)
+        .find((c) => c && c.clicks);
       rdforms_specs.init({
         shacl: data.shacl.getResourceURI(),
         getHREF: (uri, type) => {
@@ -24,10 +26,10 @@ export default {
         extras: {
           usageNote: {
             en: 'Usage note',
-            sv: 'Användningsanmärkning'
-          }
-        }
+            sv: 'Användningsanmärkning',
+          },
+        },
       });
     }
-  }
+  },
 };

@@ -1,55 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="demo.css" />
-  <title>Blocks demo</title>
-  <style>
-    .searchResults {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 2rem;
-    }
-  </style>
-</head>
-<body class="entryscape">
-  <div data-entryscape="simpleSearch"
-       data-entryscape-search-button="true"></div>
-  <div class="searchResults">
-    <div>
-      <h2>Specifications</h2>
-      <div data-entryscape="specSearchList" data-entryscape-limit="5"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="demo.css" />
+    <title>Blocks demo</title>
+    <style>
+      .searchResults {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+      }
+    </style>
+  </head>
+  <body class="entryscape">
+    <div
+      data-entryscape="simpleSearch"
+      data-entryscape-search-button="true"
+    ></div>
+    <div class="searchResults">
+      <div>
+        <h2>Specifications</h2>
+        <div data-entryscape="specSearchList" data-entryscape-limit="5"></div>
+      </div>
+      <div>
+        <h2>SKOS</h2>
+        <div>
+          <h3>Terminologies</h3>
+          <div
+            data-entryscape="terminologySearchList"
+            data-entryscape-limit="5"
+          ></div>
+        </div>
+        <div>
+          <h3>Concepts</h3>
+          <div
+            data-entryscape="conceptSearchList"
+            data-entryscape-limit="5"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h2>RDFS</h2>
+        <div>
+          <h3>Datavocs</h3>
+          <div
+            data-entryscape="datavocSearchList"
+            data-entryscape-limit="5"
+          ></div>
+        </div>
+        <div>
+          <h3>Classes</h3>
+          <div
+            data-entryscape="classSearchList"
+            data-entryscape-limit="5"
+          ></div>
+        </div>
+        <div>
+          <h3>Properties</h3>
+          <div
+            data-entryscape="propertySearchList"
+            data-entryscape-limit="5"
+          ></div>
+        </div>
+      </div>
     </div>
-    <div>
-      <h2>SKOS</h2>
-      <div>
-        <h3>Terminologies</h3>
-        <div data-entryscape="terminologySearchList" data-entryscape-limit="5"></div>
-      </div>
-      <div>
-        <h3>Concepts</h3>
-        <div data-entryscape="conceptSearchList" data-entryscape-limit="5"></div>
-      </div>
-    </div>
-    <div>
-      <h2>RDFS</h2>
-      <div>
-        <h3>Datavocs</h3>
-        <div data-entryscape="datavocSearchList" data-entryscape-limit="5"></div>
-      </div>
-      <div>
-        <h3>Classes</h3>
-        <div data-entryscape="classSearchList" data-entryscape-limit="5"></div>
-      </div>
-      <div>
-        <h3>Properties</h3>
-        <div data-entryscape="propertySearchList" data-entryscape-limit="5"></div>
-      </div>
-    </div>
-  </div>
 
-  <script src="../dist/blocks.js"></script>
-  <script src="https://static.cdn.entryscape.com/blocks/1/app.js"></script>
-</body>
+    <script src="../dist/blocks.js"></script>
+    <script src="https://static.cdn.entryscape.com/blocks/1/app.js"></script>
+  </body>
 </html>

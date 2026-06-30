@@ -18,5 +18,5 @@ export default {
       <aside class="esbAside">
         <div>{{conceptInfobox hl=(hinc)}}</div>
       </aside>
-    `
+    `,
 };

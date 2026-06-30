@@ -15,5 +15,5 @@ export default {
         <div>{{terminologyInfobox hl=(hinc)}}</div>
         <div>{{terminologyVanity}}</div>
       </aside>
-    `
+    `,
 };

@@ -7,16 +7,30 @@ export default {
     const esu = registry.get('entrystoreutil');
 
     const metaValueEndsWith = (e, pred, suffix) =>
-      e.getAllMetadata().find(null, pred).some(stmt => stmt.getValue().endsWith(suffix));
+      e
+        .getAllMetadata()
+        .find(null, pred)
+        .some((stmt) => stmt.getValue().endsWith(suffix));
 
-    const resourceURIs = entry.getAllMetadata().find(entry.getResourceURI(), 'prof:hasResource').map(stmt => stmt.getValue());
+    const resourceURIs = entry
+      .getAllMetadata()
+      .find(entry.getResourceURI(), 'prof:hasResource')
+      .map((stmt) => stmt.getValue());
     const resources = await esu.loadEntriesByResourceURIs(resourceURIs);
-    let ap = resources.find(e => e.getAllMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL').length > 0);
+    let ap = resources.find(
+      (e) =>
+        e.getAllMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL')
+          .length > 0
+    );
     if (!ap) {
       // fallback: older data uses a local URI ending in 'SHACL-INSPEC/1.0' instead of inspec:SHACL
-      ap = resources.find(e => metaValueEndsWith(e, 'dcterms:conformsTo', 'SHACL-INSPEC/1.0'));
+      ap = resources.find((e) =>
+        metaValueEndsWith(e, 'dcterms:conformsTo', 'SHACL-INSPEC/1.0')
+      );
     }
-    const diagram = resources.find(e => metaValueEndsWith(e, 'dcterms:format', 'image/svg+xml'));
+    const diagram = resources.find((e) =>
+      metaValueEndsWith(e, 'dcterms:format', 'image/svg+xml')
+    );
     if (ap) {
       data.ap = ap;
     }
@@ -26,5 +40,5 @@ export default {
     }
     return Promise.resolve();
   },
-  template: ``
+  template: ``,
 };

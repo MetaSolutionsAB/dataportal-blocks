@@ -5,5 +5,5 @@ export default {
         {{#ifprop "adms:status" uri="http://purl.org/adms/status/Completed" invert=true}}
           ({{prop "adms:status" render="label"}})
         {{/ifprop}}
-      {{/ifprop}}`
+      {{/ifprop}}`,
 };

@@ -6,5 +6,5 @@ export default {
   rdftype: ['owl:Ontology'],
   rowhead: '{{text}}',
   rowexpand: `{{description}}
-  {{view filterpredicates="dcterms:title,dcterms:description"}}`
+  {{view filterpredicates="dcterms:title,dcterms:description"}}`,
 };

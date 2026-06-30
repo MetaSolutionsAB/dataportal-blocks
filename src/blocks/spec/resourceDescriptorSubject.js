@@ -12,7 +12,8 @@ export default {
 
     const rdMeta = entry.getAllMetadata();
     const rduri = entry.getResourceURI();
-    const hasRole = (role) => rdMeta.find(rduri, 'prof:hasRole', role).length > 0;
+    const hasRole = (role) =>
+      rdMeta.find(rduri, 'prof:hasRole', role).length > 0;
 
     const subjectURI = rdMeta.findFirstValue(rduri, 'dcterms:subject');
     data.subjectURI = subjectURI;
@@ -30,10 +31,14 @@ export default {
         .forEach((match) => {
           // Resource descriptors commonly share their subject's URI; they are
           // not the entry we want to link to, so exclude them.
-          const isRD = match
-            .getAllMetadata()
-            .find(match.getResourceURI(), 'rdf:type', 'prof:ResourceDescriptor')
-            .length > 0;
+          const isRD =
+            match
+              .getAllMetadata()
+              .find(
+                match.getResourceURI(),
+                'rdf:type',
+                'prof:ResourceDescriptor'
+              ).length > 0;
           if (!isRD) matches.push(match);
         });
 

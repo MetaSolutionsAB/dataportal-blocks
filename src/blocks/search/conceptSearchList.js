@@ -6,5 +6,5 @@ export default {
   rdftype: ['skos:Concept'],
   rowhead: '{{text}}',
   rowexpand: `{{description property="skos:definition"}}
-  {{view filterpredicates="skos:prefLabel,skos:definition"}}`
+  {{view filterpredicates="skos:prefLabel,skos:definition"}}`,
 };

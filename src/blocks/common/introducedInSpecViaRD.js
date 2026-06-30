@@ -6,5 +6,5 @@ export default {
   constraints: {
     '~prof:isInheritedFrom': '<*>',
   },
-  template: `{{RDtoSpec namedclick="inherit"}}`
+  template: `{{RDtoSpec namedclick="inherit"}}`,
 };

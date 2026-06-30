@@ -7,5 +7,5 @@ export default {
   namedclick: 'spec',
   relationinverse: 'prof:hasResource',
   class: 'esbSpecificationLink',
-  template: `{{link namedclick=namedclick}}`
+  template: `{{link namedclick=namedclick}}`,
 };

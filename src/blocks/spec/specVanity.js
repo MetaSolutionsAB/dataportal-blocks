@@ -20,11 +20,13 @@ export default {
       .uriProperty('dcterms:conformsTo', entry.getResourceURI())
       .forEach((conformantEntry) => {
         resultSize += 1;
-        const isGrunddata = conformantEntry.getAllMetadata()
-          .find(conformantEntry.getResourceURI(), 'dcterms:subject')
-          .filter(stmt => stmt.getValue().startsWith(grunddataPrefix))
-          .length > 0;
-        if (isGrunddata) grunddataResults.push(conformantEntry)
+        const isGrunddata =
+          conformantEntry
+            .getAllMetadata()
+            .find(conformantEntry.getResourceURI(), 'dcterms:subject')
+            .filter((stmt) => stmt.getValue().startsWith(grunddataPrefix))
+            .length > 0;
+        if (isGrunddata) grunddataResults.push(conformantEntry);
       });
 
     let example;

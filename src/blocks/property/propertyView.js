@@ -13,5 +13,5 @@ export default {
         <div>{{propertyInfobox hl=(hinc)}}</div>
         <div>{{propertyVanity}}</div>
       </aside>
-    `
+    `,
 };

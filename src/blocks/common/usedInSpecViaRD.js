@@ -8,6 +8,7 @@ export default {
   vertical: false,
   limit: 'inherit',
   listhead: '',
-  listbody: '<div class="esbInlineList{{#if class}} {{class}}{{/if}}">{{body}}</div>',
-  rowhead: `{{RDtoSpec namedclick="inherit"}}`
+  listbody:
+    '<div class="esbInlineList{{#if class}} {{class}}{{/if}}">{{body}}</div>',
+  rowhead: `{{RDtoSpec namedclick="inherit"}}`,
 };

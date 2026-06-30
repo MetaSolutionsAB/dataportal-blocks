@@ -3,5 +3,5 @@ export default {
   extends: 'template',
   namedclick: 'spec',
   relationinverse: 'inspec:introduces',
-  template: `{{link namedclick="inherit"}}`
+  template: `{{link namedclick="inherit"}}`,
 };

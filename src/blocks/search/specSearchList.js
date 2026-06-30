@@ -7,5 +7,5 @@ export default {
   rdftype: ['dcterms:Standard', 'prof:Profile'],
   rowhead: '{{text}}',
   rowexpand: `{{description}}
-  {{view filterpredicates="dcterms:title,dcterms:description,prof:hasResource,dcat:contactPoint"}}`
+  {{view filterpredicates="dcterms:title,dcterms:description,prof:hasResource,dcat:contactPoint"}}`,
 };

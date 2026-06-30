@@ -1,6 +1,6 @@
 export default {
   entrystore: 'https://sandbox.admin.dataportal.se/store',
-  urlQueryParameters: true,  //todo: determine if needed/desired
+  urlQueryParameters: true, //todo: determine if needed/desired
   namespaces: {
     prof: 'http://www.w3.org/ns/dx/prof/',
     profrole: 'http://www.w3.org/ns/dx/prof/role/',
@@ -11,9 +11,9 @@ export default {
   bundles: [
     'https://static.infra.entryscape.com/suite/latest/templates/dcat3.json',
     'https://static.infra.entryscape.com/suite/latest/templates/rdfs.json', // rdfs bundled with Blocks is minimal
-    'https://sandbox.editera.dataportal.se/theme/templates/adms.json',  // todo: update
-    'https://sandbox.editera.dataportal.se/theme/templates/prof.json',  // todo: update
-    'https://sandbox.editera.dataportal.se/theme/templates/terms.json',  // todo: update
+    'https://sandbox.editera.dataportal.se/theme/templates/adms.json', // todo: update
+    'https://sandbox.editera.dataportal.se/theme/templates/prof.json', // todo: update
+    'https://sandbox.editera.dataportal.se/theme/templates/terms.json', // todo: update
   ],
   clicks: {
     spec: './specification.html',
@@ -21,7 +21,7 @@ export default {
     concept: './concept.html',
     terminology: './terminology.html',
     class: './class.html',
-    vocabulary: './class.html',  // todo: phase out, some are property
+    vocabulary: './class.html', // todo: phase out, some are property
     property: './property.html',
     ap: './ap.html',
     shape: './ap.html',
@@ -53,31 +53,42 @@ export default {
       datavoc: {
         datavoc: 'Datavokabulär',
         datavocUri: 'Adress för datavokabulären',
-        classesInDatavoc: 'I datavokabulären ingår {{PLURAL:${count}|${count} klass|${count} klasser}}',
-        propertiesInDatavoc: 'I datavokabulären ingår {{PLURAL:${count}|${count} egenskap|${count} egenskaper}}',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna datavokabulär.',
-        usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
+        classesInDatavoc:
+          'I datavokabulären ingår {{PLURAL:${count}|${count} klass|${count} klasser}}',
+        propertiesInDatavoc:
+          'I datavokabulären ingår {{PLURAL:${count}|${count} egenskap|${count} egenskaper}}',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna datavokabulär.',
+        usageInSpecIntro:
+          'Lite fast text som förklarar övergången till "användning i specifikationer".',
       },
       class: {
         class: 'Klass',
         classUri: 'Adress för klassen',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna klass.',
-        usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna klass.',
+        usageInSpecIntro:
+          'Lite fast text som förklarar övergången till "användning i specifikationer".',
       },
       property: {
         property: 'Egenskap',
         propertyUri: 'Adress för egenskapen',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna egenskap.',
-        usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna egenskap.',
+        usageInSpecIntro:
+          'Lite fast text som förklarar övergången till "användning i specifikationer".',
       },
       conceptScheme: {
         conceptScheme: 'Terminologi',
         reusedInSpecification: 'Återanvänds i specifikation',
         terminologyUri: 'Adress för terminologin',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna terminologi.',
-        topConceptsInTerminology: 'I terminologin ingår ${count} begrepp på översta nivån',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna terminologi.',
+        topConceptsInTerminology:
+          'I terminologin ingår ${count} begrepp på översta nivån',
         conceptCount: 'Totalt antal begrepp',
-        usageInSpecIntro: 'Lite fast text som förklarar övergången till "användning i specifikationer".',
+        usageInSpecIntro:
+          'Lite fast text som förklarar övergången till "användning i specifikationer".',
       },
       concept: {
         concept: 'Begrepp',
@@ -103,7 +114,8 @@ export default {
         download: 'Ladda ner',
         loading: 'Laddar resultat…',
         introducedInSpecification: 'Introduceras i specifikation',
-        usedInSpecification: 'Används i {{PLURAL:${count}|1 interoperabel specifikation|${count} interoperabla specifikationer}}',
+        usedInSpecification:
+          'Används i {{PLURAL:${count}|1 interoperabel specifikation|${count} interoperabla specifikationer}}',
         isPartOfDatavoc: 'Ingår i datavokabulär',
         downloadMetadataRdfXml: 'Ladda ner metadata som RDF/XML',
         downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
@@ -116,15 +128,19 @@ export default {
         specificationUri: 'Adress för specifikation',
         exploreAP: 'Utforska applikationsprofil',
         classesAndProperties: 'Klasser och egenskaper',
-        cpIntroduced: '{{PLURAL:${count}|1 introducerad Klass eller Egenskap|${count} introducerade Klasser och Egenskaper}} (I denna specifikation)',
-        cpReused: '{{PLURAL:${count}|1 återanvänd Klass eller Egenskap|${count} återanvända Klasser och Egenskaper}} (Från andra specifikationer)',
+        cpIntroduced:
+          '{{PLURAL:${count}|1 introducerad Klass eller Egenskap|${count} introducerade Klasser och Egenskaper}} (I denna specifikation)',
+        cpReused:
+          '{{PLURAL:${count}|1 återanvänd Klass eller Egenskap|${count} återanvända Klasser och Egenskaper}} (Från andra specifikationer)',
         resources: 'Resurser',
         rIntroduced: 'Introducerade (I denna specifikation)',
         rReused: 'Återanvända (Från andra specifikationer)',
         moreInformation: 'Mer information',
         lessInformation: 'Mindre information',
-        thisSpecificationHasNoResources: 'Denna specifikation har inga resurser.',
-        thisSpecificationHasNoReusedResources: 'Denna specifikation har inga återanvända resurser.',
+        thisSpecificationHasNoResources:
+          'Denna specifikation har inga resurser.',
+        thisSpecificationHasNoReusedResources:
+          'Denna specifikation har inga återanvända resurser.',
         goToResource: 'Gå till resurs',
         role: 'Roll',
         subject: 'Beskriver',
@@ -133,8 +149,10 @@ export default {
         foundationalInspec: 'Interoperabel basspecifikation',
         profileInspec: 'Interoperabel profilspecifikation',
         nonInspec: 'Specifikation',
-        conformanceNumberInfo: '{{PLURAL:${count}|Datamängd|Datamängder}} följer denna specifikation.',
-        grunddataConformanceNumberInfo: 'Varav {{PLURAL:${count}|${count}|${count} stycken}} är nationell grunddatamängd:',
+        conformanceNumberInfo:
+          '{{PLURAL:${count}|Datamängd|Datamängder}} följer denna specifikation.',
+        grunddataConformanceNumberInfo:
+          'Varav {{PLURAL:${count}|${count}|${count} stycken}} är nationell grunddatamängd:',
         inspecTypeSkos: 'terminologi',
         inspecTypeRdfs: 'datavokabulär',
         inspecTypeShacl: 'applikationsprofil',
@@ -159,31 +177,42 @@ export default {
       datavoc: {
         datavoc: 'Data Vocabulary',
         datavocUri: 'Uri for the data vocabulary',
-        classesInDatavoc: 'The data vocabulary includes {{PLURAL:${count}|${count} class|${count} classes}}',
-        propertiesInDatavoc: 'The data vocabulary includes {{PLURAL:${count}|${count} property|${count} properties}}',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this data vocabulary.',
-        usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
+        classesInDatavoc:
+          'The data vocabulary includes {{PLURAL:${count}|${count} class|${count} classes}}',
+        propertiesInDatavoc:
+          'The data vocabulary includes {{PLURAL:${count}|${count} property|${count} properties}}',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this data vocabulary.',
+        usageInSpecIntro:
+          'Some fixed text explaining the transition to "used in specifications".',
       },
       class: {
         class: 'Class',
         classUri: 'Uri for the class',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this class.',
-        usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this class.',
+        usageInSpecIntro:
+          'Some fixed text explaining the transition to "used in specifications".',
       },
       property: {
         property: 'Property',
         propertyUri: 'Uri for the property',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this property.',
-        usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this property.',
+        usageInSpecIntro:
+          'Some fixed text explaining the transition to "used in specifications".',
       },
       conceptScheme: {
         conceptScheme: 'Terminology',
         reusedInSpecification: 'Reused in specification',
         terminologyUri: 'URI for the terminology',
-        reusedNumberInfo: '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this terminology.',
-        topConceptsInTerminology: 'The terminology includes {{PLURAL:${count}|${count} concept|${count} concepts}} on the top level',
+        reusedNumberInfo:
+          '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this terminology.',
+        topConceptsInTerminology:
+          'The terminology includes {{PLURAL:${count}|${count} concept|${count} concepts}} on the top level',
         conceptCount: 'Total number of concepts',
-        usageInSpecIntro: 'Some fixed text explaining the transition to "used in specifications".',
+        usageInSpecIntro:
+          'Some fixed text explaining the transition to "used in specifications".',
       },
       concept: {
         concept: 'Concept',
@@ -209,7 +238,8 @@ export default {
         download: 'Download',
         loading: 'Loading results…',
         introducedInSpecification: 'Introduced in specification',
-        usedInSpecification: 'Used in ${count} interoperable {{PLURAL:${count}|specification|specifications}}',
+        usedInSpecification:
+          'Used in ${count} interoperable {{PLURAL:${count}|specification|specifications}}',
         isPartOfDatavoc: 'Is part of data vocabulary',
         downloadMetadataRdfXml: 'Download metadata as RDF/XML',
         downloadMetadataTurtle: 'Download metadata as TURTLE',
@@ -222,15 +252,18 @@ export default {
         specificationUri: 'URI for the specification',
         exploreAP: 'Explore the application profile',
         classesAndProperties: 'Classes and properties',
-        cpIntroduced: '{{PLURAL:${count}|1 introduced Class or Property|${count} introduced Classes and Properties}} (In this specification)',
-        cpReused: '{{PLURAL:${count}|1 reused Class or Property|${count} reused Classes and Properties}} (From other specifications)',
+        cpIntroduced:
+          '{{PLURAL:${count}|1 introduced Class or Property|${count} introduced Classes and Properties}} (In this specification)',
+        cpReused:
+          '{{PLURAL:${count}|1 reused Class or Property|${count} reused Classes and Properties}} (From other specifications)',
         resources: 'Resources',
         rIntroduced: 'Introduced (In this specification)',
         rReused: 'Reused (From other specifications)',
         moreInformation: 'More information',
         lessInformation: 'Less information',
         thisSpecificationHasNoResources: 'This specification has no resources.',
-        thisSpecificationHasNoReusedResources: 'This specification has no reused resources.',
+        thisSpecificationHasNoReusedResources:
+          'This specification has no reused resources.',
         goToResource: 'Go to resource',
         role: 'Role',
         subject: 'Subject',
@@ -239,8 +272,10 @@ export default {
         foundationalInspec: 'Foundational interoperable specification',
         profileInspec: 'Profile interoperable specification',
         nonInspec: 'Specification',
-        conformanceNumberInfo: '{{PLURAL:${count}|Dataset|Datasets}} conform to this specification.',
-        grunddataConformanceNumberInfo: 'Of which {{PLURAL:${count}|${count} is a national basic dataset|${count} are national basic datasets}}:',
+        conformanceNumberInfo:
+          '{{PLURAL:${count}|Dataset|Datasets}} conform to this specification.',
+        grunddataConformanceNumberInfo:
+          'Of which {{PLURAL:${count}|${count} is a national basic dataset|${count} are national basic datasets}}:',
         inspecTypeSkos: 'terminology',
         inspecTypeRdfs: 'data vocabulary',
         inspecTypeShacl: 'application profile',

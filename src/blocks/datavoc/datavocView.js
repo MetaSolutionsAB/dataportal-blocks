@@ -17,5 +17,5 @@ export default {
         <div>{{datavocInfobox hl=(hinc)}}</div>
         <div>{{datavocVanity}}</div>
       </aside>
-    `
+    `,
 };

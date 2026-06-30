@@ -3,7 +3,7 @@
 // Adds labels to Resource Descriptors if they are INSPEC-conformant
 export default {
   extends: 'template',
-  content : '',
+  content: '',
   template: `{{#ifprop "dcterms:conformsTo" uri="inspec:SKOS,inspec:SHACL,inspec:RDFS,inspec:SVG"}}
     <span class="resourceStyleMarker">
     {{#ifprop "dcterms:conformsTo" uri="inspec:SKOS"}}
@@ -19,5 +19,5 @@ export default {
       {{nls "spec.inspecTypeSvg"}}
     {{/ifprop}}
   </span>
-    {{/ifprop}}`
+    {{/ifprop}}`,
 };

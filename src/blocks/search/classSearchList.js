@@ -6,5 +6,5 @@ export default {
   rdftype: ['rdfs:Class'],
   rowhead: '{{text}}',
   rowexpand: `{{description property="rdfs:comment"}}
-  {{view filterpredicates="rdfs:label,rdfs:comment"}}`
+  {{view filterpredicates="rdfs:label,rdfs:comment"}}`,
 };

@@ -15,5 +15,5 @@ export default {
       <div>{{specVanity}}</div>
       <div>{{specInfobox hl=(hinc)}}</div>
     </aside>
-  `
+  `,
 };

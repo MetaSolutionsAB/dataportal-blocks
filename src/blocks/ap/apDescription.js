@@ -1,4 +1,4 @@
 export default {
   extends: 'text',
-  property: 'dcterms:description'
+  property: 'dcterms:description',
 };

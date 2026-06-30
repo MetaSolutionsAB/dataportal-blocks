@@ -1,61 +1,64 @@
 body.toc-sidebar #toc {
-    background-color: #fbf4f3 !important;
-    box-shadow: none !important;
+  background-color: #fbf4f3 !important;
+  box-shadow: none !important;
 }
 
 body.rdforms-specs {
-    background-image: none !important;
+  background-image: none !important;
 }
 
 body.rdforms-specs hr {
-    border-color: rgb(43, 42, 41) !important;
+  border-color: rgb(43, 42, 41) !important;
 }
 
 body.rdforms-specs .def {
-    background: #fbf4f3 !important;
-    border-left: 0.5em solid rgb(110 97 90) !important;
+  background: #fbf4f3 !important;
+  border-left: 0.5em solid rgb(110 97 90) !important;
 }
 
-body.rdforms-specs h1, body.rdforms-specs h2, body.rdforms-specs h3 {
-    color: rgb(43, 42, 41) !important;
+body.rdforms-specs h1,
+body.rdforms-specs h2,
+body.rdforms-specs h3 {
+  color: rgb(43, 42, 41) !important;
 }
 
 body.rdforms-specs .specState {
-    margin-top: 0;
-    margin-bottom: 1.5em;
-    font-size: 140%;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  font-size: 140%;
 }
 
 body.rdforms-specs a[href] {
-    color: rgb(43, 42, 41);
-    text-decoration: none;
-    border-bottom: 1px solid rgb(43, 42, 41);
-    padding: 0 1px 0;
-    margin: 0 -1px 0;
+  color: rgb(43, 42, 41);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(43, 42, 41);
+  padding: 0 1px 0;
+  margin: 0 -1px 0;
 }
 
 body.rdforms-specs:not(.toc-inline) #toc h2 {
-    color: rgb(43, 42, 41);
+  color: rgb(43, 42, 41);
 }
 
-body.rdforms-specs table.def td, body.rdforms-specs table.def th {
-    border-bottom: 1px solid rgb(43, 42, 41);
+body.rdforms-specs table.def td,
+body.rdforms-specs table.def th {
+  border-bottom: 1px solid rgb(43, 42, 41);
 }
 
 body.rdforms-specs a.dpButton[href] {
-    font-size: inherit;
-    font-family: inherit;
-    font-weight: inherit;
-    gap: .5rem;
-    border: none;
-    background: none;
-    padding: .5rem .75rem;
-    text-decoration: none;
-    background: rgb(110 97 90);
-    color: rgb(240 239 238);
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  gap: 0.5rem;
+  border: none;
+  background: none;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  background: rgb(110 97 90);
+  color: rgb(240 239 238);
 }
 
 body.rdforms-specs a.dpButton:hover[href] {
-    background: rgb(226 223 223);
-    color: rgb(110 97 90);
+  background: rgb(226 223 223);
+  color: rgb(110 97 90);
 }

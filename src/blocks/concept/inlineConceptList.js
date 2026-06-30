@@ -18,5 +18,5 @@ export default {
     limit="inherit"
     bodyClass="inherit"
     listbody="inherit"
-  }}`
+  }}`,
 };

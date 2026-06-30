@@ -8,7 +8,8 @@ export default {
   unexpandTooltip: 'esb_nls:spec.lessInformation',
   listbody: '<div class="esbResourceDescriptors">{{body}}</div>',
   placeholderText: 'esb_nls:spec.thisSpecificationHasNoResources',
-  listplaceholder: '<div class="alert alert-info" role="alert">{{placeholderText}}</div>',
+  listplaceholder:
+    '<div class="alert alert-info" role="alert">{{placeholderText}}</div>',
   rowhead: `{{resourceDescriptorTypeMarker}}
     <h{{hl}}>{{text class="specPart"}}</h{{hl}}>
     <dl class="esbResourcesFeatures">

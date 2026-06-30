@@ -4,5 +4,6 @@ export default {
   relation: 'adms:last',
   namedClick: '',
   class: undefined,
-  template: '<span {{#if class}}class="{{class}}"{{/if}}>{{link namedclick=namedClick}}</span>'
+  template:
+    '<span {{#if class}}class="{{class}}"{{/if}}>{{link namedclick=namedClick}}</span>',
 };
