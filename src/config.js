@@ -135,6 +135,10 @@ export default {
         nonInspec: 'Specifikation',
         conformanceNumberInfo: '{{PLURAL:${count}|Datamängd|Datamängder}} följer denna specifikation.',
         grunddataConformanceNumberInfo: 'Varav {{PLURAL:${count}|${count}|${count} stycken}} är nationell grunddatamängd:',
+        inspecTypeSkos: 'terminologi',
+        inspecTypeRdfs: 'datavokabulär',
+        inspecTypeShacl: 'applikationsprofil',
+        inspecTypeSvg: 'diagram',
       },
       respec: {
         backToTheOverview: 'Tillbaka till översikten',
@@ -237,6 +241,10 @@ export default {
         nonInspec: 'Specification',
         conformanceNumberInfo: '{{PLURAL:${count}|Dataset|Datasets}} conform to this specification.',
         grunddataConformanceNumberInfo: 'Of which {{PLURAL:${count}|${count} is a national basic dataset|${count} are national basic datasets}}:',
+        inspecTypeSkos: 'terminology',
+        inspecTypeRdfs: 'data vocabulary',
+        inspecTypeShacl: 'application profile',
+        inspecTypeSvg: 'diagram',
       },
       respec: {
         backToTheOverview: 'Back to the overview',

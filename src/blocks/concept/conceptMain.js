@@ -1,4 +1,3 @@
-// todo: view is temporary. alternative terms should be listed
 export default {
   extends: 'template',
   hl: '2',
@@ -29,14 +28,12 @@ export default {
       {{narrowerConceptsList limit=narrowerConceptLimit}}
     </details>
 
-    {{#ifprop "skos:related"}}
-      <details open>
-        <summary class="esbSummaryWithHeading">
-          <h{{hl}} class="esbHeadingInSummary">{{nls "concept.relatedConcepts"}}</h{{hl}}>
-        </summary>
-        {{relatedConceptsList limit=relatedConceptLimit}}
-      </details>
-    {{/ifprop}}
+    <details open>
+      <summary class="esbSummaryWithHeading">
+        <h{{hl}} class="esbHeadingInSummary">{{nls "concept.relatedConcepts"}}</h{{hl}}>
+      </summary>
+      {{relatedConceptsList limit=relatedConceptLimit}}
+    </details>
 
     {{#ifprop "skos:exactMatch,skos:closeMatch,skos:relatedMatch,skos:broadMatch,skos:narrowMatch"}}
       <details open>

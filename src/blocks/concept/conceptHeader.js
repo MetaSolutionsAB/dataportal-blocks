@@ -1,4 +1,3 @@
-//todo: want to fetch publisher from terminology
 import header from '../common/layout/header.js';
 
 export default {
