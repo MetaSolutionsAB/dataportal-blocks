@@ -1,3 +1,14 @@
+/**
+ * Top-level Terminology page composite (mounted via
+ * `data-entryscape="terminologyView"`). Lays out header + main + aside
+ * (infobox, vanity), threading heading level down via `hinc`.
+ *
+ * Params:
+ * - `hl` ('1') — base heading level; main/infobox get `hl+1` via `(hinc)`.
+ * - `conceptLimit` (5) — max concepts listed in `terminologyMain`.
+ * - `specUsageLimit` (5) — max spec-usage rows in `terminologyMain`.
+ * CSS: emits `esbAside` on the sidebar column.
+ */
 export default {
   extends: 'template',
   hl: '1',

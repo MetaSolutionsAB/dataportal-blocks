@@ -1,3 +1,9 @@
+/**
+ * "Go to resource" external-link button for a Resource Descriptor. Links to its
+ * `prof:hasArtifact` when present, otherwise to the descriptor's resource URI.
+ *
+ * CSS: emits `extLinkButton` and `rdButton`.
+ */
 export default {
   extends: 'template',
   template: `

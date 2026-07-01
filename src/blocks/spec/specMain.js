@@ -1,4 +1,16 @@
 // todo: split used/reused into class/properties
+/**
+ * Content column of the Specification page: diagram, AP-inspect button,
+ * description, the introduced/reused classes-and-properties sections, and the
+ * introduced/reused resource-descriptor lists (each in a `<details>`).
+ *
+ * Params:
+ * - `hl` ('2') — heading level for the section headings; sub-headings use `(hinc)`.
+ * - `introducedLimit` (15) — row cap passed to `cpIntroducedInSpecList`.
+ * - `reusedLimit` (15) — row cap passed to `cpReusedInSpecList`.
+ * CSS: emits `esbMainContent`; section summaries use `esbSummaryWithHeading`
+ *   and `esbHeadingInSummary`.
+ */
 export default {
   extends: 'template',
   hl: '2',

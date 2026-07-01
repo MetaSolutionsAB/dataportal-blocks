@@ -1,3 +1,13 @@
+/**
+ * Content column of the Concept page: definition, alternative labels, and the
+ * broader / narrower / related / matching-concept sections.
+ *
+ * Params:
+ * - `hl` ('2') — heading level for the section headings.
+ * - `broaderConceptLimit` / `narrowerConceptLimit` / `relatedConceptLimit` /
+ *   `matchingConceptLimit` (15 each) — row limits for the respective lists.
+ * CSS: emits `esbMainContent`.
+ */
 export default {
   extends: 'template',
   hl: '2',

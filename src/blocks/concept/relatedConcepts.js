@@ -1,3 +1,14 @@
+/**
+ * Renders one SKOS mapping relation as a labelled heading plus an inline list
+ * of the matching concepts; outputs nothing when the relation is absent. Used
+ * per-relation by `conceptsInOtherTerminology`.
+ *
+ * Params:
+ * - `relationProperty` ('') — the SKOS relation to render (e.g. `skos:exactMatch`).
+ * - `label` ('') — NLS-prefixed heading label for the relation.
+ * - `hl` ('3') — heading level.
+ * - `limit` ('inherit') — row limit passed to the inline list.
+ */
 export default {
   extends: 'template',
   hl: '3',

@@ -1,3 +1,10 @@
+/**
+ * Always-visible AP header metadata rows: profile-of, preferred identifier,
+ * publisher, and the stable address to this version.
+ *
+ * CSS: the publisher row emits the microformat classes `editor`,
+ * `p-author h-card vcard`.
+ */
 export default {
   extends: 'template',
   template: `

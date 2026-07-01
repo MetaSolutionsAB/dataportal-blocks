@@ -1,3 +1,16 @@
+/**
+ * List of a specification's Resource Descriptors (`prof:hasResource`). Each row
+ * shows the type badge, title, role(s) and reused-from link, with an expandable
+ * subject + metadata view. Base block — `introducedResourceDescriptors` and
+ * `reusedResourceDescriptors` extend it with a `constraints` filter.
+ *
+ * Params:
+ * - `hl` (4) — heading level for each row's title.
+ * - `placeholderText` — NLS key shown when the list is empty (overridden by the
+ *   reused variant).
+ * CSS: emits `esbResourceDescriptors` (container), `specPart` (title link),
+ *   `esbResourcesFeatures` (the role/reused-from `<dl>`).
+ */
 export default {
   extends: 'list',
   semanticHtml: true,

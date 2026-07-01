@@ -1,3 +1,11 @@
+/**
+ * Renders a "Download" heading plus links to the entry's metadata in RDF/XML,
+ * Turtle, and JSON-LD (URLs built from `metadataURI`).
+ *
+ * Params:
+ * - `hl` ('3') — heading level for the "Download" title.
+ * CSS: container gets `rdfLinks esbInlineList esbInlineVerticalList`.
+ */
 export default {
   extends: 'template',
   hl: '3',

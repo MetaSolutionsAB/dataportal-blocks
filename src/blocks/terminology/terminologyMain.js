@@ -1,3 +1,13 @@
+/**
+ * Content column of the Terminology page: description, the top-concepts list,
+ * and the "used in specifications" section.
+ *
+ * Params:
+ * - `hl` ('2') — heading level for the section headings.
+ * - `conceptLimit` (15) — max rows in the top-concepts list.
+ * - `specUsageLimit` (15) — max rows in the spec-usage list.
+ * CSS: emits `esbMainContent`.
+ */
 export default {
   extends: 'template',
   hl: '2',

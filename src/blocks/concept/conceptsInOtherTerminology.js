@@ -1,3 +1,12 @@
+/**
+ * Renders the five SKOS mapping relations (exact / close / related / broad /
+ * narrow match) as separate labelled inline-concept lists, one `relatedConcepts`
+ * block each.
+ *
+ * Params:
+ * - `hl` ('3') — heading level for each relation's sub-heading.
+ * - `limit` ('inherit') — row limit passed to each list.
+ */
 export default {
   extends: 'template',
   hl: '3',

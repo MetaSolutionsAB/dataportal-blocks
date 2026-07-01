@@ -7,6 +7,18 @@
  */
 import { resolveEntry } from '../common/scripts/resolveEntry.js';
 
+/**
+ * Sidebar "vanity" panel for a Specification: shows how many datasets conform
+ * to the spec, and (when present) links one example "nationell grunddatamängd"
+ * dataset.
+ *
+ * Provides on `data`:
+ * - `resultsize` — count of `dcat:Dataset` entries conforming to this spec.
+ * - `grunddataResultsize` — subset count whose `dcterms:subject` is grunddata.
+ * - `example` — `{context, entry, uri, ruri}` of the first grunddata dataset
+ *   (unset when there is none).
+ * CSS: emits `esbVanity`, `esbVanityStatContainer`, `esbVanityNumber`.
+ */
 export default {
   extends: 'template',
   before: async function (node, data, registry) {

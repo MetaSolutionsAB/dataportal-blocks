@@ -1,4 +1,12 @@
 // todo drop view-block
+/**
+ * Aside infobox for the Property page: URI, the spec it was introduced in, its
+ * parent data vocabulary, a raw metadata view, and RDF links.
+ *
+ * Params:
+ * - `hl` ('2') — heading level for the box heading.
+ * CSS: emits `esbInfobox`.
+ */
 export default {
   extends: 'template',
   hl: '2',

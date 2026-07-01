@@ -1,3 +1,11 @@
+/**
+ * Aside infobox for the Terminology page: terminology URI, introducing
+ * specification, concept count, and RDF download links.
+ *
+ * Params:
+ * - `hl` ('2') — heading level for the infobox heading.
+ * CSS: emits `esbInfobox`.
+ */
 export default {
   extends: 'template',
   hl: '2',

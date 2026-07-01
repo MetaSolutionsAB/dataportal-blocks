@@ -1,3 +1,15 @@
+/**
+ * Content column for the Data Vocabulary page: description, collapsible class
+ * and property lists, and a spec-usage section.
+ *
+ * Params:
+ * - `hl` ('2') — heading level for the section headings.
+ * - `classLimit` (15) — max rows in the class list.
+ * - `propertyLimit` (15) — max rows in the property list.
+ * - `specUsageLimit` (15) — max rows in the spec-usage list.
+ * CSS: emits `esbMainContent`; passes `esbDatavocUsageInSpecContainer`
+ *   to the usage list.
+ */
 export default {
   extends: 'template',
   hl: '2',

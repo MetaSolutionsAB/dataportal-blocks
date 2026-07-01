@@ -1,3 +1,9 @@
+/**
+ * AP header metadata block: renders the always-visible metadata list
+ * (`apHeaderMetadataMain`) plus a collapsible `<details>` with the secondary
+ * fields (`apHeaderMetadataDetails`), shown only when any date/version
+ * property is present.
+ */
 export default {
   extends: 'template',
   template: `

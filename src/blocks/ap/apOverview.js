@@ -1,3 +1,9 @@
+/**
+ * "Back to the overview" button linking to the specification via the `spec`
+ * namedclick.
+ *
+ * CSS: emits `dpButton`.
+ */
 export default {
   extends: 'template',
   template:

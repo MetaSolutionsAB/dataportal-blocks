@@ -1,3 +1,13 @@
+/**
+ * Content column for the Class page: description, the spec it was introduced in,
+ * and a spec-usage section.
+ *
+ * Params:
+ * - `hl` ('2') — heading level for the section headings.
+ * - `specUsageLimit` (15) — max rows in the spec-usage list.
+ * CSS: emits `esbMainContent`; passes `esbClassUsageInSpecContainer` to
+ *   the usage list.
+ */
 export default {
   extends: 'template',
   hl: '2',

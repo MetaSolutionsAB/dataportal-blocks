@@ -1,5 +1,17 @@
 import { resolveEntry } from './scripts/resolveEntry.js';
 
+/**
+ * Loads a specification's Resource Descriptor entries and surfaces the
+ * application profile (AP) and diagram among them. Renders nothing itself —
+ * extended by blocks that consume the data it injects (e.g. `diagramImage`,
+ * `specInspectAPButton`).
+ *
+ * Provides on `data`:
+ * - `ap` — the RD whose resource conforms to `inspec:SHACL` (falls back to a
+ *   legacy URI ending `SHACL-INSPEC/1.0`); unset if none.
+ * - `diagram` — the RD whose resource is `image/svg+xml`; unset if none.
+ * - `diagramURI` — that diagram's resource URI (set only when `diagram` is).
+ */
 export default {
   extends: 'template',
   before: async function (node, data, registry) {

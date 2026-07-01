@@ -1,10 +1,20 @@
-// Renders the resource descriptor's dcterms:subject as a link. The before
-// script looks up whether the subject URI corresponds to a local entry and,
-// from the subject's type combined with the descriptor's prof:hasRole, picks
-// the portal namedclick (ap / datavoc / terminology). When nothing maps it
-// falls back to a plain link to the subject URI.
 import { resolveEntry } from '../common/scripts/resolveEntry.js';
 
+/**
+ * Renders the resource descriptor's `dcterms:subject` as a link. The before
+ * script looks up whether the subject URI corresponds to a local entry and,
+ * from the subject's type combined with the descriptor's `prof:hasRole`, picks
+ * the portal namedclick (ap / datavoc / terminology). When nothing maps it
+ * falls back to a plain link to the subject URI.
+ *
+ * Provides on `data`:
+ * - `subjectURI` — the raw `dcterms:subject` value (unset when absent).
+ * - `subjectHref` — `subjectURI` if it is http(s), else unset (XSS guard).
+ * - `namedclick` — portal route ('ap'/'datavoc'/'terminology') when the local
+ *   entry's type+role maps to one; unset otherwise.
+ * - `localContext`, `localId` — context/entry id of the matched local entry
+ *   (set only alongside `namedclick`).
+ */
 export default {
   extends: 'template',
   before: async function (node, data, registry) {

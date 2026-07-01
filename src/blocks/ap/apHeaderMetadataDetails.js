@@ -1,3 +1,7 @@
+/**
+ * Secondary AP header metadata rows shown inside the collapsible `<details>`:
+ * publication/modification dates and the latest/next/previous version links.
+ */
 export default {
   extends: 'template',
   template: `

@@ -6,6 +6,15 @@
 
 // requires the clicks configuration to define: property, class, terminology, spec, shape
 
+/**
+ * Bootstraps the rdforms-specs profile renderer for an Application Profile's
+ * SHACL shape, wiring its click-through URLs from `config.clicks`. Side effect
+ * only (a `run` block) — renders no markup itself.
+ *
+ * Params:
+ * - `shacl` ('') — the AP's SHACL resource descriptor entry (passed by `loadAp`
+ *   as `shacl=ap`); its resource URI is the shape. Does nothing when unset.
+ */
 export default {
   shacl: '',
   run: function (node, data, items, entry) {
