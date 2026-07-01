@@ -6,7 +6,7 @@
  * - `hl` ('1') — heading level for the `<h{hl}>` title.
  * - `class` ('esbHeading') — class on the block's heading wrapper.
  * - `typeContent` ('') — NLS-prefixed type label passed to `typeMarker`.
- * CSS: emits `esbHeading` and `orgLink` on the publisher link.
+ * CSS: emits `esbHeading` and `esbOrgLink` on the publisher link.
  */
 export default {
   extends: 'template',
@@ -16,7 +16,7 @@ export default {
   template: `
     <h{{hl}}>{{text}}</h{{hl}}>
     {{#ifprop "dcterms:publisher"}}
-      {{link relation="dcterms:publisher" namedclick="organization" class="orgLink"}}
+      {{link relation="dcterms:publisher" namedclick="organization" class="esbOrgLink"}}
     {{/ifprop}}<br/>
     {{typeMarker content=typeContent}}
   `,

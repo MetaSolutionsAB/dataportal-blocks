@@ -2,7 +2,7 @@
  * Renders just the number of `skos:Concept` entries in this scheme (the
  * `resultsize` of an otherwise blank list query); no rows are output.
  *
- * CSS: emits `conceptCount` on the count span.
+ * CSS: emits `esbConceptCount` on the count span.
  */
 export default {
   extends: 'list',
@@ -11,5 +11,5 @@ export default {
   rdftype: 'skos:Concept',
   relationinverse: 'skos:inScheme',
   listbody: ' ',
-  listhead: '<span class="conceptCount">{{resultsize}}</span>',
+  listhead: '<span class="esbConceptCount">{{resultsize}}</span>',
 };

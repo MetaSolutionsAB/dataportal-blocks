@@ -6,13 +6,13 @@
  *
  * Params:
  * - `content` ('') — unused passthrough kept for parity with `typeMarker`.
- * CSS: emits `resourceStyleMarker`.
+ * CSS: emits `esbResourceStyleMarker`.
  */
 export default {
   extends: 'template',
   content: '',
   template: `{{#ifprop "dcterms:conformsTo" uri="inspec:SKOS,inspec:SHACL,inspec:RDFS,inspec:SVG"}}
-    <span class="resourceStyleMarker">
+    <span class="esbResourceStyleMarker">
     {{#ifprop "dcterms:conformsTo" uri="inspec:SKOS"}}
       {{nls "spec.inspecTypeSkos"}}
     {{/ifprop}}

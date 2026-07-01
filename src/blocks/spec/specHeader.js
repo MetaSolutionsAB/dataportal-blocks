@@ -6,8 +6,8 @@
  *
  * Params:
  * - `hl` ('1') — heading level for the title.
- * CSS: emits `esbHeading`; badges via `typeMarker` (`styleMarker`),
- *   publisher link uses `orgLink`.
+ * CSS: emits `esbHeading`; badges via `typeMarker` (`esbStyleMarker`),
+ *   publisher link uses `esbOrgLink`.
  */
 export default {
   extends: 'template',
@@ -16,7 +16,7 @@ export default {
   template: `
     <h{{hl}}>{{text}}</h{{hl}}>
     {{#ifprop "dcterms:publisher"}}
-      {{link relation="dcterms:publisher" namedclick="organization" class="orgLink"}}
+      {{link relation="dcterms:publisher" namedclick="organization" class="esbOrgLink"}}
     {{/ifprop}}<br/>
     {{#ifprop "dcterms:conformsTo" uri="inspec:PROF"}}
       {{#ifprop "rdf:type" uri="prof:Profile"}}

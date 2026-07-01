@@ -36,7 +36,7 @@
   background: #2d4429;
 }
 
-.entryscape .styleMarker {
+.entryscape .esbStyleMarker {
   display: inline-block;
   background: #3d5c3a;
   color: #fff;
@@ -48,7 +48,7 @@
   text-transform: uppercase;
 }
 
-.entryscape .resourceStyleMarker {
+.entryscape .esbResourceStyleMarker {
   display: inline-block;
   background: #3d5c3a;
   float: right;
@@ -132,7 +132,7 @@
   background-color: #faf8f4;
 }
 
-.entryscape a.extLinkButton[href] {
+.entryscape a.esbExtLinkButton[href] {
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
@@ -150,14 +150,14 @@
   background: rgb(110 97 90);
   color: rgb(240 239 238);
 }
-.entryscape a.extLinkButton:hover[href] {
+.entryscape a.esbExtLinkButton:hover[href] {
   background: rgb(226 223 223);
   color: rgb(110 97 90);
 }
 
 .entryscape a.esbSpecLink[href]::after,
 .entryscape a.esbExternalConceptLink[href]::after,
-.entryscape a.extLinkButton[href]::after {
+.entryscape a.esbExtLinkButton[href]::after {
   content: '\f35d' / ''; /* fa-external-link-alt */
   font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free';
   font-weight: 900;

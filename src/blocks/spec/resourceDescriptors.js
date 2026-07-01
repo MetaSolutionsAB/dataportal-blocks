@@ -8,7 +8,7 @@
  * - `hl` (4) — heading level for each row's title.
  * - `placeholderText` — NLS key shown when the list is empty (overridden by the
  *   reused variant).
- * CSS: emits `esbResourceDescriptors` (container), `specPart` (title link),
+ * CSS: emits `esbResourceDescriptors` (container), `esbSpecPart` (title link),
  *   `esbResourcesFeatures` (the role/reused-from `<dl>`).
  */
 export default {
@@ -24,7 +24,7 @@ export default {
   listplaceholder:
     '<div class="alert alert-info" role="alert">{{placeholderText}}</div>',
   rowhead: `{{resourceDescriptorTypeMarker}}
-    <h{{hl}}>{{text class="specPart"}}</h{{hl}}>
+    <h{{hl}}>{{text class="esbSpecPart"}}</h{{hl}}>
     <dl class="esbResourcesFeatures">
       <dt>{{nls "spec.role"}}</dt>
       <dd>{{#eachprop "prof:hasRole"}}{{label}}{{separator}}{{/eachprop}}</dd>

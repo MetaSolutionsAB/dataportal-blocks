@@ -4,10 +4,10 @@
  * Params:
  * - `content` ('') — the label text (caller passes it, e.g.
  *   `{{typeMarker content=typeContent}}`).
- * CSS: emits `styleMarker`.
+ * CSS: emits `esbStyleMarker`.
  */
 export default {
   extends: 'template',
   content: '',
-  template: `<span class="styleMarker">{{content}}</span>`,
+  template: `<span class="esbStyleMarker">{{content}}</span>`,
 };
