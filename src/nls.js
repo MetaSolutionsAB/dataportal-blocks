@@ -106,6 +106,7 @@ export default {
       inspecTypeRdfs: 'datavokabulär',
       inspecTypeShacl: 'applikationsprofil',
       inspecTypeSvg: 'diagram',
+      grunddata: 'Nationell grunddata',
     },
     respec: {
       backToTheOverview: 'Tillbaka till översikten',
@@ -229,6 +230,7 @@ export default {
       inspecTypeRdfs: 'data vocabulary',
       inspecTypeShacl: 'application profile',
       inspecTypeSvg: 'diagram',
+      grunddata: 'National basic data',
     },
     respec: {
       backToTheOverview: 'Back to the overview',

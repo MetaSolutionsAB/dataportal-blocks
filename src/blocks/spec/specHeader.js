@@ -1,16 +1,29 @@
-// shares a structure with '../common/layout/header.js' but cannot extend it as content needs to be determined dynamically
+import { resolveEntry } from '../common/scripts/resolveEntry.js';
+import { isGrunddata } from '../common/scripts/isGrunddata.js';
 /**
  * Specification page heading: title, publisher link, and a type badge whose
  * label is derived dynamically from INSPEC conformance and rdf:type (profile /
- * foundational / non-INSPEC) — the reason it can't extend `header`.
+ * foundational / non-INSPEC) — the reason it can't extend `header`. A spec that
+ * is a 'nationell grunddata' additionally gets a grunddata badge.
+ *
+ * Shares a structure with '../common/layout/header.js' but cannot extend it as
+ * the content needs to be determined dynamically.
  *
  * Params:
  * - `hl` ('1') — heading level for the title.
+ * Provides on `data`:
+ * - `isGrunddata` — whether the spec has a grunddata `dcterms:subject`.
  * CSS: emits `esbHeading`; badges via `typeMarker` (`esbStyleMarker`),
  *   publisher link uses `esbOrgLink`.
  */
 export default {
   extends: 'template',
+  before: async function (node, data, registry) {
+    const { entry } = resolveEntry(registry, data);
+    data.isGrunddata = isGrunddata(entry);
+    return Promise.resolve();
+  },
+  progressTemplate: `{{nls "general.loading"}}`,
   hl: '1',
   class: 'esbHeading',
   template: `
@@ -29,5 +42,8 @@ export default {
     {{#ifprop "dcterms:conformsTo" uri="inspec:PROF" invert="true"}}
       {{typeMarker content=(nls "spec.nonInspec")}}
     {{/ifprop}}
+    {{#if this.isGrunddata}}
+      {{typeMarker content=(nls "spec.grunddata")}}
+    {{/if}}
   `,
 };

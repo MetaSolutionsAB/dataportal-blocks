@@ -1,11 +1,7 @@
 // todo: add button going to datset search with filter conformsTo=this_spec
 
-/*
- * The before script identifies any dcat:Dataset which dcterms:conformsTo
- * the given specification. It then identifies the subset of these which
- * are 'nationell grunddatamängd'.
- */
 import { resolveEntry } from '../common/scripts/resolveEntry.js';
+import { isGrunddata } from '../common/scripts/isGrunddata.js';
 
 /**
  * Sidebar "vanity" panel for a Specification: shows how many datasets conform
@@ -22,7 +18,6 @@ import { resolveEntry } from '../common/scripts/resolveEntry.js';
 export default {
   extends: 'template',
   before: async function (node, data, registry) {
-    const grunddataPrefix = 'https://dataportal.se/concepts/grunddata/';
     const { es, entry } = resolveEntry(registry, data);
     let resultSize = 0;
     let grunddataResults = [];
@@ -32,13 +27,8 @@ export default {
       .uriProperty('dcterms:conformsTo', entry.getResourceURI())
       .forEach((conformantEntry) => {
         resultSize += 1;
-        const isGrunddata =
-          conformantEntry
-            .getAllMetadata()
-            .find(conformantEntry.getResourceURI(), 'dcterms:subject')
-            .filter((stmt) => stmt.getValue().startsWith(grunddataPrefix))
-            .length > 0;
-        if (isGrunddata) grunddataResults.push(conformantEntry);
+        if (isGrunddata(conformantEntry))
+          grunddataResults.push(conformantEntry);
       });
 
     let example;
