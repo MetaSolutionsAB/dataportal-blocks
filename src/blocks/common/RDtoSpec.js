@@ -1,10 +1,9 @@
-/*
-This relies on the assumption that Resource Descriptors are unique
-per specification. I.e. it is broken until the RD/Artifact separation is done.
-*/
 /**
  * Links a Resource Descriptor to its owning specification, following the
  * inverse `prof:hasResource` relation.
+ *
+ * Caveat: relies on the assumption that Resource Descriptors are unique per
+ * specification — i.e. it is broken until the RD/Artifact separation is done.
  *
  * Params:
  * - `namedclick` ('spec') — click route for the link.

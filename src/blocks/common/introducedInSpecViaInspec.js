@@ -1,7 +1,7 @@
-/* does not extend reusedInSpecViaInspec as there should only ever be one result */
 /**
  * Links to the specification that *introduces* this resource, following the
- * inverse `inspec:introduces` relation.
+ * inverse `inspec:introduces` relation. Does not extend `reusedInSpecViaInspec`
+ * as there should only ever be one result.
  *
  * Params:
  * - `namedclick` ('spec') — click route for the link.

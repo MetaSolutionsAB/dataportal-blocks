@@ -1,7 +1,7 @@
-/* does not extend usedInSpecViaRD as there should only ever be one result */
 /**
  * Links to the specification that *introduces* this resource, following the
  * inverse `dcterms:subject` relation restricted to non-inherited descriptors.
+ * Does not extend `usedInSpecViaRD` as there should only ever be one result.
  *
  * Params:
  * - `namedclick` ('spec') — click route for the link.
