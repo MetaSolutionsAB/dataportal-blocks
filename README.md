@@ -21,3 +21,11 @@ EntryScape Blocks configuration project, scaffolded by
 
 Typical flow: `pnpm install && pnpm start`, then open
 <http://localhost:5173/demo/>.
+
+## Releases
+
+`.github/workflows/build.yml` runs `pnpm build` on GitHub Actions when a
+release is published, when a `v*` tag is pushed, or on manual dispatch
+(Actions → Build → Run workflow). The built `dist/blocks*.js` are uploaded
+as a workflow artifact (`blocks-dist`) and, for published releases, attached
+to the release as downloadable assets.
