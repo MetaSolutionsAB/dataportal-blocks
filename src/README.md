@@ -108,7 +108,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbVanityNumber`                    | the highlighted count inside a vanity panel                      |
 | `esbConceptCount`                    | the concept count of a terminology                               |
 | `esbDiagramImage`                    | an embedded diagram image                                        |
-| `esbDpButton`                        | the "return to specification" button in an AP page               |
+| `esbSpecButton`                      | the "return to specification" button in an AP page               |
 | `esbExtLinkButton`                   | a button linking to an external resource                         |
 | `esbInspectAPButton`                 | the button that opens the AP page                                |
 | `esbRdButton`                        | the button linking to a resource descriptor's artifact           |

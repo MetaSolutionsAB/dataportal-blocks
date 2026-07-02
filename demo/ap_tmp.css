@@ -45,7 +45,7 @@ body.rdforms-specs table.def th {
   border-bottom: 1px solid rgb(43, 42, 41);
 }
 
-body.rdforms-specs a.esbDpButton[href] {
+body.rdforms-specs a.esbSpecButton[href] {
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
@@ -58,7 +58,7 @@ body.rdforms-specs a.esbDpButton[href] {
   color: rgb(240 239 238);
 }
 
-body.rdforms-specs a.esbDpButton:hover[href] {
+body.rdforms-specs a.esbSpecButton:hover[href] {
   background: rgb(226 223 223);
   color: rgb(110 97 90);
 }
