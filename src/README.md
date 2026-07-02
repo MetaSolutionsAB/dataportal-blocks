@@ -95,8 +95,10 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbDescription`                     | a resource's description / definition text                       |
 | `esbSummaryWithHeading`              | a `<summary>` toggle that wraps a section heading                |
 | `esbRdfLinks`                        | an inline list of raw RDF property links (in `*Infobox`)         |
-| `esbStyleMarker`                     | a coloured type badge in a header                                |
-| `esbResourceStyleMarker`             | a type badge for a resource descriptor                           |
+| `esbBadge`                           | base class on every inline badge (from `badge`)                  |
+| `esbTypeBadge`                       | default badge modifier — a type badge in a header                |
+| `esbGrunddataMarker`                 | badge modifier marking a "nationell grunddata" spec              |
+| `esbResourceTypeBadge`               | badge modifier for a resource descriptor's type badge            |
 | `esbOrgLink`                         | a link to the publishing organisation                            |
 | `esbSpecLink`                        | a link to a specification                                        |
 | `esbDatavocLink`                     | a link to a data vocabulary                                      |

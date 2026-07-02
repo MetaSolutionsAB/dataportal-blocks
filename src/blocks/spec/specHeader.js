@@ -13,8 +13,9 @@ import { isGrunddata } from '../common/scripts/isGrunddata.js';
  * - `hl` ('1') — heading level for the title.
  * Provides on `data`:
  * - `isGrunddata` — whether the spec has a grunddata `dcterms:subject`.
- * CSS: emits `esbHeading`; badges via `typeMarker` (`esbStyleMarker`),
- *   publisher link uses `esbOrgLink`.
+ * CSS: emits `esbHeading`; badges via `badge` (`esbBadge` + `esbTypeBadge`,
+ *   or `esbGrunddataMarker` for the grunddata badge); publisher link uses
+ *   `esbOrgLink`.
  */
 export default {
   extends: 'template',
@@ -33,17 +34,17 @@ export default {
     {{/ifprop}}<br/>
     {{#ifprop "dcterms:conformsTo" uri="inspec:PROF"}}
       {{#ifprop "rdf:type" uri="prof:Profile"}}
-        {{typeMarker content=(nls "spec.profileInspec")}}
+        {{badge content=(nls "spec.profileInspec")}}
       {{/ifprop}}
       {{#ifprop "rdf:type" uri="dcterms:Standard"}}
-        {{typeMarker content=(nls "spec.foundationalInspec")}}
+        {{badge content=(nls "spec.foundationalInspec")}}
       {{/ifprop}}
     {{/ifprop}}
     {{#ifprop "dcterms:conformsTo" uri="inspec:PROF" invert="true"}}
-      {{typeMarker content=(nls "spec.nonInspec")}}
+      {{badge content=(nls "spec.nonInspec")}}
     {{/ifprop}}
     {{#if this.isGrunddata}}
-      {{typeMarker content=(nls "spec.grunddata")}}
+      {{badge content=(nls "spec.grunddata") class="esbGrunddataMarker"}}
     {{/if}}
   `,
 };
