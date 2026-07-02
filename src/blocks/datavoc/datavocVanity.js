@@ -1,4 +1,3 @@
-// This is not generalisable since nls key cannot be passed and passing resultsize via an extends is brittle.
 /**
  * Aside "vanity" stat for the Data Vocabulary page: renders the count
  * (`resultsize`) of the spec-usage collection as a formatted number with a label.

@@ -4,12 +4,11 @@
 //     const { nls } = [].concat(window.__entryscape_config).find((c) => c && c.nls);
 //     usageNote: nls[document.targetLanguage].ap.usageNote
 
-// requires the clicks configuration to define: property, class, terminology, spec, shape
-
 /**
  * Bootstraps the rdforms-specs profile renderer for an Application Profile's
- * SHACL shape, wiring its click-through URLs from `config.clicks`. Side effect
- * only (a `run` block) — renders no markup itself.
+ * SHACL shape, wiring its click-through URLs from `config.clicks` (which must
+ * define the `property`, `class`, `terminology`, `spec` and `shape` targets).
+ * Side effect only (a `run` block) — renders no markup itself.
  *
  * Params:
  * - `shacl` ('') — the AP's SHACL resource descriptor entry (passed by `loadAp`

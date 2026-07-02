@@ -1,4 +1,3 @@
-// This is not generalisable since nls key cannot be passed and passing resultsize via an extends is brittle.
 /**
  * Vanity stat for the Terminology page: the count of specifications reusing
  * this terminology, shown as a formatted number with a label. Counts the

@@ -1,6 +1,6 @@
 /*
 Todo:
-* replace pagination by a  "show all" button which links
+* replace pagination by a "show all" button which links
 * to the search page, filtered on the terminology.
 * Blocked by BLOCKS-440
 */
