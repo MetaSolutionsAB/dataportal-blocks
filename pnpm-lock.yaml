@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@entryscape/blocks-bundler':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.3.0
+        version: 0.3.0
       browser-sync:
         specifier: ^3.0.0
         version: 3.0.4
@@ -23,8 +23,8 @@ importers:
 
 packages:
 
-  '@entryscape/blocks-bundler@0.2.0':
-    resolution: {integrity: sha512-OqjPjvBnMd50d4F1TOXkZPxT6gJNTi6jV5a3mxHooZKiYtPKkhN4wz2wHPY2Q5uv6530aaEjsXE23a3U4JCF9w==}
+  '@entryscape/blocks-bundler@0.3.0':
+    resolution: {integrity: sha512-lGRL1gkw4O6dXcYTwQh9eC83glJIODwN2yFwjuBqojYIc51alBwP50NSSALmt0qOa1+HFL0lJ58eWl6+wC/kPQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -788,7 +788,7 @@ packages:
 
 snapshots:
 
-  '@entryscape/blocks-bundler@0.2.0':
+  '@entryscape/blocks-bundler@0.3.0':
     dependencies:
       '@rollup/plugin-terser': 0.4.4(rollup@4.62.2)
       rollup: 4.62.2

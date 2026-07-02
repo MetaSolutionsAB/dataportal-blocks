@@ -4,6 +4,7 @@ Scaffolded by `blocks-bundler create`. Files in this directory:
 
 - `config.js`      — default-exported object spread into the bundle.
 - `collections.js` — default-exported array attached as `collections:`.
+- `nls.js`         — default-exported object attached as `nls:`.
 - `style.css`      — read as a string and attached as `style:`.
 - `blocks/`        — one file per block; filename (without `.js`) is the
                        block name. Subdirectories are organisation only.
