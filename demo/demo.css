@@ -1,9 +1,4 @@
-.entryscape [data-entryscape='terminologyView'],
-.entryscape [data-entryscape='conceptView'],
-.entryscape [data-entryscape='datavocView'],
-.entryscape [data-entryscape='classView'],
-.entryscape [data-entryscape='propertyView'],
-.entryscape [data-entryscape='specView'] {
+.entryscape .demoView {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-areas:
@@ -96,12 +91,7 @@
 }
 
 @media (max-width: 768px) {
-  .entryscape [data-entryscape='terminologyView'],
-  .entryscape [data-entryscape='conceptView'],
-  .entryscape [data-entryscape='datavocView'],
-  .entryscape [data-entryscape='classView'],
-  .entryscape [data-entryscape='propertyView'],
-  .entryscape [data-entryscape='specView'] {
+  .entryscape .demoView {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       'heading'
