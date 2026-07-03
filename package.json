@@ -8,8 +8,8 @@
     "dev": "blocks-bundler --watch",
     "serve": "browser-sync start --server . --startPath /demo/ --files \"dist/*.js\" --no-notify --port 5173",
     "start": "concurrently --names dev,serve --prefix-colors blue,green \"npm run dev\" \"npm run serve\"",
-    "format": "prettier --write \"src/**/*.{js,css}\" \"demo/**/*.{js,css,html}\"",
-    "format:check": "prettier --check \"src/**/*.{js,css}\" \"demo/**/*.{js,css,html}\""
+    "format": "prettier --write \"src/**/*.{js,css}\" \"demo/**/*.{js,css,html}\" \"**/*.md\"",
+    "format:check": "prettier --check \"src/**/*.{js,css}\" \"demo/**/*.{js,css,html}\" \"**/*.md\""
   },
   "devDependencies": {
     "@entryscape/blocks-bundler": "^0.3.0",
