@@ -111,13 +111,10 @@
 }
 
 .entryscape .esbConceptsInTerminologyContainer,
-.entryscape .esbTerminologyUsageInSpecContainer,
+.entryscape .esbSpecUsageContainer,
 .entryscape .esbConceptsInConceptContainer,
 .entryscape .esbMatchingConceptsContainer,
 .entryscape .esbClassesInDatavocContainer,
-.entryscape .esbDatavocUsageInSpecContainer,
-.entryscape .esbClassUsageInSpecContainer,
-.entryscape .esbPropertyUsageInSpecContainer,
 .entryscape .esbPropertiesInDatavocContainer,
 .entryscape .esbCPInSpecContainer,
 .entryscape .esbResourcesInSpecContainer {

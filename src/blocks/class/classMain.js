@@ -5,7 +5,7 @@
  * Params:
  * - `hl` ('2') — heading level for the section headings.
  * - `specUsageLimit` (15) — max rows in the spec-usage list.
- * CSS: emits `esbMainContent`; passes `esbClassUsageInSpecContainer` to
+ * CSS: emits `esbMainContent`; passes `esbClassSpecUsageContainer` to
  *   the usage list.
  */
 export default {
@@ -29,7 +29,7 @@ export default {
           hl="inherit"
           limit=specUsageLimit
           define="classUsageInSpec"
-          class="esbClassUsageInSpecContainer"
+          class="esbClassSpecUsageContainer"
         }}
     </details>
   `,

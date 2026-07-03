@@ -7,7 +7,7 @@
  * - `classLimit` (15) — max rows in the class list.
  * - `propertyLimit` (15) — max rows in the property list.
  * - `specUsageLimit` (15) — max rows in the spec-usage list.
- * CSS: emits `esbMainContent`; passes `esbDatavocUsageInSpecContainer`
+ * CSS: emits `esbMainContent`; passes `esbDatavocSpecUsageContainer`
  *   to the usage list.
  */
 export default {
@@ -44,7 +44,7 @@ export default {
           hl="inherit"
           limit=specUsageLimit
           define="datavocUsageInSpec"
-          class="esbDatavocUsageInSpecContainer"
+          class="esbDatavocSpecUsageContainer"
         }}
     </details>
   `,

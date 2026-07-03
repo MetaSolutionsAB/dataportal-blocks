@@ -34,7 +34,7 @@ export default {
           hl="inherit"
           limit=specUsageLimit
           define="terminologyUsageInSpec"
-          class="esbTerminologyUsageInSpecContainer"
+          class="esbTerminologySpecUsageContainer"
         }}
     </details>
   `,

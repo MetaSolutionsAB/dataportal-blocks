@@ -114,10 +114,11 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbExtLinkButton`                   | a button linking to an external resource                         |
 | `esbInspectAPButton`                 | the button that opens the AP page                                |
 | `esbRdButton`                        | the button linking to a resource descriptor's artifact           |
-| `esbTerminologyUsageInSpecContainer` | the "used in specifications" section of a terminology's main     |
-| `esbDatavocUsageInSpecContainer`     | the "used in specifications" section of a data vocabulary's main |
-| `esbClassUsageInSpecContainer`       | the "used in specifications" section of a class's main           |
-| `esbPropertyUsageInSpecContainer`    | the "used in specifications" section of a property's main        |
+| `esbSpecUsageContainer`              | base class on every "used in specifications" list container      |
+| `esbTerminologySpecUsageContainer`   | modifier: a terminology's "used in specifications" section       |
+| `esbDatavocSpecUsageContainer`       | modifier: a data vocabulary's "used in specifications" section   |
+| `esbClassSpecUsageContainer`         | modifier: a class's "used in specifications" section             |
+| `esbPropertySpecUsageContainer`      | modifier: a property's "used in specifications" section          |
 
 ## Next step
 
