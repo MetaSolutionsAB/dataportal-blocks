@@ -109,6 +109,10 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbVanityStatContainer`           | the stat line inside a vanity panel                            |
 | `esbVanityNumber`                  | the highlighted count inside a vanity panel                    |
 | `esbConceptCount`                  | the concept count of a terminology                             |
+| `esbConceptsInConceptContainer`    | container for a concept's broader / narrower / related lists   |
+| `esbMatchingConceptsContainer`     | container for a concept's matching (cross-terminology) list    |
+| `esbConceptLink`                   | a link to a concept (list row)                                 |
+| `esbExternalConceptLink`           | a concept URI that doesn't resolve locally, as a plain link    |
 | `esbDiagramImage`                  | an embedded diagram image                                      |
 | `esbSpecButton`                    | the "return to specification" button in an AP page             |
 | `esbExtLinkButton`                 | a button linking to an external resource                       |
