@@ -28,21 +28,33 @@ export default {
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{nls "concept.broaderConcepts"}}</h{{hl}}>
       </summary>
-      {{broaderConceptsList limit=broaderConceptLimit}}
+      {{conceptRelationList
+        relation="skos:broader"
+        listplaceholder="esb_nls:concept.isTopConcept"
+        limit=broaderConceptLimit
+      }}
     </details>
 
     <details open>
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{nls "concept.narrowerConcepts"}}</h{{hl}}>
       </summary>
-      {{narrowerConceptsList limit=narrowerConceptLimit}}
+      {{conceptRelationList
+        relation="skos:narrower"
+        listplaceholder="esb_nls:concept.noNarrowerConcepts"
+        limit=narrowerConceptLimit
+      }}
     </details>
 
     <details open>
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{nls "concept.relatedConcepts"}}</h{{hl}}>
       </summary>
-      {{relatedConceptsList limit=relatedConceptLimit}}
+      {{conceptRelationList
+        relation="skos:related"
+        listplaceholder="esb_nls:concept.noRelatedConcepts"
+        limit=relatedConceptLimit
+      }}
     </details>
 
     {{#ifprop "skos:exactMatch,skos:closeMatch,skos:relatedMatch,skos:broadMatch,skos:narrowMatch"}}
