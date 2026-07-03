@@ -1,8 +1,11 @@
-// Todo: A mix is not supported (but rdforms does support it.. outsource?)
+/* todo: A mix of entries and plain string URIs is not supported by the list block
+ * (but rdforms does support it). See if this can be solved with list.entries
+ * BLOCKS-453. If so the XSS guard from resourceDescriptorSubject.js could be reused here.
+ */
 /**
  * Inline list of related concepts: resolves each as an entry in the same
  * EntryStore instance, falling back to plain string URIs (via
- * `inlineConceptListFallback`, as the list placeholder) when none matches.
+ * `matchingConceptsListFallback`, as the list placeholder) when none matches.
  *
  * Params:
  * - `namedclick` ('concept') — click route for resolved-entry rows.
@@ -21,7 +24,7 @@ export default {
   listbody: '<div class="esbInlineList {{bodyClass}}">{{body}}</div>',
   rowhead: `{{link namedclick="inherit" class=rowClass}}`,
   listplaceholder: `{{
-    inlineConceptListFallback
+    matchingConceptsListFallback
     property="inherit:relation"
     limit="inherit"
     bodyClass="inherit"

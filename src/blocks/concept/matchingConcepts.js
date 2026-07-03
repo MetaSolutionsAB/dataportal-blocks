@@ -19,7 +19,7 @@ export default {
     {{#ifprop relationProperty}}
       <div>
         <h{{hl}}>{{label}}</h{{hl}}>
-        {{inlineConceptList relation=relationProperty limit="inherit"}}
+        {{matchingConceptsList relation=relationProperty limit="inherit"}}
       </div>
     {{/ifprop}}`,
 };

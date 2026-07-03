@@ -1,5 +1,5 @@
 /**
- * Fallback for `inlineConceptList`: renders concept URIs that don't resolve to
+ * Fallback for `matchingConceptsList`: renders concept URIs that don't resolve to
  * a local entry as plain external links (opened in a new tab).
  *
  * Params:
