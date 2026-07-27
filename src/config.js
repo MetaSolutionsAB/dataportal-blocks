@@ -37,5 +37,5 @@ export default {
     'rdfs:Class': 'rdfs:Class',
     'rdf:Property': 'rdf:Property',
     'prof:ResourceDescriptor': 'editera:prof:ResourceDescriptor',
-  }
+  },
 };
