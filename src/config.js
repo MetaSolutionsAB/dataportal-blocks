@@ -12,7 +12,10 @@ export default {
     'https://sandbox.editera.dataportal.se/theme/templates/prof.json', // todo: update
     'https://sandbox.editera.dataportal.se/theme/templates/terms.json', // todo: update
   ],
-  defaultBundles: false,
+  // terms.json needs skosBundle + dctermsBundle for most of the item ids it
+  // references, and escBundle for skosmos:relations. No per-bundle selection
+  // exists, so standalone skos.json/dcterms.json are not a substitute.
+  defaultBundles: true,
   clicks: {
     spec: '',
     organization: '',
