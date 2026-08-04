@@ -11,6 +11,7 @@ export default {
     'https://static.infra.entryscape.com/suite/latest/templates/rdfs.json', // rdfs bundled with Blocks is minimal
     'https://sandbox.editera.dataportal.se/theme/templates/prof.json', // todo: update
     'https://sandbox.editera.dataportal.se/theme/templates/terms.json', // todo: update
+    'https://sandbox.editera.dataportal.se/theme/templates/datavoc.json', // todo: integrate with another bundle, e.g. rdfs.json
   ],
   // terms.json needs skosBundle + dctermsBundle for most of the item ids it
   // references, and escBundle for skosmos:relations. No per-bundle selection
