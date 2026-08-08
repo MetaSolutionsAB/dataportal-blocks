@@ -124,6 +124,8 @@ Styled in `src/style.css`:
 | `esbHeadingInSummary`   | heading (`<hN>`) placed inside a `<summary>` disclosure element                              |
 | `esbMultiline`          | text body that preserves its line breaks                                                     |
 | `esbRowHead`            | override for the default blocks formatting of list block rows (when not using `layout: raw`) |
+| `esbExpandLabel`        | the collapsed-state label of an expand button (hidden once expanded)                         |
+| `esbUnexpandLabel`      | the expanded-state label of an expand button (hidden while collapsed)                        |
 
 Styling hooks emitted by templates (styled downstream, not in `style.css`):
 
@@ -162,6 +164,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbExtLinkButton`                 | a button linking to an external resource                                                             |
 | `esbInspectAPButton`               | the button that opens the AP page                                                                    |
 | `esbRdButton`                      | the button linking to a resource descriptor's artifact                                               |
+| `esbRdExpandButton`                | the button to toggle a resource descriptor row expansion                                             |
 | `esbSpecUsageContainer`            | base class on every "used in specifications" list container                                          |
 | `esbTerminologySpecUsageContainer` | modifier: a terminology's "used in specifications" section                                           |
 | `esbDatavocSpecUsageContainer`     | modifier: a data vocabulary's "used in specifications" section                                       |

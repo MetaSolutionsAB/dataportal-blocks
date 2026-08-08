@@ -1,15 +1,31 @@
+/*
+Todo:
+* Drop the `sr-only` span once the runtime names custom expand buttons itself.
+* Blocked by BLOCKS-473
+*/
 /**
  * List of a specification's Resource Descriptors (`prof:hasResource`). Each row
  * shows the type badge, title, role(s) and reused-from link, with an expandable
  * subject + metadata view. Base block — `introducedResourceDescriptors` and
  * `reusedResourceDescriptors` extend it with a `constraints` filter.
  *
+ * The expand toggle is the button in `rowhead`, not the runtime's chevron
+ * (`expandButton: false`); the runtime wires it by its `esbExpandButton` class,
+ * which is therefore load-bearing. It scans for that class once, during the
+ * `rowhead` render only, so the button has to stay there — anywhere else it
+ * renders fine and does nothing. `expandButton: false` also disables the
+ * runtime's `clickExpand` handling, here and in the extenders (BLOCKS-474).
+ * `style.css` shows one label or the other by `aria-expanded`, the disclosure
+ * icon is left to the host, and the `sr-only` span gives each row's button a
+ * distinct name ("Visa mer <label>", "Visa mindre <label>" once expanded).
+ *
  * Params:
  * - `hl` (4) — heading level for each row's title.
  * - `placeholderText` — NLS key shown when the list is empty (overridden by the
  *   reused variant).
  * CSS: emits `esbResourceDescriptors` (container), `esbSpecPart` (title link),
- *   `esbResourcesFeatures` (the role/reused-from `<dl>`).
+ *   `esbResourcesFeatures` (the role/reused-from `<dl>`), `esbRdExpandButton`
+ *   (the expand toggle) and its `esbExpandLabel` / `esbUnexpandLabel` spans.
  */
 export default {
   extends: 'list',
@@ -17,8 +33,7 @@ export default {
   hl: 4,
   relation: 'prof:hasResource',
   dependencyproperties: 'prof:isInheritedFrom',
-  expandTooltip: 'esb_nls:spec.moreInformation',
-  unexpandTooltip: 'esb_nls:spec.lessInformation',
+  expandButton: false,
   listbody: '<div class="esbResourceDescriptors">{{body}}</div>',
   placeholderText: 'esb_nls:spec.thisSpecificationHasNoResources',
   listplaceholder:
@@ -34,6 +49,11 @@ export default {
       {{/ifprop}}
     </dl>
     {{resourceDescriptorButton}}
+    <button type="button" class="esbExpandButton esbRdExpandButton">
+      <span class="esbExpandLabel">{{nls "spec.showMore"}}</span>
+      <span class="esbUnexpandLabel">{{nls "spec.showLess"}}</span>
+      <span class="sr-only">{{text}}</span>
+    </button>
   `,
   rowexpand: `{{#ifprop "prof:isInheritedFrom,dcterms:subject"}}
       <dl class="esbResourcesFeatures">

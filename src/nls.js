@@ -92,8 +92,8 @@ export default {
       resources: 'Resurser',
       rIntroduced: 'Introducerade (I denna specifikation)',
       rReused: 'Återanvända (Från andra specifikationer)',
-      moreInformation: 'Mer information',
-      lessInformation: 'Mindre information',
+      showMore: 'Visa mer',
+      showLess: 'Visa mindre',
       thisSpecificationHasNoResources: 'Denna specifikation har inga resurser.',
       thisSpecificationHasNoReusedResources:
         'Denna specifikation har inga återanvända resurser.',
@@ -223,8 +223,8 @@ export default {
       resources: 'Resources',
       rIntroduced: 'Introduced (In this specification)',
       rReused: 'Reused (From other specifications)',
-      moreInformation: 'More information',
-      lessInformation: 'Less information',
+      showMore: 'Show more',
+      showLess: 'Show less',
       thisSpecificationHasNoResources: 'This specification has no resources.',
       thisSpecificationHasNoReusedResources:
         'This specification has no reused resources.',
