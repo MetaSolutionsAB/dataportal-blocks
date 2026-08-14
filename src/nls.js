@@ -8,7 +8,7 @@ export default {
       propertiesInDatavoc:
         'I datavokabulären ingår {{PLURAL:${count}|${count} egenskap|${count} egenskaper}}',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna datavokabulär.',
+        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna datavokabulär.',
       usageInSpecIntro:
         'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
@@ -16,7 +16,7 @@ export default {
       class: 'Klass',
       classUri: 'Adress för klassen',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna klass.',
+        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna klass.',
       usageInSpecIntro:
         'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
@@ -24,7 +24,7 @@ export default {
       property: 'Egenskap',
       propertyUri: 'Adress för egenskapen',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna egenskap.',
+        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna egenskap.',
       usageInSpecIntro:
         'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
@@ -33,7 +33,7 @@ export default {
       reusedInSpecification: 'Återanvänds i specifikation',
       terminologyUri: 'Adress för terminologin',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} som använder denna terminologi.',
+        '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna terminologi.',
       topConceptsInTerminology:
         'I terminologin ingår ${count} begrepp på översta nivån',
       conceptCount: 'Totalt antal begrepp',
@@ -133,7 +133,7 @@ export default {
       propertiesInDatavoc:
         'The data vocabulary includes {{PLURAL:${count}|${count} property|${count} properties}}',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this data vocabulary.',
+        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this data vocabulary.',
       usageInSpecIntro:
         'Some fixed text explaining the transition to "used in specifications".',
     },
@@ -141,7 +141,7 @@ export default {
       class: 'Class',
       classUri: 'Uri for the class',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this class.',
+        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this class.',
       usageInSpecIntro:
         'Some fixed text explaining the transition to "used in specifications".',
     },
@@ -149,7 +149,7 @@ export default {
       property: 'Property',
       propertyUri: 'Uri for the property',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this property.',
+        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this property.',
       usageInSpecIntro:
         'Some fixed text explaining the transition to "used in specifications".',
     },
@@ -158,7 +158,7 @@ export default {
       reusedInSpecification: 'Reused in specification',
       terminologyUri: 'URI for the terminology',
       reusedNumberInfo:
-        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} that use this terminology.',
+        '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this terminology.',
       topConceptsInTerminology:
         'The terminology includes {{PLURAL:${count}|${count} concept|${count} concepts}} on the top level',
       conceptCount: 'Total number of concepts',
