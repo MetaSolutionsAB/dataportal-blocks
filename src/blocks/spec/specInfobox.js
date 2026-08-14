@@ -16,11 +16,18 @@ export default {
   template: `
     <h{{hl}}>{{nls "spec.aboutTheSpecification"}}</h{{hl}}>
     <dl>
-      <dt>{{nls "spec.specificationUri"}}</dt>
-      <dd><code>{{resourceURI}}</code></dd>
+      <div>
+        <dt>{{nls "spec.specificationUri"}}</dt>
+        <dd><code>{{resourceURI}}</code></dd>
+      </div>
       {{#ifprop "prof:isProfileOf"}}
-        <dt>{{nls "respec.profileOf"}}</dt>
-        <dd>{{relatedSpecList relation="prof:isProfileOf"}}</dd>
+        <div>{{predicateRefList
+          predicate="prof:isProfileOf"
+          dtContent="esb_nls:respec.profileOf"
+          namedclick="spec"
+          rowClass="esbSpecLink"
+          excludeType="prof:ResourceDescriptor"
+        }}</div>
       {{/ifprop}}
     </dl>
     {{view onecol="true" filterpredicates="dcterms:title,dcterms:description,dcterms:publisher,prof:hasResource,prof:isProfileOf" showLanguage="false" rdformsid="prof:Profile"}}

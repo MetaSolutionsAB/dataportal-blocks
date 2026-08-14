@@ -157,3 +157,13 @@
   content: '';
   margin-right: 0;
 }
+
+/* Reduce the vertical spacing between definition list items, so that the
+   definition term and its definition are visually grouped together. */
+.entryscape dd:not(:last-of-type) {
+  margin-bottom: 0.25rem;
+}
+
+.entryscape .esbInfobox .esbExternalRefLink {
+  overflow-wrap: anywhere;
+}

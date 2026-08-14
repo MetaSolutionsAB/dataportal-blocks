@@ -40,6 +40,43 @@ named after the family:
   family has one** — `concept/` omits it (a `conceptView` aside holds only the
   infobox).
 
+### The `<dl>` shape
+
+Every `*Infobox` builds its metadata box as a `<dl>` whose rows are wrapped in a
+`<div>`, one per name-value group:
+
+```
+<dl>
+  <div>
+    <dt>{{nls "property.propertyUri"}}</dt>
+    <dd><code>{{resourceURI}}</code></dd>
+  </div>
+  <div>{{predicateRefList
+    predicate="rdfs:domain"
+    dtContent="esb_nls:property.domain"
+  }}</div>
+</dl>
+```
+
+The `<div>` grouping is not decoration. A predicate with several values should
+render as one `<dt>` followed by several `<dd>`s, which is what `predicateRefList`
+emits — and it can only emit them as real siblings if it renders _in place of_ its
+own placeholder. The runtime does that only when the placeholder is the sole child
+of its parent (otherwise the block renders inside the placeholder `<span>`, which
+would leave `<span><dd>…</dd></span>` inside the `<dl>`). So the block needs a
+`<div>` of its own to take over, and it has to emit the `<dt>` itself rather than
+accept one from the caller. Since a `<dl>` may not mix bare `dt`/`dd` groups with
+`div` groups, every row of that `<dl>` is grouped, not just the generated ones.
+
+**The footgun:** whitespace counts as a child node. Write
+`<div>{{predicateRefList …}}</div>` with the newlines _inside_ the `{{ }}`, as
+above. A line break between `<div>` and `{{` silently gives you the wrapper-`span`
+markup instead — it still renders, so nothing complains.
+
+Consumers styling a row therefore need `dl > div > dt`, not `dl > dt` — but only
+for the `*Infobox` blocks. `ap/apHeaderMetadata*` and `spec/resourceDescriptor*`
+still emit bare `dt`/`dd` groups, so a portal-wide stylesheet needs both selectors.
+
 ### Two entrypoints per family
 
 With the sole exception of `ap/` (below), each family supports **two ways of

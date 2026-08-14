@@ -13,15 +13,18 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <dt>{{nls "concept.conceptUri"}}</dt>
-      <dd><code>{{resourceURI}}</code></dd>
-      <dt>{{nls "concept.memberOfTerminology"}}</dt>
-      <dd>{{relatedLink
-        relation="skos:inScheme"
-        namedClick="terminology"
-        class="terminologyLink"
-      }}</dd>
-      
+      <div>
+        <dt>{{nls "concept.conceptUri"}}</dt>
+        <dd><code>{{resourceURI}}</code></dd>
+      </div>
+      <div>
+        <dt>{{nls "concept.memberOfTerminology"}}</dt>
+        <dd>{{relatedLink
+          relation="skos:inScheme"
+          namedClick="terminology"
+          class="terminologyLink"
+        }}</dd>
+      </div>
     </dl>
     
     {{rdfLinks hl=(hinc)}}
