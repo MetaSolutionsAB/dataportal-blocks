@@ -7,7 +7,8 @@
  * - `namedclick` ('spec') — click route for each row.
  * - `vertical` (false) — stack rows vertically instead of inline.
  * - `limit` ('inherit') — max rows, inherited from the caller.
- * CSS: container gets `esbInlineList esbSpecUsageContainer` (+ caller's `class`).
+ * CSS: container gets `esbInlineList esbSpecUsageContainer` (plus
+ *   `esbInlineVerticalList` when `vertical`, plus the caller's `class`).
  */
 export default {
   extends: 'list',
@@ -18,5 +19,5 @@ export default {
   limit: 'inherit',
   listhead: '',
   listbody:
-    '<div class="esbInlineList esbSpecUsageContainer{{#if class}} {{class}}{{/if}}">{{body}}</div>',
+    '<div class="esbInlineList{{#if vertical}} esbInlineVerticalList{{/if}} esbSpecUsageContainer{{#if class}} {{class}}{{/if}}">{{body}}</div>',
 };
