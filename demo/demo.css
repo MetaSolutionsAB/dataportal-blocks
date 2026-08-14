@@ -167,3 +167,24 @@
 .entryscape .esbInfobox .esbExternalRefLink {
   overflow-wrap: anywhere;
 }
+
+/* Style esbResourcesFeatures as inlined definition list */
+.entryscape .esbResourcesFeatures dt {
+  display: inline;
+}
+
+.entryscape .esbResourcesFeatures dt::after {
+  content: ': ';
+}
+
+.entryscape .esbResourcesFeatures dd {
+  display: inline;
+  margin-inline-start: 0;
+}
+
+.entryscape .esbResourcesFeatures dd:has(+ dd)::after {
+  content: ', ';
+}
+.entryscape .esbResourcesFeatures > div + div {
+  margin-block-start: 0.5rem;
+}

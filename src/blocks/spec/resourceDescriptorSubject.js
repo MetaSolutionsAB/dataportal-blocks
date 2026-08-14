@@ -7,6 +7,8 @@ import { resolveEntry } from '../common/scripts/resolveEntry.js';
  * the portal namedclick (ap / datavoc / terminology). When nothing maps it
  * falls back to a plain link to the subject URI.
  *
+ * Must be rendered as the sole child of a `<div>` in a `<dl>`.
+ *
  * Provides on `data`:
  * - `subjectURI` — the raw `dcterms:subject` value (unset when absent).
  * - `subjectHref` — `subjectURI` if it is http(s), else unset (XSS guard).
@@ -90,15 +92,13 @@ export default {
     return Promise.resolve();
   },
   template: `{{#if this.subjectURI}}
-    <dl>
-      <dt>{{nls "spec.subject"}}</dt>
-      <dd>
-        {{#if this.namedclick}}
-          {{link entry=this.localId context=this.localContext namedclick=this.namedclick}}
-        {{else}}
-          {{#if this.subjectHref}}<a href="{{this.subjectHref}}">{{this.subjectURI}}</a>{{else}}{{this.subjectURI}}{{/if}}
-        {{/if}}
-      </dd>
-    </dl>
+        <dt>{{nls "spec.subject"}}</dt>
+        <dd>
+          {{#if this.namedclick}}
+            {{link entry=this.localId context=this.localContext namedclick=this.namedclick}}
+          {{else}}
+            {{#if this.subjectHref}}<a href="{{this.subjectHref}}">{{this.subjectURI}}</a>{{else}}{{this.subjectURI}}{{/if}}
+          {{/if}}
+        </dd>
   {{/if}}`,
 };

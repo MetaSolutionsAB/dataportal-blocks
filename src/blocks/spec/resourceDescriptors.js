@@ -26,15 +26,27 @@ export default {
   rowhead: `{{resourceDescriptorTypeMarker}}
     <h{{hl}}>{{text class="esbSpecPart"}}</h{{hl}}>
     <dl class="esbResourcesFeatures">
-      <dt>{{nls "spec.role"}}</dt>
-      <dd>{{#eachprop "prof:hasRole"}}{{label}}{{separator}}{{/eachprop}}</dd>
-      {{#ifprop "prof:isInheritedFrom"}}
-        <dt>{{nls "spec.reusedFrom"}}</dt>
-        <dd>{{relatedLink relation="prof:isInheritedFrom" namedClick="spec" class="esbSpecLink"}}</dd>
+      {{#ifprop "prof:hasRole"}}
+        <div>
+          <dt>{{nls "spec.role"}}</dt>
+          {{#eachprop "prof:hasRole"}}<dd>{{label}}</dd>{{/eachprop}}
+        </div>
       {{/ifprop}}
     </dl>
     {{resourceDescriptorButton}}
   `,
-  rowexpand: `{{resourceDescriptorSubject}}
+  rowexpand: `{{#ifprop "prof:isInheritedFrom,dcterms:subject"}}
+      <dl class="esbResourcesFeatures">
+        {{#ifprop "prof:isInheritedFrom"}}
+          <div>
+            <dt>{{nls "spec.reusedFrom"}}</dt>
+            <dd>{{relatedLink relation="prof:isInheritedFrom" namedClick="spec" class="esbSpecLink"}}</dd>
+          </div>
+        {{/ifprop}}
+        {{#ifprop "dcterms:subject"}}
+          <div>{{resourceDescriptorSubject}}</div>
+        {{/ifprop}}
+      </dl>
+    {{/ifprop}}
     {{view filterpredicates="prof:isInheritedFrom,dcterms:subject"}}`,
 };
