@@ -9,5 +9,5 @@
 export default {
   extends: 'template',
   property: 'dcterms:description',
-  template: `{{text property=property class="esbMultiline esbDescription"}}`,
+  template: `{{#ifprop property}}{{text property=property class="esbMultiline esbDescription"}}{{/ifprop}}`,
 };
