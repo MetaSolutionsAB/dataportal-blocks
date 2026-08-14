@@ -69,6 +69,7 @@ export default {
       isPartOfDatavoc: 'Ingår i datavokabulär',
       downloadMetadataRdfXml: 'Ladda ner metadata som RDF/XML',
       downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
+      downloadMetadataNTriples: 'Ladda ner metadata som N-TRIPLES',
       downloadMetadataJsonLd: 'Ladda ner metadata som JSON-LD',
     },
     ap: {
@@ -193,6 +194,7 @@ export default {
       isPartOfDatavoc: 'Is part of data vocabulary',
       downloadMetadataRdfXml: 'Download metadata as RDF/XML',
       downloadMetadataTurtle: 'Download metadata as TURTLE',
+      downloadMetadataNTriples: 'Download metadata as N-TRIPLES',
       downloadMetadataJsonLd: 'Download metadata as JSON-LD',
     },
     ap: {
