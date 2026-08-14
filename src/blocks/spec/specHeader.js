@@ -11,6 +11,7 @@ import { isGrunddata } from '../common/scripts/isGrunddata.js';
  *
  * Params:
  * - `hl` ('1') — heading level for the title.
+ * - `badgeForNonInspec` (false) — whether to show a badge for non-INSPEC specifications in the header.
  * Provides on `data`:
  * - `isGrunddata` — whether the spec has a grunddata `dcterms:subject`.
  * CSS: emits `esbHeading`; badges via `badge` (`esbBadge` + `esbTypeBadge`,
@@ -27,6 +28,7 @@ export default {
   progressTemplate: `{{nls "general.loading"}}`,
   hl: '1',
   class: 'esbHeading',
+  badgeForNonInspec: false,
   template: `
     <h{{hl}}>{{text}}</h{{hl}}>
     {{#ifprop "dcterms:publisher"}}
@@ -40,9 +42,11 @@ export default {
         {{badge content=(nls "spec.foundationalInspec")}}
       {{/ifprop}}
     {{/ifprop}}
-    {{#ifprop "dcterms:conformsTo" uri="inspec:PROF" invert="true"}}
-      {{badge content=(nls "spec.nonInspec")}}
-    {{/ifprop}}
+    {{#if this.badgeForNonInspec}}
+      {{#ifprop "dcterms:conformsTo" uri="inspec:PROF" invert="true"}}
+        {{badge content=(nls "spec.nonInspec")}}
+      {{/ifprop}}
+    {{/if}}
     {{#if this.isGrunddata}}
       {{badge content=(nls "spec.grunddata") class="esbGrunddataMarker"}}
     {{/if}}

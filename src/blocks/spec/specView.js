@@ -7,6 +7,7 @@
  * - `hl` ('1') — base heading level; `main`/infobox get `hl+1` via `(hinc)`.
  * - `introducedLimit` (5) — max introduced classes/properties in `specMain`.
  * - `reusedLimit` (3) — max reused classes/properties in `specMain`.
+ * - `badgeForNonInspec` (false) — whether to show a badge for non-INSPEC specifications in the header.
  * CSS: emits `esbAside` on the sidebar column.
  */
 export default {
@@ -14,8 +15,13 @@ export default {
   hl: '1',
   introducedLimit: 5,
   reusedLimit: 3,
+  badgeForNonInspec: false,
   template: `
-    <div>{{specHeader hl="inherit"}}</div>
+    <div>{{
+      specHeader
+      hl="inherit"
+      badgeForNonInspec="inherit"
+      }}</div>
     <main>{{
       specMain
       hl=(hinc)
