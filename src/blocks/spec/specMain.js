@@ -44,17 +44,22 @@ export default {
     {{/ifprop}}
 
     <h{{hl}}>{{nls "spec.resources"}}</h{{hl}}>
-    <details open>
-      <summary class="esbSummaryWithHeading">
-        <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rIntroduced"}}</h{{hinc}}>
-      </summary>
-      {{introducedResourceDescriptors}}
-    </details>
-    <details>
-      <summary class="esbSummaryWithHeading">
-        <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rReused"}}</h{{hinc}}>
-      </summary>
-      {{reusedResourceDescriptors}}
-    </details>
+    {{#ifprop "dcterms:conformsTo" uri="inspec:PROF"}}
+      <details open>
+        <summary class="esbSummaryWithHeading">
+          <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rIntroduced"}}</h{{hinc}}>
+        </summary>
+        {{introducedResourceDescriptors}}
+      </details>
+      <details>
+        <summary class="esbSummaryWithHeading">
+          <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rReused"}}</h{{hinc}}>
+        </summary>
+        {{reusedResourceDescriptors}}
+      </details>
+    {{/ifprop}}
+    {{#ifprop "dcterms:conformsTo" uri="inspec:PROF" invert="true"}}
+      {{resourceDescriptors hl=(hinc)}}
+    {{/ifprop}}
   `,
 };
