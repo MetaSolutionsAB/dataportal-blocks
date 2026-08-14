@@ -89,40 +89,45 @@ Styled in `src/style.css`:
 
 Styling hooks emitted by templates (styled downstream, not in `style.css`):
 
-| Class                              | Applied to                                                     |
-| ---------------------------------- | -------------------------------------------------------------- |
-| `esbAside`                         | the aside column of a `*View`                                  |
-| `esbDescription`                   | a resource's description / definition text                     |
-| `esbSummaryWithHeading`            | a `<summary>` toggle that wraps a section heading              |
-| `esbRdfLinks`                      | an inline list of raw RDF property links (in `*Infobox`)       |
-| `esbBadge`                         | base class on every inline badge (from `badge`)                |
-| `esbTypeBadge`                     | default badge modifier — a type badge in a header              |
-| `esbGrunddataMarker`               | badge modifier marking a "nationell grunddata" spec            |
-| `esbResourceTypeBadge`             | badge modifier for a resource descriptor's type badge          |
-| `esbOrgLink`                       | a link to the publishing organisation                          |
-| `esbSpecLink`                      | a link to a specification                                      |
-| `esbDatavocLink`                   | a link to a data vocabulary                                    |
-| `esbResourceDescriptors`           | the container listing a specification's resource descriptors   |
-| `esbSpecPart`                      | the label of a resource descriptor                             |
-| `esbResourcesFeatures`             | the `<dl>` of a resource descriptor's features / relations     |
-| `esbVanity`                        | an aside statistics (vanity) panel                             |
-| `esbVanityStatContainer`           | the stat line inside a vanity panel                            |
-| `esbVanityNumber`                  | the highlighted count inside a vanity panel                    |
-| `esbConceptCount`                  | the concept count of a terminology                             |
-| `esbConceptsInConceptContainer`    | container for a concept's broader / narrower / related lists   |
-| `esbMatchingConceptsContainer`     | container for a concept's matching (cross-terminology) list    |
-| `esbConceptLink`                   | a link to a concept (list row)                                 |
-| `esbExternalConceptLink`           | a concept URI that doesn't resolve locally, as a plain link    |
-| `esbDiagramImage`                  | an embedded diagram image                                      |
-| `esbSpecButton`                    | the "return to specification" button in an AP page             |
-| `esbExtLinkButton`                 | a button linking to an external resource                       |
-| `esbInspectAPButton`               | the button that opens the AP page                              |
-| `esbRdButton`                      | the button linking to a resource descriptor's artifact         |
-| `esbSpecUsageContainer`            | base class on every "used in specifications" list container    |
-| `esbTerminologySpecUsageContainer` | modifier: a terminology's "used in specifications" section     |
-| `esbDatavocSpecUsageContainer`     | modifier: a data vocabulary's "used in specifications" section |
-| `esbClassSpecUsageContainer`       | modifier: a class's "used in specifications" section           |
-| `esbPropertySpecUsageContainer`    | modifier: a property's "used in specifications" section        |
+| Class                              | Applied to                                                                       |
+| ---------------------------------- | -------------------------------------------------------------------------------- |
+| `esbAside`                         | the aside column of a `*View`                                                    |
+| `esbDescription`                   | a resource's description / definition text                                       |
+| `esbSummaryWithHeading`            | a `<summary>` toggle that wraps a section heading                                |
+| `esbRdfLinks`                      | an inline list of raw RDF property links (in `*Infobox`)                         |
+| `esbBadge`                         | base class on every inline badge (from `badge`)                                  |
+| `esbTypeBadge`                     | default badge modifier — a type badge in a header                                |
+| `esbGrunddataMarker`               | badge modifier marking a "nationell grunddata" spec                              |
+| `esbResourceTypeBadge`             | badge modifier for a resource descriptor's type badge                            |
+| `esbOrgLink`                       | a link to the publishing organisation                                            |
+| `esbSpecLink`                      | a link to a specification                                                        |
+| `esbDatavocLink`                   | a link to a data vocabulary                                                      |
+| `esbResourceDescriptors`           | the container listing a specification's resource descriptors                     |
+| `esbSpecPart`                      | the label of a resource descriptor                                               |
+| `esbResourcesFeatures`             | the `<dl>` of a resource descriptor's features / relations                       |
+| `esbVanity`                        | an aside statistics (vanity) panel                                               |
+| `esbVanityStatContainer`           | the stat line inside a vanity panel                                              |
+| `esbVanityNumber`                  | the highlighted count inside a vanity panel                                      |
+| `esbConceptCount`                  | the concept count of a terminology                                               |
+| `esbConceptsInConceptContainer`    | container for a concept's broader / narrower / related lists                     |
+| `esbMatchingConceptsContainer`     | container for a concept's matching (cross-terminology) list                      |
+| `esbConceptLink`                   | a link to a concept (list row)                                                   |
+| `esbExternalConceptLink`           | a concept URI that doesn't resolve locally, as a plain link                      |
+| `esbClassLink`                     | a link to a class                                                                |
+| `esbRefLabel`                      | a predicate value rendered as an RDForms choice label                            |
+| `esbRefText`                       | a predicate value rendered as text: a literal, or a URI that could not be linked |
+| `esbRefComposite`                  | placeholder for a blank-node predicate value (`owl:unionOf`, `owl:Restriction`)  |
+| `esbExternalRefLink`               | an http(s) predicate value that isn't a portal link, as a plain link             |
+| `esbDiagramImage`                  | an embedded diagram image                                                        |
+| `esbSpecButton`                    | the "return to specification" button in an AP page                               |
+| `esbExtLinkButton`                 | a button linking to an external resource                                         |
+| `esbInspectAPButton`               | the button that opens the AP page                                                |
+| `esbRdButton`                      | the button linking to a resource descriptor's artifact                           |
+| `esbSpecUsageContainer`            | base class on every "used in specifications" list container                      |
+| `esbTerminologySpecUsageContainer` | modifier: a terminology's "used in specifications" section                       |
+| `esbDatavocSpecUsageContainer`     | modifier: a data vocabulary's "used in specifications" section                   |
+| `esbClassSpecUsageContainer`       | modifier: a class's "used in specifications" section                             |
+| `esbPropertySpecUsageContainer`    | modifier: a property's "used in specifications" section                          |
 
 ## Next step
 

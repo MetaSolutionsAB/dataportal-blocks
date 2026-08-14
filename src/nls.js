@@ -61,6 +61,7 @@ export default {
     general: {
       details: 'Detaljer',
       description: 'Beskrivning',
+      compositeValue: 'Sammansatt värde',
       download: 'Ladda ner',
       loading: 'Laddar resultat…',
       introducedInSpecification: 'Introduceras i specifikation',
@@ -186,6 +187,7 @@ export default {
     general: {
       details: 'Details',
       description: 'Description',
+      compositeValue: 'Composite value',
       download: 'Download',
       loading: 'Loading results…',
       introducedInSpecification: 'Introduced in specification',
