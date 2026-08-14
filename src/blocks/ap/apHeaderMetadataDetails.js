@@ -14,7 +14,7 @@ export default {
           <dd>{{apDateModified}}</dd>
         {{/ifprop}}
         {{#ifprop "adms:last"}}
-          <dt>{{nls "respec.latestVersion"}}:</dt>
+          <dt>{{nls "respec.lastVersion"}}:</dt>
           <dd>{{apRelated relation="adms:last"}}</dd>
         {{/ifprop}}
         {{#ifprop "adms:next"}}
@@ -22,7 +22,7 @@ export default {
           <dd>{{apRelated relation="adms:next"}}</dd>
         {{/ifprop}}
         {{#ifprop "adms:prev"}}
-          <dt>{{nls "respec.lastVersion"}}:</dt>
+          <dt>{{nls "respec.prevVersion"}}:</dt>
           <dd>{{apRelated relation="adms:prev"}}</dd>
         {{/ifprop}}
       `,
