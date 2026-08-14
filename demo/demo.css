@@ -189,9 +189,21 @@
   margin-block-start: 0.5rem;
 }
 
-.entryscape .esbKeywordsList dd {
+.entryscape .esbKeywordsList dd:not(.esbKeywordToggle) {
   width: fit-content;
   background: #f3dedb;
   padding: 2px 6px;
   border-radius: 3px;
+}
+
+.entryscape .esbKeywordToggle > button {
+  gap: 0.5rem;
+  border: none;
+  font-size: inherit;
+  background: none;
+  padding: 2px 6px;
+  background: rgba(0 0 0 0);
+}
+.entryscape .esbKeywordToggle:hover > button {
+  background: rgb(226 223 223);
 }

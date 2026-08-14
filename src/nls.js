@@ -77,6 +77,8 @@ export default {
       downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
       downloadMetadataNTriples: 'Ladda ner metadata som N-TRIPLES',
       downloadMetadataJsonLd: 'Ladda ner metadata som JSON-LD',
+      showMore: 'Visa mer',
+      showLess: 'Visa mindre',
     },
     ap: {
       usageNote: 'Användningsanmärkning',
@@ -209,6 +211,8 @@ export default {
       downloadMetadataTurtle: 'Download metadata as TURTLE',
       downloadMetadataNTriples: 'Download metadata as N-TRIPLES',
       downloadMetadataJsonLd: 'Download metadata as JSON-LD',
+      showMore: 'Show more',
+      showLess: 'Show less',
     },
     ap: {
       usageNote: 'Usage note',

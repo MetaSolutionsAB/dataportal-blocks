@@ -1,18 +1,24 @@
 //todo: Sync with https://www.figma.com/proto/dUU3DpDaf5NmDmMgeWvtG0/DIGG-Dataportalen-2.0-dg-Boilerplate?page-id=7256%3A49200&node-id=7256-49201&viewport=708%2C-408%2C0.25&t=dd87w5GHswWbCniA-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=7266%3A50385
 // todo: fix mix of dd and view
-// todo: keywords need limit handling and show more button, shold also set lang-attribute correctly
 
 /**
  * Sidebar infobox for a Specification: the specification URI, any
- * `prof:isProfileOf` parents, an rdforms `view` of core metadata, and RDF links.
+ * `prof:isProfileOf` parents and the keywords; then an rdforms `view` of the core
+ * metadata that has no row of its own; then the `adms:last` / `prev` / `next`
+ * version links, and the RDF download links.
+ *
+ * The rows are split across two `<dl>`s because the `view` sits between them —
+ * see the todo above.
  *
  * Params:
  * - `hl` ('2') — heading level for the panel title; `rdfLinks` gets `hl+1`.
- * CSS: emits `esbInfobox`.
+ * - `keywordLimit` (5) — how many keywords show before the rest are collapsed.
+ * CSS: emits `esbInfobox`, and `esbKeywordsList` on the keyword row.
  */
 export default {
   extends: 'template',
   hl: '2',
+  keywordLimit: 5,
   class: 'esbInfobox',
   template: `
     <h{{hl}}>{{nls "spec.aboutTheSpecification"}}</h{{hl}}>
@@ -31,10 +37,7 @@ export default {
         }}</div>
       {{/ifprop}}
       {{#ifprop "dcat:keyword"}}
-        <div class="esbKeywordsList">
-          <dt>{{nls "spec.keyword"}}</dt>
-          {{#eachprop "dcat:keyword" limit=5}}<dd>{{value}}</dd>{{/eachprop}}
-        </div>
+        <div class="esbKeywordsList">{{keywordList limit=keywordLimit}}</div>
       {{/ifprop}}
     </dl>
     {{view
