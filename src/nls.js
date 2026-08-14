@@ -114,6 +114,7 @@ export default {
       inspecTypeShacl: 'applikationsprofil',
       inspecTypeSvg: 'diagram',
       grunddata: 'Nationell grunddata',
+      keyword: 'Nyckelord',
     },
     respec: {
       backToTheOverview: 'Tillbaka till översikten',
@@ -245,6 +246,7 @@ export default {
       inspecTypeShacl: 'application profile',
       inspecTypeSvg: 'diagram',
       grunddata: 'National basic data',
+      keyword: 'Keywords',
     },
     respec: {
       backToTheOverview: 'Back to the overview',
