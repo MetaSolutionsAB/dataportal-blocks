@@ -35,6 +35,7 @@ export default {
           limit=specUsageLimit
           define="terminologyUsageInSpec"
           class="esbTerminologySpecUsageContainer"
+          vertical=true
         }}
     </details>
   `,

@@ -45,6 +45,7 @@ export default {
           limit=specUsageLimit
           define="datavocUsageInSpec"
           class="esbDatavocSpecUsageContainer"
+          vertical=true
         }}
     </details>
   `,
