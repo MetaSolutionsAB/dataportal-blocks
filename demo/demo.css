@@ -151,6 +151,45 @@
   vertical-align: 0.22em;
 }
 
+/* Outlined counterpart to the filled esbExtLinkButton, floated so the pair sits
+   at opposite ends of the row's last line. The float needs containing, or a
+   taller toggle would overflow the row. Padding is inset by the border width so
+   both buttons come out the same height, and the flex display is what centres
+   the icon the way esbExtLinkButton does (float blockifies it to flex). */
+.entryscape .esbResourceDescriptors .esbRowMain {
+  display: flow-root;
+}
+.entryscape .esbRdExpandButton {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  padding: calc(0.5rem - 2px) calc(0.75rem - 2px);
+  border: 2px solid rgb(110 97 90);
+  border-radius: 0;
+  background: none;
+  color: rgb(110 97 90);
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Disclosure icon for expand buttons. The block ships the labels as text only,
+   so a host that doesn't use Font Awesome can swap this for its own icon
+   without touching the template. */
+.entryscape .esbExpandLabel::after,
+.entryscape .esbUnexpandLabel::after {
+  font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 0.85em;
+  margin-left: 0.4em;
+}
+.entryscape .esbExpandLabel::after {
+  content: '\f078' / ''; /* fa-chevron-down */
+}
+.entryscape .esbUnexpandLabel::after {
+  content: '\f077' / ''; /* fa-chevron-up */
+}
+
 /* Vertical inline lists stack one item per row, so the comma separator from
    src/style.css is unwanted — counteract it. */
 .esbInlineList.esbInlineVerticalList .entryList > *:not(:last-child)::after {

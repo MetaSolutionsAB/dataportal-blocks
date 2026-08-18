@@ -37,3 +37,14 @@
 .esbRowHead {
   max-height: none;
 }
+
+/*
+ * Swap an expand button's collapsed / expanded label off the aria-expanded
+ * attribute the Blocks runtime maintains. Functional, not cosmetic — without it
+ * both labels render at once. Everything else about the button is left to the
+ * host stylesheet.
+ */
+.esbExpandButton[aria-expanded='false'] .esbUnexpandLabel,
+.esbExpandButton[aria-expanded='true'] .esbExpandLabel {
+  display: none;
+}
