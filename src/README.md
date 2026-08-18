@@ -159,6 +159,8 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbRefText`                       | a predicate value rendered as text: a literal, or a URI that could not be linked                     |
 | `esbRefComposite`                  | placeholder for a blank-node predicate value (`owl:unionOf`, `owl:Restriction`)                      |
 | `esbExternalRefLink`               | an http(s) predicate value that isn't a portal link, as a plain link                                 |
+| `esbKeywordsList`                  | the `<dl>` group holding a specification's keywords                                                  |
+| `esbKeywordToggle`                 | the `<dd>` holding the show-more button for keywords past the limit                                  |
 | `esbDiagramImage`                  | an embedded diagram image                                                                            |
 | `esbSpecButton`                    | the "return to specification" button in an AP page                                                   |
 | `esbExtLinkButton`                 | a button linking to an external resource                                                             |

@@ -8,6 +8,7 @@
  * - `introducedLimit` (5) — max introduced classes/properties in `specMain`.
  * - `reusedLimit` (3) — max reused classes/properties in `specMain`.
  * - `badgeForNonInspec` (false) — whether to show a badge for non-INSPEC specifications in the header.
+ * - `keywordLimit` (5) — max keywords in `specInfobox`.
  * CSS: emits `esbAside` on the sidebar column.
  */
 export default {
@@ -16,6 +17,7 @@ export default {
   introducedLimit: 5,
   reusedLimit: 3,
   badgeForNonInspec: false,
+  keywordLimit: 5,
   template: `
     <div>{{
       specHeader
@@ -30,7 +32,7 @@ export default {
       }}</main>
     <aside class="esbAside">
       <div>{{specVanity}}</div>
-      <div>{{specInfobox hl=(hinc)}}</div>
+      <div>{{specInfobox hl=(hinc) keywordLimit="inherit"}}</div>
     </aside>
   `,
 };
