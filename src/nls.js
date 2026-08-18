@@ -15,6 +15,7 @@ export default {
     class: {
       class: 'Klass',
       classUri: 'Adress för klassen',
+      subClassOf: 'Underklass till',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna klass.',
       usageInSpecIntro:
@@ -23,6 +24,9 @@ export default {
     property: {
       property: 'Egenskap',
       propertyUri: 'Adress för egenskapen',
+      domain: 'Domän',
+      range: 'Värdemängd',
+      subPropertyOf: 'Underegenskap till',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna egenskap.',
       usageInSpecIntro:
@@ -61,6 +65,8 @@ export default {
     general: {
       details: 'Detaljer',
       description: 'Beskrivning',
+      seeAlso: 'Se även',
+      compositeValue: 'Sammansatt värde',
       download: 'Ladda ner',
       loading: 'Laddar resultat…',
       introducedInSpecification: 'Introduceras i specifikation',
@@ -140,6 +146,7 @@ export default {
     class: {
       class: 'Class',
       classUri: 'Uri for the class',
+      subClassOf: 'Subclass of',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this class.',
       usageInSpecIntro:
@@ -148,6 +155,9 @@ export default {
     property: {
       property: 'Property',
       propertyUri: 'Uri for the property',
+      domain: 'Domain',
+      range: 'Range',
+      subPropertyOf: 'Subproperty of',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this property.',
       usageInSpecIntro:
@@ -186,6 +196,8 @@ export default {
     general: {
       details: 'Details',
       description: 'Description',
+      seeAlso: 'See also',
+      compositeValue: 'Composite value',
       download: 'Download',
       loading: 'Loading results…',
       introducedInSpecification: 'Introduced in specification',

@@ -1,6 +1,13 @@
-/* todo: A mix of entries and plain string URIs is not supported by the list block
- * (but rdforms does support it). See if this can be solved with list.entries
- * BLOCKS-453. If so the XSS guard from resourceDescriptorSubject.js could be reused here.
+/* todo: a mix of entries and plain string URIs is not supported by the list block
+ * (but rdforms does support it), so a mapping set where only some values resolve
+ * locally renders the resolved ones and drops the rest — the placeholder only fires
+ * when nothing resolves at all. Once BLOCKS-453 lands, feed `list.entries` from
+ * `common/scripts/resolvePredicateRefs.js`, which already classifies each value in
+ * metadata order and carries the http(s) guard; that would also retire
+ * `matchingConceptsListFallback`. Rows must be real entries — BLOCKS-470, which
+ * would have let `entries` take plain `{uri, label}` values, is closed as not
+ * needed — so a value that resolves to nothing needs an `Object.create` pseudo-entry
+ * with `getResourceURI` overridden, as the list block's own `property` mode does.
  */
 /**
  * Inline list of related concepts: resolves each as an entry in the same

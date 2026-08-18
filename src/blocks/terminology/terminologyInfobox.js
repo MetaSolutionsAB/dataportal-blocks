@@ -13,13 +13,18 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <dt>{{nls "conceptScheme.terminologyUri"}}</dt>
-      <dd><code>{{resourceURI}}</code></dd>
-      <dt>{{nls "general.introducedInSpecification"}}</dt>
-      <dd>{{introducedInSpecViaRD}}</dd>
-      <dt>{{nls "conceptScheme.conceptCount"}}</dt>
-      <dd>{{conceptInTerminologyCount}}</dd>
-      
+      <div>
+        <dt>{{nls "conceptScheme.terminologyUri"}}</dt>
+        <dd><code>{{resourceURI}}</code></dd>
+      </div>
+      <div>
+        <dt>{{nls "general.introducedInSpecification"}}</dt>
+        <dd>{{introducedInSpecViaRD}}</dd>
+      </div>
+      <div>
+        <dt>{{nls "conceptScheme.conceptCount"}}</dt>
+        <dd>{{conceptInTerminologyCount}}</dd>
+      </div>
     </dl>
     
     {{rdfLinks hl=(hinc)}}

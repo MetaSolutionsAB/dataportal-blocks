@@ -13,11 +13,14 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <dt>{{nls "datavoc.datavocUri"}}</dt>
-      <dd><code>{{resourceURI}}</code></dd>
-      <dt>{{nls "general.introducedInSpecification"}}</dt>
-      <dd>{{introducedInSpecViaRD}}</dd>
-      
+      <div>
+        <dt>{{nls "datavoc.datavocUri"}}</dt>
+        <dd><code>{{resourceURI}}</code></dd>
+      </div>
+      <div>
+        <dt>{{nls "general.introducedInSpecification"}}</dt>
+        <dd>{{introducedInSpecViaRD}}</dd>
+      </div>
     </dl>
     
     {{rdfLinks hl=(hinc)}}

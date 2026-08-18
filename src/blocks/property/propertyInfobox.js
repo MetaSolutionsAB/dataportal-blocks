@@ -1,7 +1,7 @@
-// todo drop view-block
 /**
- * Aside infobox for the Property page: URI, the spec it was introduced in, its
- * parent data vocabulary, a raw metadata view, and RDF links.
+ * Aside infobox for the Property page: URI, domain / range, the property it
+ * refines, external references, the spec it was introduced in, its parent data
+ * vocabulary, and RDF links.
  *
  * Params:
  * - `hl` ('2') — heading level for the box heading.
@@ -14,14 +14,47 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <dt>{{nls "property.propertyUri"}}</dt>
-      <dd><code>{{resourceURI}}</code></dd>
-      <dt>{{nls "general.introducedInSpecification"}}</dt>
-      <dd>{{introducedInSpecViaInspec}}</dd>
-      <dt>{{nls "general.isPartOfDatavoc"}}</dt>
-      <dd>{{relatedLink relation="rdfs:isDefinedBy" namedClick="datavoc" class="esbDatavocLink"}}</dd>
+      <div>
+        <dt>{{nls "property.propertyUri"}}</dt>
+        <dd><code>{{resourceURI}}</code></dd>
+      </div>
+      {{#ifprop "rdfs:domain"}}
+        <div>{{classRefList
+          predicate="rdfs:domain"
+          dtContent="esb_nls:property.domain"
+          choiceItems="rdfs:domainGeneric"
+        }}</div>
+      {{/ifprop}}
+      {{#ifprop "rdfs:range"}}
+        <div>{{classRefList
+          predicate="rdfs:range"
+          dtContent="esb_nls:property.range"
+          choiceItems="rdfs:rangeGeneric,rdfs:rangeDatatype"
+        }}</div>
+      {{/ifprop}}
+      {{#ifprop "rdfs:subPropertyOf"}}
+        <div>{{predicateRefList
+          predicate="rdfs:subPropertyOf"
+          dtContent="esb_nls:property.subPropertyOf"
+          namedclick="property"
+          rowClass="esbPropertyLink"
+        }}</div>
+      {{/ifprop}}
+      {{#ifprop "rdfs:seeAlso"}}
+        <div>{{externalRefList
+          predicate="rdfs:seeAlso"
+          dtContent="esb_nls:general.seeAlso"
+        }}</div>
+      {{/ifprop}}
+      <div>
+        <dt>{{nls "general.introducedInSpecification"}}</dt>
+        <dd>{{introducedInSpecViaInspec}}</dd>
+      </div>
+      <div>
+        <dt>{{nls "general.isPartOfDatavoc"}}</dt>
+        <dd>{{relatedLink relation="rdfs:isDefinedBy" namedClick="datavoc" class="esbDatavocLink"}}</dd>
+      </div>
     </dl>
-    {{view filterpredicates="rdfs:isDefinedBy,rdfs:comment,rdfs:label"}}
     {{rdfLinks hl=(hinc)}}
   `,
 };
