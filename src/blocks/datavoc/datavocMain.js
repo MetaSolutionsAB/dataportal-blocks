@@ -25,6 +25,10 @@ export default {
         <h{{hl}} class="esbHeadingInSummary">{{classInDatavocHeader}}</h{{hl}}>
       </summary>
       {{classInDatavocList limit=classLimit}}
+      {{showAllLink
+        namedclick="classSearch"
+        labelKey="datavoc.showAllClasses"
+      }}
     </details>
 
     <details open>
@@ -32,6 +36,10 @@ export default {
         <h{{hl}} class="esbHeadingInSummary">{{propertyInDatavocHeader}}</h{{hl}}>
       </summary>
       {{propertyInDatavocList limit=propertyLimit}}
+      {{showAllLink
+        namedclick="propertySearch"
+        labelKey="datavoc.showAllProperties"
+      }}
     </details>
 
     <p class="placeholderParagraph">{{nls "datavoc.usageInSpecIntro"}}</p>
