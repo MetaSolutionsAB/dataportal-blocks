@@ -84,10 +84,14 @@ export default {
       specificationUri: 'Adress för specifikation',
       exploreAP: 'Utforska applikationsprofil',
       classesAndProperties: 'Klasser och egenskaper',
-      cpIntroduced:
-        '{{PLURAL:${count}|1 introducerad Klass eller Egenskap|${count} introducerade Klasser och Egenskaper}} (I denna specifikation)',
-      cpReused:
-        '{{PLURAL:${count}|1 återanvänd Klass eller Egenskap|${count} återanvända Klasser och Egenskaper}} (Från andra specifikationer)',
+      classesIntroduced:
+        '{{PLURAL:${count}|1 introducerad Klass|${count} introducerade Klasser}} (I denna specifikation)',
+      propertiesIntroduced:
+        '{{PLURAL:${count}|1 introducerad Egenskap|${count} introducerade Egenskaper}} (I denna specifikation)',
+      classesReused:
+        '{{PLURAL:${count}|1 återanvänd Klass|${count} återanvända Klasser}} (Från andra specifikationer)',
+      propertiesReused:
+        '{{PLURAL:${count}|1 återanvänd Egenskap|${count} återanvända Egenskaper}} (Från andra specifikationer)',
       resources: 'Resurser',
       rIntroduced: 'Introducerade (I denna specifikation)',
       rReused: 'Återanvända (Från andra specifikationer)',
@@ -215,10 +219,14 @@ export default {
       specificationUri: 'URI for the specification',
       exploreAP: 'Explore the application profile',
       classesAndProperties: 'Classes and properties',
-      cpIntroduced:
-        '{{PLURAL:${count}|1 introduced Class or Property|${count} introduced Classes and Properties}} (In this specification)',
-      cpReused:
-        '{{PLURAL:${count}|1 reused Class or Property|${count} reused Classes and Properties}} (From other specifications)',
+      classesIntroduced:
+        '{{PLURAL:${count}|1 introduced Class|${count} introduced Classes}} (In this specification)',
+      propertiesIntroduced:
+        '{{PLURAL:${count}|1 introduced Property|${count} introduced Properties}} (In this specification)',
+      classesReused:
+        '{{PLURAL:${count}|1 reused Class|${count} reused Classes}} (From other specifications)',
+      propertiesReused:
+        '{{PLURAL:${count}|1 reused Property|${count} reused Properties}} (From other specifications)',
       resources: 'Resources',
       rIntroduced: 'Introduced (In this specification)',
       rReused: 'Reused (From other specifications)',
