@@ -1,13 +1,15 @@
-// todo: split used/reused into class/properties
+/* todo: look into gating on empty class/prop since the gate is on introduces/reduces
+ * a specification that introduces only properties will show an empty classes
+ */
 /**
  * Content column of the Specification page: diagram, AP-inspect button,
- * description, the introduced/reused classes-and-properties sections, and the
+ * description, the introduced/reused class and property sections, and the
  * introduced/reused resource-descriptor lists (each in a `<details>`).
  *
  * Params:
  * - `hl` ('2') — heading level for the section headings; sub-headings use `(hinc)`.
- * - `introducedLimit` (15) — row cap passed to `cpIntroducedInSpecList`.
- * - `reusedLimit` (15) — row cap passed to `cpReusedInSpecList`.
+ * - `introducedLimit` (15) — row cap for each introduced list.
+ * - `reusedLimit` (15) — row cap for each reused list.
  * CSS: emits `esbMainContent`; section summaries use `esbSummaryWithHeading`
  *   and `esbHeadingInSummary`.
  */
@@ -28,17 +30,29 @@ export default {
       {{#ifprop "inspec:introduces"}}
         <details open>
           <summary class="esbSummaryWithHeading">
-            <h{{hinc}} class="esbHeadingInSummary">{{cpIntroducedInSpecHeader}}</h{{hinc}}>
+            <h{{hinc}} class="esbHeadingInSummary">{{classIntroducedInSpecHeader}}</h{{hinc}}>
           </summary>
-          {{cpIntroducedInSpecList limit=introducedLimit}}
+          {{classIntroducedInSpecList limit=introducedLimit}}
+        </details>
+        <details open>
+          <summary class="esbSummaryWithHeading">
+            <h{{hinc}} class="esbHeadingInSummary">{{propertyIntroducedInSpecHeader}}</h{{hinc}}>
+          </summary>
+          {{propertyIntroducedInSpecList limit=introducedLimit}}
         </details>
       {{/ifprop}}
       {{#ifprop "inspec:reuses"}}
         <details open>
           <summary class="esbSummaryWithHeading">
-            <h{{hinc}} class="esbHeadingInSummary">{{cpReusedInSpecHeader}}</h{{hinc}}>
+            <h{{hinc}} class="esbHeadingInSummary">{{classReusedInSpecHeader}}</h{{hinc}}>
           </summary>
-          {{cpReusedInSpecList limit=reusedLimit}}
+          {{classReusedInSpecList limit=reusedLimit}}
+        </details>
+        <details open>
+          <summary class="esbSummaryWithHeading">
+            <h{{hinc}} class="esbHeadingInSummary">{{propertyReusedInSpecHeader}}</h{{hinc}}>
+          </summary>
+          {{propertyReusedInSpecList limit=reusedLimit}}
         </details>
       {{/ifprop}}
     {{/ifprop}}
