@@ -1,24 +1,25 @@
 // todo: the show-more button should clarify that it finds all concepts (not just top-level)
-import listShowMore from '../common/layout/listShowMore.js';
+import listTruncated from '../common/layout/listTruncated.js';
 
 /**
- * Lists a terminology's concepts as inline concept links with a show-more
- * button. Specialises `listShowMore` for `skos:topConceptOf`.
+ * Lists a terminology's top-level concepts as inline concept links, truncated at
+ * `limit`. Specialises `listTruncated` for `skos:topConceptOf`.
  *
- * Params (on top of `listShowMore`):
+ * Params (on top of `listTruncated`):
  * - `namedclick` ('concept') — click route for each concept row.
- * - `define` ('topConceptsInTerminology') — named query (counted elsewhere).
+ * - `defineCount` ('topConceptsInTerminology') — registry key the count is published
+ *   under, for `topConceptInTerminologyHeader` to render.
  * - `bodyClass` ('esbConceptsInTerminologyContainer') — list container class.
  * - `rowClass` ('esbConceptLink') — per-row link class.
  * CSS: container gets `esbInlineList` + `esbConceptsInTerminologyContainer`;
  *   rows get `esbConceptLink`.
  */
 export default {
-  extends: listShowMore,
+  extends: listTruncated,
   namedclick: 'concept',
   limit: 'inherit',
   rdftype: 'skos:Concept',
-  define: 'topConceptsInTerminology',
+  defineCount: 'topConceptsInTerminology',
   relationinverse: 'skos:topConceptOf',
   bodyClass: 'esbConceptsInTerminologyContainer',
   rowClass: 'esbConceptLink',
