@@ -1,3 +1,5 @@
+import { publishListCount } from './listCount.js';
+
 const DEFAULT_SORT = 'modified+desc';
 
 /**
@@ -162,12 +164,6 @@ export const listEntries = async (entry, conf, registry) => {
     ? await fromRelation(entry, conf, registry, limit)
     : await fromQuery(entry, conf, registry, limit);
 
-  if (conf.defineCount) {
-    registry.set(conf.defineCount, {
-      resultsize: total,
-      shown: rows.length,
-      truncated: total > rows.length,
-    });
-  }
+  publishListCount(registry, conf, rows, total);
   return rows;
 };

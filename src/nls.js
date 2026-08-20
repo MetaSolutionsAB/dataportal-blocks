@@ -9,6 +9,8 @@ export default {
         'I datavokabulären ingår {{PLURAL:${count}|${count} egenskap|${count} egenskaper}}',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna datavokabulär.',
+      showAllClasses: 'Visa alla klasser',
+      showAllProperties: 'Visa alla egenskaper',
       usageInSpecIntro:
         'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
@@ -36,6 +38,7 @@ export default {
       topConceptsInTerminology:
         'I terminologin ingår ${count} begrepp på översta nivån',
       conceptCount: 'Totalt antal begrepp',
+      showAllConcepts: 'Visa alla begrepp',
       usageInSpecIntro:
         'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
@@ -56,6 +59,8 @@ export default {
       relatedMatch: 'Relaterade',
       broadMatch: 'Överordnade',
       narrowMatch: 'Underordnade',
+      conceptOverflow:
+        'Ytterligare {{PLURAL:${count}|1 begrepp|${count} begrepp}} kunde inte visas.',
     },
     general: {
       details: 'Detaljer',
@@ -92,6 +97,10 @@ export default {
         '{{PLURAL:${count}|1 återanvänd Klass|${count} återanvända Klasser}} (Från andra specifikationer)',
       propertiesReused:
         '{{PLURAL:${count}|1 återanvänd Egenskap|${count} återanvända Egenskaper}} (Från andra specifikationer)',
+      classOverflow:
+        'Ytterligare {{PLURAL:${count}|1 klass|${count} klasser}} kunde inte visas.',
+      propertyOverflow:
+        'Ytterligare {{PLURAL:${count}|1 egenskap|${count} egenskaper}} kunde inte visas.',
       resources: 'Resurser',
       rIntroduced: 'Introducerade (I denna specifikation)',
       rReused: 'Återanvända (Från andra specifikationer)',
@@ -144,6 +153,8 @@ export default {
         'The data vocabulary includes {{PLURAL:${count}|${count} property|${count} properties}}',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this data vocabulary.',
+      showAllClasses: 'Show all classes',
+      showAllProperties: 'Show all properties',
       usageInSpecIntro:
         'Some fixed text explaining the transition to "used in specifications".',
     },
@@ -171,6 +182,7 @@ export default {
       topConceptsInTerminology:
         'The terminology includes {{PLURAL:${count}|${count} concept|${count} concepts}} on the top level',
       conceptCount: 'Total number of concepts',
+      showAllConcepts: 'Show all concepts',
       usageInSpecIntro:
         'Some fixed text explaining the transition to "used in specifications".',
     },
@@ -191,6 +203,8 @@ export default {
       relatedMatch: 'Related',
       broadMatch: 'Broader',
       narrowMatch: 'Narrower',
+      conceptOverflow:
+        '{{PLURAL:${count}|1 more concept|${count} more concepts}} could not be shown.',
     },
     general: {
       details: 'Details',
@@ -227,6 +241,10 @@ export default {
         '{{PLURAL:${count}|1 reused Class|${count} reused Classes}} (From other specifications)',
       propertiesReused:
         '{{PLURAL:${count}|1 reused Property|${count} reused Properties}} (From other specifications)',
+      classOverflow:
+        '{{PLURAL:${count}|1 more class|${count} more classes}} could not be shown.',
+      propertyOverflow:
+        '{{PLURAL:${count}|1 more property|${count} more properties}} could not be shown.',
       resources: 'Resources',
       rIntroduced: 'Introduced (In this specification)',
       rReused: 'Reused (From other specifications)',

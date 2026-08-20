@@ -3,6 +3,7 @@
  * or leave to list but use CSS to hide the pagination and `::after` an ellipsis on pagination
  */
 import { delegatedEntry } from '../common/scripts/delegatedEntry.js';
+import { publishListCount } from '../common/scripts/listCount.js';
 import { resolvePredicateRefs } from '../common/scripts/resolvePredicateRefs.js';
 
 /**
@@ -18,6 +19,8 @@ import { resolvePredicateRefs } from '../common/scripts/resolvePredicateRefs.js'
  * Params:
  * - `relation` ('') — the SKOS mapping predicate to read (e.g. `skos:exactMatch`).
  *   Supplied by `matchingConcepts`.
+ * - `defineCount` ('') — registry key to publish `{resultsize, shown,
+ *   truncated}` under, for an `overflowNote` beside the list to read.
  * - `limit` ('inherit') — row cap. Required to resolve to a positive integer; anything
  *   else throws, which the list reports as an empty list plus a console error rather
  *   than quietly paginating at some default.
@@ -34,6 +37,7 @@ export default {
   semanticHtml: true,
   namedclick: 'concept',
   relation: '',
+  defineCount: '',
   limit: 'inherit',
   bodyClass: 'esbMatchingConceptsContainer',
   rowClass: 'esbConceptLink',
@@ -50,7 +54,7 @@ export default {
     // entry or a linkable URI. A literal, a blank node or a URI on some other scheme has
     // nothing a reader could follow, so it is dropped rather than shown as bare text.
     const refs = await resolvePredicateRefs(registry, entry, conf.relation);
-    return refs
+    const renderable = refs
       .filter((ref) => {
         if (ref.entry || ref.href) return true;
         console.warn(
@@ -58,8 +62,12 @@ export default {
         );
         return false;
       })
-      .map((ref) => ref.entry || delegatedEntry(entry, ref.href))
-      .slice(0, limit);
+      .map((ref) => ref.entry || delegatedEntry(entry, ref.href));
+    const rows = renderable.slice(0, limit);
+    // The denominator is the renderable values, not every value: the ones dropped
+    // above were unrenderable rather than held back, and they warn for themselves.
+    publishListCount(registry, conf, rows, renderable.length);
+    return rows;
   },
   listbody: '<div class="esbInlineList {{bodyClass}}">{{body}}</div>',
   // No whitespace anywhere in here: a text node beside the {{link}} placeholder stops the
