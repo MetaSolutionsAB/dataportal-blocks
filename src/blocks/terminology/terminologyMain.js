@@ -22,6 +22,10 @@ export default {
         <h{{hl}} class="esbHeadingInSummary">{{topConceptInTerminologyHeader}}</h{{hl}}>
       </summary>
       {{topConceptInTerminologyList limit=conceptLimit}}
+      {{showAllLink
+        namedclick="conceptSearch"
+        labelKey="conceptScheme.showAllConcepts"
+      }}
     </details>
 
     <p class="placeholderParagraph">{{nls "conceptScheme.usageInSpecIntro"}}</p>
