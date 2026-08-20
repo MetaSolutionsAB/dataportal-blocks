@@ -22,7 +22,6 @@ export default {
     concept: '',
     terminology: '',
     class: '',
-    vocabulary: '', // todo: phase out, some are property
     property: '',
     ap: '',
     shape: '',
