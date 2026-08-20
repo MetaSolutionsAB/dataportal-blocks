@@ -1,11 +1,12 @@
-import listShowMore from '../common/layout/listShowMore.js';
+import listTruncated from '../common/layout/listTruncated.js';
 
 /**
- * Inline show-more list of concepts tied to this one by a given SKOS semantic
- * relation (broader / narrower / related). Specialises `listShowMore`; the
- * caller supplies the `relation` and its empty-state `listplaceholder`.
+ * Inline list of concepts tied to this one by a given SKOS semantic relation
+ * (broader / narrower / related), truncated at `limit`. Specialises
+ * `listTruncated`; the caller supplies the `relation` and its empty-state
+ * `listplaceholder`.
  *
- * Params (on top of `listShowMore`):
+ * Params (on top of `listTruncated`):
  * - `namedclick` ('concept') — click route for each row.
  * - `relation` ('') — the SKOS relation to follow (e.g. `skos:broader`).
  * - `listplaceholder` ('') — NLS-prefixed empty-state message.
@@ -16,7 +17,7 @@ import listShowMore from '../common/layout/listShowMore.js';
  *   `esbConceptsInConceptContainer`; rows get `esbConceptLink`.
  */
 export default {
-  extends: listShowMore,
+  extends: listTruncated,
   namedclick: 'concept',
   limit: 'inherit',
   rdftype: 'skos:Concept',
