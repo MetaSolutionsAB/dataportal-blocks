@@ -6,6 +6,6 @@ import cpInSpecList from './cpInSpecList.js';
  */
 export default {
   extends: cpInSpecList,
-  define: 'cpReusedInSpec',
+  defineCount: 'cpReusedInSpec',
   relation: 'inspec:reuses',
 };
