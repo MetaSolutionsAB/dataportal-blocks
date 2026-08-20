@@ -17,6 +17,11 @@ window.__entryscape_config = []
         shape: './ap.html',
         datavoc: './datavoc.html',
         dataset: './dataset.html', // todo: point to the canonical one
+        // The demo has no filtered search; these mirror the shape a host
+        // supplies so the generated href can be inspected.
+        conceptSearch: 'esb:./index.html?f=${uri}&rt=term_concept',
+        classSearch: 'esb:./index.html?f=${uri}&rt=term_class',
+        propertySearch: 'esb:./index.html?f=${uri}&rt=term_property',
       },
       routes: [
         // Consumed by ap/initSpec.js

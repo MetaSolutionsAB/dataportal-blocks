@@ -159,11 +159,14 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbRefText`                       | a predicate value rendered as text: a literal, or a URI that could not be linked                     |
 | `esbRefComposite`                  | placeholder for a blank-node predicate value (`owl:unionOf`, `owl:Restriction`)                      |
 | `esbExternalRefLink`               | an http(s) predicate value that isn't a portal link, as a plain link                                 |
+| `esbOverflowNote`                  | the note saying how many rows a truncated list held back                                             |
 | `esbKeywordsList`                  | the `<dl>` group holding a specification's keywords                                                  |
 | `esbKeywordToggle`                 | the `<dd>` holding the show-more button for keywords past the limit                                  |
 | `esbDiagramImage`                  | an embedded diagram image                                                                            |
 | `esbSpecButton`                    | the "return to specification" button in an AP page                                                   |
+| `esbLinkButton`                    | a button-styled link that stays within the portal                                                    |
 | `esbExtLinkButton`                 | a button linking to an external resource                                                             |
+| `esbShowAllLink`                   | the button from a truncated list to that resource kind's filtered search                             |
 | `esbInspectAPButton`               | the button that opens the AP page                                                                    |
 | `esbRdButton`                      | the button linking to a resource descriptor's artifact                                               |
 | `esbRdExpandButton`                | the button to toggle a resource descriptor row expansion                                             |

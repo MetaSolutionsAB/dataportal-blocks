@@ -27,6 +27,9 @@ export default {
     shape: '',
     datavoc: '',
     dataset: '',
+    conceptSearch: '',
+    classSearch: '',
+    propertySearch: '',
   },
   type2template: {
     'prof:Profile': 'prof:Profile',
