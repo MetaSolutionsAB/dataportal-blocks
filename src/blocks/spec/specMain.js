@@ -34,12 +34,14 @@ export default {
             <h{{hinc}} class="esbHeadingInSummary">{{classIntroducedInSpecHeader}}</h{{hinc}}>
           </summary>
           {{classIntroducedInSpecList limit=introducedLimit}}
+          {{overflowNote useCount="classesIntroducedInSpec" labelKey="spec.classOverflow"}}
         </details>
         <details open>
           <summary class="esbSummaryWithHeading">
             <h{{hinc}} class="esbHeadingInSummary">{{propertyIntroducedInSpecHeader}}</h{{hinc}}>
           </summary>
           {{propertyIntroducedInSpecList limit=introducedLimit}}
+          {{overflowNote useCount="propertiesIntroducedInSpec" labelKey="spec.propertyOverflow"}}
         </details>
       {{/ifprop}}
       {{#ifprop "inspec:reuses"}}
@@ -48,12 +50,14 @@ export default {
             <h{{hinc}} class="esbHeadingInSummary">{{classReusedInSpecHeader}}</h{{hinc}}>
           </summary>
           {{classReusedInSpecList limit=reusedLimit}}
+          {{overflowNote useCount="classesReusedInSpec" labelKey="spec.classOverflow"}}
         </details>
         <details open>
           <summary class="esbSummaryWithHeading">
             <h{{hinc}} class="esbHeadingInSummary">{{propertyReusedInSpecHeader}}</h{{hinc}}>
           </summary>
           {{propertyReusedInSpecList limit=reusedLimit}}
+          {{overflowNote useCount="propertiesReusedInSpec" labelKey="spec.propertyOverflow"}}
         </details>
       {{/ifprop}}
     {{/ifprop}}
