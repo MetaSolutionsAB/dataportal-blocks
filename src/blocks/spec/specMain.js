@@ -1,19 +1,16 @@
-/* todo: gate each section on its own type. The gates are on `inspec:introduces` and
- * `inspec:reuses`, which cannot tell a class from a property, so a specification that
- * introduces only properties still renders an empty classes section counting zero.
- */
 /**
  * Content column of the Specification page: diagram, AP-inspect button,
- * description, the introduced/reused class and property sections, and the
- * introduced/reused resource-descriptor lists (each in a `<details>`).
+ * description, the introduced/reused class and property region (laid out by
+ * `cpInSpecSections`), and the introduced/reused resource-descriptor lists
+ * (each in a `<details>`).
  *
  * Params:
  * - `hl` ('2') — heading level for the section headings; sub-headings use `(hinc)`.
  * - `introducedLimit` (15) — row cap for each introduced list.
  * - `reusedLimit` (15) — row cap for each reused list.
- * CSS: emits `esbMainContent`, and `esbCPInSpecContainer` around each class or
- *   property list and its overflow note; section summaries use
- *   `esbSummaryWithHeading` and `esbHeadingInSummary`.
+ * CSS: emits `esbMainContent`; the resource-descriptor section summaries use
+ *   `esbSummaryWithHeading` and `esbHeadingInSummary`. The class and property
+ *   region's own classes belong to `cpInSpecSections`.
  */
 export default {
   extends: 'template',
@@ -28,47 +25,11 @@ export default {
     <div>{{description}}</div>
 
     {{#ifprop "inspec:introduces,inspec:reuses"}}
-      <h{{hl}}>{{nls "spec.classesAndProperties"}}</h{{hl}}>
-      {{#ifprop "inspec:introduces"}}
-        <details open>
-          <summary class="esbSummaryWithHeading">
-            <h{{hinc}} class="esbHeadingInSummary">{{classIntroducedInSpecHeader}}</h{{hinc}}>
-          </summary>
-          <div class="esbCPInSpecContainer">
-            <div>{{classIntroducedInSpecList limit=introducedLimit}}</div>
-            {{overflowNote useCount="classesIntroducedInSpec" labelKey="spec.classOverflow"}}
-          </div>
-        </details>
-        <details open>
-          <summary class="esbSummaryWithHeading">
-            <h{{hinc}} class="esbHeadingInSummary">{{propertyIntroducedInSpecHeader}}</h{{hinc}}>
-          </summary>
-          <div class="esbCPInSpecContainer">
-            <div>{{propertyIntroducedInSpecList limit=introducedLimit}}</div>
-            {{overflowNote useCount="propertiesIntroducedInSpec" labelKey="spec.propertyOverflow"}}
-          </div>
-        </details>
-      {{/ifprop}}
-      {{#ifprop "inspec:reuses"}}
-        <details open>
-          <summary class="esbSummaryWithHeading">
-            <h{{hinc}} class="esbHeadingInSummary">{{classReusedInSpecHeader}}</h{{hinc}}>
-          </summary>
-          <div class="esbCPInSpecContainer">
-            <div>{{classReusedInSpecList limit=reusedLimit}}</div>
-            {{overflowNote useCount="classesReusedInSpec" labelKey="spec.classOverflow"}}
-          </div>
-        </details>
-        <details open>
-          <summary class="esbSummaryWithHeading">
-            <h{{hinc}} class="esbHeadingInSummary">{{propertyReusedInSpecHeader}}</h{{hinc}}>
-          </summary>
-          <div class="esbCPInSpecContainer">
-            <div>{{propertyReusedInSpecList limit=reusedLimit}}</div>
-            {{overflowNote useCount="propertiesReusedInSpec" labelKey="spec.propertyOverflow"}}
-          </div>
-        </details>
-      {{/ifprop}}
+      <div>{{cpInSpecSections
+          hl="inherit"
+          introducedLimit=introducedLimit
+          reusedLimit=reusedLimit
+        }}</div>
     {{/ifprop}}
 
     <h{{hl}}>{{nls "spec.resources"}}</h{{hl}}>
