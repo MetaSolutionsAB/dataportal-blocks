@@ -1,22 +1,18 @@
-import listShowMore from '../common/layout/listShowMore.js';
+import listTruncated from '../common/layout/listTruncated.js';
 
-//todo: split into a list for class and one for prop
 /**
- * Inline list of the classes and properties a spec introduces/reuses. Base for
- * `cpIntroducedInSpecList` and `cpReusedInSpecList`, which set the `relation`.
+ * Inline list of the classes, or the properties, that a spec introduces or
+ * reuses, truncated at `limit`. Base for the four `class*` / `property*` lists,
+ * each of which sets the `relation` it follows, the `rdftype` it keeps, and its
+ * own click route and row class.
  *
- * Params (on top of `listShowMore`):
- * - `namedclick` ('vocabulary') — click route for each class/property row.
- * - `rdftype` — intended type filter; currently ignored (BLOCKS-323).
- * - `bodyClass` ('esbCPInSpecContainer'), `rowClass` ('esbCPLink').
- * CSS: emits `esbCPInSpecContainer` (container) and `esbCPLink` (rows), plus
- *   `esbInlineList` from the base.
+ * Params (on top of `listTruncated`):
+ * - `bodyClass` ('esbCPInSpecContainer') — container class, shared by all four
+ *   lists; the row class is what tells a class row from a property row.
+ * CSS: emits `esbCPInSpecContainer`, plus `esbInlineList` from the base.
  */
 export default {
-  extends: listShowMore,
-  namedclick: 'vocabulary',
+  extends: listTruncated,
   limit: 'inherit',
-  rdftype: ['rdfs:Class', 'rdf:Property'], //todo: these are ignored due to BLOCKS-323
   bodyClass: 'esbCPInSpecContainer',
-  rowClass: 'esbCPLink',
 };

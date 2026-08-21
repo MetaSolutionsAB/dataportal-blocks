@@ -12,7 +12,6 @@ window.__entryscape_config = []
         concept: './concept.html',
         terminology: './terminology.html',
         class: './class.html',
-        vocabulary: './class.html', // todo: phase out, some are property
         property: './property.html',
         ap: './ap.html',
         shape: './ap.html',
