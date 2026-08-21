@@ -9,10 +9,10 @@ import listTruncated from '../common/layout/listTruncated.js';
  * - `namedclick` ('concept') — click route for each concept row.
  * - `defineCount` ('topConceptsInTerminology') — registry key the count is published
  *   under, for `topConceptInTerminologyHeader` to render.
- * - `bodyClass` ('esbConceptsInTerminologyContainer') — list container class.
  * - `rowClass` ('esbConceptLink') — per-row link class.
- * CSS: container gets `esbInlineList` + `esbConceptsInTerminologyContainer`;
- *   rows get `esbConceptLink`.
+ * CSS: rows get `esbConceptLink`; the list's own container gets only
+ *   `esbInlineList`, the classed one around it and the show-all button being
+ *   the caller's.
  */
 export default {
   extends: listTruncated,
@@ -21,6 +21,5 @@ export default {
   rdftype: 'skos:Concept',
   defineCount: 'topConceptsInTerminology',
   relationinverse: 'skos:topConceptOf',
-  bodyClass: 'esbConceptsInTerminologyContainer',
   rowClass: 'esbConceptLink',
 };

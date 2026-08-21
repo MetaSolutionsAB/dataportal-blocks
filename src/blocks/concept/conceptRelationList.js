@@ -11,10 +11,10 @@ import listTruncated from '../common/layout/listTruncated.js';
  * - `relation` ('') — the SKOS relation to follow (e.g. `skos:broader`).
  * - `listplaceholder` ('') — NLS-prefixed empty-state message.
  * - `vertical` (true) — stack rows vertically instead of inline.
- * - `bodyClass` ('esbConceptsInConceptContainer') — list container class.
  * - `rowClass` ('esbConceptLink') — per-row link class.
- * CSS: container gets `esbInlineList` + `esbInlineVerticalList` +
- *   `esbConceptsInConceptContainer`; rows get `esbConceptLink`.
+ * CSS: the list's container gets `esbInlineList` + `esbInlineVerticalList`;
+ *   rows get `esbConceptLink`. `esbConceptsInConceptContainer`, around the list
+ *   and its overflow note, is the caller's.
  */
 export default {
   extends: listTruncated,
@@ -24,6 +24,5 @@ export default {
   relation: '',
   listplaceholder: '',
   vertical: true,
-  bodyClass: 'esbConceptsInConceptContainer',
   rowClass: 'esbConceptLink',
 };
