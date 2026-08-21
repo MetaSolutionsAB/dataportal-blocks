@@ -10,8 +10,9 @@
  * - `hl` ('2') — heading level for the section headings; sub-headings use `(hinc)`.
  * - `introducedLimit` (15) — row cap for each introduced list.
  * - `reusedLimit` (15) — row cap for each reused list.
- * CSS: emits `esbMainContent`; section summaries use `esbSummaryWithHeading`
- *   and `esbHeadingInSummary`.
+ * CSS: emits `esbMainContent`, and `esbCPInSpecContainer` around each class or
+ *   property list and its overflow note; section summaries use
+ *   `esbSummaryWithHeading` and `esbHeadingInSummary`.
  */
 export default {
   extends: 'template',
@@ -32,15 +33,19 @@ export default {
           <summary class="esbSummaryWithHeading">
             <h{{hinc}} class="esbHeadingInSummary">{{classIntroducedInSpecHeader}}</h{{hinc}}>
           </summary>
-          {{classIntroducedInSpecList limit=introducedLimit}}
-          {{overflowNote useCount="classesIntroducedInSpec" labelKey="spec.classOverflow"}}
+          <div class="esbCPInSpecContainer">
+            <div>{{classIntroducedInSpecList limit=introducedLimit}}</div>
+            {{overflowNote useCount="classesIntroducedInSpec" labelKey="spec.classOverflow"}}
+          </div>
         </details>
         <details open>
           <summary class="esbSummaryWithHeading">
             <h{{hinc}} class="esbHeadingInSummary">{{propertyIntroducedInSpecHeader}}</h{{hinc}}>
           </summary>
-          {{propertyIntroducedInSpecList limit=introducedLimit}}
-          {{overflowNote useCount="propertiesIntroducedInSpec" labelKey="spec.propertyOverflow"}}
+          <div class="esbCPInSpecContainer">
+            <div>{{propertyIntroducedInSpecList limit=introducedLimit}}</div>
+            {{overflowNote useCount="propertiesIntroducedInSpec" labelKey="spec.propertyOverflow"}}
+          </div>
         </details>
       {{/ifprop}}
       {{#ifprop "inspec:reuses"}}
@@ -48,15 +53,19 @@ export default {
           <summary class="esbSummaryWithHeading">
             <h{{hinc}} class="esbHeadingInSummary">{{classReusedInSpecHeader}}</h{{hinc}}>
           </summary>
-          {{classReusedInSpecList limit=reusedLimit}}
-          {{overflowNote useCount="classesReusedInSpec" labelKey="spec.classOverflow"}}
+          <div class="esbCPInSpecContainer">
+            <div>{{classReusedInSpecList limit=reusedLimit}}</div>
+            {{overflowNote useCount="classesReusedInSpec" labelKey="spec.classOverflow"}}
+          </div>
         </details>
         <details open>
           <summary class="esbSummaryWithHeading">
             <h{{hinc}} class="esbHeadingInSummary">{{propertyReusedInSpecHeader}}</h{{hinc}}>
           </summary>
-          {{propertyReusedInSpecList limit=reusedLimit}}
-          {{overflowNote useCount="propertiesReusedInSpec" labelKey="spec.propertyOverflow"}}
+          <div class="esbCPInSpecContainer">
+            <div>{{propertyReusedInSpecList limit=reusedLimit}}</div>
+            {{overflowNote useCount="propertiesReusedInSpec" labelKey="spec.propertyOverflow"}}
+          </div>
         </details>
       {{/ifprop}}
     {{/ifprop}}

@@ -10,7 +10,8 @@ import listTruncated from '../common/layout/listTruncated.js';
  * - `defineCount` ('classesInDatavoc') — registry key the count is published
  *   under, for `classInDatavocHeader` to render.
  * - `namedclick` ('class') — click route for each row.
- * CSS: `bodyClass` = `esbClassesInDatavocContainer`, `rowClass` = `esbClassLink`.
+ * CSS: `rowClass` = `esbClassLink`. The container around the list and its
+ *   show-all button is the caller's, not this block's.
  */
 export default {
   extends: listTruncated,
@@ -19,6 +20,5 @@ export default {
   rdftype: 'rdfs:Class',
   defineCount: 'classesInDatavoc',
   relationinverse: 'rdfs:isDefinedBy',
-  bodyClass: 'esbClassesInDatavocContainer',
   rowClass: 'esbClassLink',
 };

@@ -6,13 +6,13 @@ import listTruncated from '../common/layout/listTruncated.js';
  * each of which sets the `relation` it follows, the `rdftype` it keeps, and its
  * own click route and row class.
  *
- * Params (on top of `listTruncated`):
- * - `bodyClass` ('esbCPInSpecContainer') — container class, shared by all four
- *   lists; the row class is what tells a class row from a property row.
- * CSS: emits `esbCPInSpecContainer`, plus `esbInlineList` from the base.
+ * The row class is what tells a class row from a property row.
+ *
+ * CSS: the list's container gets `esbInlineList` from the base.
+ *   `esbCPInSpecContainer`, around the list and its overflow note, is the
+ *   caller's.
  */
 export default {
   extends: listTruncated,
   limit: 'inherit',
-  bodyClass: 'esbCPInSpecContainer',
 };
