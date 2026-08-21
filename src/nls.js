@@ -40,12 +40,9 @@ export default {
       terminologyUri: 'Adress för terminologin',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna terminologi.',
-      topConceptsInTerminology:
-        'I terminologin ingår ${count} begrepp på översta nivån',
+      conceptsInTerminology: 'I terminologin ingår ${count} begrepp',
       conceptCount: 'Totalt antal begrepp',
       showAllConcepts: 'Visa alla begrepp',
-      usageInSpecIntro:
-        'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
     concept: {
       concept: 'Begrepp',
@@ -187,12 +184,10 @@ export default {
       terminologyUri: 'URI for the terminology',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this terminology.',
-      topConceptsInTerminology:
-        'The terminology includes {{PLURAL:${count}|${count} concept|${count} concepts}} on the top level',
+      conceptsInTerminology:
+        'The terminology includes ${count} {{PLURAL:${count}|concept|concepts}}',
       conceptCount: 'Total number of concepts',
       showAllConcepts: 'Show all concepts',
-      usageInSpecIntro:
-        'Some fixed text explaining the transition to "used in specifications".',
     },
     concept: {
       concept: 'Concept',
