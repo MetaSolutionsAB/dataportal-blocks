@@ -10,6 +10,8 @@
  *   overflow note can read it. Each relation needs its own.
  * - `hl` ('3') — heading level.
  * - `limit` ('inherit') — row limit passed to the inline list.
+ * CSS: emits `esbMatchingConceptsContainer` around the list and its overflow
+ *   note.
  */
 export default {
   extends: 'template',
@@ -22,12 +24,14 @@ export default {
     {{#ifprop relationProperty}}
       <div>
         <h{{hl}}>{{label}}</h{{hl}}>
-        {{matchingConceptsList
-          relation=relationProperty
-          defineCount="inherit"
-          limit="inherit"
-        }}
-        {{overflowNote useCount=defineCount labelKey="concept.conceptOverflow"}}
+        <div class="esbMatchingConceptsContainer">
+          <div>{{matchingConceptsList
+            relation=relationProperty
+            defineCount="inherit"
+            limit="inherit"
+          }}</div>
+          {{overflowNote useCount=defineCount labelKey="concept.conceptOverflow"}}
+        </div>
       </div>
     {{/ifprop}}`,
 };
