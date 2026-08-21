@@ -20,18 +20,16 @@ export default {
 
     <details open>
       <summary class="esbSummaryWithHeading">
-        <h{{hl}} class="esbHeadingInSummary">{{topConceptInTerminologyHeader}}</h{{hl}}>
+        <h{{hl}} class="esbHeadingInSummary">{{conceptInTerminologyHeader}}</h{{hl}}>
       </summary>
       <div class="esbConceptsInTerminologyContainer">
-        <div>{{topConceptInTerminologyList limit=conceptLimit}}</div>
+        <div>{{conceptInTerminologyList limit=conceptLimit}}</div>
         {{showAllLink
           namedclick="conceptSearch"
           labelKey="conceptScheme.showAllConcepts"
         }}
       </div>
     </details>
-
-    <p class="placeholderParagraph">{{nls "conceptScheme.usageInSpecIntro"}}</p>
 
     <details open>
         <summary class="esbSummaryWithHeading">
