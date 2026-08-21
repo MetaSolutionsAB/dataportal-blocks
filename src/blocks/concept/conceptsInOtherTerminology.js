@@ -12,10 +12,40 @@ export default {
   hl: '3',
   limit: 'inherit',
   template: `
-    {{matchingConcepts relationProperty="skos:exactMatch" label="esb_nls:concept.exactMatch" hl="inherit" limit="inherit"}}
-    {{matchingConcepts relationProperty="skos:closeMatch" label="esb_nls:concept.closeMatch" hl="inherit" limit="inherit"}}
-    {{matchingConcepts relationProperty="skos:relatedMatch" label="esb_nls:concept.relatedMatch" hl="inherit" limit="inherit"}}
-    {{matchingConcepts relationProperty="skos:broadMatch" label="esb_nls:concept.broadMatch" hl="inherit" limit="inherit"}}
-    {{matchingConcepts relationProperty="skos:narrowMatch" label="esb_nls:concept.narrowMatch" hl="inherit" limit="inherit"}}
+    {{matchingConcepts
+      relationProperty="skos:exactMatch"
+      label="esb_nls:concept.exactMatch"
+      defineCount="exactMatchConcepts"
+      hl="inherit"
+      limit="inherit"
+    }}
+    {{matchingConcepts
+      relationProperty="skos:closeMatch"
+      label="esb_nls:concept.closeMatch"
+      defineCount="closeMatchConcepts"
+      hl="inherit"
+      limit="inherit"
+    }}
+    {{matchingConcepts
+      relationProperty="skos:relatedMatch"
+      label="esb_nls:concept.relatedMatch"
+      defineCount="relatedMatchConcepts"
+      hl="inherit"
+      limit="inherit"
+    }}
+    {{matchingConcepts
+      relationProperty="skos:broadMatch"
+      label="esb_nls:concept.broadMatch"
+      defineCount="broadMatchConcepts"
+      hl="inherit"
+      limit="inherit"
+    }}
+    {{matchingConcepts
+      relationProperty="skos:narrowMatch"
+      label="esb_nls:concept.narrowMatch"
+      defineCount="narrowMatchConcepts"
+      hl="inherit"
+      limit="inherit"
+    }}
   `,
 };
