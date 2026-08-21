@@ -2,6 +2,9 @@
  * Content column for the Property page: description, the spec it was introduced
  * in, and a spec-usage section.
  *
+ * The introduced-in section needs no gate: a property only exists
+ * by way of a specification introducing it.
+ *
  * Params:
  * - `hl` ('2') — heading level for the section headings.
  * - `specUsageLimit` (15) — max rows in the spec-usage list.

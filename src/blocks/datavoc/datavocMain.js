@@ -31,6 +31,8 @@ export default {
         {{showAllLink
           namedclick="classSearch"
           labelKey="datavoc.showAllClasses"
+          always=false
+          useCount="classesInDatavoc"
         }}
       </div>
     </details>
@@ -44,11 +46,11 @@ export default {
         {{showAllLink
           namedclick="propertySearch"
           labelKey="datavoc.showAllProperties"
+          always=false
+          useCount="propertiesInDatavoc"
         }}
       </div>
     </details>
-
-    <p class="placeholderParagraph">{{nls "datavoc.usageInSpecIntro"}}</p>
 
     <details open>
         <summary class="esbSummaryWithHeading">

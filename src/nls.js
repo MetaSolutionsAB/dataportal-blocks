@@ -11,8 +11,8 @@ export default {
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna datavokabulär.',
       showAllClasses: 'Visa alla klasser',
       showAllProperties: 'Visa alla egenskaper',
-      usageInSpecIntro:
-        'Lite fast text som förklarar övergången till "användning i specifikationer".',
+      noClasses: 'Datavokabulären innehåller inga klasser.',
+      noProperties: 'Datavokabulären innehåller inga egenskaper.',
     },
     class: {
       class: 'Klass',
@@ -153,8 +153,8 @@ export default {
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this data vocabulary.',
       showAllClasses: 'Show all classes',
       showAllProperties: 'Show all properties',
-      usageInSpecIntro:
-        'Some fixed text explaining the transition to "used in specifications".',
+      noClasses: 'The data vocabulary contains no classes.',
+      noProperties: 'The data vocabulary contains no properties.',
     },
     class: {
       class: 'Class',
