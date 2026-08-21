@@ -25,11 +25,11 @@ import { resolvePredicateRefs } from '../common/scripts/resolvePredicateRefs.js'
  *   else throws, which the list reports as an empty list plus a console error rather
  *   than quietly paginating at some default.
  * - `namedclick` ('concept') — click route for rows that resolved locally.
- * - `bodyClass` ('esbMatchingConceptsContainer') — list container class.
  * - `rowClass` ('esbConceptLink') — link class on a resolved row.
  * - `externalRowClass` ('esbExternalConceptLink') — link class on an unresolved row.
- * CSS: container gets `esbInlineList` + `esbMatchingConceptsContainer`; rows get either
- *   row class above.
+ * CSS: the list's container gets `esbInlineList`; rows get either row class
+ *   above. `esbMatchingConceptsContainer`, around the list and its overflow
+ *   note, is the caller's.
  */
 export default {
   extends: 'list',
@@ -39,7 +39,6 @@ export default {
   relation: '',
   defineCount: '',
   limit: 'inherit',
-  bodyClass: 'esbMatchingConceptsContainer',
   rowClass: 'esbConceptLink',
   externalRowClass: 'esbExternalConceptLink',
   entries: async (entry, conf, registry) => {
@@ -69,7 +68,7 @@ export default {
     publishListCount(registry, conf, rows, renderable.length);
     return rows;
   },
-  listbody: '<div class="esbInlineList {{bodyClass}}">{{body}}</div>',
+  listbody: '<div class="esbInlineList">{{body}}</div>',
   // No whitespace anywhere in here: a text node beside the {{link}} placeholder stops the
   // runtime rendering the link into the row itself.
   rowhead: `{{#if entry.esbURI}}<a href="{{entry.esbURI}}" target="_blank" rel="noopener noreferrer" class="{{externalRowClass}}">{{entry.esbURI}}</a>{{else}}{{link namedclick="inherit" class=rowClass}}{{/if}}`,
