@@ -1,3 +1,4 @@
+// todo: eachprop should include language labels
 /**
  * Content column of the Concept page: definition, alternative labels, and the
  * broader / narrower / related / matching-concept sections.
@@ -30,9 +31,11 @@ export default {
       </summary>
       {{conceptRelationList
         relation="skos:broader"
+        defineCount="broaderConcepts"
         listplaceholder="esb_nls:concept.isTopConcept"
         limit=broaderConceptLimit
       }}
+      {{overflowNote useCount="broaderConcepts" labelKey="concept.conceptOverflow"}}
     </details>
 
     <details open>
@@ -41,9 +44,11 @@ export default {
       </summary>
       {{conceptRelationList
         relation="skos:narrower"
+        defineCount="narrowerConcepts"
         listplaceholder="esb_nls:concept.noNarrowerConcepts"
         limit=narrowerConceptLimit
       }}
+      {{overflowNote useCount="narrowerConcepts" labelKey="concept.conceptOverflow"}}
     </details>
 
     <details open>
@@ -52,9 +57,11 @@ export default {
       </summary>
       {{conceptRelationList
         relation="skos:related"
+        defineCount="relatedConcepts"
         listplaceholder="esb_nls:concept.noRelatedConcepts"
         limit=relatedConceptLimit
       }}
+      {{overflowNote useCount="relatedConcepts" labelKey="concept.conceptOverflow"}}
     </details>
 
     {{#ifprop "skos:exactMatch,skos:closeMatch,skos:relatedMatch,skos:broadMatch,skos:narrowMatch"}}
