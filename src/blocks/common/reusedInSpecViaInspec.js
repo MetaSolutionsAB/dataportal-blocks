@@ -11,5 +11,7 @@ import specUsageList from './specUsageList.js';
 export default {
   extends: specUsageList,
   relationinverse: 'inspec:reuses',
+  vertical: true,
   rowhead: `{{link namedclick="inherit"}}`,
+  listplaceholder: `esb_nls:general.noReuseInSpecification`,
 };

@@ -18,8 +18,6 @@ export default {
       subClassOf: 'Underklass till',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna klass.',
-      usageInSpecIntro:
-        'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
     property: {
       property: 'Egenskap',
@@ -29,8 +27,6 @@ export default {
       subPropertyOf: 'Underegenskap till',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna egenskap.',
-      usageInSpecIntro:
-        'Lite fast text som förklarar övergången till "användning i specifikationer".',
     },
     conceptScheme: {
       conceptScheme: 'Terminologi',
@@ -70,6 +66,8 @@ export default {
       download: 'Ladda ner',
       loading: 'Laddar resultat…',
       introducedInSpecification: 'Introduceras i specifikation',
+      reusedInSpecification: 'Återanvänds i specifikation',
+      noReuseInSpecification: 'Återanvändning spåras enbart för interoperabla specifikationer.',
       usedInSpecification:
         'Används i {{PLURAL:${count}|1 interoperabel specifikation|${count} interoperabla specifikationer}}',
       isPartOfDatavoc: 'Ingår i datavokabulär',
@@ -152,8 +150,6 @@ export default {
       subClassOf: 'Subclass of',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this class.',
-      usageInSpecIntro:
-        'Some fixed text explaining the transition to "used in specifications".',
     },
     property: {
       property: 'Property',
@@ -163,8 +159,6 @@ export default {
       subPropertyOf: 'Subproperty of',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this property.',
-      usageInSpecIntro:
-        'Some fixed text explaining the transition to "used in specifications".',
     },
     conceptScheme: {
       conceptScheme: 'Terminology',
@@ -204,6 +198,8 @@ export default {
       download: 'Download',
       loading: 'Loading results…',
       introducedInSpecification: 'Introduced in specification',
+      reusedInSpecification: 'Reused in specification',
+      noReuseInSpecification: 'Reuse is only tracked for interoperable specifications.',
       usedInSpecification:
         'Used in ${count} interoperable {{PLURAL:${count}|specification|specifications}}',
       isPartOfDatavoc: 'Is part of data vocabulary',

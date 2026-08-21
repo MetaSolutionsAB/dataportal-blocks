@@ -19,18 +19,12 @@ export default {
     <h{{hl}} class="esbHeadingInSummary">{{nls "general.introducedInSpecification"}}</h{{hl}}>
     <div>{{introducedInSpecViaInspec}}</div>
 
-    <p class="placeholderParagraph">{{nls "class.usageInSpecIntro"}}</p>
-
-    <details open>
-        <summary class="esbSummaryWithHeading">
-          <h{{hl}} class="esbHeadingInSummary">{{usageHeader use="classUsageInSpec"}}</h{{hl}}>
-        </summary>
-        {{reusedInSpecViaInspec
-          hl="inherit"
-          limit=specUsageLimit
-          define="classUsageInSpec"
-          class="esbClassSpecUsageContainer"
-        }}
-    </details>
+    <h{{hl}} class="esbHeadingInSummary">{{nls "general.reusedInSpecification"}}</h{{hl}}>
+    {{reusedInSpecViaInspec
+      hl="inherit"
+      limit=specUsageLimit
+      define="classUsageInSpec"
+      class="esbClassSpecUsageContainer"
+    }}
   `,
 };
