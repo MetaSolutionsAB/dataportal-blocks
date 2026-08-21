@@ -1,4 +1,5 @@
 import { publishListCount } from './listCount.js';
+import { loadRelationTargets, targetsOfType } from './relationTargets.js';
 
 const DEFAULT_SORT = 'modified+desc';
 
@@ -72,36 +73,10 @@ const fromQuery = async (entry, conf, registry, limit) => {
  * agreeing with each other.
  */
 const fromRelation = async (entry, conf, registry, limit) => {
-  const uris = [
-    ...new Set(
-      entry
-        .getAllMetadata()
-        .find(entry.getResourceURI(), conf.relation)
-        .filter((stmt) => stmt.getType() === 'uri')
-        .map((stmt) => stmt.getValue())
-    ),
-  ];
-  if (uris.length === 0) {
-    return { rows: [], total: 0 };
-  }
-  // loadEntriesByResourceURIs tolerates misses, leaving falsy holes in the array.
-  const loaded = (
-    await registry
-      .get('entrystoreutil')
-      .loadEntriesByResourceURIs(uris, undefined, true)
-  ).filter(Boolean);
-
-  const types = conf.rdftype ? [].concat(conf.rdftype) : [];
-  const matching = types.length
-    ? loaded.filter((loadedEntry) =>
-        types.some(
-          (type) =>
-            loadedEntry
-              .getAllMetadata()
-              .find(loadedEntry.getResourceURI(), 'rdf:type', type).length > 0
-        )
-      )
-    : loaded;
+  const matching = targetsOfType(
+    await loadRelationTargets(registry, entry, conf.relation),
+    conf.rdftype
+  );
 
   // The query path sorts server-side; sort here too so both paths agree on the default
   // order. Only that order is reproducible without a query, so a `sortOrder` asking for
