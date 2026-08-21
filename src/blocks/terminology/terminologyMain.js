@@ -6,7 +6,8 @@
  * - `hl` ('2') — heading level for the section headings.
  * - `conceptLimit` (15) — max rows in the top-concepts list.
  * - `specUsageLimit` (15) — max rows in the spec-usage list.
- * CSS: emits `esbMainContent`.
+ * CSS: emits `esbMainContent`, and `esbConceptsInTerminologyContainer` around
+ *   the top-concepts list and its show-all button.
  */
 export default {
   extends: 'template',
@@ -19,12 +20,16 @@ export default {
 
     <details open>
       <summary class="esbSummaryWithHeading">
-        <h{{hl}} class="esbHeadingInSummary">{{topConceptInTerminologyHeader}}</h{{hl}}>
+        <h{{hl}} class="esbHeadingInSummary">{{conceptInTerminologyHeader}}</h{{hl}}>
       </summary>
-      {{topConceptInTerminologyList limit=conceptLimit}}
+      <div class="esbConceptsInTerminologyContainer">
+        <div>{{conceptInTerminologyList limit=conceptLimit}}</div>
+        {{showAllLink
+          namedclick="conceptSearch"
+          labelKey="conceptScheme.showAllConcepts"
+        }}
+      </div>
     </details>
-
-    <p class="placeholderParagraph">{{nls "conceptScheme.usageInSpecIntro"}}</p>
 
     <details open>
         <summary class="esbSummaryWithHeading">

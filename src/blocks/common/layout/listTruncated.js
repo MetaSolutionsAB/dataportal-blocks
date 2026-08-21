@@ -18,15 +18,15 @@ Todo:
  *
  * Params (project-introduced, on top of the `list` primitive's options):
  * - `vertical` (false) — stack rows vertically instead of inline.
- * - `bodyClass` ('') — extra class appended to the list container.
  * - `rowClass` ('') — class applied to each row's link.
  * - `namedclick` ('') — click route for rows; the `rowhead` link inherits it.
  * - `defineCount` ('') — registry key to publish `{resultsize, shown, truncated}` under,
  *   for a `*Header` block to render. Replaces the `list` primitive's `define`, which
  *   would report the truncated count instead.
- * CSS: container gets `esbInlineList` (plus `esbInlineVerticalList` when `vertical`,
- *   plus the `bodyClass` value); each row gets the `rowClass` value, and the inline
- *   comma separator is styled off `esbInlineList`.
+ * CSS: the list's container gets `esbInlineList`, plus `esbInlineVerticalList`
+ *   when `vertical`; each row gets the `rowClass` value, and the inline comma
+ *   separator is styled off `esbInlineList`. A classed container around the
+ *   list and whatever sits beside it belongs to the caller.
  */
 export default {
   extends: 'list',
@@ -37,9 +37,8 @@ export default {
   vertical: false,
   namedclick: '',
   limit: 'inherit',
-  bodyClass: '',
   rowClass: '',
   listbody:
-    '<div class="esbInlineList{{#if vertical}} esbInlineVerticalList{{/if}}{{#if bodyClass}} {{bodyClass}}{{/if}}">{{body}}</div>',
+    '<div class="esbInlineList{{#if vertical}} esbInlineVerticalList{{/if}}">{{body}}</div>',
   rowhead: `{{link namedclick="inherit" class=rowClass}}`,
 };

@@ -1,3 +1,4 @@
+// todo: eachprop should include language labels
 /**
  * Content column of the Concept page: definition, alternative labels, and the
  * broader / narrower / related / matching-concept sections.
@@ -6,7 +7,8 @@
  * - `hl` ('2') — heading level for the section headings.
  * - `broaderConceptLimit` / `narrowerConceptLimit` / `relatedConceptLimit` /
  *   `matchingConceptLimit` (15 each) — row limits for the respective lists.
- * CSS: emits `esbMainContent`.
+ * CSS: emits `esbMainContent`, and `esbConceptsInConceptContainer` around each
+ *   relation list and its overflow note.
  */
 export default {
   extends: 'template',
@@ -28,33 +30,45 @@ export default {
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{nls "concept.broaderConcepts"}}</h{{hl}}>
       </summary>
-      {{conceptRelationList
-        relation="skos:broader"
-        listplaceholder="esb_nls:concept.isTopConcept"
-        limit=broaderConceptLimit
-      }}
+      <div class="esbConceptsInConceptContainer">
+        <div>{{conceptRelationList
+          relation="skos:broader"
+          defineCount="broaderConcepts"
+          listplaceholder="esb_nls:concept.isTopConcept"
+          limit=broaderConceptLimit
+        }}</div>
+        {{overflowNote useCount="broaderConcepts" labelKey="concept.conceptOverflow"}}
+      </div>
     </details>
 
     <details open>
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{nls "concept.narrowerConcepts"}}</h{{hl}}>
       </summary>
-      {{conceptRelationList
-        relation="skos:narrower"
-        listplaceholder="esb_nls:concept.noNarrowerConcepts"
-        limit=narrowerConceptLimit
-      }}
+      <div class="esbConceptsInConceptContainer">
+        <div>{{conceptRelationList
+          relation="skos:narrower"
+          defineCount="narrowerConcepts"
+          listplaceholder="esb_nls:concept.noNarrowerConcepts"
+          limit=narrowerConceptLimit
+        }}</div>
+        {{overflowNote useCount="narrowerConcepts" labelKey="concept.conceptOverflow"}}
+      </div>
     </details>
 
     <details open>
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{nls "concept.relatedConcepts"}}</h{{hl}}>
       </summary>
-      {{conceptRelationList
-        relation="skos:related"
-        listplaceholder="esb_nls:concept.noRelatedConcepts"
-        limit=relatedConceptLimit
-      }}
+      <div class="esbConceptsInConceptContainer">
+        <div>{{conceptRelationList
+          relation="skos:related"
+          defineCount="relatedConcepts"
+          listplaceholder="esb_nls:concept.noRelatedConcepts"
+          limit=relatedConceptLimit
+        }}</div>
+        {{overflowNote useCount="relatedConcepts" labelKey="concept.conceptOverflow"}}
+      </div>
     </details>
 
     {{#ifprop "skos:exactMatch,skos:closeMatch,skos:relatedMatch,skos:broadMatch,skos:narrowMatch"}}

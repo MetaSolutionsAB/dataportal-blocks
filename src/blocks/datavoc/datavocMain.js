@@ -7,7 +7,9 @@
  * - `classLimit` (15) — max rows in the class list.
  * - `propertyLimit` (15) — max rows in the property list.
  * - `specUsageLimit` (15) — max rows in the spec-usage list.
- * CSS: emits `esbMainContent`; passes `esbDatavocSpecUsageContainer`
+ * CSS: emits `esbMainContent`, and `esbClassesInDatavocContainer` /
+ *   `esbPropertiesInDatavocContainer` around each list and its show-all
+ *   button; passes `esbDatavocSpecUsageContainer`
  *   to the usage list.
  */
 export default {
@@ -24,14 +26,26 @@ export default {
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{classInDatavocHeader}}</h{{hl}}>
       </summary>
-      {{classInDatavocList limit=classLimit}}
+      <div class="esbClassesInDatavocContainer">
+        <div>{{classInDatavocList limit=classLimit}}</div>
+        {{showAllLink
+          namedclick="classSearch"
+          labelKey="datavoc.showAllClasses"
+        }}
+      </div>
     </details>
 
     <details open>
       <summary class="esbSummaryWithHeading">
         <h{{hl}} class="esbHeadingInSummary">{{propertyInDatavocHeader}}</h{{hl}}>
       </summary>
-      {{propertyInDatavocList limit=propertyLimit}}
+      <div class="esbPropertiesInDatavocContainer">
+        <div>{{propertyInDatavocList limit=propertyLimit}}</div>
+        {{showAllLink
+          namedclick="propertySearch"
+          labelKey="datavoc.showAllProperties"
+        }}
+      </div>
     </details>
 
     <p class="placeholderParagraph">{{nls "datavoc.usageInSpecIntro"}}</p>
