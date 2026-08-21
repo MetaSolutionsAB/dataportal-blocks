@@ -30,7 +30,6 @@ export default {
     },
     conceptScheme: {
       conceptScheme: 'Terminologi',
-      reusedInSpecification: 'Återanvänds i specifikation',
       terminologyUri: 'Adress för terminologin',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna terminologi.',
@@ -69,7 +68,7 @@ export default {
       reusedInSpecification: 'Återanvänds i specifikation',
       noReuseInSpecification: 'Återanvändning spåras enbart för interoperabla specifikationer.',
       usedInSpecification:
-        'Används i {{PLURAL:${count}|1 interoperabel specifikation|${count} interoperabla specifikationer}}',
+        'Används i ${count} {{PLURAL:${count}|interoperabel specifikation|interoperabla specifikationer}}',
       isPartOfDatavoc: 'Ingår i datavokabulär',
       downloadMetadataRdfXml: 'Ladda ner metadata som RDF/XML',
       downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
@@ -162,7 +161,6 @@ export default {
     },
     conceptScheme: {
       conceptScheme: 'Terminology',
-      reusedInSpecification: 'Reused in specification',
       terminologyUri: 'URI for the terminology',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this terminology.',
