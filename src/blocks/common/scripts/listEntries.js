@@ -101,9 +101,11 @@ const fromRelation = async (entry, conf, registry, limit) => {
       )
     : loaded;
 
-  // The query path sorts server-side; sort here too so both paths agree. Only the
-  // default order is reproducible without a query, so anything else is refused rather
-  // than silently ignored.
+  // The query path sorts server-side; sort here too so both paths agree on the default
+  // order. Only that order is reproducible without a query, so a `sortOrder` asking for
+  // any other is warned about and then ignored, not honoured. Note that this agreement
+  // is limited to the default: a registered `blocks_sortOrder` reaches the query path
+  // (see resolveSort) but cannot be reproduced here, and does not warn.
   if (conf.sortOrder) {
     console.warn(
       `listEntries: sortOrder "${conf.sortOrder}" cannot be applied when following ${conf.relation}; using ${DEFAULT_SORT}.`
@@ -134,8 +136,8 @@ const fromRelation = async (entry, conf, registry, limit) => {
  * Two row sources, chosen by whether `relation` is set. Neither reads the runtime's
  * internal global filter, and neither applies `constraints`, so a list needing either
  * must stay on the runtime's own query path. `sortOrder` reaches only the query source;
- * the relation source can reproduce the default order without a query and refuses
- * anything else.
+ * the relation source reproduces the default order without a query and warns off
+ * anything else rather than honouring it.
  *
  * @param {object} entry - the block's entry, as passed by the list block
  * @param {object} conf - the merged block configuration; reads `limit`, `relation`,

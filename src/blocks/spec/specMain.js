@@ -1,5 +1,6 @@
-/* todo: look into gating on empty class/prop since the gate is on introduces/reduces
- * a specification that introduces only properties will show an empty classes
+/* todo: gate each section on its own type. The gates are on `inspec:introduces` and
+ * `inspec:reuses`, which cannot tell a class from a property, so a specification that
+ * introduces only properties still renders an empty classes section counting zero.
  */
 /**
  * Content column of the Specification page: diagram, AP-inspect button,
