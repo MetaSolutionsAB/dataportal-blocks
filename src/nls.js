@@ -66,7 +66,8 @@ export default {
       loading: 'Laddar resultat…',
       introducedInSpecification: 'Introduceras i specifikation',
       reusedInSpecification: 'Återanvänds i specifikation',
-      noReuseInSpecification: 'Återanvändning spåras enbart för interoperabla specifikationer.',
+      noReuseInSpecification:
+        'Återanvändning spåras enbart för interoperabla specifikationer.',
       usedInSpecification:
         'Används i ${count} {{PLURAL:${count}|interoperabel specifikation|interoperabla specifikationer}}',
       isPartOfDatavoc: 'Ingår i datavokabulär',
@@ -201,7 +202,8 @@ export default {
       loading: 'Loading results…',
       introducedInSpecification: 'Introduced in specification',
       reusedInSpecification: 'Reused in specification',
-      noReuseInSpecification: 'Reuse is only tracked for interoperable specifications.',
+      noReuseInSpecification:
+        'Reuse is only tracked for interoperable specifications.',
       usedInSpecification:
         'Used in ${count} interoperable {{PLURAL:${count}|specification|specifications}}',
       isPartOfDatavoc: 'Is part of data vocabulary',
