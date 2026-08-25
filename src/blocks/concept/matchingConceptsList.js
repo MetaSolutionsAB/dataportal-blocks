@@ -1,7 +1,3 @@
-/* @todo: determine how to handle limit overflow
- * Either `.slice(0, limit)` which silently discards the overflow
- * or leave to list but use CSS to hide the pagination and `::after` an ellipsis on pagination
- */
 import { delegatedEntry } from '../common/scripts/delegatedEntry.js';
 import { publishListCount } from '../common/scripts/listCount.js';
 import { resolvePredicateRefs } from '../common/scripts/resolvePredicateRefs.js';
