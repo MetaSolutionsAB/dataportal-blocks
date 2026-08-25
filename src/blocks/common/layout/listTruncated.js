@@ -1,12 +1,5 @@
 import { listEntries } from '../scripts/listEntries.js';
 
-/*
-Todo:
-* offer a "show all" button for a truncated list, linking to the search page
-* filtered on this resource. Waiting on a search route in config.clicks and a
-* convention for encoding the filter in its URL; `truncated` is already published
-* under `defineCount` for it to gate on.
-*/
 /**
  * Inline list base (extended by the inline `*List` blocks). Renders rows as links,
  * comma-separated inline by default, and truncates at `limit` rather than paginating.
@@ -21,7 +14,8 @@ Todo:
  * - `rowClass` ('') — class applied to each row's link.
  * - `namedclick` ('') — click route for rows; the `rowhead` link inherits it.
  * - `defineCount` ('') — registry key to publish `{resultsize, shown, truncated}` under,
- *   for a `*Header` block to render. Replaces the `list` primitive's `define`, which
+ *   for a `*Header` block to render the true total and for `overflowNote` / `showAllLink`
+ *   to account for the rows held back. Replaces the `list` primitive's `define`, which
  *   would report the truncated count instead.
  * CSS: the list's container gets `esbInlineList`, plus `esbInlineVerticalList`
  *   when `vertical`; each row gets the `rowClass` value, and the inline comma

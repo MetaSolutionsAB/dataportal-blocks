@@ -64,7 +64,8 @@ const fromQuery = async (entry, conf, registry, limit) => {
 };
 
 /**
- * Follow a relation out of the entry's own metadata and filter the targets by type here.
+ * Follow a relation out of the entry's own metadata and filter the targets by type on the
+ * client (`relationTargets.js` does both).
  *
  * The runtime does this with a Solr query while there are at most ten targets and with a
  * plain load beyond that, and the load drops `rdftype` on the way — which is why a type
@@ -107,8 +108,8 @@ const fromRelation = async (entry, conf, registry, limit) => {
  * Because the rows are capped, the list's own `resultsize` reports the capped number.
  * The real total is therefore published here instead, under `defineCount`, in the shape
  * the `results` block renders: a `*Header` block keeps its existing `use` and
- * `count=resultsize` and shows the true total. `truncated` rides along for the "show all"
- * control, once there is a search URL to send it to.
+ * `count=resultsize` and shows the true total. `truncated` rides along for `showAllLink`,
+ * which uses it to offer the rest via the search routes in `config.clicks`.
  *
  * Two row sources, chosen by whether `relation` is set. Neither reads the runtime's
  * internal global filter, and neither applies `constraints`, so a list needing either
