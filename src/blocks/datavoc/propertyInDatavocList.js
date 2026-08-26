@@ -22,6 +22,6 @@ export default {
   rdftype: 'rdf:Property',
   defineCount: 'propertiesInDatavoc',
   relationinverse: 'rdfs:isDefinedBy',
-  listplaceholder: `esb_nls:datavoc.noProperties`,
+  listplaceholder: 'esb_nls:datavoc.noProperties',
   rowClass: 'esbPropertyLink',
 };

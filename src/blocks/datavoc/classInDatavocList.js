@@ -22,6 +22,6 @@ export default {
   rdftype: 'rdfs:Class',
   defineCount: 'classesInDatavoc',
   relationinverse: 'rdfs:isDefinedBy',
-  listplaceholder: `esb_nls:datavoc.noClasses`,
+  listplaceholder: 'esb_nls:datavoc.noClasses',
   rowClass: 'esbClassLink',
 };
