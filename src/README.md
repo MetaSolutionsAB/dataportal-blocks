@@ -149,7 +149,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbVanityStatContainer`            | the stat line inside a vanity panel                                                                  |
 | `esbVanityNumber`                   | the highlighted count inside a vanity panel                                                          |
 | `esbConceptCount`                   | the concept count of a terminology                                                                   |
-| `esbConceptsInTerminologyContainer` | container for a terminology's top-concepts list and its show-all button                              |
+| `esbConceptsInTerminologyContainer` | container for a terminology's concepts list and its show-all button                                  |
 | `esbClassesInDatavocContainer`      | container for a data vocabulary's class list and its show-all button                                 |
 | `esbPropertiesInDatavocContainer`   | container for a data vocabulary's property list and its show-all button                              |
 | `esbCPInSpecContainer`              | container for one of a specification's class or property lists and its overflow note                 |

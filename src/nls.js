@@ -38,6 +38,8 @@ export default {
       conceptsInTerminology: 'I terminologin ingår ${count} begrepp',
       conceptCount: 'Totalt antal begrepp',
       showAllConcepts: 'Visa alla begrepp',
+      noConcepts:
+        'Något har gått fel! Inga begrepp kunde hittas för denna terminologi.',
     },
     concept: {
       concept: 'Begrepp',
@@ -181,6 +183,8 @@ export default {
         'The terminology includes ${count} {{PLURAL:${count}|concept|concepts}}',
       conceptCount: 'Total number of concepts',
       showAllConcepts: 'Show all concepts',
+      noConcepts:
+        'Something went wrong! No concepts could be found for this terminology.',
     },
     concept: {
       concept: 'Concept',
