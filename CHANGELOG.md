@@ -7,6 +7,114 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.3.0 — 2026-08-26
+
+**Requires an EntryScape Blocks runtime later than 1.18.1.** The inline lists are
+built from the `list` block's `entries` parameter (BLOCKS-453).
+
+### Breaking: DOM changes that affect downstream selectors
+
+#### Block-level blocks no longer render inside a placeholder `<span>`
+
+Where a block emitting block-level content was invoked alongside siblings, the
+runtime kept its placeholder `<span>` and rendered into it, nesting `<div>`s in a
+`<span>`. Each such invocation now sits in a bare `<div>` that the runtime renders
+into instead. Affected: `rdfLinks` in all six infoboxes (`.esbRdfLinks` is now the
+child of a plain `<div>`, not of a `<span>`), the four "used in specifications"
+lists, the specification's resource-descriptor lists and its rdforms `{{view}}`,
+and the concept page's mapping sections. Any selector that stepped through the
+span, or used a child combinator from the enclosing section, needs re-checking.
+
+#### The inline lists truncate instead of paginating
+
+The terminology concept list, the data vocabulary class and property lists, the
+concept broader / narrower / related and mapping lists, and the specification
+class and property lists are all capped at `limit` and no longer show pagination
+controls. Rows past the cap are not reachable from the list itself; a show-all
+button (terminology, data vocabulary) or an overflow note (concept, specification)
+accounts for them instead.
+
+#### A specification's classes and properties are four sections, not two
+
+"Introduced" and "Reused" each split into a class section and a property
+section, with their own headings and counts. Each `<details>` renders only when
+the relation actually has targets of that type. A specification introducing only
+classes now shows no property section at all. Each list and its overflow note sit
+in an `esbCPInSpecContainer`.
+
+#### A terminology's concept section lists every concept
+
+The section followed `skos:topConceptOf` and showed only top-level concepts; it
+follows `skos:inScheme` now, so it lists the terminology's concepts and its
+heading counts all of them. The now identical concept count in the infobox is
+dropped.
+
+#### The class and property pages drop their disclosure around "Reused in"
+
+That section was a `<details>` whose `<summary>` carried a count; it is now a
+plain heading followed by the list, so `esbSummaryWithHeading` and the count are
+both gone from those two pages. The list itself stacks vertically now
+(`esbInlineVerticalList` joins its container's classes) and states when a resource
+is used by no interoperable specification instead of rendering an empty container.
+
+#### The AP button is styled as an internal link
+
+`specInspectAPButton` emits `esbLinkButton esbInspectAPButton` in place of
+`esbExtLinkButton esbInspectAPButton`. The AP page is inside the portal, so the
+off-site affordance a host attaches to `esbExtLinkButton` was wrong there.
+`esbExtLinkButton` keeps its meaning and is still what the resource descriptor's
+artifact button emits. For the same reason, `esbSpecLink` rows are internal portal
+links and should not carry an external-link marker either.
+
+### Added
+
+- **New blocks**: `listTruncated` (the inline list base), `showAllLink`,
+  `overflowNote`, `cpInSpecSections` (owns the specification's class and property
+  region), the four per-type specification list and header pairs, and
+  `conceptInTerminologyList` / `conceptInTerminologyHeader`.
+- **New `esb*` classes**: `esbLinkButton`, `esbShowAllLink`, `esbOverflowNote`,
+  `esbConceptsInTerminologyContainer`, `esbClassesInDatavocContainer`,
+  `esbPropertiesInDatavocContainer`, `esbCPInSpecContainer`. All are described in
+  the README.
+- **Three new `clicks` routes**, `conceptSearch`, `classSearch`,
+  `propertySearch`. All `clicks` are now described in the README.
+- **Mapping lists render unresolved URIs.** A concept's SKOS mapping sections list
+  local and external values side by side in metadata order; a value that resolves
+  to no entry renders as a plain link with `esbExternalConceptLink`, where it was
+  previously dropped.
+- **Empty sections say so** rather than showing a bare container: the data
+  vocabulary's class and property lists, the terminology's concept list, and the
+  class and property pages' reuse list each carry a placeholder.
+
+### Removed
+
+- **The `listStandard` and `listShowMore` blocks**, superseded by `listTruncated`.
+  Nothing in the bundle referenced them, but HTML mounting either by name via
+  `data-entryscape-block` will now render nothing.
+- **`topConceptInTerminologyList` / `topConceptInTerminologyHeader`**, renamed as
+  `conceptInTerminologyList` / `conceptInTerminologyHeader` accordingly.
+- **`cpIntroducedInSpecList` / `cpReusedInSpecList` and their header blocks**,
+  replaced by the per-type pairs.
+- **`matchingConceptsListFallback`**, no longer needed now that one list renders
+  both resolved and unresolved values.
+- **The `clicks.vocabulary` route**, which duplicated `property` for some values
+  and was unused.
+- **The filler paragraphs**, placeholders where content never arrived. Also removed
+  the associated `.placeholderParagraph` rule and NLS strings.
+
+### Fixed
+
+- **A type filter on a relation now applies however many targets there are**
+  (BLOCKS-323). The runtime resolved a relation's targets with a Solr query up to
+  ten values and with a plain load beyond that, and the load dropped `rdftype`, so
+  a specification relating to more than ten classes and properties saw the filter
+  stop working. Both paths are replaced by one that filters by type whatever the
+  count.
+- **Empty class and property sections on a specification no longer render.** They
+  were gated on the relation, which says nothing about the types of its targets.
+- **`<div>`s no longer nest inside `<span>`s** (see above), invalid markup that
+  browsers tolerated silently.
+
 ## 0.2.0 — 2026-08-19
 
 ### Breaking: DOM changes that affect downstream selectors
