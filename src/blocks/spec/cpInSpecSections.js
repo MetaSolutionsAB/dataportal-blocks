@@ -17,14 +17,15 @@ import {
  * The caller still gates the region on the relations existing at all, a
  * metadata read that keeps a spec with neither from loading anything.
  * The count of a relation whose targets all fail to resolve is zero, so every
- * section is hidden while the caller's heading remains.
+ * section is hidden while this block's own region heading remains.
  *
  * Params:
  * - `hl` ('2') — heading level for the region heading; sections use `(hinc)`.
  * - `introducedLimit` (15) / `reusedLimit` (15) — row cap per section.
- * Provides on `data`: `introducedClasses`, `introducedProperties`,
- *   `reusedClasses`, `reusedProperties` — how many targets of that type the
- *   relation has, which is what each section is gated on.
+ * Provides on `data`: `introducedClassCount`, `introducedPropertyCount`,
+ *   `reusedClassCount`, `reusedPropertyCount` — how many targets of that
+ *   type the relation has, which is what each section is gated on. `noneFound`
+ *   whether no classes of properties were found, gating the fallback message.
  * CSS: emits `esbCPInSpecContainer` around each list and its overflow note;
  *   section summaries use `esbSummaryWithHeading` and `esbHeadingInSummary`.
  */
@@ -40,17 +41,26 @@ export default {
       loadRelationTargets(registry, entry, 'inspec:introduces'),
       loadRelationTargets(registry, entry, 'inspec:reuses'),
     ]);
-    data.introducedClasses = targetsOfType(introduced, 'rdfs:Class').length;
-    data.introducedProperties = targetsOfType(
+    data.introducedClassCount = targetsOfType(introduced, 'rdfs:Class').length;
+    data.introducedPropertyCount = targetsOfType(
       introduced,
       'rdf:Property'
     ).length;
-    data.reusedClasses = targetsOfType(reused, 'rdfs:Class').length;
-    data.reusedProperties = targetsOfType(reused, 'rdf:Property').length;
+    data.reusedClassCount = targetsOfType(reused, 'rdfs:Class').length;
+    data.reusedPropertyCount = targetsOfType(reused, 'rdf:Property').length;
+    data.noneFound =
+      data.introducedClassCount +
+        data.introducedPropertyCount +
+        data.reusedClassCount +
+        data.reusedPropertyCount ===
+      0;
   },
   template: `
     <h{{hl}}>{{nls "spec.classesAndProperties"}}</h{{hl}}>
-    {{#if introducedClasses}}
+    {{#if noneFound}}
+      <p>{{nls "spec.noClassesOrProperties"}}</p>
+    {{/if}}
+    {{#if introducedClassCount}}
       <details open>
         <summary class="esbSummaryWithHeading">
           <h{{hinc}} class="esbHeadingInSummary">{{classIntroducedInSpecHeader}}</h{{hinc}}>
@@ -61,7 +71,7 @@ export default {
         </div>
       </details>
     {{/if}}
-    {{#if introducedProperties}}
+    {{#if introducedPropertyCount}}
       <details open>
         <summary class="esbSummaryWithHeading">
           <h{{hinc}} class="esbHeadingInSummary">{{propertyIntroducedInSpecHeader}}</h{{hinc}}>
@@ -72,7 +82,7 @@ export default {
         </div>
       </details>
     {{/if}}
-    {{#if reusedClasses}}
+    {{#if reusedClassCount}}
       <details open>
         <summary class="esbSummaryWithHeading">
           <h{{hinc}} class="esbHeadingInSummary">{{classReusedInSpecHeader}}</h{{hinc}}>
@@ -83,7 +93,7 @@ export default {
         </div>
       </details>
     {{/if}}
-    {{#if reusedProperties}}
+    {{#if reusedPropertyCount}}
       <details open>
         <summary class="esbSummaryWithHeading">
           <h{{hinc}} class="esbHeadingInSummary">{{propertyReusedInSpecHeader}}</h{{hinc}}>

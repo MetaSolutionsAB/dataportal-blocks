@@ -127,6 +127,8 @@ export default {
       inspecTypeSvg: 'diagram',
       grunddata: 'Nationell grunddata',
       keyword: 'Nyckelord',
+      noClassesOrProperties:
+        'Något har gått fel! Inga klasser eller egenskaper kunde hittas för denna specifikation.',
     },
     respec: {
       backToTheOverview: 'Tillbaka till översikten',
@@ -272,6 +274,8 @@ export default {
       inspecTypeSvg: 'diagram',
       grunddata: 'National basic data',
       keyword: 'Keywords',
+      noClassesOrProperties:
+        'Something went wrong! No classes or properties could be found for this specification.',
     },
     respec: {
       backToTheOverview: 'Back to the overview',
