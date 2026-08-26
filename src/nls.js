@@ -59,7 +59,7 @@ export default {
       broadMatch: 'Överordnade',
       narrowMatch: 'Underordnade',
       conceptOverflow:
-        'Ytterligare {{PLURAL:${count}|1 begrepp|${count} begrepp}} kunde inte visas.',
+        'Ytterligare {{PLURAL:${count}|1 begrepp|${count} begrepp}} visas inte.',
     },
     general: {
       details: 'Detaljer',
@@ -98,9 +98,9 @@ export default {
       propertiesReused:
         '{{PLURAL:${count}|1 återanvänd Egenskap|${count} återanvända Egenskaper}} (Från andra specifikationer)',
       classOverflow:
-        'Ytterligare {{PLURAL:${count}|1 klass|${count} klasser}} kunde inte visas.',
+        'Ytterligare {{PLURAL:${count}|1 klass|${count} klasser}} visas inte.',
       propertyOverflow:
-        'Ytterligare {{PLURAL:${count}|1 egenskap|${count} egenskaper}} kunde inte visas.',
+        'Ytterligare {{PLURAL:${count}|1 egenskap|${count} egenskaper}} visas inte.',
       resources: 'Resurser',
       rIntroduced: 'Introducerade (I denna specifikation)',
       rReused: 'Återanvända (Från andra specifikationer)',
@@ -204,7 +204,7 @@ export default {
       broadMatch: 'Broader',
       narrowMatch: 'Narrower',
       conceptOverflow:
-        '{{PLURAL:${count}|1 more concept|${count} more concepts}} could not be shown.',
+        '{{PLURAL:${count}|1 more concept|${count} more concepts}} were not shown.',
     },
     general: {
       details: 'Details',
@@ -243,9 +243,9 @@ export default {
       propertiesReused:
         '{{PLURAL:${count}|1 reused Property|${count} reused Properties}} (From other specifications)',
       classOverflow:
-        '{{PLURAL:${count}|1 more class|${count} more classes}} could not be shown.',
+        '{{PLURAL:${count}|1 more class|${count} more classes}} were not shown.',
       propertyOverflow:
-        '{{PLURAL:${count}|1 more property|${count} more properties}} could not be shown.',
+        '{{PLURAL:${count}|1 more property|${count} more properties}} were not shown.',
       resources: 'Resources',
       rIntroduced: 'Introduced (In this specification)',
       rReused: 'Reused (From other specifications)',
