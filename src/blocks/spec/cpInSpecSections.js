@@ -37,6 +37,13 @@ export default {
   progressTemplate: ' ',
   before: async function (node, data, registry) {
     const { entry } = resolveEntry(registry, data);
+    // Named here rather than left to the first property read inside
+    // relationTargets, which would blame that file for a caller's omission.
+    if (!entry) {
+      throw new TypeError(
+        'cpInSpecSections: needs an entry to follow inspec:introduces and inspec:reuses from, and none was resolved.'
+      );
+    }
     const [introduced, reused] = await Promise.all([
       loadRelationTargets(registry, entry, 'inspec:introduces'),
       loadRelationTargets(registry, entry, 'inspec:reuses'),
