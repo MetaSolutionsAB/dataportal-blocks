@@ -109,6 +109,42 @@ Two directories deliberately do **not** follow the family/`*View` shape:
   entries while developing and exercising the other families, not as a shipped
   feature of the portal.
 
+## Click routes
+
+Templates never write a URL. A row or button names a route with
+`namedclick="…"`, and `config.clicks` maps that name to the host's own URL. The
+values ship empty in `src/config.js`, so **every route a mounted block names has
+to be filled in by the host**; an unfilled one yields a link with no target,
+which the block still renders. `ap/initSpec.js` reads the same map directly to
+wire the AP renderer's click-through, so a route can be wanted from outside a
+`namedclick` too.
+
+| Route            | Page it should reach                              |
+| ---------------- | ------------------------------------------------- |
+| `spec`           | a specification                                   |
+| `organization`   | a publishing organisation                         |
+| `concept`        | a concept                                         |
+| `terminology`    | a terminology                                     |
+| `class`          | a class                                           |
+| `property`       | a property                                        |
+| `datavoc`        | a data vocabulary                                 |
+| `ap`             | a specification's application profile             |
+| `dataset`        | a dataset                                         |
+| `shape`          | reserved for linking between application profiles |
+| `conceptSearch`  | concept search, filtered on one terminology       |
+| `classSearch`    | class search, filtered on one data vocabulary     |
+| `propertySearch` | property search, filtered on one data vocabulary  |
+
+The three `*Search` routes are where `showAllLink` sends a reader for the rows a
+truncated list held back, so each has to arrive **filtered on the resource the
+page is about**. To leave the encoding of that filter to the host, a route may be
+written as a template over the page entry by prefixing it `esb:`, where `${uri}`
+expands to the entry's resource URI:
+
+```js
+conceptSearch: 'esb:/begrepp?f=${uri}&rt=term_concept',
+```
+
 ## Introduced CSS classes
 
 Templates emit `esb`-prefixed classes (the EntryScape Blocks convention). Only a
