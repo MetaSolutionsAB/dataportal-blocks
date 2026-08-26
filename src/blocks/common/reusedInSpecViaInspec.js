@@ -13,5 +13,5 @@ export default {
   relationinverse: 'inspec:reuses',
   vertical: true,
   rowhead: `{{link namedclick="inherit"}}`,
-  listplaceholder: `esb_nls:general.noReuseInSpecification`,
+  listplaceholder: 'esb_nls:general.noReuseInSpecification',
 };
