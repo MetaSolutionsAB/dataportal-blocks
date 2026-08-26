@@ -38,31 +38,38 @@ export default {
   rowClass: 'esbConceptLink',
   externalRowClass: 'esbExternalConceptLink',
   entries: async (entry, conf, registry) => {
-    const limit = Number(conf.limit);
-    if (!Number.isInteger(limit) || limit < 1) {
-      throw new TypeError(
-        `matchingConceptsList: limit must be a positive integer, got ${JSON.stringify(conf.limit)}.`
-      );
-    }
-    // resolvePredicateRefs already classifies every value in metadata order and sets
-    // `href` only on the http(s) ones, so a row is renderable exactly when it is a local
-    // entry or a linkable URI. A literal, a blank node or a URI on some other scheme has
-    // nothing a reader could follow, so it is dropped rather than shown as bare text.
-    const refs = await resolvePredicateRefs(registry, entry, conf.relation);
-    const renderable = refs
-      .filter((ref) => {
-        if (ref.entry || ref.href) return true;
-        console.warn(
-          `matchingConceptsList: ${conf.relation} on ${entry.getURI()} has a value that is neither a local concept nor an http(s) URI (${ref.uri || ref.text || 'blank node'}); that row is omitted.`
+    try {
+      const limit = Number(conf.limit);
+      if (!Number.isInteger(limit) || limit < 1) {
+        throw new TypeError(
+          `matchingConceptsList: limit must be a positive integer, got ${JSON.stringify(conf.limit)}.`
         );
-        return false;
-      })
-      .map((ref) => ref.entry || delegatedEntry(entry, ref.href));
-    const rows = renderable.slice(0, limit);
-    // The denominator is the renderable values, not every value: the ones dropped
-    // above were unrenderable rather than held back, and they warn for themselves.
-    publishListCount(registry, conf, rows, renderable.length);
-    return rows;
+      }
+      // resolvePredicateRefs already classifies every value in metadata order and sets
+      // `href` only on the http(s) ones, so a row is renderable exactly when it is a local
+      // entry or a linkable URI. A literal, a blank node or a URI on some other scheme has
+      // nothing a reader could follow, so it is dropped rather than shown as bare text.
+      const refs = await resolvePredicateRefs(registry, entry, conf.relation);
+      const renderable = refs
+        .filter((ref) => {
+          if (ref.entry || ref.href) return true;
+          console.warn(
+            `matchingConceptsList: ${conf.relation} on ${entry.getURI()} has a value that is neither a local concept nor an http(s) URI (${ref.uri || ref.text || 'blank node'}); that row is omitted.`
+          );
+          return false;
+        })
+        .map((ref) => ref.entry || delegatedEntry(entry, ref.href));
+      const rows = renderable.slice(0, limit);
+      // The denominator is the renderable values, not every value: the ones dropped
+      // above were unrenderable rather than held back, and they warn for themselves.
+      publishListCount(registry, conf, rows, renderable.length);
+      return rows;
+    } catch (e) {
+      // As in listEntries: a list that throws without publishing strands the
+      // overflow note beside it on a wait that never times out.
+      publishListCount(registry, conf, [], 0);
+      throw e;
+    }
   },
   listbody: '<div class="esbInlineList">{{body}}</div>',
   // No whitespace anywhere in here: a text node beside the {{link}} placeholder stops the
