@@ -111,6 +111,9 @@ const fromRelation = async (entry, conf, registry, limit) => {
  * `count=resultsize` and shows the true total. `truncated` rides along for `showAllLink`,
  * which uses it to offer the rest via the search routes in `config.clicks`.
  *
+ * The count is published on the way out either way, an empty one if the rows could not be
+ * built, because the blocks awaiting it have no timeout to fall back on.
+ *
  * Two row sources, chosen by whether `relation` is set. Neither reads the runtime's
  * internal global filter, and neither applies `constraints`, so a list needing either
  * must stay on the runtime's own query path. `sortOrder` reaches only the query source;
@@ -124,22 +127,32 @@ const fromRelation = async (entry, conf, registry, limit) => {
  * @returns {Promise<Array<object>>} at most `limit` entries
  */
 export const listEntries = async (entry, conf, registry) => {
-  const limit = resolveLimit(conf);
-  if (!conf.relation && !conf.relationinverse && !conf.rdftype) {
-    throw new TypeError(
-      'listEntries: needs one of relation, relationinverse or rdftype; refusing to query for everything.'
-    );
-  }
-  if ((conf.relation || conf.relationinverse) && !entry) {
-    throw new TypeError(
-      `listEntries: ${conf.relation || conf.relationinverse} needs an entry to follow it from, and none was resolved.`
-    );
-  }
+  try {
+    const limit = resolveLimit(conf);
+    if (!conf.relation && !conf.relationinverse && !conf.rdftype) {
+      throw new TypeError(
+        'listEntries: needs one of relation, relationinverse or rdftype; refusing to query for everything.'
+      );
+    }
+    if ((conf.relation || conf.relationinverse) && !entry) {
+      throw new TypeError(
+        `listEntries: ${conf.relation || conf.relationinverse} needs an entry to follow it from, and none was resolved.`
+      );
+    }
 
-  const { rows, total } = conf.relation
-    ? await fromRelation(entry, conf, registry, limit)
-    : await fromQuery(entry, conf, registry, limit);
+    const { rows, total } = conf.relation
+      ? await fromRelation(entry, conf, registry, limit)
+      : await fromQuery(entry, conf, registry, limit);
 
-  publishListCount(registry, conf, rows, total);
-  return rows;
+    publishListCount(registry, conf, rows, total);
+    return rows;
+  } catch (e) {
+    // Publish an empty count before the failure propagates. `listCount` awaits the
+    // key through `registry.onInit`, which never times out, so a list that throws
+    // without publishing leaves every block beside it pending forever — rendering
+    // nothing and saying nothing. Zero sends them to their nothing-to-say state
+    // instead, and the list still reports the failure itself.
+    publishListCount(registry, conf, [], 0);
+    throw e;
+  }
 };
