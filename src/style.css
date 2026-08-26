@@ -26,14 +26,6 @@
   white-space: pre-line;
 }
 
-/* to ensure these aren't accidentally left */
-.entryscape .placeholderParagraph {
-  font-weight: bold;
-  background: #da1717;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
 .esbRowHead {
   max-height: none;
 }
