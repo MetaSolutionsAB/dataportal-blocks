@@ -1,13 +1,13 @@
 /**
- * Content column of the Terminology page: description, the top-concepts list,
+ * Content column of the Terminology page: description, the concepts list,
  * and the "used in specifications" section.
  *
  * Params:
  * - `hl` ('2') — heading level for the section headings.
- * - `conceptLimit` (15) — max rows in the top-concepts list.
+ * - `conceptLimit` (15) — max rows in the concepts list.
  * - `specUsageLimit` (15) — max rows in the spec-usage list.
  * CSS: emits `esbMainContent`, and `esbConceptsInTerminologyContainer` around
- *   the top-concepts list and its show-all button.
+ *   the concepts list and its show-all button.
  */
 export default {
   extends: 'template',
@@ -27,6 +27,8 @@ export default {
         {{showAllLink
           namedclick="conceptSearch"
           labelKey="conceptScheme.showAllConcepts"
+          always=false
+          useCount="conceptsInTerminology"
         }}
       </div>
     </details>
