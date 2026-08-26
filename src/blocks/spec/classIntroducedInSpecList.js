@@ -7,7 +7,8 @@ import cpInSpecList from './cpInSpecList.js';
  * Params (on top of `cpInSpecList`):
  * - `defineCount` ('classesIntroducedInSpec') — registry key the uncapped count is
  *   published under, for `classIntroducedInSpecHeader` to render.
- * CSS: rows get `esbClassLink`; the container class comes from the base.
+ * CSS: rows get `esbClassLink`; the container around the list is the caller's,
+ *   per the base.
  */
 export default {
   extends: cpInSpecList,
