@@ -46,35 +46,37 @@ export default {
       showLanguage="false"
       rdformsid="prof:Profile"
     }}
-    <dl>
-      {{#ifprop "adms:last"}}
-        <div>{{predicateRefList
-          predicate="adms:last"
-          dtContent="esb_nls:respec.lastVersion"
-          namedclick="spec"
-          rowClass="esbSpecLink"
-          excludeType="prof:ResourceDescriptor"
-        }}</div>
-      {{/ifprop}}
-      {{#ifprop "adms:prev"}}
-        <div>{{predicateRefList
-          predicate="adms:prev"
-          dtContent="esb_nls:respec.prevVersion"
-          namedclick="spec"
-          rowClass="esbSpecLink"
-          excludeType="prof:ResourceDescriptor"
-        }}</div>
-      {{/ifprop}}
-      {{#ifprop "adms:next"}}
-        <div>{{predicateRefList
-          predicate="adms:next"
-          dtContent="esb_nls:respec.nextVersion"
-          namedclick="spec"
-          rowClass="esbSpecLink"
-          excludeType="prof:ResourceDescriptor"
-        }}</div>
-      {{/ifprop}}
-    </dl>
+    {{#ifprop "adms:last,adms:prev,adms:next"}}
+      <dl>
+        {{#ifprop "adms:last"}}
+          <div>{{predicateRefList
+            predicate="adms:last"
+            dtContent="esb_nls:respec.lastVersion"
+            namedclick="spec"
+            rowClass="esbSpecLink"
+            excludeType="prof:ResourceDescriptor"
+          }}</div>
+        {{/ifprop}}
+        {{#ifprop "adms:prev"}}
+          <div>{{predicateRefList
+            predicate="adms:prev"
+            dtContent="esb_nls:respec.prevVersion"
+            namedclick="spec"
+            rowClass="esbSpecLink"
+            excludeType="prof:ResourceDescriptor"
+          }}</div>
+        {{/ifprop}}
+        {{#ifprop "adms:next"}}
+          <div>{{predicateRefList
+            predicate="adms:next"
+            dtContent="esb_nls:respec.nextVersion"
+            namedclick="spec"
+            rowClass="esbSpecLink"
+            excludeType="prof:ResourceDescriptor"
+          }}</div>
+        {{/ifprop}}
+      </dl>
+    {{/ifprop}}
     
     {{rdfLinks hl=(hinc)}}
   `,
