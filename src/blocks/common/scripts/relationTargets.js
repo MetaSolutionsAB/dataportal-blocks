@@ -9,6 +9,10 @@
  * Nothing is loaded when the relation has no URI-valued statements, which keeps
  * the absent-relation case free of a request.
  *
+ * `loadEntriesByResourceURIs` answers from the entrystore's entry cache before
+ * it queries, so handing it URIs already loaded costs no request. That is what
+ * lets several callers follow the same relation without memoising here.
+ *
  * @param {object} registry - the block registry
  * @param {object} entry - the entry the relation is followed from
  * @param {string} relation - the predicate to follow
