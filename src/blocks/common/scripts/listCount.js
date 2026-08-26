@@ -1,7 +1,7 @@
 /**
  * Read the row count a truncating list published, and derive the overflow.
  *
- * `common/scripts/listEntries.js` publishes `{resultsize, shown, truncated}`
+ * `common/scripts/publishListCount.js` publishes `{resultsize, shown, truncated}`
  * under the list's `defineCount` key once its rows resolve. This awaits it, so
  * a block beside the list can say something about what the list left out.
  *
