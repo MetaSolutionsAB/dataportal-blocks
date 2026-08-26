@@ -40,12 +40,12 @@ export default {
         <div class="esbKeywordsList">{{keywordList limit=keywordLimit}}</div>
       {{/ifprop}}
     </dl>
-    {{view
+    <div>{{view
       onecol="true"
       filterpredicates="dcterms:title,dcterms:description,dcterms:publisher,prof:hasResource,prof:isProfileOf,adms:prev,adms:next,adms:last,dcat:keyword"
       showLanguage="false"
       rdformsid="prof:Profile"
-    }}
+    }}</div>
     {{#ifprop "adms:last,adms:prev,adms:next"}}
       <dl>
         {{#ifprop "adms:last"}}
@@ -77,7 +77,6 @@ export default {
         {{/ifprop}}
       </dl>
     {{/ifprop}}
-    
-    {{rdfLinks hl=(hinc)}}
+    <div>{{rdfLinks hl=(hinc)}}</div>
   `,
 };

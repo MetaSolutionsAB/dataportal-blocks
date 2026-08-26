@@ -23,11 +23,11 @@ export default {
     <div>{{introducedInSpecViaInspec}}</div>
 
     <h{{hl}} class="esbHeadingInSummary">{{nls "general.reusedInSpecification"}}</h{{hl}}>
-    {{reusedInSpecViaInspec
+    <div>{{reusedInSpecViaInspec
       hl="inherit"
       limit=specUsageLimit
       define="propertyUsageInSpec"
       class="esbPropertySpecUsageContainer"
-    }}
+    }}</div>
   `,
 };

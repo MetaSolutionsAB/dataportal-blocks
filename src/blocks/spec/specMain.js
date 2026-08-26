@@ -38,17 +38,17 @@ export default {
         <summary class="esbSummaryWithHeading">
           <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rIntroduced"}}</h{{hinc}}>
         </summary>
-        {{introducedResourceDescriptors}}
+        <div>{{introducedResourceDescriptors}}</div>
       </details>
       <details>
         <summary class="esbSummaryWithHeading">
           <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rReused"}}</h{{hinc}}>
         </summary>
-        {{reusedResourceDescriptors}}
+        <div>{{reusedResourceDescriptors}}</div>
       </details>
     {{/ifprop}}
     {{#ifprop "dcterms:conformsTo" uri="inspec:PROF" invert="true"}}
-      {{resourceDescriptors hl=(hinc)}}
+      <div>{{resourceDescriptors hl=(hinc)}}</div>
     {{/ifprop}}
   `,
 };

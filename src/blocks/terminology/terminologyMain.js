@@ -37,13 +37,13 @@ export default {
         <summary class="esbSummaryWithHeading">
           <h{{hl}} class="esbHeadingInSummary">{{usageHeader use="terminologyUsageInSpec"}}</h{{hl}}>
         </summary>
-        {{usedInSpecViaRD
+        <div>{{usedInSpecViaRD
           hl="inherit"
           limit=specUsageLimit
           define="terminologyUsageInSpec"
           class="esbTerminologySpecUsageContainer"
           vertical=true
-        }}
+        }}</div>
     </details>
   `,
 };

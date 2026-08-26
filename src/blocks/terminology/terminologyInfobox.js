@@ -33,7 +33,6 @@ export default {
         </div>
       {{/if}}
     </dl>
-    
-    {{rdfLinks hl=(hinc)}}
+    <div>{{rdfLinks hl=(hinc)}}</div>
   `,
 };

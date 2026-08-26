@@ -39,6 +39,6 @@ export default {
         <dd>{{relatedLink relation="rdfs:isDefinedBy" namedClick="datavoc" class="esbDatavocLink"}}</dd>
       </div>
     </dl>
-    {{rdfLinks hl=(hinc)}}
+    <div>{{rdfLinks hl=(hinc)}}</div>
   `,
 };
