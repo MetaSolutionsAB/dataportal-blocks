@@ -26,7 +26,6 @@ export default {
         }}</dd>
       </div>
     </dl>
-    
-    {{rdfLinks hl=(hinc)}}
+    <div>{{rdfLinks hl=(hinc)}}</div>
   `,
 };

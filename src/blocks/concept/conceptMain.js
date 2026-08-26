@@ -76,7 +76,7 @@ export default {
         <summary class="esbSummaryWithHeading">
           <h{{hl}} class="esbHeadingInSummary">{{nls "concept.matchingConcepts"}}</h{{hl}}>
         </summary>
-        {{conceptsInOtherTerminology hl=(hinc) limit=matchingConceptLimit}}
+        <div>{{conceptsInOtherTerminology hl=(hinc) limit=matchingConceptLimit}}</div>
       </details>
     {{/ifprop}}
   `,
