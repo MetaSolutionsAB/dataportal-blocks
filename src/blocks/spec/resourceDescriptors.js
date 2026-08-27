@@ -60,7 +60,7 @@ export default {
         {{#ifprop "prof:isInheritedFrom"}}
           <div>
             <dt>{{nls "spec.reusedFrom"}}</dt>
-            <dd>{{relatedLink relation="prof:isInheritedFrom" namedClick="spec" class="esbSpecLink"}}</dd>
+            <dd>{{relatedLink relation="prof:isInheritedFrom" namedClick="spec" linkClass="esbSpecLink"}}</dd>
           </div>
         {{/ifprop}}
         {{#ifprop "dcterms:subject"}}

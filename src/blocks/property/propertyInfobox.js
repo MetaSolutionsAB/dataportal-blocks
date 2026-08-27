@@ -51,7 +51,7 @@ export default {
       </div>
       <div>
         <dt>{{nls "general.isPartOfDatavoc"}}</dt>
-        <dd>{{relatedLink relation="rdfs:isDefinedBy" namedClick="datavoc" class="esbDatavocLink"}}</dd>
+        <dd>{{relatedLink relation="rdfs:isDefinedBy" namedClick="datavoc" linkClass="esbDatavocLink"}}</dd>
       </div>
     </dl>
     <div>{{rdfLinks hl=(hinc)}}</div>

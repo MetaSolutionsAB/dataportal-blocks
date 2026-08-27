@@ -24,14 +24,14 @@ export default {
         {{relatedLink
           relation="skos:inScheme"
           namedClick="terminology"
-          class="esbTerminologyLink"
+          linkClass="esbTerminologyLink"
         }}
     {{/ifprop}}
     {{#ifprop "rdf:type" uri="rdfs:Class,rdf:Property"}}
         {{relatedLink
           relation="rdfs:isDefinedBy"
           namedClick="datavoc"
-          class="esbDatavocLink"
+          linkClass="esbDatavocLink"
         }}
     {{/ifprop}}
     {{badge content=typeContent}}
