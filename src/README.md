@@ -176,7 +176,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbDescription`                    | a resource's description / definition text                                                           |
 | `esbSummaryWithHeading`             | a `<summary>` toggle that wraps a section heading                                                    |
 | `esbResourceUri`                    | the `<dd>` holding a resource's own URI, in the first row of an `*Infobox`                           |
-| `esbRdfLinks`                       | an inline list of raw RDF property links (in `*Infobox`)                                             |
+| `esbRdfLinks`                       | the `<dl>` group holding the metadata download links (in `*Infobox`)                                 |
 | `esbBadge`                          | base class on every inline badge (from `badge`)                                                      |
 | `esbTypeBadge`                      | default badge modifier — a type badge in a header                                                    |
 | `esbGrunddataMarker`                | badge modifier marking a "nationell grunddata" spec                                                  |

@@ -31,7 +31,7 @@ export default {
           <dd>{{conceptInTerminologyCount}}</dd>
         </div>
       {{/if}}
+      <div>{{rdfLinkList}}</div>
     </dl>
-    <div>{{rdfLinkList hl=(hinc)}}</div>
   `,
 };

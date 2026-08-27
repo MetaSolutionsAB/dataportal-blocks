@@ -1,24 +1,30 @@
 /* @todo: Investigate which callers need recursive and if any need cachedExternal. */
 /**
- * Renders a "Download" heading plus links to the entry's metadata in RDF/XML,
- * Turtle, N-Triples, and JSON-LD (URLs built from `metadataURI`).
+ * Renders the `<dl>` row offering the entry's metadata for download: the `<dt>`,
+ * then one `<dd>` per serialisation — RDF/XML, Turtle, N-Triples and JSON-LD,
+ * with URLs built from `metadataURI`.
+ *
+ * Must be written as the sole child of a `<div>` in the `<dl>`, with no
+ * surrounding whitespace — `<div>{{rdfLinkList}}</div>`, the same rule as
+ * `predicateRefList` and `resourceUriRow` (see the `<dl>` shape in
+ * `src/README.md`).
+ *
+ * The `<dt>` labels the row rather than heading a section, which is also what the
+ * markup allows: `<dt>` may not contain heading content.
  *
  * Params:
- * - `hl` ('3') — heading level for the "Download" title.
  * - `recursive` ('') — if set, adds `recursive=...` to the download URLs.
- * CSS: container gets `esbRdfLinks esbInlineList esbInlineVerticalList`.
+ * CSS: emits `esbRdfLinks` on the row's `<div>`.
  */
 export default {
   extends: 'template',
   recursive: '',
-  hl: '3',
+  class: 'esbRdfLinks',
   template: `
-    <h{{hl}}>{{nls "general.download"}}</h{{hl}}>
-    <div class="esbRdfLinks esbInlineList esbInlineVerticalList">
-      {{rdfLink format="application/rdf+xml" recursive=recursive content="esb_nls:general.downloadMetadataRdfXml"}}
-      {{rdfLink format="text/turtle" recursive=recursive content="esb_nls:general.downloadMetadataTurtle"}}
-      {{rdfLink format="text/n-triples" recursive=recursive content="esb_nls:general.downloadMetadataNTriples"}}
-      {{rdfLink format="application/ld+json" recursive=recursive content="esb_nls:general.downloadMetadataJsonLd"}}
-    </div>
+    <dt>{{nls "general.download"}}</dt>
+    <dd>{{rdfLink format="application/rdf+xml" recursive=recursive content="esb_nls:general.downloadMetadataRdfXml"}}</dd>
+    <dd>{{rdfLink format="text/turtle" recursive=recursive content="esb_nls:general.downloadMetadataTurtle"}}</dd>
+    <dd>{{rdfLink format="text/n-triples" recursive=recursive content="esb_nls:general.downloadMetadataNTriples"}}</dd>
+    <dd>{{rdfLink format="application/ld+json" recursive=recursive content="esb_nls:general.downloadMetadataJsonLd"}}</dd>
   `,
 };

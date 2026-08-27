@@ -20,7 +20,7 @@ export default {
         <dt>{{nls "general.introducedInSpecification"}}</dt>
         <dd>{{introducedInSpecViaRD}}</dd>
       </div>
+      <div>{{rdfLinkList}}</div>
     </dl>
-    <div>{{rdfLinkList hl=(hinc)}}</div>
   `,
 };

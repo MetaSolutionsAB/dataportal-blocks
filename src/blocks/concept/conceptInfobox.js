@@ -24,7 +24,7 @@ export default {
           linkClass="esbTerminologyLink"
         }}</dd>
       </div>
+      <div>{{rdfLinkList}}</div>
     </dl>
-    <div>{{rdfLinkList hl=(hinc)}}</div>
   `,
 };

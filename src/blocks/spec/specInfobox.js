@@ -11,7 +11,7 @@
  * see the todo above.
  *
  * Params:
- * - `hl` ('2') — heading level for the panel title; `rdfLinkList` gets `hl+1`.
+ * - `hl` ('2') — heading level for the infobox heading.
  * - `keywordLimit` (5) — how many keywords show before the rest are collapsed.
  * CSS: emits `esbInfobox`, and `esbKeywordsList` on the keyword row.
  */
@@ -45,37 +45,35 @@ export default {
       showLanguage="false"
       rdformsid="prof:Profile"
     }}</div>
-    {{#ifprop "adms:last,adms:prev,adms:next"}}
-      <dl>
-        {{#ifprop "adms:last"}}
-          <div>{{predicateRefList
-            predicate="adms:last"
-            dtContent="esb_nls:respec.lastVersion"
-            namedclick="spec"
-            rowClass="esbSpecLink"
-            excludeType="prof:ResourceDescriptor"
-          }}</div>
-        {{/ifprop}}
-        {{#ifprop "adms:prev"}}
-          <div>{{predicateRefList
-            predicate="adms:prev"
-            dtContent="esb_nls:respec.prevVersion"
-            namedclick="spec"
-            rowClass="esbSpecLink"
-            excludeType="prof:ResourceDescriptor"
-          }}</div>
-        {{/ifprop}}
-        {{#ifprop "adms:next"}}
-          <div>{{predicateRefList
-            predicate="adms:next"
-            dtContent="esb_nls:respec.nextVersion"
-            namedclick="spec"
-            rowClass="esbSpecLink"
-            excludeType="prof:ResourceDescriptor"
-          }}</div>
-        {{/ifprop}}
-      </dl>
-    {{/ifprop}}
-    <div>{{rdfLinkList hl=(hinc)}}</div>
+    <dl>
+      {{#ifprop "adms:last"}}
+        <div>{{predicateRefList
+          predicate="adms:last"
+          dtContent="esb_nls:respec.lastVersion"
+          namedclick="spec"
+          rowClass="esbSpecLink"
+          excludeType="prof:ResourceDescriptor"
+        }}</div>
+      {{/ifprop}}
+      {{#ifprop "adms:prev"}}
+        <div>{{predicateRefList
+          predicate="adms:prev"
+          dtContent="esb_nls:respec.prevVersion"
+          namedclick="spec"
+          rowClass="esbSpecLink"
+          excludeType="prof:ResourceDescriptor"
+        }}</div>
+      {{/ifprop}}
+      {{#ifprop "adms:next"}}
+        <div>{{predicateRefList
+          predicate="adms:next"
+          dtContent="esb_nls:respec.nextVersion"
+          namedclick="spec"
+          rowClass="esbSpecLink"
+          excludeType="prof:ResourceDescriptor"
+        }}</div>
+      {{/ifprop}}
+      <div>{{rdfLinkList}}</div>
+    </dl>
   `,
 };
