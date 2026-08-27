@@ -7,6 +7,74 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.4.0 — 2026-08-27
+
+### Breaking: DOM changes that affect downstream selectors
+
+#### A resource's own URI is a link, not a `<code>` element
+
+The first row of every `*Infobox` rendered `<dd><code>{{resourceURI}}</code></dd>`.
+It now renders the URI as a link opening in a new tab, emitted by a new shared
+`resourceUriRow` block: `<dd class="esbResourceUri"><a class="esbExtLink" …>`. The
+`<code>` element is gone, so a selector reaching for it — or code relying on the
+browser's default monospacing — needs `.esbResourceUri` instead. The link is not
+assumed to stay within the portal.
+
+#### The parent terminology or data vocabulary is linked from the header
+
+Concept, class and property pages now link their parent from the page header: a
+concept its terminology (`skos:inScheme`, `esbTerminologyLink`), a class or property
+its data vocabulary (`rdfs:isDefinedBy`, `esbDatavocLink`). The `<br/>` that
+separated the publisher link from the type badge in `header` is dropped along with
+it, so a host that positioned the badge off that line break needs its own rule.
+`specHeader` has its own template and is unaffected.
+
+#### Link hooks from `relatedLink` sit on the `<a>`, not on a wrapper
+
+`relatedLink`'s `class` parameter is renamed `linkClass` and reaches the anchor
+rather than the wrapping element. `esbTerminologyLink`, `esbDatavocLink` and
+`esbSpecLink` previously landed twice — on the `<dd>` (or the mount `<span>`) and on
+the `<a>` within it — doubling any `::after` icon or boxed styling built on them.
+Each appears once now, on the `<a>`, as `esbOrgLink`, `esbClassLink` and
+`esbConceptLink` already did. A selector matching the wrapper (`dd.esbDatavocLink`)
+has to move to the anchor. `apRelated`'s microformats `u-url` moves with it, onto
+the element carrying the `href`, where a parser expects it.
+
+#### A resource descriptor's "Role" label is visually hidden
+
+The `<dt>` for `prof:hasRole` in the `esbResourcesFeatures` list carries `sr-only`,
+keeping the label for screen readers without showing it. The bundle does not define
+`.sr-only`; the host stylesheet has to, as it already must for the runtime's own
+live regions and for this block's expand-button label.
+
+### Breaking: `specMain` no longer renders the diagram and AP button
+
+`specMain` opened with `diagramImage` and `specInspectAPButton`. Both now sit behind
+a new `standAlone` parameter, default `false`, so a page that wants them has to ask:
+`standAlone="true"` on `specMain`, or on `specView`, which forwards it. This lets a
+host lay the two blocks out itself — `demo/ap.html` already mounts `diagramImage`
+directly — but a host mounting `specView` and expecting the previous output has to
+set the parameter.
+
+### Added
+
+- **A new block**, `resourceUriRow`: the shared first row of every `*Infobox`,
+  taking the `<dt>` wording as `dtContent`.
+- **New `esb*` classes**: `esbResourceUri`, `esbExtLink` and `esbTerminologyLink`.
+  All three are described in the README.
+- **A new parameter**, `standAlone`, on `specMain` and `specView` (above).
+
+### Removed
+
+- **`relatedLink`'s `class` parameter**, renamed `linkClass` (above). At a mount
+  point that is `data-entryscape-link-class`.
+
+### Fixed
+
+- **The concept infobox's terminology link carries an `esb*` class.** It emitted a
+  bare `terminologyLink`, outside the convention and undocumented; it is
+  `esbTerminologyLink` now, the class the header's parent link also uses.
+
 ## 0.3.0 — 2026-08-26
 
 **Requires an EntryScape Blocks runtime later than 1.18.1.** The inline lists are
