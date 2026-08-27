@@ -11,7 +11,7 @@
  * see the todo above.
  *
  * Params:
- * - `hl` ('2') — heading level for the panel title; `rdfLinks` gets `hl+1`.
+ * - `hl` ('2') — heading level for the panel title; `rdfLinkList` gets `hl+1`.
  * - `keywordLimit` (5) — how many keywords show before the rest are collapsed.
  * CSS: emits `esbInfobox`, and `esbKeywordsList` on the keyword row.
  */
@@ -76,6 +76,6 @@ export default {
         {{/ifprop}}
       </dl>
     {{/ifprop}}
-    <div>{{rdfLinks hl=(hinc)}}</div>
+    <div>{{rdfLinkList hl=(hinc)}}</div>
   `,
 };

@@ -21,6 +21,6 @@ export default {
         <dd>{{introducedInSpecViaRD}}</dd>
       </div>
     </dl>
-    <div>{{rdfLinks hl=(hinc)}}</div>
+    <div>{{rdfLinkList hl=(hinc)}}</div>
   `,
 };
