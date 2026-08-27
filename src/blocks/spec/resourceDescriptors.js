@@ -43,7 +43,7 @@ export default {
     <dl class="esbResourcesFeatures">
       {{#ifprop "prof:hasRole"}}
         <div>
-          <dt>{{nls "spec.role"}}</dt>
+          <dt class="sr-only">{{nls "spec.role"}}</dt>
           {{#eachprop "prof:hasRole"}}<dd>{{label}}</dd>{{/eachprop}}
         </div>
       {{/ifprop}}
