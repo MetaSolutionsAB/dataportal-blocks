@@ -18,10 +18,9 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <div>
-        <dt>{{nls "conceptScheme.terminologyUri"}}</dt>
-        <dd><code>{{resourceURI}}</code></dd>
-      </div>
+      <div>{{resourceUriRow
+        dtContent="esb_nls:conceptScheme.terminologyUri"
+      }}</div>
       <div>
         <dt>{{nls "general.introducedInSpecification"}}</dt>
         <dd>{{introducedInSpecViaRD}}</dd>

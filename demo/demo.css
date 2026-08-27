@@ -137,6 +137,7 @@
   color: rgb(110 97 90);
 }
 
+.entryscape a.esbExtLink[href]::after,
 .entryscape a.esbExternalConceptLink[href]::after,
 .entryscape a.esbExtLinkButton[href]::after {
   content: '\f35d' / ''; /* fa-external-link-alt */
@@ -154,12 +155,17 @@
   vertical-align: baseline;
 }
 
+/* Inline text link: spaces the icon from the text. The flex buttons space it
+   with their gap instead. */
+.entryscape a.esbExtLink[href]::after,
+.entryscape a.esbExternalConceptLink[href]::after {
+  margin-left: 0.4em;
+}
+
 /* Inline text link: raise the icon onto the text baseline (≈ descender depth,
-  scales with font size) and space it by hand. The flex buttons center it via
-  align-items and space it with their gap instead. */
+  scales with font size). The flex buttons center it via align-items instead. */
 .entryscape a.esbExternalConceptLink[href]::after {
   vertical-align: 0.22em;
-  margin-left: 0.4em;
 }
 
 /* Outlined counterpart to the filled esbExtLinkButton, floated so the pair sits
@@ -256,4 +262,12 @@
 }
 .entryscape .esbKeywordToggle:hover > button {
   background: rgb(226 223 223);
+}
+
+/* A resource URI mimicking the code-element look. */
+.entryscape .esbResourceUri {
+  font-family: ui-monospace, monospace;
+  font-size: 0.875em;
+  overflow-wrap: break-word;
+  color: #a34357;
 }

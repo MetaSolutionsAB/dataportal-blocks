@@ -13,10 +13,9 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <div>
-        <dt>{{nls "datavoc.datavocUri"}}</dt>
-        <dd><code>{{resourceURI}}</code></dd>
-      </div>
+      <div>{{resourceUriRow
+        dtContent="esb_nls:datavoc.datavocUri"
+      }}</div>
       <div>
         <dt>{{nls "general.introducedInSpecification"}}</dt>
         <dd>{{introducedInSpecViaRD}}</dd>

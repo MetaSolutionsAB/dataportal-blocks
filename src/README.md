@@ -50,8 +50,8 @@ markup follows `rdforms-specs`:
 ```
 <dl>
   <div>
-    <dt>{{nls "property.propertyUri"}}</dt>
-    <dd><code>{{resourceURI}}</code></dd>
+    <dt>{{nls "concept.memberOfTerminology"}}</dt>
+    <dd>{{relatedLink relation="skos:inScheme" namedClick="terminology"}}</dd>
   </div>
   <div>{{predicateRefList
     predicate="rdfs:domain"
@@ -170,6 +170,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbAside`                          | the aside column of a `*View`                                                                        |
 | `esbDescription`                    | a resource's description / definition text                                                           |
 | `esbSummaryWithHeading`             | a `<summary>` toggle that wraps a section heading                                                    |
+| `esbResourceUri`                    | the `<dd>` holding a resource's own URI, in the first row of an `*Infobox`                           |
 | `esbRdfLinks`                       | an inline list of raw RDF property links (in `*Infobox`)                                             |
 | `esbBadge`                          | base class on every inline badge (from `badge`)                                                      |
 | `esbTypeBadge`                      | default badge modifier — a type badge in a header                                                    |
@@ -199,6 +200,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbRefText`                        | a predicate value rendered as text: a literal, or a URI that could not be linked                     |
 | `esbRefComposite`                   | placeholder for a blank-node predicate value (`owl:unionOf`, `owl:Restriction`)                      |
 | `esbExternalRefLink`                | an http(s) predicate value that isn't a portal link, as a plain link                                 |
+| `esbExtLink`                        | an inline text link that is expected to leave the portal, opened in a new tab                        |
 | `esbOverflowNote`                   | the note saying how many rows a truncated list held back                                             |
 | `esbKeywordsList`                   | the `<dl>` group holding a specification's keywords                                                  |
 | `esbKeywordToggle`                  | the `<dd>` holding the show-more button for keywords past the limit                                  |

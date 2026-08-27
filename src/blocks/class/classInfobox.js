@@ -14,10 +14,9 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <div>
-        <dt>{{nls "class.classUri"}}</dt>
-        <dd><code>{{resourceURI}}</code></dd>
-      </div>
+      <div>{{resourceUriRow
+        dtContent="esb_nls:class.classUri"
+      }}</div>
       {{#ifprop "rdfs:subClassOf"}}
         <div>{{classRefList
           predicate="rdfs:subClassOf"

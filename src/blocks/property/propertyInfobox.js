@@ -14,10 +14,9 @@ export default {
   template: `
     <h{{hl}}>{{nls "general.details"}}</h{{hl}}>
     <dl>
-      <div>
-        <dt>{{nls "property.propertyUri"}}</dt>
-        <dd><code>{{resourceURI}}</code></dd>
-      </div>
+      <div>{{resourceUriRow
+        dtContent="esb_nls:property.propertyUri"
+      }}</div>
       {{#ifprop "rdfs:domain"}}
         <div>{{classRefList
           predicate="rdfs:domain"

@@ -23,10 +23,9 @@ export default {
   template: `
     <h{{hl}}>{{nls "spec.aboutTheSpecification"}}</h{{hl}}>
     <dl>
-      <div>
-        <dt>{{nls "spec.specificationUri"}}</dt>
-        <dd><code>{{resourceURI}}</code></dd>
-      </div>
+      <div>{{resourceUriRow
+        dtContent="esb_nls:spec.specificationUri"
+      }}</div>
       {{#ifprop "prof:isProfileOf"}}
         <div>{{predicateRefList
           predicate="prof:isProfileOf"
