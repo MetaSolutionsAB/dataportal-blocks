@@ -17,7 +17,7 @@ export default {
     <h{{hl}}>{{text}}</h{{hl}}>
     {{#ifprop "dcterms:publisher"}}
       {{link relation="dcterms:publisher" namedclick="organization" class="esbOrgLink"}}
-    {{/ifprop}}<br/>
+    {{/ifprop}}
     {{badge content=typeContent}}
   `,
 };

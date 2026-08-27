@@ -33,7 +33,7 @@ export default {
     <h{{hl}}>{{text}}</h{{hl}}>
     {{#ifprop "dcterms:publisher"}}
       {{link relation="dcterms:publisher" namedclick="organization" class="esbOrgLink"}}
-    {{/ifprop}}<br/>
+    {{/ifprop}}
     {{#ifprop "dcterms:conformsTo" uri="inspec:PROF"}}
       {{#ifprop "rdf:type" uri="prof:Profile"}}
         {{badge content=(nls "spec.profileInspec")}}
