@@ -179,6 +179,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbOrgLink`                        | a link to the publishing organisation                                                                |
 | `esbSpecLink`                       | a link to a specification                                                                            |
 | `esbDatavocLink`                    | a link to a data vocabulary                                                                          |
+| `esbTerminologyLink`                | a link to a terminology                                                                              |
 | `esbResourceDescriptors`            | the container listing a specification's resource descriptors                                         |
 | `esbSpecPart`                       | the label of a resource descriptor                                                                   |
 | `esbResourcesFeatures`              | the `<dl>` of a resource descriptor's features / relations, in both its row and its expanded subject |

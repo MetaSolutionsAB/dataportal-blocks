@@ -21,7 +21,7 @@ export default {
         <dd>{{relatedLink
           relation="skos:inScheme"
           namedClick="terminology"
-          class="terminologyLink"
+          class="esbTerminologyLink"
         }}</dd>
       </div>
     </dl>
