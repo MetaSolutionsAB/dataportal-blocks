@@ -8,6 +8,7 @@
  * - `hl` ('2') — heading level for the section headings; sub-headings use `(hinc)`.
  * - `introducedLimit` (15) — row cap for each introduced list.
  * - `reusedLimit` (15) — row cap for each reused list.
+ * - `standAlone` (false) — toggle to show the diagram + ap button.
  * CSS: emits `esbMainContent`; the resource-descriptor section summaries use
  *   `esbSummaryWithHeading` and `esbHeadingInSummary`. The class and property
  *   region's own classes belong to `cpInSpecSections`.
@@ -18,9 +19,12 @@ export default {
   class: 'esbMainContent',
   introducedLimit: 15,
   reusedLimit: 15,
+  standAlone: false,
   template: `
-    {{diagramImage}}
-    {{specInspectAPButton}}
+    {{#if this.standAlone}}
+      {{diagramImage}}
+      {{specInspectAPButton}}
+    {{/if}}
     <h{{hl}}>{{nls "general.description"}}</h{{hl}}>
     <div>{{description}}</div>
 

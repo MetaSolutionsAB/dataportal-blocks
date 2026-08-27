@@ -94,6 +94,11 @@ being mounted on a page**:
 Both entrypoints are supported and expected; a downstream integration may choose
 either, per page.
 
+For `spec/` there are two additional blocks provided for direct access:
+
+- `specInspectAPButton` — the button to navigate to the Application Profile page
+- `diagramImage` — an `<img>` element showing the specification diagram.
+
 ### Directories outside the `*View` shape
 
 Two directories deliberately do **not** follow the family/`*View` shape:
