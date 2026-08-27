@@ -26,50 +26,38 @@ export default {
       <p>{{#eachprop "skos:altLabel"}}{{value}}{{separator}}{{/eachprop}}</p>
     {{/ifprop}}
 
-    <details open>
-      <summary class="esbSummaryWithHeading">
-        <h{{hl}} class="esbHeadingInSummary">{{nls "concept.broaderConcepts"}}</h{{hl}}>
-      </summary>
-      <div class="esbConceptsInConceptContainer">
-        <div>{{conceptRelationList
-          relation="skos:broader"
-          defineCount="broaderConcepts"
-          listplaceholder="esb_nls:concept.isTopConcept"
-          limit=broaderConceptLimit
-        }}</div>
-        {{overflowNote useCount="broaderConcepts" labelKey="concept.conceptOverflow"}}
-      </div>
-    </details>
+    <h{{hl}} class="esbHeadingInSummary">{{nls "concept.broaderConcepts"}}</h{{hl}}>
+    <div class="esbConceptsInConceptContainer">
+      <div>{{conceptRelationList
+        relation="skos:broader"
+        defineCount="broaderConcepts"
+        listplaceholder="esb_nls:concept.isTopConcept"
+        limit=broaderConceptLimit
+      }}</div>
+      {{overflowNote useCount="broaderConcepts" labelKey="concept.conceptOverflow"}}
+    </div>
 
-    <details open>
-      <summary class="esbSummaryWithHeading">
-        <h{{hl}} class="esbHeadingInSummary">{{nls "concept.narrowerConcepts"}}</h{{hl}}>
-      </summary>
-      <div class="esbConceptsInConceptContainer">
-        <div>{{conceptRelationList
-          relation="skos:narrower"
-          defineCount="narrowerConcepts"
-          listplaceholder="esb_nls:concept.noNarrowerConcepts"
-          limit=narrowerConceptLimit
-        }}</div>
-        {{overflowNote useCount="narrowerConcepts" labelKey="concept.conceptOverflow"}}
-      </div>
-    </details>
+    <h{{hl}} class="esbHeadingInSummary">{{nls "concept.narrowerConcepts"}}</h{{hl}}>
+    <div class="esbConceptsInConceptContainer">
+      <div>{{conceptRelationList
+        relation="skos:narrower"
+        defineCount="narrowerConcepts"
+        listplaceholder="esb_nls:concept.noNarrowerConcepts"
+        limit=narrowerConceptLimit
+      }}</div>
+      {{overflowNote useCount="narrowerConcepts" labelKey="concept.conceptOverflow"}}
+    </div>
 
-    <details open>
-      <summary class="esbSummaryWithHeading">
-        <h{{hl}} class="esbHeadingInSummary">{{nls "concept.relatedConcepts"}}</h{{hl}}>
-      </summary>
-      <div class="esbConceptsInConceptContainer">
-        <div>{{conceptRelationList
-          relation="skos:related"
-          defineCount="relatedConcepts"
-          listplaceholder="esb_nls:concept.noRelatedConcepts"
-          limit=relatedConceptLimit
-        }}</div>
-        {{overflowNote useCount="relatedConcepts" labelKey="concept.conceptOverflow"}}
-      </div>
-    </details>
+    <h{{hl}} class="esbHeadingInSummary">{{nls "concept.relatedConcepts"}}</h{{hl}}>
+    <div class="esbConceptsInConceptContainer">
+      <div>{{conceptRelationList
+        relation="skos:related"
+        defineCount="relatedConcepts"
+        listplaceholder="esb_nls:concept.noRelatedConcepts"
+        limit=relatedConceptLimit
+      }}</div>
+      {{overflowNote useCount="relatedConcepts" labelKey="concept.conceptOverflow"}}
+    </div>
 
     {{#ifprop "skos:exactMatch,skos:closeMatch,skos:relatedMatch,skos:broadMatch,skos:narrowMatch"}}
       <details open>
