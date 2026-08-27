@@ -22,11 +22,11 @@ export default {
     <div>{{description property="skos:definition"}}</div>
 
     {{#ifprop "skos:altLabel"}}
-      <h{{hl}} class="esbHeadingInSummary">{{nls "concept.altLabel"}}</h{{hl}}>
+      <h{{hl}}>{{nls "concept.altLabel"}}</h{{hl}}>
       <p>{{#eachprop "skos:altLabel"}}{{value}}{{separator}}{{/eachprop}}</p>
     {{/ifprop}}
 
-    <h{{hl}} class="esbHeadingInSummary">{{nls "concept.broaderConcepts"}}</h{{hl}}>
+    <h{{hl}}>{{nls "concept.broaderConcepts"}}</h{{hl}}>
     <div class="esbConceptsInConceptContainer">
       <div>{{conceptRelationList
         relation="skos:broader"
@@ -37,7 +37,7 @@ export default {
       {{overflowNote useCount="broaderConcepts" labelKey="concept.conceptOverflow"}}
     </div>
 
-    <h{{hl}} class="esbHeadingInSummary">{{nls "concept.narrowerConcepts"}}</h{{hl}}>
+    <h{{hl}}>{{nls "concept.narrowerConcepts"}}</h{{hl}}>
     <div class="esbConceptsInConceptContainer">
       <div>{{conceptRelationList
         relation="skos:narrower"
@@ -48,7 +48,7 @@ export default {
       {{overflowNote useCount="narrowerConcepts" labelKey="concept.conceptOverflow"}}
     </div>
 
-    <h{{hl}} class="esbHeadingInSummary">{{nls "concept.relatedConcepts"}}</h{{hl}}>
+    <h{{hl}}>{{nls "concept.relatedConcepts"}}</h{{hl}}>
     <div class="esbConceptsInConceptContainer">
       <div>{{conceptRelationList
         relation="skos:related"

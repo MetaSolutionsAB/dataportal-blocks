@@ -19,10 +19,10 @@ export default {
   template: `
     <div>{{description property="rdfs:comment"}}</div>
 
-    <h{{hl}} class="esbHeadingInSummary">{{nls "general.introducedInSpecification"}}</h{{hl}}>
+    <h{{hl}}>{{nls "general.introducedInSpecification"}}</h{{hl}}>
     <div>{{introducedInSpecViaInspec}}</div>
 
-    <h{{hl}} class="esbHeadingInSummary">{{nls "general.reusedInSpecification"}}</h{{hl}}>
+    <h{{hl}}>{{nls "general.reusedInSpecification"}}</h{{hl}}>
     <div>{{reusedInSpecViaInspec
       hl="inherit"
       limit=specUsageLimit
