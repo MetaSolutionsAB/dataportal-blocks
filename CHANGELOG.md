@@ -7,6 +7,66 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.0 — 2026-08-28
+
+### Breaking: DOM changes that affect downstream selectors
+
+#### Metadata download links are a row of the infobox `<dl>`, not a list beside it
+
+The links sat after the `<dl>`, under their own heading, in an inline list:
+`<h3>` plus `<div class="esbRdfLinks esbInlineList esbInlineVerticalList">` holding
+four links, each still wrapped in its placeholder `<span>`. They are now a row
+_inside_ the `<dl>`, in the shape `predicateRefList` and `resourceUriRow` already
+use: `<div class="esbRdfLinks">` containing a `<dt>` and one `<dd>` per
+serialisation, each `<dd>` holding a bare `<a>`.
+
+Four consequences for selectors. `esbRdfLinks` keeps its name but no longer carries
+`esbInlineList esbInlineVerticalList`, and now marks a `<dl>` row group rather than
+an inline list. The per-link placeholder `<span>`s are gone, since each `rdfLink`
+is the sole child of its `<dd>` and mounts into it. The heading is gone from the
+page outline — it is a `<dt>` now, and `<dt>` may not contain heading content, so
+there is no markup-valid way to keep both the row and the heading. And on the
+specification page the second `<dl>`, which was gated on
+`adms:last,adms:prev,adms:next`, now renders unconditionally because it hosts this
+row.
+
+`rdfLinkList` loses its `hl` parameter accordingly; the six infoboxes no longer
+pass `hl=(hinc)` to it.
+
+#### The `rdfLinks` block is renamed `rdfLinkList`
+
+Block names are global at runtime and are shared with the other bundles the host
+page loads. dataportal.se also loads the opendata extension, which defines its own
+unrelated `rdfLinks` (a DCAT-recursive download list), so on a page loading both,
+one silently replaced the other. Mounting `data-entryscape="rdfLinks"` no longer
+reaches this bundle's block. The emitted `esbRdfLinks` class is unaffected by the
+rename.
+
+#### The concept page's broader / narrower / related sections are no longer disclosures
+
+Each was a `<details open>` whose `<summary class="esbSummaryWithHeading">` carried
+the section heading. Each is now a plain heading followed by its
+`esbConceptsInConceptContainer`, so that container is a sibling of the heading
+rather than a child of `<details>`, and those three sections no longer emit
+`esbSummaryWithHeading`. The matching-concepts section keeps its disclosure, as do
+the terminology, data vocabulary and specification pages.
+
+#### `esbHeadingInSummary` is emitted only on headings inside a `<summary>`
+
+The class was left on eight headings that are not in a `<summary>`: the concept
+page's alternative-labels, broader, narrower and related headings, and the
+"introduced in" / "reused in" headings on both the class and property pages. A host
+styling `.esbHeadingInSummary` to reach those section headings needs a different
+selector. The twelve headings that really are inside a `<summary>` are unchanged.
+
+### Fixed
+
+- **Standalone section headings get their block layout back.** `src/style.css` gives
+  `.esbHeadingInSummary` `display: inline`, which is what lets a heading sit beside
+  a disclosure triangle. On the eight headings above it collapsed the `<hN>` to an
+  inline box, dropping its default vertical margins — with no other heading rules in
+  play, that was the whole of their spacing.
+
 ## 0.4.0 — 2026-08-27
 
 ### Breaking: DOM changes that affect downstream selectors
