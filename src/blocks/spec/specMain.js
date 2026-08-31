@@ -44,7 +44,7 @@ export default {
         </summary>
         <div>{{introducedResourceDescriptors}}</div>
       </details>
-      <details>
+      <details open>
         <summary class="esbSummaryWithHeading">
           <h{{hinc}} class="esbHeadingInSummary">{{nls "spec.rReused"}}</h{{hinc}}>
         </summary>
