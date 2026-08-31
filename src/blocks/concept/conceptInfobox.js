@@ -22,6 +22,7 @@ export default {
           relation="skos:inScheme"
           namedClick="terminology"
           linkClass="esbTerminologyLink"
+          rdftype="skos:ConceptScheme"
         }}</dd>
       </div>
       <div>{{rdfLinkList}}</div>

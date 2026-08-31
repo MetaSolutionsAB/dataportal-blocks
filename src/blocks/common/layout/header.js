@@ -25,6 +25,7 @@ export default {
           relation="skos:inScheme"
           namedClick="terminology"
           linkClass="esbTerminologyLink"
+          rdftype="skos:ConceptScheme"
         }}
     {{/ifprop}}
     {{#ifprop "rdf:type" uri="rdfs:Class,rdf:Property"}}
@@ -32,6 +33,7 @@ export default {
           relation="rdfs:isDefinedBy"
           namedClick="datavoc"
           linkClass="esbDatavocLink"
+          rdftype="owl:Ontology"
         }}
     {{/ifprop}}
     {{badge content=typeContent}}
