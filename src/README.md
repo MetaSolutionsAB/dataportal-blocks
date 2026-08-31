@@ -96,7 +96,9 @@ either, per page.
 
 For `spec/` there are two additional blocks provided for direct access:
 
-- `specInspectAPButton` — the button to navigate to the Application Profile page
+- `specInspectAPButton` — the button to navigate to the Application Profile page.
+  Renders nothing unless the spec conforms to `inspec:PROF` and has an AP resource
+  descriptor.
 - `diagramImage` — an `<img>` element showing the specification diagram.
 
 ### Directories outside the `*View` shape
