@@ -7,6 +7,48 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.2 — 2026-09-01
+
+Requires rdforms-specs 1.7.0 or later: the application profile page now renders
+into an element it hands the renderer rather than into the page's own `<main>`.
+Nothing here changes a DOM shape or an `esb*` class, and no block or parameter is
+renamed or removed.
+
+### Added
+
+- **A new block**, `apView`: the whole application profile page as one mount
+  point, `<div data-entryscape="apView">` — the `rdforms-specs` root, the header,
+  the diagram, and the two elements the renderer fills. Parameters: `hl` (heading
+  level of the title, default `1`), `standAlone` (show the back-to-specification
+  link, default `false`), `tocId` and `contentId` (ids of the elements the
+  renderer fills, defaulting to `rdforms-specs-toc` and `rdforms-specs-content`).
+
+### Changed
+
+- **`apView` is the application profile page's entrypoint.** The page was
+  assembled in the host's own markup — `loadAp` alongside `apTitle`, `apStatus`,
+  `apDate`, `apHeaderMetadata`, `apToSpecButton` and `diagramImage`, with the page
+  supplying a `<nav>` and a `<main>`. Those blocks still render, but they are
+  internal now, and the family stops at `apView`: there is no `apMain`,
+  `apInfobox` or `apVanity`.
+- **The renderer is told which elements to fill**, rather than taking the first
+  `<nav>` and the first `<main>` in the document — which on a page carrying its
+  own site navigation took that over instead. A page mounted the 0.5.1 way is
+  unaffected: with nothing matching the ids, the renderer still falls back to
+  searching by tag.
+
+### Fixed
+
+- **The application profile page follows the page language.** It read
+  `document.targetLanguage`, a global the page had to set for itself; it now uses
+  the language the runtime resolved from `page_language`, like every other block.
+- **Its click-through links use the merged `clicks`.** They resolved against the
+  first configuration object that declared a `clicks` map, ignoring every later
+  contribution and the `!clicks` replacement convention; they now use the same
+  merged map `namedclick` resolves against.
+- **Its "usage note" label is translatable.** It was a fixed English/Swedish pair
+  inside the bundle; it is `ap.usageNote` in `config.nls` now.
+
 ## 0.5.1 — 2026-09-01
 
 ### Changed
