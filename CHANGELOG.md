@@ -7,6 +7,29 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.1 — 2026-09-01
+
+### Changed
+
+- **Every disclosure on the specification page starts open.** The "Reused" section
+  was the one `<details>` left closed; it now carries `open` like the other three. A
+  host relying on `details:not([open])` to reach it needs re-checking.
+
+### Fixed
+
+- **A page's parent link requires the parent to be of the expected type.** The
+  concept page now requires its terminology (`skos:inScheme`) to be a
+  `skos:ConceptScheme`, and the class and property pages their data vocabulary
+  (`rdfs:isDefinedBy`) to be an `owl:Ontology` — in the header and in the infobox.
+  The relation resolves by target URI, and a resource descriptor may share its URI
+  with the subject it describes, so the link could resolve the RD describing the
+  terminology or data vocabulary instead: wrong label, wrong target.
+- **The "Explore the AP" button is gated on the specification itself.** It rendered
+  whenever the spec had an application-profile resource descriptor, so a
+  specification that is not an `inspec:PROF` but tagged its AP resource
+  `inspec:SHACL` still got a button. The specification itself must now conform to
+  `inspec:PROF` as well.
+
 ## 0.5.0 — 2026-08-28
 
 ### Breaking: DOM changes that affect downstream selectors
