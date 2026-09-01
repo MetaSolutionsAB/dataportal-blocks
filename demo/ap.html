@@ -6,30 +6,12 @@
     <link rel="stylesheet" href="ap_tmp.css" />
     <title>Blocks demo - Specification</title>
   </head>
-  <body class="entryscape h-entry rdforms-specs">
-    <div data-entryscape="loadAp"></div>
-    <div class="head">
-      <span data-entryscape="apToSpecButton"></span>
-      <h1 style="margin-top: -10px" class="title" data-entryscape="apTitle">
-        Exempel specifikation
-      </h1>
-      <p class="specState">
-        <span data-entryscape="apStatus"></span
-        ><span data-entryscape="apDate"></span>
-      </p>
-      <div data-entryscape="apHeaderMetadata"></div>
-      <hr title="separator" />
-    </div>
-    <div data-entryscape="diagramImage"></div>
-    <nav id="rdforms-specs-toc"></nav>
-    <main id="rdforms-specs-content">
-      <section data-entryscape="apDescription"></section>
-    </main>
-    <!--
-    <section data-rdforms-appendix="Sample appendix">
-      <p>Some appendix content</p>
-    </section>
-    -->
+  <body class="entryscape">
+    <div
+      class="demoView"
+      data-entryscape="apView"
+      data-entryscape-stand-alone="true"
+    ></div>
     <script src="./assets/specs.js"></script>
     <script src="../dist/blocks.js"></script>
     <script src="conf.js"></script>

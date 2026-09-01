@@ -17,16 +17,16 @@ Most of `blocks/` is organised into parallel **families**, each rendering one
 kind of RDF resource. The families share the same composite shape and lean on
 shared pieces in `common/`:
 
-| Directory      | Renders                                                                       |
-| -------------- | ----------------------------------------------------------------------------- |
-| `terminology/` | a Terminology detail page (SKOS `ConceptScheme`, containing concepts)         |
-| `concept/`     | a Concept detail page (SKOS `Concept`)                                        |
-| `datavoc/`     | a Data Vocabulary detail page (OWL `Ontology`, containing classes/properties) |
-| `class/`       | a Class detail page (RDFS `Class`)                                            |
-| `property/`    | a Property detail page (RDF `Property`)                                       |
-| `spec/`        | a Specification detail page (DCTERMS `Standard` or PROF `Profile`)            |
-| `ap/`          | an Application Profile — does **not** follow the shared shape (see below)     |
-| `search/`      | per-family search lists — for testing (see below)                             |
+| Directory      | Renders                                                                         |
+| -------------- | ------------------------------------------------------------------------------- |
+| `terminology/` | a Terminology detail page (SKOS `ConceptScheme`, containing concepts)           |
+| `concept/`     | a Concept detail page (SKOS `Concept`)                                          |
+| `datavoc/`     | a Data Vocabulary detail page (OWL `Ontology`, containing classes/properties)   |
+| `class/`       | a Class detail page (RDFS `Class`)                                              |
+| `property/`    | a Property detail page (RDF `Property`)                                         |
+| `spec/`        | a Specification detail page (DCTERMS `Standard` or PROF `Profile`)              |
+| `ap/`          | an Application Profile — has an `apView`, but not the rest of the shape (below) |
+| `search/`      | per-family search lists — for testing (see below)                               |
 
 Each family (the first six rows above) is built from a consistent set of blocks
 named after the family:
@@ -106,10 +106,42 @@ For `spec/` there are two additional blocks provided for direct access:
 Two directories deliberately do **not** follow the family/`*View` shape:
 
 - **`ap/`** — Application Profile blocks. An AP is rendered primarily by the
-  external `rdforms-specs` library (bootstrapped via `initSpec`), so the
-  markup and layout are governed by that renderer rather than by our composite
-  blocks. For an overview on how to mount the `ap/` see
-  `demo/ap.html`; there is no `*View` and no two-entrypoint choice.
+  external `rdforms-specs` library (bootstrapped via `loadAp` → `initSpec`), so
+  most of the markup and layout are governed by that renderer rather than by the
+  blocks defined here. There is a single entrypoint, `apView`, and no
+  two-entrypoint choice — the blocks it composes are internal, and the family
+  has no `apMain`, `apInfobox` or `apVanity`. For how to mount it see
+  `demo/ap.html`.
+
+  `apView` emits the whole page — the `rdforms-specs` root, the header, the
+  diagram, and the two elements the renderer fills — so a host page provides
+  nothing but the mount node:
+
+  ```html
+  <div data-entryscape="apView"></div>
+  ```
+
+  | Param                         | Default                 | Effect                                              |
+  | ----------------------------- | ----------------------- | --------------------------------------------------- |
+  | `data-entryscape-hl`          | `1`                     | heading level of the title                          |
+  | `data-entryscape-stand-alone` | `false`                 | show the back-to-specification link                 |
+  | `data-entryscape-toc-id`      | `rdforms-specs-toc`     | id of the element filled with the table of contents |
+  | `data-entryscape-content-id`  | `rdforms-specs-content` | id of the element filled with the specification     |
+
+  Three things about the resulting DOM, which matter to anything selecting into
+  it:
+
+  - The renderer **replaces the entire contents** of the two id-named elements,
+    and **overwrites the TOC element's id with `toc`** — that is what its own
+    stylesheet and TOC controls look up, so the id passed in survives only until
+    `loadAp` runs. The page must not carry another `#toc`.
+  - The composite's root carries the **`rdforms-specs`** class, on which the
+    renderer toggles `toc-sidebar`/`toc-inline`, and into which it prepends its
+    sidebar toggle.
+  - The description is rendered into a `<section>` that the renderer then moves
+    into its own introduction slot, so `apDescription` ends up inside the
+    renderer's markup rather than where `apView` emits it.
+
 - **`search/`** — one `*SearchList` block per family (`terminologySearchList`,
   `conceptSearchList`, `specSearchList`, …). **These exist for testing
   purposes**: they provide listing pages (`demo/index.html`) used to locate
