@@ -7,6 +7,42 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.3 — 2026-09-03
+
+Requires three new `clicks` routes to be filled in: the application profile
+page's click-through links no longer resolve on `class`, `property` and
+`terminology`. Nothing here changes a DOM shape or an `esb*` class, and no block
+or parameter is renamed or removed.
+
+### Added
+
+- **Three new `clicks` routes**, `classLookup`, `propertyLookup` and
+  `terminologyLookup`: where the application profile page sends a reader who
+  follows a referenced class, property or terminology. They stand apart from
+  `class`, `property` and `terminology` because the renderer knows only the
+  referenced resource's **URI**, never its entry — it appends `?esc_uri=<uri>`,
+  so each has to reach a page that resolves an entry from a URI, where a
+  `namedclick` link arrives with `esc_entry`/`esc_context`. All `clicks` are
+  described in `src/README.md`.
+
+### Changed
+
+- **The application profile page's click-throughs resolve on those three
+  routes**, rather than on the `class`, `property` and `terminology` routes
+  `namedclick` shares. A host has to fill the new ones in; left empty, each link
+  falls back to the referenced resource's own URI instead of reaching the
+  portal's page for it.
+- **The `shape` route is dropped.** It was reserved for linking between
+  application profiles, and nothing read it — rdforms-specs does not emit those
+  links. A `shapeLookup` route takes its place when support lands.
+
+### Fixed
+
+- **An unfilled click route on the application profile page no longer renders
+  `href="undefined"`.** The renderer writes whatever it is handed straight into
+  the attribute, so a route left empty produced a link to the relative URL
+  `undefined`; such links now carry the referenced resource's own URI.
+
 ## 0.5.2 — 2026-09-01
 
 Requires rdforms-specs 1.7.0 or later: the application profile page now renders
