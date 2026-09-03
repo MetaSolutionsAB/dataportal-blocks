@@ -154,25 +154,39 @@ Templates never write a URL. A row or button names a route with
 `namedclick="…"`, and `config.clicks` maps that name to the host's own URL. The
 values ship empty in `src/config.js`, so **every route a mounted block names has
 to be filled in by the host**; an unfilled one yields a link with no target,
-which the block still renders. `ap/initSpec.js` reads the same map directly to
-wire the AP renderer's click-through, so a route can be wanted from outside a
+which the block still renders. The `*Lookup` routes are read straight off the
+same map by `ap/initSpec.js` (below), so a route can be wanted from outside a
 `namedclick` too.
 
-| Route            | Page it should reach                              |
-| ---------------- | ------------------------------------------------- |
-| `spec`           | a specification                                   |
-| `organization`   | a publishing organisation                         |
-| `concept`        | a concept                                         |
-| `terminology`    | a terminology                                     |
-| `class`          | a class                                           |
-| `property`       | a property                                        |
-| `datavoc`        | a data vocabulary                                 |
-| `ap`             | a specification's application profile             |
-| `dataset`        | a dataset                                         |
-| `shape`          | reserved for linking between application profiles |
-| `conceptSearch`  | concept search, filtered on one terminology       |
-| `classSearch`    | class search, filtered on one data vocabulary     |
-| `propertySearch` | property search, filtered on one data vocabulary  |
+| Route               | Page it should reach                             |
+| ------------------- | ------------------------------------------------ |
+| `spec`              | a specification                                  |
+| `organization`      | a publishing organisation                        |
+| `concept`           | a concept                                        |
+| `terminology`       | a terminology                                    |
+| `class`             | a class                                          |
+| `property`          | a property                                       |
+| `datavoc`           | a data vocabulary                                |
+| `ap`                | a specification's application profile            |
+| `dataset`           | a dataset                                        |
+| `conceptSearch`     | concept search, filtered on one terminology      |
+| `classSearch`       | class search, filtered on one data vocabulary    |
+| `propertySearch`    | property search, filtered on one data vocabulary |
+| `classLookup`       | a class, reached by URI                          |
+| `propertyLookup`    | a property, reached by URI                       |
+| `terminologyLookup` | a terminology, reached by URI                    |
+
+The three `*Lookup` routes are the application profile renderer's click-through,
+and duplicate `class`, `property` and `terminology` deliberately: the renderer
+knows only a referenced resource's **URI**, never its entry, so it appends
+`?esc_uri=<uri>` and the page it reaches has to resolve an entry from that, where
+a `namedclick` link arrives with `esc_entry`/`esc_context`. Left unfilled these
+links fall back to the resource's own URI rather than rendering with no target.
+
+A fourth route for linking between application profiles is planned —
+`shapeLookup`, reached by `esc_shape` and resolved through the shape's parent
+profile — but rdforms-specs does not emit those links yet, so `src/config.js`
+does not declare it.
 
 The three `*Search` routes are where `showAllLink` sends a reader for the rows a
 truncated list held back, so each has to arrive **filtered on the resource the

@@ -14,7 +14,6 @@ window.__entryscape_config = []
         class: './class.html',
         property: './property.html',
         ap: './ap.html',
-        shape: './ap.html',
         datavoc: './datavoc.html',
         dataset: './dataset.html', // todo: point to the canonical one
         // The demo has no filtered search; these mirror the shape a host
@@ -22,9 +21,13 @@ window.__entryscape_config = []
         conceptSearch: 'esb:./index.html?f=${uri}&rt=term_concept',
         classSearch: 'esb:./index.html?f=${uri}&rt=term_class',
         propertySearch: 'esb:./index.html?f=${uri}&rt=term_property',
+        classLookup: './class.html',
+        propertyLookup: './property.html',
+        terminologyLookup: './terminology.html',
+        shapeLookup: './ap.html', // not yet supported
       },
       routes: [
-        // Consumed by ap/initSpec.js
+        // Not yet supported, later consumed by ap/initSpec.js
         {
           regex: /\/ap.html[?#]esc_shape=(.+)/,
           lookup: 1,
