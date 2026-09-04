@@ -11,6 +11,10 @@ import loadRDs from '../common/loadRDs.js';
  *   `toc`, which is what the renderer's own stylesheet and TOC controls expect.
  * - `contentId` ('rdforms-specs-content') — id of the element rdforms-specs
  *   fills with the specification. Its contents are replaced.
+ * - `marginFlag` (false) — whether the renderer shows its "Metadata
+ *   specification" corner flag. Forwarded to `initSpec`.
+ * - `tocControls` (true) — whether the renderer adds its own ToC hide/jump
+ *   controls. Forwarded to `initSpec`, which absorbs upstream's spelling.
  *
  * Provides: inherits `ap`, `diagram`, `diagramURI` on `data` from `loadRDs`.
  */
@@ -18,10 +22,14 @@ export default {
   extends: loadRDs,
   tocId: 'rdforms-specs-toc',
   contentId: 'rdforms-specs-content',
+  marginFlag: false,
+  tocControls: true,
   template: `{{initSpec
     shacl=ap
     tocId=tocId
     contentId=contentId
     usageNote=(nls "ap.usageNote")
+    marginFlag=marginFlag
+    tocControls=tocControls
   }}`,
 };

@@ -7,6 +7,10 @@
  *   of the elements the rdforms-specs renderer fills; emitted here and passed
  *   on to `loadAp`, so the two always agree.
  * - `standAlone` (false) — toggle to show the back to spec button.
+ * - `marginFlag` (false) — whether the renderer shows its "Metadata
+ *   specification" corner flag. Passed on through `loadAp`.
+ * - `tocControls` (true) — whether the renderer adds its own ToC hide/jump
+ *   controls.
  *
  * CSS: the composite's root carries `rdforms-specs`, which the renderer's own
  * stylesheet keys off and toggles `toc-sidebar`/`toc-inline` on.
@@ -17,9 +21,16 @@ export default {
   tocId: 'rdforms-specs-toc',
   contentId: 'rdforms-specs-content',
   standAlone: false,
+  marginFlag: false,
+  tocControls: true,
   template: `
     <div class="h-entry rdforms-specs">
-      <div>{{loadAp tocId=tocId contentId=contentId}}</div>
+      <div>{{loadAp
+        tocId=tocId
+        contentId=contentId
+        marginFlag=marginFlag
+        tocControls=tocControls
+      }}</div>
       <div class="head">
         {{#if this.standAlone}}{{apToSpecButton}}{{/if}}
         <h{{hl}} class="title">{{apTitle}}</h{{hl}}>

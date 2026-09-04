@@ -3,10 +3,6 @@
   box-shadow: none !important;
 }
 
-.rdforms-specs {
-  background-image: none !important;
-}
-
 .rdforms-specs hr {
   border-color: rgb(43, 42, 41) !important;
 }
@@ -34,10 +30,6 @@
   border-bottom: 1px solid rgb(43, 42, 41);
   padding: 0 1px 0;
   margin: 0 -1px 0;
-}
-
-.rdforms-specs:not(.toc-inline) #toc h2 {
-  color: rgb(43, 42, 41);
 }
 
 .rdforms-specs table.def td,

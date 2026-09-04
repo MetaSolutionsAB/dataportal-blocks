@@ -30,6 +30,9 @@ const LOOKUP_ROUTES = {
  * - `tocId` / `contentId` — ids of the elements rdforms-specs renders into.
  * - `usageNote` — localized label for the `usageNote` extra shown in each
  *   field's property table.
+ * - `marginFlag` — whether the renderer shows its "Metadata specification"
+ *   corner flag.
+ * - `tocControls` — whether the renderer adds its own ToC hide/jump controls.
  */
 export default {
   run: function (node, data, registry) {
@@ -46,6 +49,13 @@ export default {
           },
           language: registry.get('locale') || registry.get('defaultLocale'),
           extras: { usageNote: data.usageNote },
+          marginFlag: data.marginFlag,
+          // `tocControlls` is rdforms-specs' own spelling — do not align it
+          // with the block's correctly spelled `tocControls` param. The
+          // renderer enables the controls for any value but an explicit
+          // `false`, so a key it does not recognize reads as enabled and never
+          // errors: "fixing" this line would silently make the param a no-op.
+          tocControlls: data.tocControls,
         },
         data.tocId,
         data.contentId

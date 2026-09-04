@@ -121,12 +121,14 @@ Two directories deliberately do **not** follow the family/`*View` shape:
   <div data-entryscape="apView"></div>
   ```
 
-  | Param                         | Default                 | Effect                                              |
-  | ----------------------------- | ----------------------- | --------------------------------------------------- |
-  | `data-entryscape-hl`          | `1`                     | heading level of the title                          |
-  | `data-entryscape-stand-alone` | `false`                 | show the back-to-specification link                 |
-  | `data-entryscape-toc-id`      | `rdforms-specs-toc`     | id of the element filled with the table of contents |
-  | `data-entryscape-content-id`  | `rdforms-specs-content` | id of the element filled with the specification     |
+  | Param                          | Default                 | Effect                                              |
+  | ------------------------------ | ----------------------- | --------------------------------------------------- |
+  | `data-entryscape-hl`           | `1`                     | heading level of the title                          |
+  | `data-entryscape-stand-alone`  | `false`                 | show the back-to-specification link                 |
+  | `data-entryscape-toc-id`       | `rdforms-specs-toc`     | id of the element filled with the table of contents |
+  | `data-entryscape-content-id`   | `rdforms-specs-content` | id of the element filled with the specification     |
+  | `data-entryscape-toc-controls` | `true`                  | show the renderer's own ToC hide/jump controls      |
+  | `data-entryscape-margin-flag`  | `false`                 | show the "Metadata specification" corner flag       |
 
   Three things about the resulting DOM, which matter to anything selecting into
   it:
