@@ -204,6 +204,13 @@ Templates emit `esb`-prefixed classes (the EntryScape Blocks convention). Only a
 handful are styled here in `src/style.css`; the rest are **styling hooks** left
 for the host portal's own stylesheet to target.
 
+`esbCount` is the one exception to "emitted by templates": it is baked into the
+NLS values in `src/nls.js` rather than into a template. That markup only survives
+as markup because the blocks invoking those keys use an unescaped `{{{nls ...}}}`
+triple-stache — see the caveat in `src/nls.js`. What it wraps differs per key: in
+the `spec.*` heading keys it holds the bare number, in the rest the whole count
+phrase (number plus noun).
+
 Styled in `src/style.css`:
 
 | Class                   | Purpose                                                                                      |
@@ -223,6 +230,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbAside`                          | the aside column of a `*View`                                                                        |
 | `esbDescription`                    | a resource's description / definition text                                                           |
 | `esbSummaryWithHeading`             | a `<summary>` toggle that wraps a section heading                                                    |
+| `esbCount`                          | the count phrase inside a section heading (emitted from the NLS value, not a template)               |
 | `esbResourceUri`                    | the `<dd>` holding a resource's own URI, in the first row of an `*Infobox`                           |
 | `esbRdfLinks`                       | the `<dl>` group holding the metadata download links (in `*Infobox`)                                 |
 | `esbBadge`                          | base class on every inline badge (from `badge`)                                                      |

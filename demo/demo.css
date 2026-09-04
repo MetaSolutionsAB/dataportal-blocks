@@ -271,3 +271,8 @@
   overflow-wrap: break-word;
   color: #a34357;
 }
+
+/* bold counts in titles */
+.entryscape .esbCount {
+  font-weight: 700;
+}

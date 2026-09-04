@@ -1,12 +1,28 @@
+/*
+ * Bilingual NLS strings (`sv`, `en`).
+ *
+ * A handful of values carry markup: a `<span class="esbCount">` around the count
+ * in a section heading — the bare number in the `spec.*` keys, the whole count
+ * phrase (number plus noun) in the rest. Those keys must only be rendered
+ * through an unescaped triple-stache,
+ * e.g. `{{{nls "spec.classesReused" count=resultsize}}}`.
+ * A plain `{{nls}}` or an `esb_nls:` field value HTML-escapes the value, printing
+ * the tag as literal text with no error. This makes these keys less suitable for
+ * reuse elsewhere:
+ *   datavoc.classesInDatavoc, datavoc.propertiesInDatavoc,
+ *   conceptScheme.conceptsInTerminology, general.usedInSpecification,
+ *   spec.classesIntroduced, spec.propertiesIntroduced,
+ *   spec.classesReused, spec.propertiesReused
+ */
 export default {
   sv: {
     datavoc: {
       datavoc: 'Datavokabulär',
       datavocUri: 'Adress för datavokabulären',
       classesInDatavoc:
-        'I datavokabulären ingår {{PLURAL:${count}|${count} klass|${count} klasser}}',
+        'I datavokabulären ingår <span class="esbCount">{{PLURAL:${count}|1 klass|${count} klasser}}</span>',
       propertiesInDatavoc:
-        'I datavokabulären ingår {{PLURAL:${count}|${count} egenskap|${count} egenskaper}}',
+        'I datavokabulären ingår <span class="esbCount">{{PLURAL:${count}|1 egenskap|${count} egenskaper}}</span>',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna datavokabulär.',
       showAllClasses: 'Visa alla klasser',
@@ -35,7 +51,8 @@ export default {
       terminologyUri: 'Adress för terminologin',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperabel specifikation|Interoperabla specifikationer}} använder denna terminologi.',
-      conceptsInTerminology: 'I terminologin ingår ${count} begrepp',
+      conceptsInTerminology:
+        'I terminologin ingår <span class="esbCount">${count} begrepp</span>',
       conceptCount: 'Totalt antal begrepp',
       showAllConcepts: 'Visa alla begrepp',
       noConcepts:
@@ -73,7 +90,7 @@ export default {
       noReuseInSpecification:
         'Återanvändning spåras enbart för interoperabla specifikationer.',
       usedInSpecification:
-        'Används i ${count} {{PLURAL:${count}|interoperabel specifikation|interoperabla specifikationer}}',
+        'Används i <span class="esbCount">${count} {{PLURAL:${count}|interoperabel specifikation|interoperabla specifikationer}}</span>',
       isPartOfDatavoc: 'Ingår i datavokabulär',
       downloadMetadataRdfXml: 'Ladda ner metadata som RDF/XML',
       downloadMetadataTurtle: 'Ladda ner metadata som TURTLE',
@@ -90,13 +107,13 @@ export default {
       exploreAP: 'Utforska applikationsprofil',
       classesAndProperties: 'Klasser och egenskaper',
       classesIntroduced:
-        '{{PLURAL:${count}|1 introducerad Klass|${count} introducerade Klasser}} (I denna specifikation)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|introducerad Klass|introducerade Klasser}} (I denna specifikation)',
       propertiesIntroduced:
-        '{{PLURAL:${count}|1 introducerad Egenskap|${count} introducerade Egenskaper}} (I denna specifikation)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|introducerad Egenskap|introducerade Egenskaper}} (I denna specifikation)',
       classesReused:
-        '{{PLURAL:${count}|1 återanvänd Klass|${count} återanvända Klasser}} (Från andra specifikationer)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|återanvänd Klass|återanvända Klasser}} (Från andra specifikationer)',
       propertiesReused:
-        '{{PLURAL:${count}|1 återanvänd Egenskap|${count} återanvända Egenskaper}} (Från andra specifikationer)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|återanvänd Egenskap|återanvända Egenskaper}} (Från andra specifikationer)',
       classOverflow:
         'Ytterligare {{PLURAL:${count}|1 klass|${count} klasser}} visas inte.',
       propertyOverflow:
@@ -150,9 +167,9 @@ export default {
       datavoc: 'Data Vocabulary',
       datavocUri: 'Uri for the data vocabulary',
       classesInDatavoc:
-        'The data vocabulary includes {{PLURAL:${count}|${count} class|${count} classes}}',
+        'The data vocabulary includes <span class="esbCount">{{PLURAL:${count}|1 class|${count} classes}}</span>',
       propertiesInDatavoc:
-        'The data vocabulary includes {{PLURAL:${count}|${count} property|${count} properties}}',
+        'The data vocabulary includes <span class="esbCount">{{PLURAL:${count}|1 property|${count} properties}}</span>',
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this data vocabulary.',
       showAllClasses: 'Show all classes',
@@ -182,7 +199,7 @@ export default {
       reusedNumberInfo:
         '{{PLURAL:${count}|Interoperable specification|Interoperable specifications}} use this terminology.',
       conceptsInTerminology:
-        'The terminology includes ${count} {{PLURAL:${count}|concept|concepts}}',
+        'The terminology includes <span class="esbCount">{{PLURAL:${count}|1 concept|${count} concepts}}</span>',
       conceptCount: 'Total number of concepts',
       showAllConcepts: 'Show all concepts',
       noConcepts:
@@ -220,7 +237,7 @@ export default {
       noReuseInSpecification:
         'Reuse is only tracked for interoperable specifications.',
       usedInSpecification:
-        'Used in ${count} interoperable {{PLURAL:${count}|specification|specifications}}',
+        'Used in <span class="esbCount">${count} interoperable {{PLURAL:${count}|specification|specifications}}</span>',
       isPartOfDatavoc: 'Is part of data vocabulary',
       downloadMetadataRdfXml: 'Download metadata as RDF/XML',
       downloadMetadataTurtle: 'Download metadata as TURTLE',
@@ -237,13 +254,13 @@ export default {
       exploreAP: 'Explore the application profile',
       classesAndProperties: 'Classes and properties',
       classesIntroduced:
-        '{{PLURAL:${count}|1 introduced Class|${count} introduced Classes}} (In this specification)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|introduced Class|introduced Classes}} (In this specification)',
       propertiesIntroduced:
-        '{{PLURAL:${count}|1 introduced Property|${count} introduced Properties}} (In this specification)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|introduced Property|introduced Properties}} (In this specification)',
       classesReused:
-        '{{PLURAL:${count}|1 reused Class|${count} reused Classes}} (From other specifications)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|reused Class|reused Classes}} (From other specifications)',
       propertiesReused:
-        '{{PLURAL:${count}|1 reused Property|${count} reused Properties}} (From other specifications)',
+        '<span class="esbCount">${count}</span> {{PLURAL:${count}|reused Property|reused Properties}} (From other specifications)',
       classOverflow:
         '{{PLURAL:${count}|1 more class|${count} more classes}} were not shown.',
       propertyOverflow:

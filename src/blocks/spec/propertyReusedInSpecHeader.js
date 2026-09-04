@@ -1,5 +1,5 @@
 export default {
   extends: 'results',
   use: 'propertiesReusedInSpec',
-  template: `{{nls "spec.propertiesReused" count=resultsize}}`,
+  template: `{{{nls "spec.propertiesReused" count=resultsize}}}`,
 };
