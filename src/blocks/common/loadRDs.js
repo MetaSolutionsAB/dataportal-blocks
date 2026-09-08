@@ -1,10 +1,17 @@
 import { resolveEntry } from './scripts/resolveEntry.js';
+import {
+  reportDiagram,
+  reportDiagramFailure,
+} from './scripts/diagramPromise.js';
 
 /**
  * Loads a specification's Resource Descriptor entries and surfaces the
  * application profile (AP) and diagram among them. Renders nothing itself —
  * extended by blocks that consume the data it injects (e.g. `diagramImage`,
  * `specInspectAPButton`).
+ *
+ * Also publishes the diagram on `window.esbBlocks.diagram` (see
+ * `scripts/diagramPromise.js`) for a host rendering the diagram itself.
  *
  * Provides on `data`:
  * - `ap` — the RD whose resource conforms to `inspec:SHACL` (falls back to a
@@ -28,7 +35,14 @@ export default {
       .getAllMetadata()
       .find(entry.getResourceURI(), 'prof:hasResource')
       .map((stmt) => stmt.getValue());
-    const resources = await esu.loadEntriesByResourceURIs(resourceURIs);
+    let resources;
+    try {
+      resources = await esu.loadEntriesByResourceURIs(resourceURIs);
+    } catch (error) {
+      // the host's diagram promise must settle, or it waits forever
+      reportDiagramFailure(entry, error);
+      throw error;
+    }
     let ap = resources.find(
       (e) =>
         e.getAllMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL')
@@ -50,6 +64,7 @@ export default {
       data.diagram = diagram;
       data.diagramURI = diagram.getResourceURI();
     }
+    reportDiagram(entry, diagram);
     return Promise.resolve();
   },
   template: ``,
