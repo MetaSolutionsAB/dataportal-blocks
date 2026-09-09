@@ -99,7 +99,9 @@ For `spec/` there are two additional blocks provided for direct access:
 - `specInspectAPButton` — the button to navigate to the Application Profile page.
   Renders nothing unless the spec conforms to `inspec:PROF` and has an AP resource
   descriptor.
-- `diagramImage` — an `<img>` element showing the specification diagram.
+- `diagramImage` — an `<img>` element showing the specification diagram. A host
+  rendering the diagram itself instead awaits `window.esbBlocks.diagram(uri)`
+  (see [Host-facing JS API](#host-facing-js-api)), which this block resolves.
 
 ### Directories outside the `*View` shape
 
@@ -149,6 +151,40 @@ Two directories deliberately do **not** follow the family/`*View` shape:
   purposes**: they provide listing pages (`demo/index.html`) used to locate
   entries while developing and exercising the other families, not as a shipped
   feature of the portal.
+
+## Host-facing JS API
+
+Every other surface here is a block the host mounts. The one value the bundle
+publishes as JavaScript is the specification **diagram**, whose URI is known only
+once `common/loadRDs.js` has loaded the specification's resource descriptors. A
+host rendering the diagram itself therefore awaits it, naming the specification
+by URI:
+
+```js
+const diagram = await window.esbBlocks.diagram(specURI);
+if (diagram) img.src = diagram.uri;
+```
+
+Either of a specification's URIs names it, the entry URI or the resource URI, so
+the host passes whichever it routed with.
+
+`window.esbBlocks` is assigned as `dist/blocks.js` loads, before the runtime has
+rendered a block, so the promise exists whenever the host asks for it and no
+ordering between the two has to hold. It resolves with `{ entry, uri }` — the
+diagram's resource descriptor entry and its resource URI, the pair `loadRDs`
+provides its extenders as `diagram`/`diagramURI` — or with `null` when the
+specification has no diagram. It rejects only if loading the resource
+descriptors failed.
+
+Resolving it is the work of a block, so the page has to mount one that extends
+`loadRDs`: `diagramImage` or `specInspectAPButton` on a specification page,
+`loadAp` on an AP page. A page mounting none of them leaves the promise pending
+for as long as it lives, as does a URI no page renders.
+
+A host that re-loads `dist/blocks.js` per route — one way to drive Blocks from a
+single-page application — gets a fresh set of promises each time, so it has to
+read `window.esbBlocks.diagram` at the point of the call rather than hold on to
+the function.
 
 ## Click routes
 
