@@ -7,6 +7,47 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.4 — 2026-09-10
+
+Adds one `esb*` class, `esbCount`, inside the eight section headings that carry
+a count, and the bundle's first host-facing JavaScript,
+`window.esbBlocks.diagram`. No block or parameter is renamed or removed, and no
+existing selector stops matching; the one visible change is that the application
+profile page no longer draws the renderer's corner flag.
+
+### Added
+
+- **The specification diagram is published as a promise**,
+  `window.esbBlocks.diagram(specURI)`, for a host that renders the diagram itself
+  rather than mounting `diagramImage`. It resolves with `{ entry, uri }`, or
+  `null` when there is no diagram. A block has to resolve it, so a page mounting
+  none of `diagramImage`, `specInspectAPButton` or `apView` leaves it pending.
+  Described under "Host-facing JS API" in `src/README.md`.
+- **A new `esb*` class**, `esbCount`: a `<span>` around the count in the eight
+  section headings that carry one, across the terminology, data vocabulary and
+  specification pages. It holds the bare number in the specification's four
+  headings, the whole count phrase in the other four.
+- **Two new parameters on `apView`**, `marginFlag` (`false`) and `tocControls`
+  (`true`) — `data-entryscape-margin-flag` and `data-entryscape-toc-controls` at
+  the mount point. They reach the rdforms-specs renderer's corner flag and its
+  ToC hide/jump controls, neither reachable from the mount node before.
+  `tocControls` defaults to what the renderer already did; `marginFlag` does not
+  (below).
+
+### Changed
+
+- **The application profile page hides the renderer's corner flag.** `apView`
+  passes `marginFlag` now, defaulting to `false`, where 0.5.3 passed nothing and
+  the renderer drew it; `data-entryscape-margin-flag="true"` brings it back. A
+  host hiding the flag in its own CSS should drop that rule: it left the 26px
+  gutter reserved, and an `!important` there vetoes `marginFlag="true"`.
+- **The eight heading strings carry markup.** They were plain text; each now
+  holds the `esbCount` span, in both languages. A host overriding one in
+  `config.nls` has to carry the span along, and one reusing it elsewhere has to
+  render it through a triple-stache — `{{nls}}` and `esb_nls:` escape the markup
+  and print the tag as text, with no error. The keys are named in `src/nls.js`;
+  the wording is unchanged.
+
 ## 0.5.3 — 2026-09-03
 
 Requires three new `clicks` routes to be filled in: the application profile
