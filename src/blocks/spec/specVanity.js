@@ -1,19 +1,19 @@
-// todo: add button going to datset search with filter conformsTo=this_spec
-
 import { resolveEntry } from '../common/scripts/resolveEntry.js';
 import { isGrunddata } from '../common/scripts/isGrunddata.js';
 
 /**
  * Sidebar "vanity" panel for a Specification: shows how many datasets conform
- * to the spec, and (when present) links one example "nationell grunddatamängd"
- * dataset.
+ * to the spec, (when present) links one example "nationell grunddatamängd"
+ * dataset, and, when any dataset conforms, a button to the dataset search
+ * filtered on this spec through the `conformantDatasetSearch` click route.
  *
  * Provides on `data`:
  * - `resultsize` — count of `dcat:Dataset` entries conforming to this spec.
  * - `grunddataResultsize` — subset count whose `dcterms:subject` is grunddata.
  * - `example` — `{context, entry, uri, ruri}` of the first grunddata dataset
  *   (unset when there is none).
- * CSS: emits `esbVanity`, `esbVanityStatContainer`, `esbVanityNumber`.
+ * CSS: emits `esbVanity`, `esbVanityStatContainer`, `esbVanityNumber`; the
+ * search button is styled as `showAllLink`'s.
  */
 export default {
   extends: 'template',
@@ -63,6 +63,10 @@ export default {
           {{link context=this.example.context entry=this.example.entry namedclick="dataset"}}
         </p>
       {{/if}}
+      {{#if this.resultsize}}{{showAllLink
+        namedclick="conformantDatasetSearch"
+        labelKey="spec.allConformantDatasets"
+      }}{{/if}}
     </div>
   `,
 };

@@ -138,6 +138,7 @@ export default {
         '{{PLURAL:${count}|Datamängd|Datamängder}} följer denna specifikation.',
       grunddataConformanceNumberInfo:
         'Varav {{PLURAL:${count}|${count}|${count} stycken}} är nationell grunddatamängd:',
+      allConformantDatasets: 'Visa hela listan',
       inspecTypeSkos: 'terminologi',
       inspecTypeRdfs: 'datavokabulär',
       inspecTypeShacl: 'applikationsprofil',
@@ -285,6 +286,7 @@ export default {
         '{{PLURAL:${count}|Dataset|Datasets}} conform to this specification.',
       grunddataConformanceNumberInfo:
         'Of which {{PLURAL:${count}|${count} is a national basic dataset|${count} are national basic datasets}}:',
+      allConformantDatasets: 'Show the whole list',
       inspecTypeSkos: 'terminology',
       inspecTypeRdfs: 'data vocabulary',
       inspecTypeShacl: 'application profile',

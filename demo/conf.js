@@ -21,6 +21,7 @@ window.__entryscape_config = []
         conceptSearch: 'esb:./index.html?f=${uri}&rt=term_concept',
         classSearch: 'esb:./index.html?f=${uri}&rt=term_class',
         propertySearch: 'esb:./index.html?f=${uri}&rt=term_property',
+        conformantDatasetSearch: 'esb:./index.html?spec=${uri}',
         classLookup: './class.html',
         propertyLookup: './property.html',
         terminologyLookup: './terminology.html',

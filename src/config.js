@@ -29,6 +29,7 @@ export default {
     conceptSearch: '',
     classSearch: '',
     propertySearch: '',
+    conformantDatasetSearch: '',
     classLookup: '',
     propertyLookup: '',
     terminologyLookup: '',

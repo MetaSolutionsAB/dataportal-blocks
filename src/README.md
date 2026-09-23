@@ -196,23 +196,24 @@ which the block still renders. The `*Lookup` routes are read straight off the
 same map by `ap/initSpec.js` (below), so a route can be wanted from outside a
 `namedclick` too.
 
-| Route               | Page it should reach                             |
-| ------------------- | ------------------------------------------------ |
-| `spec`              | a specification                                  |
-| `organization`      | a publishing organisation                        |
-| `concept`           | a concept                                        |
-| `terminology`       | a terminology                                    |
-| `class`             | a class                                          |
-| `property`          | a property                                       |
-| `datavoc`           | a data vocabulary                                |
-| `ap`                | a specification's application profile            |
-| `dataset`           | a dataset                                        |
-| `conceptSearch`     | concept search, filtered on one terminology      |
-| `classSearch`       | class search, filtered on one data vocabulary    |
-| `propertySearch`    | property search, filtered on one data vocabulary |
-| `classLookup`       | a class, reached by URI                          |
-| `propertyLookup`    | a property, reached by URI                       |
-| `terminologyLookup` | a terminology, reached by URI                    |
+| Route                     | Page it should reach                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| `spec`                    | a specification                                              |
+| `organization`            | a publishing organisation                                    |
+| `concept`                 | a concept                                                    |
+| `terminology`             | a terminology                                                |
+| `class`                   | a class                                                      |
+| `property`                | a property                                                   |
+| `datavoc`                 | a data vocabulary                                            |
+| `ap`                      | a specification's application profile                        |
+| `dataset`                 | a dataset                                                    |
+| `conceptSearch`           | concept search, filtered on one terminology                  |
+| `classSearch`             | class search, filtered on one data vocabulary                |
+| `propertySearch`          | property search, filtered on one data vocabulary             |
+| `conformantDatasetSearch` | dataset search, filtered on conformance to one specification |
+| `classLookup`             | a class, reached by URI                                      |
+| `propertyLookup`          | a property, reached by URI                                   |
+| `terminologyLookup`       | a terminology, reached by URI                                |
 
 The three `*Lookup` routes are the application profile renderer's click-through,
 and duplicate `class`, `property` and `terminology` deliberately: the renderer
@@ -227,10 +228,11 @@ profile — but rdforms-specs does not emit those links yet, so `src/config.js`
 does not declare it.
 
 The three `*Search` routes are where `showAllLink` sends a reader for the rows a
-truncated list held back, so each has to arrive **filtered on the resource the
-page is about**. To leave the encoding of that filter to the host, a route may be
-written as a template over the page entry by prefixing it `esb:`, where `${uri}`
-expands to the entry's resource URI:
+truncated list held back, and `conformantDatasetSearch` is where `specVanity`
+sends a reader for the datasets it counted, so each has to arrive **filtered on
+the resource the page is about**. To leave the encoding of that filter to the
+host, a route may be written as a template over the page entry by prefixing it
+`esb:`, where `${uri}` expands to the entry's resource URI:
 
 ```js
 conceptSearch: 'esb:/begrepp?f=${uri}&rt=term_concept',
@@ -308,7 +310,7 @@ Styling hooks emitted by templates (styled downstream, not in `style.css`):
 | `esbSpecButton`                     | the "return to specification" button in an AP page                                                   |
 | `esbLinkButton`                     | a button-styled link that stays within the portal                                                    |
 | `esbExtLinkButton`                  | a button linking to an external resource                                                             |
-| `esbShowAllLink`                    | the button from a truncated list to that resource kind's filtered search                             |
+| `esbShowAllLink`                    | the button from a truncated list or a vanity count to that resource kind's filtered search           |
 | `esbInspectAPButton`                | the button that opens the AP page                                                                    |
 | `esbRdButton`                       | the button linking to a resource descriptor's artifact                                               |
 | `esbRdExpandButton`                 | the button to toggle a resource descriptor row expansion                                             |
