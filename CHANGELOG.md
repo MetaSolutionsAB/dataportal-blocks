@@ -7,6 +7,29 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.5 — 2026-09-23
+
+Requires one new `clicks` route to be filled in, `conformantDatasetSearch`, for
+the specification page's new link to its conforming datasets. No block or
+parameter is renamed or removed, no `esb*` class is added, and no existing
+selector stops matching.
+
+### Added
+
+- **A button from the specification's vanity panel to its conforming
+  datasets.** When any dataset conforms to the specification, the `specVanity`
+  panel ends with a "Visa hela listan" / "Show the whole list" link carrying
+  `esbLinkButton esbShowAllLink`, the same classes as the show-all buttons under
+  the terminology and data vocabulary lists. With no conforming datasets the
+  panel renders as before, without it. The label is the new NLS key
+  `spec.allConformantDatasets`. `specView` embeds the panel, so it shows the
+  button too.
+- **A new `clicks` route**, `conformantDatasetSearch`: the dataset search that
+  button reaches. Like the `*Search` routes it has to arrive filtered on the
+  specification, so it is normally written as an `esb:` template over the
+  specification's resource URI. Left empty, the button still renders but links
+  nowhere. All `clicks` are described in `src/README.md`.
+
 ## 0.5.4 — 2026-09-10
 
 Adds one `esb*` class, `esbCount`, inside the eight section headings that carry
