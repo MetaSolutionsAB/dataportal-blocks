@@ -25,8 +25,8 @@ const LOOKUP_ROUTES = {
  *
  * Params (all passed by `loadAp`; a `run` block's declared fields are never
  * merged into `data`, so each of these must arrive from the call site):
- * - `shacl` — the AP's SHACL resource descriptor entry; its resource URI is the
- *   shape. Does nothing when unset.
+ * - `shacl` — URI of the AP's SHACL file (`loadRDs`' `apURI`). Does nothing
+ *   when unset.
  * - `tocId` / `contentId` — ids of the elements rdforms-specs renders into.
  * - `usageNote` — localized label for the `usageNote` extra shown in each
  *   field's property table.
@@ -40,7 +40,7 @@ export default {
       const clicks = registry.get('clicks');
       rdforms_specs.init(
         {
-          shacl: data.shacl.getResourceURI(),
+          shacl: data.shacl,
           getHREF: (uri, type) => {
             const base = clicks[LOOKUP_ROUTES[type]];
             if (!base) return uri;

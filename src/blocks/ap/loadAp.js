@@ -16,7 +16,8 @@ import loadRDs from '../common/loadRDs.js';
  * - `tocControls` (true) — whether the renderer adds its own ToC hide/jump
  *   controls. Forwarded to `initSpec`, which absorbs upstream's spelling.
  *
- * Provides: inherits `ap`, `diagram`, `diagramURI` on `data` from `loadRDs`.
+ * Provides: inherits `ap`, `apURI`, `diagram`, `diagramURI` on `data` from
+ * `loadRDs`.
  */
 export default {
   extends: loadRDs,
@@ -25,7 +26,7 @@ export default {
   marginFlag: false,
   tocControls: true,
   template: `{{initSpec
-    shacl=ap
+    shacl=apURI
     tocId=tocId
     contentId=contentId
     usageNote=(nls "ap.usageNote")

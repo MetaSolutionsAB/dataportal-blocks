@@ -171,10 +171,10 @@ the host passes whichever it routed with.
 `window.esbBlocks` is assigned as `dist/blocks.js` loads, before the runtime has
 rendered a block, so the promise exists whenever the host asks for it and no
 ordering between the two has to hold. It resolves with `{ entry, uri }` — the
-diagram's resource descriptor entry and its resource URI, the pair `loadRDs`
-provides its extenders as `diagram`/`diagramURI` — or with `null` when the
-specification has no diagram. It rejects only if loading the resource
-descriptors failed.
+diagram's resource descriptor entry and the URI of its SVG file, read from the
+descriptor's `prof:hasArtifact`, the pair `loadRDs` provides its extenders as
+`diagram`/`diagramURI` — or with `null` when the specification has no diagram.
+It rejects only if loading the resource descriptors failed.
 
 Resolving it is the work of a block, so the page has to mount one that extends
 `loadRDs`: `diagramImage` or `specInspectAPButton` on a specification page,

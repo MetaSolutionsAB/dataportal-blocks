@@ -34,8 +34,8 @@ const deferredFor = (uri) => {
  *
  * @param {string} uri entry URI or resource URI of the specification.
  * @returns {Promise<{entry: Object, uri: string}|null>} the diagram's resource
- *   descriptor entry and its resource URI, `null` when the specification has
- *   no diagram, rejected if loading the resource descriptors failed.
+ *   descriptor entry and the diagram file URI, `null` when the specification
+ *   has no diagram, rejected if loading the resource descriptors failed.
  */
 export const diagramPromise = (uri) => {
   if (!uri) {
@@ -55,13 +55,12 @@ export const diagramPromise = (uri) => {
  *
  * @param {Object} entry the specification's entry.
  * @param {Object} [diagram] the diagram's resource descriptor entry.
+ * @param {string} [uri] the diagram file URI.
  */
-export const reportDiagram = (entry, diagram) => {
-  const value = diagram
-    ? { entry: diagram, uri: diagram.getResourceURI() }
-    : null;
-  [entry.getURI(), entry.getResourceURI()].forEach((uri) =>
-    deferredFor(uri).resolve(value)
+export const reportDiagram = (entry, diagram, uri) => {
+  const value = diagram ? { entry: diagram, uri } : null;
+  [entry.getURI(), entry.getResourceURI()].forEach((specURI) =>
+    deferredFor(specURI).resolve(value)
   );
 };
 

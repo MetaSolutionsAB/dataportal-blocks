@@ -13,11 +13,16 @@ import {
  * Also publishes the diagram on `window.esbBlocks.diagram` (see
  * `scripts/diagramPromise.js`) for a host rendering the diagram itself.
  *
+ * An RD describes its file rather than being it: the file is reached through
+ * the RD's `prof:hasArtifact`, and the RD's own resource URI is often a
+ * `urn:uuid:`. An RD without `prof:hasArtifact` falls back to its resource URI.
+ *
  * Provides on `data`:
  * - `ap` — the RD whose resource conforms to `inspec:SHACL` (falls back to a
  *   legacy URI ending `SHACL-INSPEC/1.0`); unset if none.
+ * - `apURI` — that AP's SHACL file URI (set only when `ap` is).
  * - `diagram` — the RD whose resource is `image/svg+xml`; unset if none.
- * - `diagramURI` — that diagram's resource URI (set only when `diagram` is).
+ * - `diagramURI` — that diagram's SVG file URI (set only when `diagram` is).
  */
 export default {
   extends: 'template',
@@ -30,6 +35,11 @@ export default {
         .getAllMetadata()
         .find(null, pred)
         .some((stmt) => stmt.getValue().endsWith(suffix));
+    const artifactURI = (e) =>
+      e
+        .getAllMetadata()
+        .findFirstValue(e.getResourceURI(), 'prof:hasArtifact') ||
+      e.getResourceURI();
 
     const resourceURIs = entry
       .getAllMetadata()
@@ -59,12 +69,13 @@ export default {
     );
     if (ap) {
       data.ap = ap;
+      data.apURI = artifactURI(ap);
     }
     if (diagram) {
       data.diagram = diagram;
-      data.diagramURI = diagram.getResourceURI();
+      data.diagramURI = artifactURI(diagram);
     }
-    reportDiagram(entry, diagram);
+    reportDiagram(entry, diagram, data.diagramURI);
     return Promise.resolve();
   },
   template: ``,
