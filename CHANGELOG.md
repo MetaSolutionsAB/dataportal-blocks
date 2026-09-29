@@ -7,6 +7,35 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.6 — 2026-09-29
+
+The diagram and the application profile's SHACL are now read from their
+resource descriptors' `prof:hasArtifact`. A specification whose SHACL descriptor
+conforms only to the legacy `SHACL-INSPEC/1.0` URI loses its application
+profile until its data is updated. No block, parameter or `esb*` class changes.
+
+### Changed
+
+- **`specVanity` counts data services and dataset series too**, and leaves out
+  datasets that belong to a series, so a series counts once. The count can
+  therefore differ from what `conformantDatasetSearch` lists.
+- **Reworded NLS strings**: `spec.conformanceNumberInfo` ("Data eller API:er /
+  Data och API:er följer denna specifikation.") and
+  `spec.grunddataConformanceNumberInfo` ("nationell grunddata").
+
+### Removed
+
+- **The legacy `SHACL-INSPEC/1.0` conformance** no longer marks a descriptor as
+  the application profile; only `inspec:SHACL` does. Without it,
+  `specInspectAPButton` renders nothing and `apView` renders no profile.
+
+### Fixed
+
+- **The diagram and the application profile load from the descriptor's
+  `prof:hasArtifact`**, falling back to the descriptor's URI. `diagramImage` and
+  `apView` were given the descriptor's `urn:uuid:` instead of the file, and
+  `window.esbBlocks.diagram` now resolves `uri` to the file as well.
+
 ## 0.5.5 — 2026-09-23
 
 Requires one new `clicks` route to be filled in, `conformantDatasetSearch`, for
