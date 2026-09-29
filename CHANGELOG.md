@@ -7,6 +7,25 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.5.7 — 2026-09-29
+
+Requires two new `clicks` routes to be filled in, `dataservice` and
+`datasetSeries`. No block, parameter or `esb*` class changes.
+
+### Added
+
+- **Two new `clicks` routes**, `dataservice` and `datasetSeries`. Left empty,
+  the example link renders but links nowhere. `dataservice` is the name the
+  opendata extension already links data services with, so one host route serves
+  both bundles.
+
+### Fixed
+
+- **The vanity panel's grunddata example links by its type.** Since 0.5.6 the
+  example `specVanity` links can be a data service or a dataset series, but the
+  link still followed the `dataset` route. It now follows `dataservice` or
+  `datasetSeries` by the example's `rdf:type`, falling back to `dataset`.
+
 ## 0.5.6 — 2026-09-29
 
 The diagram and the application profile's SHACL are now read from their
