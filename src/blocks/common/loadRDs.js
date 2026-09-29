@@ -18,8 +18,7 @@ import {
  * `urn:uuid:`. An RD without `prof:hasArtifact` falls back to its resource URI.
  *
  * Provides on `data`:
- * - `ap` — the RD whose resource conforms to `inspec:SHACL` (falls back to a
- *   legacy URI ending `SHACL-INSPEC/1.0`); unset if none.
+ * - `ap` — the RD whose resource conforms to `inspec:SHACL`; unset if none.
  * - `apURI` — that AP's SHACL file URI (set only when `ap` is).
  * - `diagram` — the RD whose resource is `image/svg+xml`; unset if none.
  * - `diagramURI` — that diagram's SVG file URI (set only when `diagram` is).
@@ -53,17 +52,11 @@ export default {
       reportDiagramFailure(entry, error);
       throw error;
     }
-    let ap = resources.find(
+    const ap = resources.find(
       (e) =>
         e.getAllMetadata().find(null, 'dcterms:conformsTo', 'inspec:SHACL')
           .length > 0
     );
-    if (!ap) {
-      // fallback: older data uses a local URI ending in 'SHACL-INSPEC/1.0' instead of inspec:SHACL
-      ap = resources.find((e) =>
-        metaValueEndsWith(e, 'dcterms:conformsTo', 'SHACL-INSPEC/1.0')
-      );
-    }
     const diagram = resources.find((e) =>
       metaValueEndsWith(e, 'dcterms:format', 'image/svg+xml')
     );
