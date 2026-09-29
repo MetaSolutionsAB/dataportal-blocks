@@ -17,8 +17,9 @@ import { isGrunddata } from '../common/scripts/isGrunddata.js';
  *   `dcat:DatasetSeries` entries conforming to this spec, excluding series
  *   members.
  * - `grunddataResultsize` — subset count whose `dcterms:subject` is grunddata.
- * - `example` — `{context, entry, uri, ruri}` of the first grunddata entry
- *   (unset when there is none).
+ * - `example` — `{context, entry, uri, ruri, click}` of the first grunddata
+ *   entry (unset when there is none). `click` is the route its link follows,
+ *   by type: `dataservice`, `datasetSeries`, otherwise `dataset`.
  * CSS: emits `esbVanity`, `esbVanityStatContainer`, `esbVanityNumber`; the
  * search button is styled as `showAllLink`'s.
  */
@@ -39,6 +40,15 @@ export default {
           grunddataResults.push(conformantEntry);
       });
 
+    const clickFor = (e) => {
+      const md = e.getAllMetadata();
+      const isA = (type) =>
+        md.find(e.getResourceURI(), 'rdf:type', type).length;
+      if (isA('dcat:DataService')) return 'dataservice';
+      if (isA('dcat:DatasetSeries')) return 'datasetSeries';
+      return 'dataset';
+    };
+
     let example;
     if (grunddataResults.length > 0) {
       const exampleEntry = grunddataResults[0];
@@ -47,6 +57,7 @@ export default {
         entry: exampleEntry.getId(),
         uri: exampleEntry.getURI(),
         ruri: exampleEntry.getResourceURI(),
+        click: clickFor(exampleEntry),
       };
     }
 
@@ -68,7 +79,7 @@ export default {
             "spec.grunddataConformanceNumberInfo"
             count=this.grunddataResultsize
           }}
-          {{link context=this.example.context entry=this.example.entry namedclick="dataset"}}
+          {{link context=this.example.context entry=this.example.entry namedclick=this.example.click}}
         </p>
       {{/if}}
       {{#if this.resultsize}}{{showAllLink

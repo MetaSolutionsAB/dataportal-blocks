@@ -16,6 +16,8 @@ window.__entryscape_config = []
         ap: './ap.html',
         datavoc: './datavoc.html',
         dataset: './dataset.html', // todo: point to the canonical one
+        dataservice: './dataservice.html',
+        datasetSeries: './dataset-series.html',
         // The demo has no filtered search; these mirror the shape a host
         // supplies so the generated href can be inspected.
         conceptSearch: 'esb:./index.html?f=${uri}&rt=term_concept',

@@ -26,6 +26,8 @@ export default {
     ap: '',
     datavoc: '',
     dataset: '',
+    dataservice: '',
+    datasetSeries: '',
     conceptSearch: '',
     classSearch: '',
     propertySearch: '',

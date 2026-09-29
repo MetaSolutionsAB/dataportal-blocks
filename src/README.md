@@ -207,6 +207,8 @@ same map by `ap/initSpec.js` (below), so a route can be wanted from outside a
 | `datavoc`                 | a data vocabulary                                            |
 | `ap`                      | a specification's application profile                        |
 | `dataset`                 | a dataset                                                    |
+| `dataservice`             | a data service                                               |
+| `datasetSeries`           | a dataset series                                             |
 | `conceptSearch`           | concept search, filtered on one terminology                  |
 | `classSearch`             | class search, filtered on one data vocabulary                |
 | `propertySearch`          | property search, filtered on one data vocabulary             |
