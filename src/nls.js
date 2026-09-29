@@ -135,9 +135,9 @@ export default {
       profileInspec: 'Interoperabel profilspecifikation',
       nonInspec: 'Specifikation',
       conformanceNumberInfo:
-        '{{PLURAL:${count}|Datamängd|Datamängder}} följer denna specifikation.',
+        '{{PLURAL:${count}|Data eller API:er|Data och API:er}} följer denna specifikation.',
       grunddataConformanceNumberInfo:
-        'Varav {{PLURAL:${count}|${count}|${count} stycken}} är nationell grunddatamängd:',
+        'Varav {{PLURAL:${count}|${count}|${count} stycken}} är nationell grunddata:',
       allConformantDatasets: 'Visa hela listan',
       inspecTypeSkos: 'terminologi',
       inspecTypeRdfs: 'datavokabulär',
@@ -283,9 +283,9 @@ export default {
       profileInspec: 'Profile interoperable specification',
       nonInspec: 'Specification',
       conformanceNumberInfo:
-        '{{PLURAL:${count}|Dataset|Datasets}} conform to this specification.',
+        '{{PLURAL:${count}|Data or APIs|Data and APIs}} conform to this specification.',
       grunddataConformanceNumberInfo:
-        'Of which {{PLURAL:${count}|${count} is a national basic dataset|${count} are national basic datasets}}:',
+        'Of which {{PLURAL:${count}|${count} is|${count} are}} national basic data:',
       allConformantDatasets: 'Show the whole list',
       inspecTypeSkos: 'terminology',
       inspecTypeRdfs: 'data vocabulary',

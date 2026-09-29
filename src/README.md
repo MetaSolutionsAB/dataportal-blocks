@@ -229,10 +229,11 @@ does not declare it.
 
 The three `*Search` routes are where `showAllLink` sends a reader for the rows a
 truncated list held back, and `conformantDatasetSearch` is where `specVanity`
-sends a reader for the datasets it counted, so each has to arrive **filtered on
-the resource the page is about**. To leave the encoding of that filter to the
-host, a route may be written as a template over the page entry by prefixing it
-`esb:`, where `${uri}` expands to the entry's resource URI:
+sends a reader for the datasets, data services and series it counted, so each
+has to arrive **filtered on the resource the page is about**. To leave the
+encoding of that filter to the host, a route may be written as a template over
+the page entry by prefixing it `esb:`, where `${uri}` expands to the entry's
+resource URI:
 
 ```js
 conceptSearch: 'esb:/begrepp?f=${uri}&rt=term_concept',
