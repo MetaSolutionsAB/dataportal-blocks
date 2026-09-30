@@ -40,3 +40,13 @@
 .esbExpandButton[aria-expanded='true'] .esbExpandLabel {
   display: none;
 }
+
+/*
+ * conceptInTerminologyCount is a list reduced to its listhead count: hide every
+ * other list child (listbody and the list's status region), whatever order the
+ * list renders them in, so only the number shows and the region never
+ * announces.
+ */
+.escoList:has(> * > .esbConceptCount) > :not(:has(> .esbConceptCount)) {
+  display: none;
+}
