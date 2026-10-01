@@ -31,7 +31,7 @@ export default {
           <dd>{{conceptInTerminologyCount}}</dd>
         </div>
       {{/if}}
-      <div>{{rdfLinkList}}</div>
+      <div>{{rdfLinkList recursive="conceptscheme"}}</div>
     </dl>
   `,
 };

@@ -73,7 +73,7 @@ export default {
           excludeType="prof:ResourceDescriptor"
         }}</div>
       {{/ifprop}}
-      <div>{{rdfLinkList}}</div>
+      <div>{{rdfLinkList recursive="prof"}}</div>
     </dl>
   `,
 };
