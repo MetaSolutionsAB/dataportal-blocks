@@ -1,8 +1,7 @@
-/* @todo: Investigate which callers need recursive and if any need cachedExternal. */
 /**
  * Renders the `<dl>` row offering the entry's metadata for download: the `<dt>`,
  * then one `<dd>` per serialisation — RDF/XML, Turtle, N-Triples and JSON-LD,
- * with URLs built from `metadataURI`.
+ * with URLs built from `mergedMetadataURI`.
  *
  * Must be written as the sole child of a `<div>` in the `<dl>`, with no
  * surrounding whitespace — `<div>{{rdfLinkList}}</div>`, the same rule as

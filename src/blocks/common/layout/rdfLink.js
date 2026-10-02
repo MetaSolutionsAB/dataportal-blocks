@@ -1,6 +1,6 @@
 /**
  * Renders a single download link for the entry's metadata in the provided format.
- * URLs are built from `metadataURI`.
+ * URLs are built from `mergedMetadataURI`.
  *
  * Params:
  * - `format` ('') — the format of the metadata to download.
@@ -16,5 +16,5 @@ export default {
   format: '',
   recursive: '',
   content: '',
-  template: `<a href="{{metadataURI}}?{{#if recursive}}recursive={{recursive}}&{{/if}}format={{format}}" rel="noopener">{{content}}</a>`,
+  template: `<a href="{{mergedMetadataURI}}?{{#if recursive}}recursive={{recursive}}&{{/if}}format={{format}}" rel="noopener">{{content}}</a>`,
 };
