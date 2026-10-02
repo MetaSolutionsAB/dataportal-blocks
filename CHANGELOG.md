@@ -7,6 +7,27 @@ downstream CSS selectors can rely on, and which NLS keys and block params moved.
 The block-level detail behind each entry lives in `src/README.md` and the block
 docstrings.
 
+## 0.6.0 — 2026-10-02
+
+**Requires an EntryScape Blocks runtime 1.19.1 or later.** The metadata
+download links are built from `mergedMetadataURI`, which earlier runtimes do not
+provide. No block, parameter or `esb*` class changes.
+
+### Changed
+
+- **The metadata download links serve merged metadata.** The RDF/XML, Turtle,
+  N-Triples and JSON-LD links in all six infoboxes now include the entry's
+  cached external metadata alongside its local metadata.
+- **The specification and terminology downloads are recursive.** The
+  specification infobox's links add `recursive=prof`, so the download includes
+  the specification's resource descriptors; the terminology infobox's add
+  `recursive=conceptscheme`, so it includes the terminology's concepts.
+
+### Fixed
+
+- **The terminology infobox's concept count shows only the number.** The rest
+  of the underlying list, its body and status region, rendered alongside it.
+
 ## 0.5.7 — 2026-09-29
 
 Requires two new `clicks` routes to be filled in, `dataservice` and
