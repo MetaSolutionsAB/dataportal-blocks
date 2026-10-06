@@ -9,18 +9,18 @@ export default {
   extends: 'template',
   template: `
         {{#ifprop "prof:isProfileOf"}}
-          <dt>{{nls "respec.profileOf"}}:</dt>
+          <dt>{{nls "ap.profileOf"}}:</dt>
           <dd>{{apRelated relation="prof:isProfileOf" namedClick="spec"}}</dd>
         {{/ifprop}}
         {{#ifprop "prof:hasToken"}}
-          <dt>{{nls "respec.preferredIdentifier"}}:</dt>
+          <dt>{{nls "ap.preferredIdentifier"}}:</dt>
           <dd>{{prop "prof:hasToken"}}</dd>
         {{/ifprop}}
         {{#ifprop "dcterms:publisher"}}
-          <dt class="editor">{{nls "respec.createdBy"}}:</dt>
+          <dt class="editor">{{nls "ap.createdBy"}}:</dt>
           <dd class="editor p-author h-card vcard">{{apPublisher}}</dd>
         {{/ifprop}}
-        <dt>{{nls "respec.stableAddressToThisVersion"}}:</dt>
+        <dt>{{nls "ap.stableAddressToThisVersion"}}:</dt>
         <dd><a href="?esc_uri={{resourceURI}}">{{resourceURI}}</a></dd>
       `,
 };

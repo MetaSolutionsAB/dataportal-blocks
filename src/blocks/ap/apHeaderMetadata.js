@@ -10,7 +10,7 @@ export default {
         <dl>{{apHeaderMetadataMain}}</dl>
         {{#ifprop "dcterms:issued,dcterms:modified,adms:last,adms:next,adms:prev"}}
           <details>
-            <summary>{{nls "respec.detailsMoreDetailsOnThisDocument"}}</summary>
+            <summary>{{nls "ap.detailsMoreDetailsOnThisDocument"}}</summary>
             <dl>{{apHeaderMetadataDetails}}</dl>
           </details>
         {{/ifprop}}`,

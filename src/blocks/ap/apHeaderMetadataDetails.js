@@ -6,23 +6,23 @@ export default {
   extends: 'template',
   template: `
         {{#ifprop "dcterms:issued"}}
-          <dt>{{nls "respec.publicationDate"}}:</dt>
+          <dt>{{nls "ap.publicationDate"}}:</dt>
           <dd>{{apDate}}</dd>
         {{/ifprop}}
         {{#ifprop "dcterms:modified"}}
-          <dt>{{nls "respec.modificationDate"}}:</dt>
+          <dt>{{nls "ap.modificationDate"}}:</dt>
           <dd>{{apDateModified}}</dd>
         {{/ifprop}}
         {{#ifprop "adms:last"}}
-          <dt>{{nls "respec.lastVersion"}}:</dt>
+          <dt>{{nls "ap.lastVersion"}}:</dt>
           <dd>{{apRelated relation="adms:last"}}</dd>
         {{/ifprop}}
         {{#ifprop "adms:next"}}
-          <dt>{{nls "respec.nextVersion"}}:</dt>
+          <dt>{{nls "ap.nextVersion"}}:</dt>
           <dd>{{apRelated relation="adms:next"}}</dd>
         {{/ifprop}}
         {{#ifprop "adms:prev"}}
-          <dt>{{nls "respec.prevVersion"}}:</dt>
+          <dt>{{nls "ap.prevVersion"}}:</dt>
           <dd>{{apRelated relation="adms:prev"}}</dd>
         {{/ifprop}}
       `,

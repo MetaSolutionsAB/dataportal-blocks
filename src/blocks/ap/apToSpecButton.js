@@ -7,5 +7,5 @@
 export default {
   extends: 'template',
   template:
-    '<span class="esbSpecButton" style="float:right;margin-top: 10px">{{link namedclick="spec" content=(nls "respec.backToTheOverview")}}</span>',
+    '<span class="esbSpecButton" style="float:right;margin-top: 10px">{{link namedclick="spec" content=(nls "ap.backToTheOverview")}}</span>',
 };

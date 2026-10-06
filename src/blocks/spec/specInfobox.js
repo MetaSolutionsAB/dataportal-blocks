@@ -29,7 +29,7 @@ export default {
       {{#ifprop "prof:isProfileOf"}}
         <div>{{predicateRefList
           predicate="prof:isProfileOf"
-          dtContent="esb_nls:respec.profileOf"
+          dtContent="esb_nls:ap.profileOf"
           namedclick="spec"
           rowClass="esbSpecLink"
           excludeType="prof:ResourceDescriptor"
@@ -49,7 +49,7 @@ export default {
       {{#ifprop "adms:last"}}
         <div>{{predicateRefList
           predicate="adms:last"
-          dtContent="esb_nls:respec.lastVersion"
+          dtContent="esb_nls:ap.lastVersion"
           namedclick="spec"
           rowClass="esbSpecLink"
           excludeType="prof:ResourceDescriptor"
@@ -58,7 +58,7 @@ export default {
       {{#ifprop "adms:prev"}}
         <div>{{predicateRefList
           predicate="adms:prev"
-          dtContent="esb_nls:respec.prevVersion"
+          dtContent="esb_nls:ap.prevVersion"
           namedclick="spec"
           rowClass="esbSpecLink"
           excludeType="prof:ResourceDescriptor"
@@ -67,7 +67,7 @@ export default {
       {{#ifprop "adms:next"}}
         <div>{{predicateRefList
           predicate="adms:next"
-          dtContent="esb_nls:respec.nextVersion"
+          dtContent="esb_nls:ap.nextVersion"
           namedclick="spec"
           rowClass="esbSpecLink"
           excludeType="prof:ResourceDescriptor"
