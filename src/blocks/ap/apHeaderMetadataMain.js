@@ -17,7 +17,7 @@ export default {
           <dd>{{prop "prof:hasToken"}}</dd>
         {{/ifprop}}
         {{#ifprop "dcterms:publisher"}}
-          <dt class="editor">{{nls "ap.createdBy"}}:</dt>
+          <dt class="editor">{{nls "ap.publisher"}}:</dt>
           <dd class="editor p-author h-card vcard">{{apPublisher}}</dd>
         {{/ifprop}}
         <dt>{{nls "ap.stableAddressToThisVersion"}}:</dt>
