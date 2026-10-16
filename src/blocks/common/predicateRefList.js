@@ -1,5 +1,6 @@
 import { resolveEntry } from './scripts/resolveEntry.js';
 import { resolvePredicateRefs } from './scripts/resolvePredicateRefs.js';
+import { foreignLang, inheritedLang } from './scripts/foreignLang.js';
 
 /**
  * Renders one `<dl>` group for a URI-valued predicate: the `<dt>`, then a `<dd>`
@@ -47,9 +48,11 @@ import { resolvePredicateRefs } from './scripts/resolvePredicateRefs.js';
  *
  * Provides on `data`:
  * - `refs` — one descriptor per value, in metadata order (see
- *   `scripts/resolvePredicateRefs.js`); empty when the predicate is absent, has no
- *   renderable values, or resolution failed. The template renders nothing at all in
- *   that case, so the block is safe to use without an `{{#ifprop}}` gate.
+ *   `scripts/resolvePredicateRefs.js`), where a literal's `lang` is kept only
+ *   when it differs from the language the block inherits; empty when the
+ *   predicate is absent, has no renderable values, or resolution failed. The
+ *   template renders nothing at all in that case, so the block is safe to use
+ *   without an `{{#ifprop}}` gate.
  * CSS: emits `rowClass` / `esbRefLabel` / `esbRefText` / `esbRefComposite` /
  *   `esbExternalRefLink` per value.
  */
@@ -68,6 +71,7 @@ export default {
   externalRowClass: 'esbExternalRefLink',
   before: async function (node, data, registry) {
     const { entry } = resolveEntry(registry, data);
+    const inherited = inheritedLang(node);
     data.refs = [];
     try {
       data.refs = (
@@ -84,7 +88,7 @@ export default {
               localContext: ref.entry.getContext().getId(),
               localId: ref.entry.getId(),
             }
-          : ref
+          : { ...ref, lang: foreignLang(ref.lang, inherited) }
       );
     } catch (e) {
       console.error(
@@ -111,7 +115,7 @@ export default {
           {{else if this.label}}
             <span class="{{@root.labelClass}}">{{this.label}}</span>
           {{else if this.text}}
-            <span class="{{@root.textClass}}">{{this.text}}</span>
+            <span class="{{@root.textClass}}"{{#if this.lang}} lang="{{this.lang}}"{{/if}}>{{this.text}}</span>
           {{else if this.composite}}
             <span class="{{@root.compositeClass}}">{{nls "general.compositeValue"}}</span>
           {{else if this.href}}

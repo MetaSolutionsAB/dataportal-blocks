@@ -1,4 +1,5 @@
 import { resolveEntry } from '../common/scripts/resolveEntry.js';
+import { foreignLang, inheritedLang } from '../common/scripts/foreignLang.js';
 
 /**
  * Renders a `<dl>` group for `dcat:keyword`: the `<dt>`, then one `<dd>` per
@@ -54,19 +55,12 @@ export default {
     const stmts = entry
       .getAllMetadata()
       .find(entry.getResourceURI(), 'dcat:keyword');
-    // A keyword only needs a lang attribute when it differs from the language it
-    // would otherwise inherit, so compare against the nearest ancestor carrying one.
-    const inherited = (
-      node.closest('[lang]')?.getAttribute('lang') || ''
-    ).toLowerCase();
-    data.keywords = stmts.map((stmt, i) => {
-      const lang = stmt.getLanguage() || '';
-      return {
-        value: stmt.getValue(),
-        lang: lang.toLowerCase() === inherited ? undefined : lang,
-        overflow: i >= data.limit,
-      };
-    });
+    const inherited = inheritedLang(node);
+    data.keywords = stmts.map((stmt, i) => ({
+      value: stmt.getValue(),
+      lang: foreignLang(stmt.getLanguage(), inherited),
+      overflow: i >= data.limit,
+    }));
     data.keywordsOverflow = stmts.length > data.limit;
     return Promise.resolve();
   },

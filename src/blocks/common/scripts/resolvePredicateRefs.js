@@ -12,9 +12,10 @@
  *   attempted when `resolve` is off, i.e. for a predicate whose values are external
  *   references by definition).
  * - `{ uri, href }` — a URI that is neither; `href` is set only for http(s).
- * - `{ text }` — the object is a literal. Expected on `rdfs:seeAlso`, which mixes
- *   URIs and literals; on a predicate whose range is a class it means the data is
- *   malformed, and rendering it is what makes that visible.
+ * - `{ text, lang }` — the object is a literal; `lang` is its language tag, if
+ *   any. Expected on `rdfs:seeAlso`, which mixes URIs and literals; on a predicate
+ *   whose range is a class it means the data is malformed, and rendering it is
+ *   what makes that visible.
  * - `{ composite: true }` — the object is a blank node, i.e. a structure such as
  *   `owl:unionOf`. Its identifier means nothing to a reader and this does not
  *   walk the structure, so a caller should render a placeholder.
@@ -110,7 +111,7 @@ export const resolvePredicateRefs = async (
     .map((stmt) => {
       const value = stmt.getValue();
       if (stmt.getType() === 'literal') {
-        return { text: value };
+        return { text: value, lang: stmt.getLanguage() || undefined };
       }
       if (stmt.getType() === 'bnode') {
         return { composite: true };
