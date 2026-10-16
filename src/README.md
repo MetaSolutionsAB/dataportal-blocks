@@ -152,6 +152,19 @@ Two directories deliberately do **not** follow the family/`*View` shape:
   entries while developing and exercising the other families, not as a shipped
   feature of the portal.
 
+### Resource descriptor roles
+
+`spec/resourceDescriptors` lists only the roles of the PROF role vocabulary —
+the `prof:hasRole` choices in the PROF template bundle (`editera:prof:hasRole`
+in `prof.json`, see `config.js` `bundles`). Any other role is **hidden**: it has
+no label to show, so the row would otherwise render an empty `<dd>`.
+
+The role group is gated by an `{{#ifprop "prof:hasRole" uri="…"}}` listing those
+same roles, so a descriptor with no supported role gets no `<dt>` either. That
+list has to be **kept in sync with the bundle's choices**: a role added to the
+bundle but not to the list still shows next to a listed one, but a descriptor
+carrying only that role would show no role at all.
+
 ## Host-facing JS API
 
 Every other surface here is a block the host mounts. The one value the bundle

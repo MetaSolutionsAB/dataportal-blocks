@@ -18,6 +18,9 @@ Todo:
  * `style.css` shows one label or the other by `aria-expanded`, the disclosure
  * icon is left to the host, and the `sr-only` span gives each row's button a
  * distinct name ("Visa mer <label>", "Visa mindre <label>" once expanded).
+ * Only roles from the PROF role vocabulary (the bundle's `prof:hasRole` choices)
+ * are listed; any other role has no label to show and is left out, and the role
+ * group is omitted when none of the roles is a PROF role.
  *
  * Params:
  * - `hl` (4) — heading level for each row's title.
@@ -41,10 +44,10 @@ export default {
   rowhead: `{{resourceDescriptorTypeMarker}}
     <h{{hl}}>{{text class="esbSpecPart"}}</h{{hl}}>
     <dl class="esbResourcesFeatures">
-      {{#ifprop "prof:hasRole"}}
+      {{#ifprop "prof:hasRole" uri="profrole:specification,profrole:example,profrole:guidance,profrole:mapping,profrole:constraints,profrole:schema,profrole:validation,profrole:vocabulary"}}
         <div>
           <dt class="sr-only">{{nls "spec.role"}}</dt>
-          {{#eachprop "prof:hasRole"}}<dd>{{label}}</dd>{{/eachprop}}
+          {{#eachprop "prof:hasRole"}}{{#if label}}<dd>{{label}}</dd>{{/if}}{{/eachprop}}
         </div>
       {{/ifprop}}
     </dl>
