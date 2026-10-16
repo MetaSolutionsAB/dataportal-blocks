@@ -29,6 +29,8 @@ Todo:
  * CSS: emits `esbResourceDescriptors` (container), `esbSpecPart` (title link),
  *   `esbResourcesFeatures` (the role/reused-from `<dl>`), `esbRdExpandButton`
  *   (the expand toggle) and its `esbExpandLabel` / `esbUnexpandLabel` spans.
+ *   A role's `<dd>` carries `lang` when its label is in another language than
+ *   the page.
  */
 export default {
   extends: 'list',
@@ -47,7 +49,7 @@ export default {
       {{#ifprop "prof:hasRole" uri="profrole:specification,profrole:example,profrole:guidance,profrole:mapping,profrole:constraints,profrole:schema,profrole:validation,profrole:vocabulary"}}
         <div>
           <dt class="sr-only">{{nls "spec.role"}}</dt>
-          {{#eachprop "prof:hasRole"}}{{#if label}}<dd>{{label}}</dd>{{/if}}{{/eachprop}}
+          {{#eachprop "prof:hasRole"}}{{#if label}}<dd {{langattr}}>{{label}}</dd>{{/if}}{{/eachprop}}
         </div>
       {{/ifprop}}
     </dl>

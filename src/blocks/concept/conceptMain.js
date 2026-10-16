@@ -1,4 +1,3 @@
-// todo: eachprop should include language labels
 /**
  * Content column of the Concept page: definition, alternative labels, and the
  * broader / narrower / related / matching-concept sections.
@@ -8,7 +7,8 @@
  * - `broaderConceptLimit` / `narrowerConceptLimit` / `relatedConceptLimit` /
  *   `matchingConceptLimit` (15 each) — row limits for the respective lists.
  * CSS: emits `esbMainContent`, and `esbConceptsInConceptContainer` around each
- *   relation list and its overflow note.
+ *   relation list and its overflow note. Each alternative label is a `<span>`
+ *   that carries `lang` when it is in another language than the page.
  */
 export default {
   extends: 'template',
@@ -23,7 +23,7 @@ export default {
 
     {{#ifprop "skos:altLabel"}}
       <h{{hl}}>{{nls "concept.altLabel"}}</h{{hl}}>
-      <p>{{#eachprop "skos:altLabel"}}{{value}}{{separator}}{{/eachprop}}</p>
+      <p>{{#eachprop "skos:altLabel"}}<span {{langattr}}>{{value}}</span>{{separator}}{{/eachprop}}</p>
     {{/ifprop}}
 
     <h{{hl}}>{{nls "concept.broaderConcepts"}}</h{{hl}}>
