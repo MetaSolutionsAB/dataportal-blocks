@@ -17,16 +17,17 @@ Most of `blocks/` is organised into parallel **families**, each rendering one
 kind of RDF resource. The families share the same composite shape and lean on
 shared pieces in `common/`:
 
-| Directory      | Renders                                                                         |
-| -------------- | ------------------------------------------------------------------------------- |
-| `terminology/` | a Terminology detail page (SKOS `ConceptScheme`, containing concepts)           |
-| `concept/`     | a Concept detail page (SKOS `Concept`)                                          |
-| `datavoc/`     | a Data Vocabulary detail page (OWL `Ontology`, containing classes/properties)   |
-| `class/`       | a Class detail page (RDFS `Class`)                                              |
-| `property/`    | a Property detail page (RDF `Property`)                                         |
-| `spec/`        | a Specification detail page (DCTERMS `Standard` or PROF `Profile`)              |
-| `ap/`          | an Application Profile — has an `apView`, but not the rest of the shape (below) |
-| `search/`      | per-family search lists — for testing (see below)                               |
+| Directory           | Renders                                                                           |
+| ------------------- | --------------------------------------------------------------------------------- |
+| `terminology/`      | a Terminology detail page (SKOS `ConceptScheme`, containing concepts)             |
+| `concept/`          | a Concept detail page (SKOS `Concept`)                                            |
+| `datavoc/`          | a Data Vocabulary detail page (OWL `Ontology`, containing classes/properties)     |
+| `class/`            | a Class detail page (RDFS `Class`)                                                |
+| `property/`         | a Property detail page (RDF `Property`)                                           |
+| `spec/`             | a Specification detail page (DCTERMS `Standard` or PROF `Profile`)                |
+| `ap/`               | an Application Profile — has an `apView`, but not the rest of the shape (below)   |
+| `search/`           | per-family search lists — for testing (see below)                                 |
+| `externalResource/` | a fallback page for a resource the portal has no entry for — not a family (below) |
 
 Each family (the first six rows above) is built from a consistent set of blocks
 named after the family:
@@ -105,7 +106,7 @@ For `spec/` there are two additional blocks provided for direct access:
 
 ### Directories outside the `*View` shape
 
-Two directories deliberately do **not** follow the family/`*View` shape:
+Three directories deliberately do **not** follow the family/`*View` shape:
 
 - **`ap/`** — Application Profile blocks. An AP is rendered primarily by the
   external `rdforms-specs` library (bootstrapped via `loadAp` → `initSpec`), so
@@ -145,6 +146,31 @@ Two directories deliberately do **not** follow the family/`*View` shape:
   - The description is rendered into a `<section>` that the renderer then moves
     into its own introduction slot, so `apDescription` ends up inside the
     renderer's markup rather than where `apView` emits it.
+
+- **`externalResource/`** — a single block, `externalResourceView`, for a
+  resource that a link points at but the portal has no entry for: typically a
+  `*Lookup` link (see [Click routes](#click-routes)) whose URI matched nothing.
+  It renders a heading saying the resource is not indexed yet, and a link to
+  the resource at its own URI. It doesn't use an entry and has no header, main
+  or aside parts, so it is mounted on its own:
+
+  ```html
+  <div
+    data-entryscape="externalResourceView"
+    data-entryscape-resource-type="class"
+    data-entryscape-external-uri="https://example.org/ns#Thing"
+  ></div>
+  ```
+
+  | Param                           | Default | Effect                                                                                           |
+  | ------------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+  | `data-entryscape-hl`            | `1`     | heading level of the title                                                                       |
+  | `data-entryscape-resource-type` | empty   | `property`, `class`, `terminology` or `concept` picks the heading; any other value a generic one |
+  | `data-entryscape-external-uri`  | empty   | the resource's URI; linked only when it is `http(s)`, otherwise shown as plain text              |
+
+  The block does not read the URL itself — the host passes both values, as
+  `demo/externalResource.html` does by copying `?esc_uri=…&type=…` onto the
+  attributes.
 
 - **`search/`** — one `*SearchList` block per family (`terminologySearchList`,
   `conceptSearchList`, `specSearchList`, …). **These exist for testing
@@ -236,6 +262,12 @@ knows only a referenced resource's **URI**, never its entry, so it appends
 `?esc_uri=<uri>` and the page it reaches has to resolve an entry from that, where
 a `namedclick` link arrives with `esc_entry`/`esc_context`. Left unfilled these
 links fall back to the resource's own URI rather than rendering with no target.
+
+A `*Lookup` URI the store has no entry for gives an empty page: the runtime
+renders the view without an entry and reports nothing. Detecting the miss is
+the host's job; it then mounts `externalResourceView` (see
+[Directories outside the `*View` shape](#directories-outside-the-view-shape))
+in place of the view, passing the URI and the resource type.
 
 A fourth route for linking between application profiles is planned —
 `shapeLookup`, reached by `esc_shape` and resolved through the shape's parent
