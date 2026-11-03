@@ -160,6 +160,19 @@ export default {
       noClassesOrProperties:
         'Något har gått fel! Inga klasser eller egenskaper kunde hittas för denna specifikation.',
     },
+    externalResource: {
+      externalResourceHeading: {
+        property:
+          'Egenskapen finns inte indexerad på Sveriges dataportal ännu.',
+        class: 'Klassen finns inte indexerad på Sveriges dataportal ännu.',
+        terminology:
+          'Terminologin finns inte indexerad på Sveriges dataportal ännu.',
+        concept: 'Begreppet finns inte indexerat på Sveriges dataportal ännu.',
+        default: 'Resursen finns inte indexerad på Sveriges dataportal ännu.',
+      },
+      externalResourceLink:
+        'Mer information om denna resurs kan finnas på den externa sidan, genom att följa länken lämnar du dataportalen:',
+    },
   },
   en: {
     datavoc: {
@@ -305,6 +318,18 @@ export default {
       keyword: 'Keywords',
       noClassesOrProperties:
         'Something went wrong! No classes or properties could be found for this specification.',
+    },
+    externalResource: {
+      externalResourceHeading: {
+        property: 'The property is not yet indexed on Sveriges Dataportal.',
+        class: 'The class is not yet indexed on Sveriges Dataportal.',
+        terminology:
+          'The terminology is not yet indexed on Sveriges Dataportal.',
+        concept: 'The concept is not yet indexed on Sveriges Dataportal.',
+        default: 'The resource is not yet indexed on Sveriges Dataportal.',
+      },
+      externalResourceLink:
+        'More information about this resource may be available on the external page, by following the link you leave the Dataportal:',
     },
   },
 };

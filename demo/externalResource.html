@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="demo.css" />
+    <title>Blocks demo - External Resource</title>
+  </head>
+  <body class="entryscape">
+    <a class="demoHomeLink" href="index.html" title="Tillbaka till startsidan"
+      ><span class="fas fa-home"></span
+    ></a>
+    <div class="demoView" data-entryscape="externalResourceView"></div>
+    <script>
+      // Pass ?esc_uri=…&type=… on to the block before Blocks boots.
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const view = document.querySelector('.demoView');
+        const uri = params.get('esc_uri');
+        const type = params.get('type');
+        if (uri) view.setAttribute('data-entryscape-external-uri', uri);
+        if (type) view.setAttribute('data-entryscape-resource-type', type);
+      })();
+    </script>
+
+    <script src="../dist/blocks.js"></script>
+    <script src="conf.js"></script>
+    <script src="https://static.cdn.entryscape.com/blocks/1/app.js"></script>
+  </body>
+</html>
